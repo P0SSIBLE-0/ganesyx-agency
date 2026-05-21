@@ -1,0 +1,149 @@
+.section {
+  padding: 120px 0;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* 1. Badge pill matching the attached design */
+.badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.visible .badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. Header layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+  gap: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+}
+
+.visible .header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 65%;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* View All Projects link (right aligned) */
+.viewAll {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #8b5cf6;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+  align-self: flex-end;
+}
+
+.viewAll:hover {
+  color: #6366f1;
+}
+
+/* 3. Marquee wrap config */
+.marqueeWrap {
+  --marquee-card-radius: 16px; /* Reduced card corner radius */
+  --marquee-card-height: 380px; /* Reduced card height from 480px */
+  --marquee-card-mobile-height: 250px; /* Reduced mobile card height from 300px */
+  width: 100%;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.visible .marqueeWrap {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Adaptive Layouts */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 35px;
+  }
+
+  .headerLeft {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .viewAll {
+    align-self: flex-start;
+    margin-bottom: 0;
+  }
+}

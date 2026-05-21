@@ -1,0 +1,193 @@
+﻿.section {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  color: var(--text-primary);
+  padding: 140px 0;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Sticky Left Side */
+.stickyColumn {
+  position: sticky;
+  top: 120px;
+}
+
+.label {
+  display: inline-block;
+  color: var(--brand);
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 30px;
+  color: var(--text-primary);
+}
+
+.italicHighlight {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brand-light);
+  opacity: 0.95;
+  display: block;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: var(--brand);
+  margin-bottom: 30px;
+}
+
+.description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 480px;
+}
+
+/* Right Scroll Cards */
+.cardsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.card {
+  position: relative;
+  background: #f8f9fc;
+  border: 1px solid rgba(51, 0, 153, 0.05);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  transition: border-color 0.4s ease, transform 0.4s ease, background 0.4s ease;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.glowingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+}
+
+.cardTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 2;
+}
+
+.cardDesc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 2;
+}
+
+/* Card Glow Overlay */
+.cardGlowOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 0%, rgba(51, 0, 153, 0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hover States */
+.card:hover {
+  background: var(--brand-tint-light);
+  border-color: rgba(51, 0, 153, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(51, 0, 153, 0.02);
+}
+
+.card:hover .glowingDot {
+  background: var(--brand);
+  box-shadow: 0 0 8px var(--brand);
+}
+
+.card:hover .number {
+  color: var(--brand);
+  opacity: 1;
+}
+
+.card:hover .cardGlowOverlay {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .stickyColumn {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .section {
+    padding: 100px 0;
+  }
+
+  .card {
+    padding: 30px;
+  }
+}

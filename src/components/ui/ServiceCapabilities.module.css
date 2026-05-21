@@ -1,0 +1,164 @@
+﻿.section {
+  position: relative;
+  width: 100%;
+  padding: 120px 24px;
+  overflow: hidden;
+  border-top: 1px solid rgba(51, 0, 153, 0.04);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* === Section Header === */
+.header {
+  max-width: 680px;
+  margin-bottom: 70px;
+}
+
+.subHeading {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--brand, #330099);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #000000;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* === Flat Card Grid === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Reusable flat card styling */
+.card {
+  background: #ffffff; /* Solid white card to stand out on soft background */
+  border: 1px solid rgba(51, 0, 153, 0.05);
+  border-radius: 16px;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.card:hover {
+  border-color: rgba(51, 0, 153, 0.2);
+  box-shadow: 0 20px 40px rgba(51, 0, 153, 0.03);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+}
+
+.iconWrapper {
+  color: rgba(0, 0, 0, 0.4);
+  transition: color 0.4s ease;
+}
+
+.card:hover .iconWrapper {
+  color: var(--brand, #330099);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.cardText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 24px;
+}
+
+/* Bullet list of content details */
+.bulletList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  padding-top: 20px;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.bulletIcon {
+  color: var(--brand, #330099);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 16px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 30px 24px;
+  }
+}

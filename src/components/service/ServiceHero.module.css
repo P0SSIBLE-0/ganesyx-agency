@@ -1,0 +1,436 @@
+﻿.hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  background: #f8f9fd;
+  color: #0f0b21;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 160px 0 100px;
+}
+
+.ambientCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.radialGlow1 {
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(99, 43, 238, 0.08) 0%, rgba(240, 238, 252, 0.2) 60%, transparent 80%);
+  filter: blur(60px);
+  animation: float1 25s infinite alternate ease-in-out;
+}
+
+.radialGlow2 {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 80vw;
+  height: 80vh;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.05) 0%, rgba(240, 245, 255, 0.15) 50%, transparent 70%);
+  filter: blur(80px);
+  animation: float2 20s infinite alternate ease-in-out;
+}
+
+@keyframes float1 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate(8%, 4%) scale(1.06) rotate(6deg); }
+}
+
+@keyframes float2 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate(-6%, -5%) scale(0.95) rotate(-6deg); }
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Copy Elements */
+.content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+}
+
+.loaded .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand-tint-light);
+  border: 1px solid rgba(51, 0, 153, 0.15);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  color: var(--brand);
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.badgeIcon {
+  color: var(--brand-light);
+}
+
+.mainTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  color: #0f0b21;
+}
+
+.highlightText {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleUnderline {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--brand-light), transparent);
+  border-radius: 2px;
+}
+
+.description {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: rgba(15, 11, 33, 0.7);
+  margin-bottom: 40px;
+  max-width: 580px;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Button Styling */
+.primaryBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--brand);
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 15px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(51, 0, 153, 0.15);
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+}
+
+.primaryBtn:hover {
+  background: var(--brand-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(74, 0, 204, 0.25);
+}
+
+.btnArrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.primaryBtn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.secondaryBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: #0f0b21;
+  background: transparent;
+  padding: 16px 32px;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.btnHoverLine {
+  position: absolute;
+  bottom: 12px;
+  left: 32px;
+  right: 32px;
+  height: 1px;
+  background: rgba(15, 11, 33, 0.15);
+  transition: transform 0.3s ease, background 0.3s ease;
+  transform-origin: left;
+}
+
+.secondaryBtn:hover .btnHoverLine {
+  transform: scaleX(1.1);
+  background: var(--brand);
+}
+
+/* Visual Wrapper (Collage Frame) */
+.visualWrapper {
+  opacity: 0;
+  transform: scale(0.96) translateX(20px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+  z-index: 2;
+}
+
+.loaded .visualWrapper {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+
+.collageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Editorial Collage Card */
+.collageCard {
+  position: absolute;
+  background: #ffffff;
+  padding: 8px 8px 32px 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(10, 5, 24, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.1s ease;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.cardCaption {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(15, 11, 33, 0.4);
+}
+
+/* Card Coordinates & Rotations */
+.cardBack {
+  width: 220px;
+  height: 250px;
+  top: 10px;
+  left: 10px;
+  transform: rotate(-6deg);
+  z-index: 1;
+}
+
+.cardBack .cardImage {
+  height: calc(100% - 10px);
+}
+
+.cardMiddle {
+  width: 230px;
+  height: 270px;
+  bottom: 20px;
+  right: 10px;
+  transform: rotate(5deg);
+  z-index: 2;
+}
+
+.cardMiddle .cardImage {
+  height: calc(100% - 10px);
+}
+
+.cardFront {
+  width: 240px;
+  height: 270px;
+  top: 100px;
+  left: 90px;
+  transform: rotate(-2deg);
+  z-index: 3;
+  box-shadow: 0 15px 40px rgba(10, 5, 24, 0.08);
+}
+
+.cardFront .cardImage {
+  height: calc(100% - 10px);
+}
+
+/* Hover Elevations */
+.collageCard:hover {
+  transform: scale(1.05) translateY(-8px);
+  z-index: 5;
+  box-shadow: 0 20px 40px rgba(51, 0, 153, 0.12);
+  border-color: rgba(51, 0, 153, 0.1);
+}
+
+/* Floating HUD Tag */
+.hudBadge {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(51, 0, 153, 0.08);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  z-index: 4;
+  backdrop-filter: blur(10px);
+  animation: floatHUD 5s infinite alternate ease-in-out;
+}
+
+.hudDot {
+  width: 6px;
+  height: 6px;
+  background: #a380f9;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #a380f9;
+}
+
+.hudText {
+  font-family: monospace;
+  font-size: 8px;
+  color: #0f0b21;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+@keyframes floatHUD {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* Responsive CSS */
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+  
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .visualWrapper {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+  
+  .mainTitle {
+    font-size: 2.35rem;
+    line-height: 1.15;
+  }
+  
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .primaryBtn, .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .collageContainer {
+    max-width: 320px;
+    height: 320px;
+  }
+
+  .cardBack {
+    width: 160px;
+    height: 190px;
+    top: 5px;
+    left: 5px;
+  }
+
+  .cardMiddle {
+    width: 170px;
+    height: 200px;
+    bottom: 10px;
+    right: 5px;
+  }
+
+  .cardFront {
+    width: 180px;
+    height: 200px;
+    top: 70px;
+    left: 60px;
+  }
+
+  .hudBadge {
+    bottom: 10px;
+    left: 10px;
+  }
+}

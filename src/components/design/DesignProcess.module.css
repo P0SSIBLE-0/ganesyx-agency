@@ -1,0 +1,224 @@
+.section {
+  background-color: #efefef;
+  /* Light grey section background matching reference */
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Top bar ─────────────────────────────────────────── */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0 20px;
+  border-bottom: 1px dashed rgba(6, 5, 12, 0.2);
+}
+
+.topBarLeft {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #4a4855;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pipe {
+  color: #4a4855;
+  font-weight: 800;
+}
+
+.topBarRight {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #4a4855;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ── Two-column grid ─────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 60px;
+  align-items: stretch;
+  padding: 70px 0 100px;
+}
+
+/* ── Sticky Left ─────────────────────────────────────── */
+.stickyContent {
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
+  /* Critical: must be content-height, not column-height */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #06050c;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 460px;
+}
+
+/* ── Cards list (right column) ───────────────────────── */
+.cardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* Cards are flush/connected - no gap, divider line separates them */
+}
+
+/*
+  Card layout (matching reference):
+  ┌────────────────────────────────────┐
+  │  TITLE (top left, uppercase mono)  │
+  │                                    │
+  │                                    │
+  │  Description text…       [01]      │
+  └────────────────────────────────────┘
+  ──── thin bottom separator ────────────
+*/
+.card {
+  background-color: #f5f4f0;
+  /* Light warm grey cards matching reference */
+  padding: 32px 36px 0;
+  /* No bottom padding — separator sits flush at bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px 8px 0 0;
+  cursor: default;
+  position: relative;
+}
+
+/* gap between cards replaced by separator */
+.card+.card {
+  margin-top: 2px;
+  border-radius: 0;
+}
+
+.card:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.cardTitle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: #06050c;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 48px 0;
+  /* Space between title and bottom content */
+  line-height: 1;
+}
+
+/* Bottom row: description + number side by side */
+.cardBottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.cardDescription {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #555055;
+  margin: 0;
+  max-width: 340px;
+  padding-bottom: 28px;
+}
+
+.number {
+  font-family: var(--font-heading);
+  font-size: clamp(4.5rem, 7vw, 7.5rem);
+  font-weight: 700;
+  color: #6852f087;
+  /* Very faded, matching reference */
+  line-height: 1;
+  letter-spacing: -0.04em;
+  user-select: none;
+  flex-shrink: 0;
+  padding-bottom: 20px;
+}
+
+/* Thin separator line at the bottom of each card */
+.separator {
+  height: 1px;
+  background-color: rgba(6, 5, 12, 0.1);
+  margin: 0 -36px;
+  /* Bleed to full card width */
+}
+
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 50px 0 80px;
+  }
+
+  .stickyContent {
+    position: relative;
+    top: 0;
+    align-self: auto;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .grid {
+    padding: 40px 0 60px;
+  }
+
+  .card {
+    padding: 28px 24px 0;
+  }
+
+  .separator {
+    margin: 0 -24px;
+  }
+
+  .cardTitle {
+    margin-bottom: 36px;
+  }
+
+  .cardBottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .number {
+    align-self: flex-end;
+    font-size: 4rem;
+  }
+}

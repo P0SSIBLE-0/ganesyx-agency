@@ -1,0 +1,252 @@
+﻿.section {
+  position: relative;
+  width: 100%;
+  background: #f9f9fc;
+  /* Soft contrasting layout background */
+  padding: 140px 0;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--brand, #330099);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.heading {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.headingMain {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #0c081e;
+}
+
+.headingItalic {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brand, #330099);
+}
+
+/* ============================================================
+   MARQUEE LAYOUT
+   ============================================================ */
+.marqueeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.marqueeRow {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+}
+
+/* Track scrolling left */
+.marqueeTrack {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  animation: scrollLeft 38s linear infinite;
+}
+
+/* Track scrolling right */
+.marqueeTrackRight {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  animation: scrollRight 38s linear infinite;
+}
+
+/* Pause scroll animation on row hover to let user read testimonials */
+.marqueeRow:hover .marqueeTrack,
+.marqueeRow:hover .marqueeTrackRight {
+  animation-play-state: paused;
+}
+
+/* ============================================================
+   CARD STYLING
+   ============================================================ */
+.card {
+  flex: 0 0 460px;
+  /* Fixed width prevents cards squishing */
+  background: #ffffff;
+  border: 1px solid rgba(51, 0, 153, 0.06);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 10px 30px rgba(12, 8, 30, 0.02);
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(51, 0, 153, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(51, 0, 153, 0.06);
+}
+
+.cardContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.quoteDecor {
+  font-family: var(--font-heading);
+  font-size: 80px;
+  line-height: 0.1;
+  color: rgba(51, 0, 153, 0.08);
+  margin-bottom: 12px;
+  user-select: none;
+  display: block;
+}
+
+.quoteText {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: #0c081e;
+  margin: 0 0 28px;
+  letter-spacing: -0.01em;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, rgba(51, 0, 153, 0.08), transparent);
+  margin-bottom: 24px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatarContainer {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(12, 8, 30, 0.05);
+  flex-shrink: 0;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.authorName {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: #0c081e;
+}
+
+.authorRole {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(12, 8, 30, 0.45);
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    /* Shifts exactly by half the track (one full copy of duplicated list) */
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 48px;
+  }
+
+  .card {
+    flex: 0 0 380px;
+    padding: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .card {
+    flex: 0 0 320px;
+    padding: 24px;
+  }
+
+  .quoteText {
+    font-size: 13.5px;
+  }
+}

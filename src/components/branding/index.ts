@@ -1,0 +1,10 @@
+export { default as BrandingHero } from './BrandingHero';
+export { default as BrandingProjects } from './BrandingProjects';
+export { default as BrandingBento } from './BrandingBento';
+export { default as BrandingTestimonials } from './BrandingTestimonials';
+export { default as BrandingFaq } from './BrandingFaq';
+export { default as BrandingPricing } from './BrandingPricing';
+export { default as BrandingCta } from './BrandingCta';
+export { default as BrandingGallery } from './BrandingGallery';
+export { default as BrandingTrust } from './BrandingTrust';
+export { default as BrandingTrustIntro } from './BrandingTrustIntro';

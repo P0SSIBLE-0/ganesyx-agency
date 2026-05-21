@@ -1,0 +1,294 @@
+.heroWrapper {
+  width: 100%;
+  background: var(--brand-light);
+  /* Brand color matching reference */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* === TOP SECTION === */
+.topSection {
+  padding: 160px 40px 100px;
+  background: #fff;
+  color: #000000;
+}
+
+.topContent {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 6.5vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  max-width: 1200px;
+  letter-spacing: -0.02em;
+  margin: 0;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.description {
+  font-family: var(--font-geist-mono);
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+  line-height: 1.6;
+  max-width: 580px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.ctaButton {
+  background: var(--brand-light);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 18px 36px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  background: var(--brand);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* === VIDEO SCROLL SECTION === */
+.videoSectionContainer {
+  height: 100vh;
+  /* Extra height to allow scrolling through the animation */
+  background: var(--brand);
+  /* Matches the top section for seamless transition */
+  position: relative;
+}
+
+.videoSticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #06050c;
+  /* Black background behind the video */
+}
+
+/* We put the blue behind the video initially so it looks like it sits on the blue canvas */
+.blueBackdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background: var(--brand);
+  z-index: 0;
+}
+
+.videoWrapper {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  /* Width, height, and border-radius are controlled via Framer Motion */
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Controls */
+.controls {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  gap: 16px;
+  z-index: 20;
+}
+
+.iconBtn {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.iconBtn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.05);
+}
+
+/* Giant Overlay Text */
+.giantTextContainer {
+  position: absolute;
+  bottom: -3vh;
+  /* Cut off slightly at the bottom edge */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.giantText {
+  font-family: var(--font-heading);
+  font-size: clamp(6rem, 18vw, 24rem);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 0.8;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .topContent {
+    gap: 50px;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .controls {
+    top: 24px;
+    right: 24px;
+  }
+
+  .iconBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topSection {
+    padding: 120px 24px 60px;
+  }
+
+  .title {
+    font-size: clamp(2.8rem, 8vw, 3.5rem);
+  }
+
+  .giantTextContainer {
+    bottom: -1vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .topSection {
+    padding: 100px 20px 40px;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 10vw, 2.8rem);
+    margin-top: 1rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    text-align: center;
+  }
+
+  .giantText {
+    font-size: clamp(3.5rem, 16vw, 6rem);
+  }
+
+  .controls {
+    top: 16px;
+    right: 16px;
+    gap: 10px;
+  }
+
+  .iconBtn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* === Inline Videos in Heading === */
+.inlineVideoWrapper {
+  display: inline-block;
+  vertical-align: baseline;
+  width: 140px;
+  height: 0.8em;
+  margin: 0 12px;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  background-color: #000000;
+  border: 2px solid var(--brand-light);
+  transform: translateY(0.1em);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.inlineVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .inlineVideoWrapper {
+    width: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inlineVideoWrapper {
+    width: 85px;
+    border-width: 1.5px;
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inlineVideoWrapper {
+    width: 65px;
+    border-width: 1px;
+    margin: 0 4px;
+  }
+}

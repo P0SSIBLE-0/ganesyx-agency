@@ -1,0 +1,644 @@
+﻿.testimonials {
+  padding: 140px 5% 120px;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(51, 0, 153, 0.05);
+  color: var(--brand);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  border: 1px solid rgba(51, 0, 153, 0.08);
+}
+
+.badgePulse {
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.badgePulse::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: var(--brand);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+.heading {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.subheading {
+  font-size: 1.05rem;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  max-width: 580px;
+}
+
+/* Dashboard Layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* Left Column: Metric Card */
+.impactCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.metricCard {
+  position: relative;
+  background: rgba(51, 0, 153, 0.015);
+  border: 1px solid rgba(51, 0, 153, 0.06);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+  transition: all 0.4s ease;
+}
+
+.metricCard:hover {
+  border-color: rgba(51, 0, 153, 0.12);
+  background: rgba(51, 0, 153, 0.025);
+  box-shadow: 0 20px 40px rgba(51, 0, 153, 0.03);
+}
+
+.metricGlow {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(51, 0, 153, 0.08) 0%, transparent 70%);
+  top: -80px;
+  left: -80px;
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.metricCategory {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.metricValueWrapper {
+  margin: 30px 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.metricValue {
+  font-size: clamp(4.5rem, 6vw, 6rem);
+  font-weight: 800;
+  color: var(--brand);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--brand) 30%, var(--brand-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metricLabelWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.metricLabel {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.5;
+}
+
+.tag {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(51, 0, 153, 0.06);
+  color: var(--brand);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.tagIcon {
+  color: var(--brand-light);
+}
+
+/* Ambient quotes graphic */
+.ambientQuote {
+  position: absolute;
+  bottom: -60px;
+  right: -30px;
+  font-size: 16rem;
+  font-family: serif;
+  line-height: 1;
+  font-weight: 900;
+  color: rgba(51, 0, 153, 0.02);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Indicator dots inside left column */
+.indicatorRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.indicatorDot {
+  width: 24px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicatorActive {
+  background: var(--brand);
+  width: 48px;
+}
+
+/* Right Column: Hero Spotlight Card */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.testimonialCard {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+}
+
+.testimonialCard:hover {
+  border-color: rgba(51, 0, 153, 0.15);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05), 0 15px 30px rgba(51, 0, 153, 0.02);
+}
+
+/* Vercel cursor spotlight follow effect */
+.cardGlowOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: radial-gradient(600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+      rgba(51, 0, 153, 0.04),
+      transparent 40%);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.testimonialCard:hover .cardGlowOverlay {
+  opacity: 1;
+}
+
+/* Card Header elements */
+.cardHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 32px;
+}
+
+.companyLogo {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  opacity: 0.9;
+  transition: opacity 0.35s ease;
+}
+
+.companyLogoSvg {
+  height: 24px;
+  max-width: 130px;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.03);
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+
+/* Quote content */
+.cardBody {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  margin-bottom: 36px;
+  transition: opacity 0.35s ease;
+}
+
+.quoteText {
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Card Footer elements */
+.cardFooter {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.authorWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: opacity 0.35s ease;
+}
+
+.avatarContainer {
+  position: relative;
+  width: 52px;
+  height: 52px;
+}
+
+.avatarRing {
+  position: absolute;
+  inset: -3px;
+  border: 1.5px solid var(--brand-tint);
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+}
+
+.testimonialCard:hover .avatarRing {
+  transform: scale(1.05);
+  border-color: var(--brand);
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  position: relative;
+}
+
+.authorMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.authorName {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.authorRole {
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.companyNameHighlight {
+  color: var(--brand);
+  font-weight: 500;
+}
+
+/* Card navigation controls */
+.navigationControls {
+  display: flex;
+  gap: 10px;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navButton:hover {
+  background: var(--brand);
+  color: #ffffff;
+  border-color: var(--brand);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(51, 0, 153, 0.15);
+}
+
+.navButton:active {
+  transform: translateY(0);
+}
+
+/* Avatar Switcher below the card */
+.avatarSwitcherContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 12px;
+}
+
+.switcherLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.avatarSwitcherGrid {
+  display: flex;
+  gap: 12px;
+}
+
+.switcherAvatarBtn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.switcherAvatarWrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 1px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.switcherAvatar {
+  border-radius: 50%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+  filter: grayscale(80%) opacity(70%);
+}
+
+.switcherAvatarBtn:hover .switcherAvatarWrapper {
+  transform: translateY(-4px) scale(1.1);
+  border-color: rgba(51, 0, 153, 0.3);
+}
+
+.switcherAvatarBtn:hover .switcherAvatar {
+  filter: grayscale(0%) opacity(100%);
+}
+
+.switcherActive .switcherAvatarWrapper {
+  transform: translateY(-4px) scale(1.15);
+  border-color: var(--brand);
+  box-shadow: 0 10px 20px rgba(51, 0, 153, 0.15);
+}
+
+.switcherActive .switcherAvatar {
+  filter: grayscale(0%) opacity(100%);
+}
+
+/* Tooltip on switcher avatars */
+.avatarTooltip {
+  position: absolute;
+  bottom: 54px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--brand-dark);
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.avatarTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--brand-dark) transparent transparent transparent;
+}
+
+.avatarTooltip strong {
+  font-weight: 600;
+  display: block;
+}
+
+.avatarTooltip span {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.switcherAvatarBtn:hover .avatarTooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Utility Animations */
+.fadeOut {
+  opacity: 0 !important;
+  transform: translateY(6px);
+}
+
+/* Entry Animation */
+.testimonials {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible.testimonials {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .metricCard {
+    height: auto;
+    padding: 36px 30px;
+    gap: 20px;
+  }
+
+  .metricValueWrapper {
+    margin: 16px 0;
+  }
+
+  .indicatorRow {
+    margin-top: 20px;
+  }
+
+  .testimonialCard {
+    padding: 36px;
+    min-height: auto;
+  }
+
+  .avatarSwitcherContainer {
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 100px 24px 80px;
+  }
+
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .subheading {
+    text-align: center;
+  }
+
+  .metricCard {
+    padding: 30px 24px;
+  }
+
+  .metricValue {
+    font-size: 4rem;
+  }
+
+  .testimonialCard {
+    padding: 30px 24px;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .quoteText {
+    font-size: 1.15rem;
+  }
+
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .navigationControls {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .avatarSwitcherContainer {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

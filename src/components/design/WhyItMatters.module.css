@@ -1,0 +1,397 @@
+.section {
+  background: #f9f9fb;
+  padding: 120px 40px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 72px;
+}
+
+.subTitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--brand, #3300cc);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #111111;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.headerDesc {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.6;
+  color: #666666;
+}
+
+/* Content Grid: Left Highlight + Right 2x2 Grid */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Left Highlight Card */
+.highlightCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px; /* Sharp premium border-radius */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlightCard:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* Visual Portrait + Neon Shape Area */
+.visualContainer {
+  position: relative;
+  height: 340px;
+  background: #f3f3f5;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Neon lime shape behind the portrait */
+.neonBlob {
+  position: absolute;
+  bottom: -40px;
+  left: 20%;
+  width: 260px;
+  height: 260px;
+  background: #ccff00;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.75;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlightCard:hover .neonBlob {
+  transform: scale(1.15) translate(-10px, -10px);
+}
+
+/* Asset Image styling */
+.assetImage {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlightCard:hover .assetImage {
+  transform: scale(1.05);
+}
+
+/* Name Badge Pill */
+.nameBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+  background: #111111;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nameBadgeText {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.nameBadgeRole {
+  font-family: var(--font-body);
+  font-size: 9px;
+  color: #a1a1a6;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 6px;
+}
+
+.pointerArrow {
+  color: #ccff00;
+  margin-left: 2px;
+  transform: rotate(-10deg);
+}
+
+.highlightCard:hover .nameBadge {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Paper Airplane Annotation */
+.paperPlaneAnnotation {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 6px 12px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.planeIcon {
+  color: #3300cc;
+}
+
+.planeText {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.highlightCard:hover .paperPlaneAnnotation {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* Left Highlight Bottom Content */
+.highlightContent {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Badges Row */
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.toolBadge {
+  width: 32px;
+  height: 32px;
+  background: #f4f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.toolBadge:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.toolBadge:hover svg path {
+  fill: currentColor;
+}
+
+.toolsLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #999999;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+
+.highlightTitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111111;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.highlightDesc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Right Column Benefits Grid */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Benefit Card */
+.benefitCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px; /* Sharp premium border-radius */
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.benefitCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(51, 0, 204, 0.12);
+  box-shadow: 0 20px 40px rgba(51, 0, 204, 0.04);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* Icon container with micro-interactions */
+.iconContainer {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  background: #f4f4f6;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.benefitCard:hover .iconContainer {
+  background: var(--accent-color, #111111);
+  color: var(--accent-hover-text, #ffffff);
+  transform: scale(1.08) rotate(3deg);
+}
+
+.benefitNumber {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #bbbbbb;
+  transition: color 0.3s ease;
+}
+
+.benefitCard:hover .benefitNumber {
+  color: var(--brand, #3300cc);
+}
+
+.benefitTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.benefitText {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: #666666;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+@media (max-width: 1100px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .visualContainer {
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 24px;
+  }
+  
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .benefitCard {
+    padding: 24px;
+  }
+  
+  .highlightContent {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 80px 16px;
+  }
+  
+  .visualContainer {
+    height: 300px;
+  }
+  
+  .neonBlob {
+    width: 200px;
+    height: 200px;
+  }
+}

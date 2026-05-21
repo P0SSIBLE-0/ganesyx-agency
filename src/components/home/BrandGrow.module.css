@@ -1,0 +1,431 @@
+.section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Left Content Details */
+.leftContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible .leftContent {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 750;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+.viewMoreBtn {
+  display: inline-block;
+  padding: 14px 38px;
+  background: #111111;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.viewMoreBtn:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Right Graphics Staggered Overlapping Cards */
+.rightGraphics {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+}
+
+.visible .rightGraphics {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 1. Large Central Image Background */
+.largeImageWrapper {
+  position: absolute;
+  inset: 0;
+  /* Multi-layered drop shadow for deep realistic look */
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3)) drop-shadow(0 30px 60px rgba(0, 0, 0, 0.45));
+  z-index: 1;
+}
+
+/* Background glowing aura behind the clipped shape for depth */
+.largeImageWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, transparent 70%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.largeImageContainer {
+  width: 100%;
+  height: 100%;
+  clip-path: url(#brandGrowClip);
+  background: #050c21;
+  position: relative;
+  overflow: hidden;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.largeImageContainer:hover .bgImage {
+  transform: scale(1.06);
+}
+
+/* 2. Top-Right Glass Card */
+.glassCardRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44%;
+  height: 44%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(216, 180, 254, 0.08) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  border-radius: 36px;
+  padding: clamp(16px, 3vw, 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 3;
+  /* Complex shadows: soft ambient occlusion shadow + sharp drop shadow + subtle white inner reflection */
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.15), 
+    0 35px 70px rgba(0, 0, 0, 0.35), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 15px 30px rgba(255, 255, 255, 0.03);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.glassCardRight:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.45);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(216, 180, 254, 0.12) 100%);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.2), 
+    0 50px 90px rgba(0, 0, 0, 0.45), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* 3. Bottom-Left Glass Card (Purple Tinted) */
+.glassCardLeft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 44%;
+  height: 44%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(216, 180, 254, 0.08) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  border-radius: 36px;
+  padding: clamp(16px, 3vw, 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 3;
+  /* Complex shadows: matching neon hue for the soft shadow glow */
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.15), 
+    0 35px 70px rgba(0, 0, 0, 0.35), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 15px 30px rgba(255, 255, 255, 0.03);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.glassCardLeft:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.45);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(216, 180, 254, 0.12) 100%);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.2), 
+    0 50px 90px rgba(0, 0, 0, 0.45), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Common Card contents */
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.glassCardRight:hover .iconContainer,
+.glassCardLeft:hover .iconContainer {
+  transform: scale(1.05);
+}
+
+.targetIcon {
+  width: 76px;
+  height: 76px;
+  filter: brightness(0) invert(1);
+  /* Makes target cross SVG render in pure white */
+}
+
+.seoIcon {
+  width: 96px;
+  height: 96px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+/* Custom Growth Chart visualizer */
+.growthChart {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+.chartLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.chartLine.dotted {
+  border-left: 1px dotted rgba(255, 255, 255, 0.12);
+  background: none;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 0;
+  width: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #38bdf8;
+  transform-origin: bottom;
+  animation: growVertical 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.arrowShaft {
+  width: 100%;
+  flex: 1;
+  background: linear-gradient(to top, rgba(56, 189, 248, 0.02) 0%, rgba(56, 189, 248, 0.5) 100%);
+}
+
+.arrowHead {
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  color: rgba(56, 189, 248, 0.8);
+  flex-shrink: 0;
+}
+
+/* Main Cyan-Blue gradient Arrow */
+.mainArrow {
+  width: 4px;
+  color: #00f2fe;
+  filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.8));
+}
+
+.mainArrow .arrowShaft {
+  background: linear-gradient(to top, rgba(0, 102, 255, 0.1) 0%, #00f2fe 100%);
+}
+
+.mainArrow .arrowHead {
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  color: #00f2fe;
+}
+
+@keyframes growVertical {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Responsive Adaptive Viewports */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .leftContent {
+    max-width: 100%;
+  }
+
+  .rightGraphics {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .leftContent {
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .description {
+    font-size: 0.98rem;
+  }
+
+  .rightGraphics {
+    gap: 16px;
+  }
+
+  .glassCardRight,
+  .glassCardLeft {
+    border-radius: 24px;
+    padding: 20px 16px;
+  }
+
+  .iconContainer {
+    margin-bottom: 12px;
+  }
+
+  .targetIcon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .seoIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cardTitle {
+    font-size: 1.05rem;
+  }
+
+  .cardDesc {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .glassCardRight,
+  .glassCardLeft {
+    padding: 12px 8px;
+    border-radius: 16px;
+    border-width: 1px;
+  }
+
+  .iconContainer {
+    margin-bottom: 6px;
+  }
+
+  .targetIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .seoIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cardTitle {
+    font-size: 0.82rem;
+    margin-bottom: 2px;
+  }
+
+  .cardDesc {
+    font-size: 0.68rem;
+    line-height: 1.25;
+  }
+}

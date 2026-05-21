@@ -1,0 +1,260 @@
+﻿.section {
+  position: relative;
+  width: 100%;
+  padding: 120px 24px;
+  background: #f6f5fb;
+  /* Brand soft lavender background */
+  overflow: visible;
+  color: #000000;
+  border-top: 1px solid rgba(51, 0, 153, 0.06);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.1fr 1.3fr;
+  /* Left, Divider, Right */
+  align-items: start;
+}
+
+/* === Left Column === */
+.leftCol {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-right: 40px;
+}
+
+.leftTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #000000;
+  letter-spacing: -0.03em;
+}
+
+.leftDesc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 420px;
+}
+
+.buttonRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Pill Button styled with Brand Purple */
+.pillBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: var(--brand, #330099);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 1px solid var(--brand, #330099);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillBtn:hover {
+  background: transparent;
+  color: var(--brand, #330099);
+  transform: translateY(-1px);
+}
+
+/* Circle Icon Button styled with Brand Purple */
+.circleBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--brand, #330099);
+  color: #ffffff;
+  border-radius: 50%;
+  border: 1px solid var(--brand, #330099);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.circleBtn:hover {
+  background: transparent;
+  color: var(--brand, #330099);
+  transform: translateY(-1px);
+}
+
+/* === Vertical Divider with Brand Gradient === */
+.dividerCol {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  min-height: 700px;
+}
+
+.verticalLine {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(51, 0, 153, 0) 0%,
+      rgba(51, 0, 153, 0.4) 25%,
+      rgba(74, 0, 204, 0.6) 75%,
+      rgba(51, 0, 153, 0) 100%);
+}
+
+/* === Right Column === */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-left: 20px;
+}
+
+.rightHeader {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid rgba(51, 0, 153, 0.08);
+  padding-bottom: 24px;
+}
+
+/* Steps list */
+.stepList {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.stepNode {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Brand Purple Number Bubble */
+.stepNumber {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--brand, #330099);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  box-shadow: 0 4px 10px rgba(51, 0, 153, 0.15);
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.stepSubLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand, #330099);
+  /* Brand accent subtitle */
+  margin-bottom: 20px;
+}
+
+/* Bullet list separated by brand-tint lines */
+.pointList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(51, 0, 153, 0.08);
+}
+
+.pointItem {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(51, 0, 153, 0.08);
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.pointItem:hover {
+  color: #000000;
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .leftCol {
+    position: relative;
+    top: 0;
+    padding-right: 0;
+  }
+
+  .dividerCol {
+    display: none;
+  }
+
+  .rightCol {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 16px;
+  }
+
+  .leftTitle {
+    font-size: 32px;
+  }
+
+  .rightHeader {
+    font-size: 26px;
+  }
+
+  .stepNode {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+  }
+
+  .stepTitle {
+    font-size: 19px;
+  }
+
+  .stepList {
+    gap: 50px;
+  }
+}

@@ -1,0 +1,278 @@
+.section {
+  background-color: #f7f6fc; /* Off-white brand tint background */
+  padding: 140px 40px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Header Grid */
+.subTitle {
+  font-family: var(--font-geist-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--brand-light);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.8vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #06050c;
+  text-transform: uppercase;
+  margin: 0 0 80px 0;
+  letter-spacing: -0.01em;
+}
+
+/* Asymmetrical 12-Column Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 60px 32px;
+}
+
+/* Card 1 & 2 (Top Row - 6 cols each) */
+.card1, .card2 {
+  grid-column: span 6;
+  display: flex;
+  flex-direction: column;
+}
+
+.card1 .mediaWrapper, .card2 .mediaWrapper {
+  aspect-ratio: 16 / 10;
+}
+
+/* Card 3 (Bottom Row Left - Narrower: 5 cols) */
+.card3 {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.card3 .mediaWrapper {
+  aspect-ratio: 4 / 3; /* Taller/narrower aspect ratio */
+}
+
+/* Card 4 (Bottom Row Right - Wider: 7 cols) */
+.card4 {
+  grid-column: span 7;
+  display: flex;
+  flex-direction: column;
+}
+
+.card4 .mediaWrapper {
+  aspect-ratio: 18 / 9; /* Wide aspect ratio */
+}
+
+/* Common Media Wrapper */
+.mediaWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0px; /* Sharp corners matching mockup */
+  cursor: pointer;
+  margin-bottom: 24px;
+  background-color: #000000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+/* Play Button Overlay (Top-Right) */
+.playBtn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #06050c;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.3s ease, 
+              color 0.3s ease;
+}
+
+.playIcon {
+  fill: currentColor;
+  margin-left: 3px;
+}
+
+/* Hover Preview Video */
+.hoverVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Hover States on Card Wrapper */
+.mediaWrapper:hover .thumbnail {
+  transform: scale(1.04);
+}
+
+.mediaWrapper:hover .hoverVideo {
+  opacity: 1; /* Autoplay video preview fades in on hover */
+}
+
+.mediaWrapper:hover .playBtn {
+  transform: scale(1.08);
+  background-color: var(--brand-light);
+  color: #ffffff;
+}
+
+/* Text & Info Area */
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  font-weight: 700;
+  color: #06050c;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tag {
+  font-family: var(--font-geist-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: #4c4a54;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 5px 12px;
+  border-radius: 0px; /* Sharp tags matching mockup */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.detailsLink {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  width: fit-content;
+}
+
+.detailsLink svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.detailsLink:hover {
+  color: var(--brand-dark);
+}
+
+.detailsLink:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .section {
+    padding: 100px 24px;
+  }
+  
+  .grid {
+    gap: 48px 24px;
+  }
+  
+  .card1, .card2, .card3, .card4 {
+    grid-column: span 6; /* 2 columns on tablets */
+  }
+  
+  .card3 .mediaWrapper, .card4 .mediaWrapper {
+    aspect-ratio: 16 / 10; /* Reset aspect ratio for uniform tablet grid */
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 80px 20px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .card1, .card2, .card3, .card4 {
+    grid-column: span 1; /* Stack 1 column on mobile */
+  }
+  
+  .title {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+    margin-bottom: 40px;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+
+  .playBtn {
+    width: 44px;
+    height: 44px;
+    top: 16px;
+    right: 16px;
+  }
+
+  .tags {
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+}

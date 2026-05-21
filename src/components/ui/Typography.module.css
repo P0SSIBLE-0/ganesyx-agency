@@ -1,0 +1,73 @@
+﻿/* Typography Primitives
+ * Headings → --font-heading (Geist)
+ * Body/Para → --font-body   (DM Sans)
+ * Labels    → --font-mono   (Geist Mono)
+ */
+
+/* === Heading Levels === */
+.h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #000000;
+  letter-spacing: -0.03em;
+}
+
+.h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #000000;
+  letter-spacing: -0.02em;
+}
+
+.h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: #000000;
+  letter-spacing: -0.01em;
+}
+
+.h4 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #000000;
+}
+
+/* === SubHeading Label (Mono, uppercase) === */
+.subHeading {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--brand, #330099);
+  display: block;
+}
+
+/* === Paragraph Body Text (DM Sans) === */
+.pDefault {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.pLead {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.pSmall {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.55);
+}

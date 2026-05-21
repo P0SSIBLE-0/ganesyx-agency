@@ -1,0 +1,467 @@
+.section {
+  background: #ffffff;
+  padding: 120px 40px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 72px;
+}
+
+.subTitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--brand, #3300cc);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #111111;
+  letter-spacing: -0.04em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.headerDesc {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.6;
+  color: #666666;
+}
+
+/* 2x2 Metrics Outer Grid with dashed top & bottom borders */
+.metricsOuterGrid {
+  border-top: 1.5px dashed #d1d1d6;
+  border-bottom: 1.5px dashed #d1d1d6;
+  padding: 64px 0;
+  margin-bottom: 72px;
+  width: 100%;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 56px;
+  column-gap: 80px;
+}
+
+/* Metric Item border layouts */
+.metricItem {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Column dividers and row dividers using CSS selectors */
+.metricsGrid > .metricItem:nth-child(odd) {
+  border-right: 1.5px dashed #d1d1d6;
+  padding-right: 80px;
+}
+
+.metricsGrid > .metricItem:nth-child(even) {
+  padding-left: 20px;
+}
+
+.metricsGrid > .metricItem:nth-child(-n+2) {
+  border-bottom: 1.5px dashed #d1d1d6;
+  padding-bottom: 56px;
+}
+
+.metricsGrid > .metricItem:nth-child(n+3) {
+  padding-top: 24px;
+}
+
+.metricValue {
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 6.5vw, 5.5rem);
+  font-weight: 800;
+  color: #3300cc;
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -0.04em;
+}
+
+.metricDescription {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  line-height: 1.6;
+  color: #333333;
+  font-weight: 400;
+  margin: 0;
+  max-width: 540px;
+}
+
+/* Bottom Cards Row */
+.cardsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+/* Base Card Styling */
+.metricCard {
+  background: #f4f4f6;
+  border-radius: 8px; /* Sharp premium corners */
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4 / 4.8;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.metricCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+  border-color: rgba(51, 0, 204, 0.1);
+}
+
+.mediaContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.metricCard:hover .cardImage {
+  transform: scale(1.06);
+}
+
+.darkGradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.45) 65%, rgba(0, 0, 0, 0.85) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cardOverlayContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  z-index: 3;
+  color: #ffffff;
+}
+
+.cardBigMetric {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.cardMetricLabel {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  opacity: 0.92;
+  line-height: 1.45;
+}
+
+/* Floating Designer Badges on Card 2 */
+.designerPill {
+  position: absolute;
+  z-index: 10;
+  background: #111111;
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.designerPillText {
+  font-family: var(--font-body);
+}
+
+.pillPointer {
+  opacity: 0.85;
+}
+
+.metricCard:hover .designerPill {
+  transform: scale(1.04);
+}
+
+/* Individual badge coordinates and custom colors */
+.pillRoss {
+  top: 25%;
+  left: 22%;
+  background: #111111;
+}
+.pillRoss .pillPointer {
+  transform: rotate(45deg);
+  color: #ccff00;
+}
+
+.pillSarah {
+  top: 44%;
+  left: 14%;
+  background: #ff5500; /* Matching her orange sleeve! */
+}
+.pillSarah .pillPointer {
+  transform: rotate(-135deg);
+  color: #ffffff;
+}
+
+.pillBrian {
+  top: 70%;
+  left: 10%;
+  background: #111111;
+}
+.pillBrian .pillPointer {
+  transform: rotate(180deg);
+  color: #ccff00;
+}
+
+.pillJesse {
+  bottom: 22%;
+  right: 26%;
+  background: #ccff00; /* Glowing lime tag */
+  color: #111111;
+}
+.pillJesse .pillPointer {
+  transform: rotate(-45deg);
+  color: #3300cc;
+}
+
+/* Card 3: Vivid Indigo Blue Card */
+.blueCard {
+  background: #3300cc;
+  border-color: #3300cc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  color: #ffffff;
+}
+
+.blueCard:hover {
+  border-color: #3300cc;
+  box-shadow: 0 24px 48px rgba(51, 0, 204, 0.22);
+}
+
+/* Blue Card Header elements */
+.blueCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  height: 32px;
+  margin-bottom: 20px;
+}
+
+.dottedDividerLeft {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: calc(100% - 44px);
+  border-top: 1.5px dashed rgba(255, 255, 255, 0.35);
+  z-index: 1;
+}
+
+.emblemWrapper {
+  position: relative;
+  z-index: 2;
+  background: #3300cc;
+  padding-left: 14px;
+}
+
+/* Orange Portrait styling */
+.portraitOuterContainer {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.orangePortraitBg {
+  width: 170px;
+  height: 170px;
+  background: #ff5500; /* Pure orange background */
+  border-radius: 4px; /* Sharp corners */
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.portraitGrayscale {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  mix-blend-mode: multiply; /* Multiplies image tones with the orange bg */
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blueCard:hover .portraitGrayscale {
+  transform: scale(1.05) translateY(-2px);
+}
+
+/* Blue Card Bottom elements */
+.blueCardBottom {
+  position: relative;
+  padding-top: 16px;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.starsGroup {
+  display: flex;
+  gap: 3px;
+  color: #ffcc00; /* Star rating gold */
+}
+
+.star {
+  display: block;
+}
+
+.ratingNumber {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.dottedDividerRight {
+  position: absolute;
+  right: 0;
+  top: 24px;
+  width: 40%;
+  border-top: 1.5px dashed rgba(255, 255, 255, 0.35);
+  z-index: 1;
+}
+
+.blueCardLabel {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.45;
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+@media (max-width: 1100px) {
+  .cardsRow {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .metricCard {
+    aspect-ratio: 4 / 3.2;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .blueCard {
+    aspect-ratio: 4 / 3.2;
+    padding: 32px;
+  }
+  
+  .orangePortraitBg {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 100px 30px;
+  }
+  
+  .metricsGrid {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+    column-gap: 0;
+  }
+
+  .metricsGrid > .metricItem {
+    padding: 36px 0 !important;
+    border-right: none !important;
+    border-bottom: 1.5px dashed #d1d1d6 !important;
+  }
+  
+  .metricsGrid > .metricItem:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  .metricsGrid > .metricItem:first-child {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 80px 20px;
+  }
+  
+  .metricsOuterGrid {
+    padding: 40px 0;
+  }
+  
+  .metricCard {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .blueCard {
+    aspect-ratio: 1 / 1;
+    padding: 24px;
+  }
+  
+  .orangePortraitBg {
+    width: 130px;
+    height: 130px;
+  }
+}

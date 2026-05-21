@@ -1,0 +1,142 @@
+﻿.section {
+  position: relative;
+  width: 100%;
+  padding: 120px 24px;
+  overflow: hidden;
+  background: #ffffff; /* Crisp white background for section */
+  border-top: 1px solid rgba(51, 0, 153, 0.08);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* === Section Header === */
+.header {
+  max-width: 680px;
+  margin-bottom: 70px;
+}
+
+.subHeading {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+  display: block;
+  color: var(--brand, #330099);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* === Flat Sharp Grid Layout === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4-column side-by-side row on desktop */
+  gap: 1px; /* 1px divider gap */
+  background: rgba(51, 0, 153, 0.12); /* acts as the divider line color */
+  border: 1px solid rgba(51, 0, 153, 0.12); /* clean sharp box bounding */
+  overflow: hidden;
+}
+
+/* === Sharp Cards with Brand Step-up backgrounds === */
+.card {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  border-radius: 0px !important; /* Sharp borders */
+}
+
+/* Automatic stepping of brand tints */
+.card:nth-child(1) { background: rgba(51, 0, 153, 0.015); }
+.card:nth-child(2) { background: rgba(51, 0, 153, 0.035); }
+.card:nth-child(3) { background: rgba(51, 0, 153, 0.055); }
+.card:nth-child(4) { background: rgba(51, 0, 153, 0.08); }
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 0px; /* Sharp icon wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(51, 0, 153, 0.04);
+  color: var(--brand, #330099);
+  border: 1px solid rgba(51, 0, 153, 0.05);
+  transition: all 0.35s ease;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.cardText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Hover Accent */
+.card:hover {
+  background: #ffffff !important;
+  transform: scale(1.015);
+  z-index: 10;
+  box-shadow: 0 25px 50px rgba(51, 0, 153, 0.06);
+}
+
+.card:hover .iconWrapper {
+  background: var(--brand, #330099);
+  color: #ffffff;
+  border-color: var(--brand, #330099);
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid on tablets */
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 column grid on mobile */
+  }
+
+  .section {
+    padding: 80px 16px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .card {
+    padding: 30px 24px;
+  }
+}

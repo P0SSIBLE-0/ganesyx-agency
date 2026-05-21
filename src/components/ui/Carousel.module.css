@@ -1,0 +1,99 @@
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.scrollContainer {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.slideItem {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+/* Nav Buttons */
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease;
+}
+
+.navButton:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.prevButton {
+  left: 24px;
+}
+
+.nextButton {
+  right: 24px;
+}
+
+/* Disabled state - fade out arrows when reaching edges */
+.navButton.disabled {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.9);
+}
+
+/* Progress bar styles */
+.progressContainer {
+  width: calc(100% - 80px);
+  max-width: 200px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 24px auto 0;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: #000000;
+  width: 0%;
+  transition: width 0.15s ease-out;
+  border-radius: 2px;
+}
+
+/* Media Queries for responsive spacing */
+@media (max-width: 768px) {
+  .navButton {
+    display: none; /* Hide arrows on small screens, rely on native touch swipe */
+  }
+  .progressContainer {
+    margin-top: 16px;
+  }
+}

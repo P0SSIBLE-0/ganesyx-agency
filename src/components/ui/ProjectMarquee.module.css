@@ -1,0 +1,167 @@
+/* ============================================
+   ProjectMarquee — Reusable Infinite Scroll
+   ============================================ */
+
+.marqueeOuter {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.marqueeOuter:active {
+  cursor: grabbing;
+}
+
+/* The track holds two identical sets of cards for seamless loop */
+.marqueeTrack {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marqueeScroll var(--marquee-duration, 40s) linear infinite;
+}
+
+/* Pause when hovering the outer container */
+.marqueeOuter:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+/* Reverse direction variant */
+.marqueeTrack.reverse {
+  animation-direction: reverse;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+  /* 50% = exactly one copy of the items */
+}
+
+/* ============================================
+   Project Card
+   ============================================ */
+
+.card {
+  position: relative;
+  flex-shrink: 0;
+  width: var(--marquee-card-width, 340px);
+  height: var(--marquee-card-height, 480px);
+  border-radius: var(--marquee-card-radius, 10px);
+  overflow: hidden;
+  background: #f0f0f0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Widen accent card */
+.card.wide {
+  width: 420px;
+}
+
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Full-bleed image */
+.cardImage {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+/* Subtle gradient overlay at bottom for text legibility */
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 35%,
+      rgba(0, 0, 0, 0.55) 100%);
+  z-index: 1;
+}
+
+/* Card text container, sits over overlay */
+.cardBody {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Project name at top-left */
+.cardName {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  letter-spacing: -0.01em;
+}
+
+/* Tagline text (optional) — mid card */
+.cardTagline {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  max-width: 85%;
+}
+
+/* Tag pills at the bottom */
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  .card {
+    width: var(--marquee-card-mobile-width, 240px);
+    height: var(--marquee-card-mobile-height, 300px);
+  }
+
+  .card.wide {
+    width: 300px;
+  }
+
+  .marqueeTrack {
+    gap: 12px;
+  }
+}

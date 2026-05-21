@@ -1,0 +1,165 @@
+/* ─────────────────────────────────────
+   DESIGN HERO — Marquee edition
+   ───────────────────────────────────── */
+
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background: #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 60px;
+  font-family: var(--font-body);
+}
+
+/* Soft radial vignette */
+.bgVignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse 80% 70% at 50% 55%,
+      #f5f5f5 0%,
+      #e8e8e8 55%,
+      #d8d8d8 100%);
+}
+
+/* Ambient purple glow at bottom-center */
+.bgGlow {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: 50vh;
+  background: radial-gradient(ellipse at center,
+      rgba(120, 80, 255, 0.06) 0%,
+      transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+/* ── Page wrapper ────────────────────── */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-top: 3rem;
+}
+
+/* ── Heading ─────────────────────────── */
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 6.2vw, 4.2rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #111111;
+  text-align: center;
+  margin: 0 0 32px;
+  text-transform: none;
+  padding: 0 24px;
+  max-width: 900px;
+}
+
+/* ── Marquee override wrapper ─────────── */
+/* No background — transparent so hero bg shows through */
+.marqueeWrapper {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 40px;
+  /* Zero out the card border-radius via the CSS variable set in ProjectMarquee */
+  --marquee-card-radius: 0px;
+  margin: 4rem 0;
+}
+
+/* ── Footer section ──────────────────── */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: clamp(0.88rem, 1vw, 1rem);
+  line-height: 1.65;
+  color: #666666;
+  max-width: 500px;
+  margin: 0;
+}
+
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+/* "Join for $9.99/m" — dark pill */
+.btnDark {
+  display: inline-flex;
+  align-items: center;
+  background-color: #111111;
+  color: #ffffff;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1.5px solid #111111;
+}
+
+.btnDark:hover {
+  background-color: #2a2a2a;
+  border-color: #2a2a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* "Read more" — ghost / text style */
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  color: #444444;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+  padding: 13px 4px;
+}
+
+.btnGhost:hover {
+  color: #111111;
+}
+
+/* ── Responsive ──────────────────────── */
+@media (max-width: 700px) {
+  .hero {
+    padding: 80px 0 50px;
+  }
+
+  .ctas {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 0 24px;
+  }
+
+  .btnDark {
+    width: 100%;
+    justify-content: center;
+  }
+}

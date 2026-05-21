@@ -1,0 +1,66 @@
+﻿.btnBase {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  border-radius: 9999px; /* Rounded pill by default */
+  outline: none;
+}
+
+/* Primary Brand Button */
+.btnPrimary {
+  background: var(--brand, #330099);
+  color: #ffffff;
+  border: 1px solid var(--brand, #330099);
+  padding: 14px 32px;
+}
+
+.btnPrimary:hover {
+  background: transparent;
+  color: var(--brand, #330099);
+  transform: translateY(-1px);
+}
+
+/* Secondary Outline Button */
+.btnSecondary {
+  background: transparent;
+  color: var(--brand, #330099);
+  border: 1px solid rgba(51, 0, 153, 0.2);
+  padding: 14px 32px;
+}
+
+.btnSecondary:hover {
+  border-color: var(--brand, #330099);
+  background: rgba(51, 0, 153, 0.02);
+  transform: translateY(-1px);
+}
+
+/* Circle Icon Button */
+.btnCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--brand, #330099);
+  color: #ffffff;
+  border: 1px solid var(--brand, #330099);
+  padding: 0;
+}
+
+.btnCircle:hover {
+  background: transparent;
+  color: var(--brand, #330099);
+  transform: translateY(-1px);
+}
+
+/* Disabled & Loading state */
+.btnBase:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}

@@ -1,0 +1,80 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 100px 0 100px;
+  background: #ffffff;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* === Section Header (matches attached design) === */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 5% 48px;
+  gap: 24px;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.sectionSubtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+  font-weight: 400;
+}
+
+/* Portfolio link right-aligned */
+.portfolioLink {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  transition: color 0.25s ease, border-color 0.25s ease;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+.portfolioLink:hover {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 5% 36px;
+    gap: 16px;
+  }
+
+  .marqueeWrap {
+    padding-left: 5%;
+  }
+}
