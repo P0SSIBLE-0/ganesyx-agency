@@ -1,25 +1,36 @@
 'use client';
 
+import React from 'react';
 import { ProcessStep } from '@/data/types';
 import styles from './ServiceProcess.module.css';
 
 interface ServiceProcessProps {
   data: ProcessStep[];
+  label?: string;
+  title?: React.ReactNode;
+  description?: string;
 }
 
-export default function ServiceProcess({ data }: ServiceProcessProps) {
+export default function ServiceProcess({
+  data,
+  label = 'THE METRICS',
+  title,
+  description = 'We minimize creative risk by organizing our visual sprint phases under predictable steps.',
+}: ServiceProcessProps) {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <span className={styles.label}>THE METRICS</span>
+          <span className={styles.label}>{label}</span>
           <h2 className={styles.title}>
-            A structured path <span className={styles.serifTitle}>to distinct execution.</span>
+            {title || (
+              <>
+                A structured path <span className={styles.serifTitle}>to distinct execution.</span>
+              </>
+            )}
           </h2>
-          <p className={styles.desc}>
-            We minimize creative risk by organizing our visual sprint phases under predictable steps.
-          </p>
+          {description && <p className={styles.desc}>{description}</p>}
         </div>
 
         {/* Process Timeline Wrapper */}

@@ -1,0 +1,228 @@
+.section {
+  background: #ffffff;
+  color: #111111;
+  padding: 120px 40px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 80px;
+}
+
+.subTitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--brand);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #111111;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.headerDesc {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.6;
+  color: #555555;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+/* Card Styling */
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #b3aaf2;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05),
+              0 0 0 1px rgba(179, 170, 242, 0.3);
+}
+
+/* Top Section of Card */
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: #6a5acd;
+  background: rgba(179, 170, 242, 0.12);
+  padding: 6px 12px;
+  border-radius: 6px;
+  align-self: flex-start;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555555;
+}
+
+/* Middle: SVG Illustration container */
+.illustrationArea {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 0;
+  position: relative;
+}
+
+.svgIcon {
+  width: 90px;
+  height: 90px;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .svgIcon {
+  transform: scale(1.08);
+}
+
+/* Bottom: Deliverables List */
+.cardBottom {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 24px;
+}
+
+.listTitle {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #444444;
+}
+
+.checkIcon {
+  width: 14px;
+  height: 14px;
+  color: #382061;
+  flex-shrink: 0;
+}
+
+/* Aligning 2 items centered in row 2 on desktop */
+@media (min-width: 1025px) {
+  .grid > div:nth-child(4) {
+    grid-column: 1 / span 1;
+    margin-left: 50%;
+    width: calc(100% - 16px);
+  }
+  .grid > div:nth-child(5) {
+    grid-column: 2 / span 1;
+    margin-left: 50%;
+    width: calc(100% - 16px);
+  }
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  /* Remove desktop offset positioning */
+  .grid > div:nth-child(4),
+  .grid > div:nth-child(5) {
+    grid-column: auto !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 20px;
+  }
+
+  .header {
+    margin-bottom: 50px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 30px;
+  }
+}

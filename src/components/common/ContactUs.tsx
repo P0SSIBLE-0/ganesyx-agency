@@ -62,7 +62,7 @@ export default function ContactUs({ id = 'contact' }: ContactUsProps) {
     <section id={id} className={styles.section}>
       <div className={styles.container}>
         <div className={styles.card}>
-          
+
           {/* Left Column: Form & Info */}
           <div className={styles.leftCol}>
             <div className={styles.formHeader}>
@@ -70,7 +70,7 @@ export default function ContactUs({ id = 'contact' }: ContactUsProps) {
                 Get in <span className={styles.purpleText}>touch</span>
               </h2>
               <p className={styles.subtitle}>
-                Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo molestie vel, ornare non id blandit netus.
+                Whether you're launching a brand, scaling your content, or running performance campaigns — tell us where you're at and we'll map out exactly how we can help. Expect a response within 24 hours.
               </p>
             </div>
 
@@ -172,7 +172,7 @@ export default function ContactUs({ id = 'contact' }: ContactUsProps) {
                     {formData.consent && <Check size={14} strokeWidth={3} className={styles.checkIcon} />}
                   </span>
                   <span className={styles.checkboxText}>
-                    I want to protect my data by signing an NDA
+                    I accept the terms of service and privacy policy
                   </span>
                 </label>
               </div>

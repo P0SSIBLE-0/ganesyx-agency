@@ -4,23 +4,38 @@ import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import styles from './Navbar.module.css';
 
+interface SubLink {
+  label: string;
+  href: string;
+  description: string;
+}
+
 interface NavLink {
   label: string;
   href: string;
+  dropdown?: SubLink[];
 }
 
 const navLinks: NavLink[] = [
+  {
+    label: 'Services',
+    href: '#services',
+    dropdown: [
+      { label: 'Branding', href: '/branding', description: 'Bespoke identity design and guidelines' },
+      { label: 'Graphic Design', href: '/design', description: 'Scroll-stopping bento grids and templates' },
+      { label: 'Video Production', href: '/video', description: 'High-impact kinetic UGC social cuts' },
+      { label: 'Social Media', href: '/social', description: 'Build engaged communities and drive brand awareness across all major social platforms.' },
+      { label: 'Paid Ads', href: '/ads', description: 'Conversion-optimized performance ads' },
+    ]
+  },
   { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Branding', href: '/branding' },
-  { label: 'Video', href: '/video' },
-  { label: 'Design', href: '/design' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Contact Us', href: '#contact' },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -39,6 +54,8 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    // Reset mobile accordion on menu toggle
+    setMobileServicesOpen(false);
     // Prevent body scroll when mobile menu is open
     if (!isOpen) {
       document.body.style.overflow = 'hidden';
@@ -111,18 +128,51 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <nav className={styles.desktopNav}>
             <ul className={styles.navList}>
-              {navLinks.map((link) => (
-                <li key={link.label} className={styles.navItem}>
-                  <a
-                    href={link.href}
-                    className={styles.navLink}
-                    onClick={(e) => handleLinkClick(e, link.href)}
-                  >
-                    {link.label}
-                    <span className={styles.linkUnderline} />
-                  </a>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                if (link.dropdown) {
+                  return (
+                    <li key={link.label} className={`${styles.navItem} ${styles.hasDropdown}`}>
+                      <a href={link.href} className={styles.navLink} onClick={(e) => e.preventDefault()}>
+                        {link.label}
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className={styles.arrowIcon}>
+                          <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                        <span className={styles.linkUnderline} />
+                      </a>
+
+                      {/* Dropdown Menu Overlay */}
+                      <div className={styles.dropdownMenu}>
+                        <div className={styles.dropdownGrid}>
+                          {link.dropdown.map((subLink) => (
+                            <a
+                              key={subLink.label}
+                              href={subLink.href}
+                              className={styles.dropdownLink}
+                              onClick={(e) => handleLinkClick(e, subLink.href)}
+                            >
+                              <span className={styles.dropdownLabel}>{subLink.label}</span>
+                              <span className={styles.dropdownDesc}>{subLink.description}</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </li>
+                  );
+                }
+
+                return (
+                  <li key={link.label} className={styles.navItem}>
+                    <a
+                      href={link.href}
+                      className={styles.navLink}
+                      onClick={(e) => handleLinkClick(e, link.href)}
+                    >
+                      {link.label}
+                      <span className={styles.linkUnderline} />
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -161,22 +211,71 @@ const Navbar = () => {
 
           <nav className={styles.mobileNav}>
             <ul className={styles.mobileNavList}>
-              {navLinks.map((link, index) => (
-                <li
-                  key={link.label}
-                  className={styles.mobileNavItem}
-                  style={{ '--index': index } as React.CSSProperties}
-                >
-                  <a
-                    href={link.href}
-                    className={styles.mobileNavLink}
-                    onClick={(e) => handleLinkClick(e, link.href)}
+              {navLinks.map((link, index) => {
+                if (link.dropdown) {
+                  return (
+                    <li
+                      key={link.label}
+                      className={styles.mobileNavItem}
+                      style={{ '--index': index } as React.CSSProperties}
+                    >
+                      <button
+                        className={styles.mobileNavLinkButton}
+                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                        type="button"
+                      >
+                        <span className={styles.navNumber}>0{index + 1}</span>
+                        {link.label}
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          className={styles.mobileArrow}
+                          style={{
+                            transform: mobileServicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                          }}
+                        >
+                          <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                      </button>
+
+                      {/* Mobile Dropdown Sub List */}
+                      <div className={`${styles.mobileSubList} ${mobileServicesOpen ? styles.mobileSubListActive : ''}`}>
+                        {link.dropdown.map((subLink) => (
+                          <a
+                            key={subLink.label}
+                            href={subLink.href}
+                            className={styles.mobileSubNavLink}
+                            onClick={(e) => handleLinkClick(e, subLink.href)}
+                          >
+                            {subLink.label}
+                          </a>
+                        ))}
+                      </div>
+                    </li>
+                  );
+                }
+
+                return (
+                  <li
+                    key={link.label}
+                    className={styles.mobileNavItem}
+                    style={{ '--index': index } as React.CSSProperties}
                   >
-                    <span className={styles.navNumber}>0{index + 1}</span>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+                    <a
+                      href={link.href}
+                      className={styles.mobileNavLink}
+                      onClick={(e) => handleLinkClick(e, link.href)}
+                    >
+                      <span className={styles.navNumber}>0{index + 1}</span>
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
               <li
                 className={styles.mobileNavItem}
                 style={{ '--index': navLinks.length } as React.CSSProperties}

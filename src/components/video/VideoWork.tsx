@@ -69,7 +69,7 @@ function ProjectCard({ project }: { project: Project }) {
     setIsHovered(true);
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   };
 
@@ -81,7 +81,7 @@ function ProjectCard({ project }: { project: Project }) {
   };
 
   return (
-    <div 
+    <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ width: '100%', display: 'flex', flexDirection: 'column' }}
@@ -93,10 +93,10 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Thumbnail Image */}
-        <img 
-          src={project.image} 
-          alt={project.title} 
-          className={styles.thumbnail} 
+        <img
+          src={project.image}
+          alt={project.title}
+          className={styles.thumbnail}
           loading="lazy"
         />
 
@@ -112,7 +112,7 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <h3 className={styles.cardTitle}>{project.title}</h3>
-      
+
       <div className={styles.tags}>
         {project.tags.map((tag) => (
           <span key={tag} className={styles.tag}>{tag}</span>
@@ -130,12 +130,12 @@ export default function VideoWork() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        
+
         <span className={styles.subTitle}>Notable Projects</span>
         <h2 className={styles.title}>Transforming Raw Footage Into Masterpieces</h2>
 
         {/* 12-Column Asymmetric Stagger Grid */}
-        <motion.div 
+        <motion.div
           className={styles.grid}
           initial="hidden"
           whileInView="visible"
@@ -148,8 +148,8 @@ export default function VideoWork() {
           }}
         >
           {projects.map((project) => (
-            <motion.div 
-              key={project.id} 
+            <motion.div
+              key={project.id}
               className={project.gridClass}
               variants={cardVariants}
             >

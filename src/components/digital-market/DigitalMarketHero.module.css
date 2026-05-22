@@ -1,0 +1,296 @@
+.heroSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 160px 0 80px 0;
+  background-color: #05020c;
+  background-image: url('/hero-bg-market.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Vibrant and Premium Ambient Contrast Layer Overlays */
+.overlayBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+      rgba(5, 2, 12, 0.15) 0%,
+      rgba(5, 2, 12, 0.25) 50%,
+      rgba(5, 2, 12, 0.3) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.radialGlow {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(59, 130, 246, 0.15) 0%,
+      rgba(239, 68, 68, 0.08) 50%,
+      rgba(0, 0, 0, 0) 100%);
+  filter: blur(100px);
+  z-index: 2;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, 1280px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 6vw, 80px);
+  position: relative;
+  z-index: 3;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Staggered Typography Grid Matching the Mockup */
+.title {
+  font-family: var(--font-heading, 'Outfit', 'Inter', sans-serif);
+  font-size: clamp(2.6rem, 6.4vw, 5.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1em;
+  width: 100%;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Row alignments matching mockup */
+.rowOne {
+  justify-content: flex-start;
+  gap: 0.25em;
+}
+
+.rowTwo {
+  justify-content: flex-start;
+}
+
+.rowThree {
+  justify-content: flex-start;
+  gap: 0.25em;
+  padding-left: clamp(100px, 24vw, 360px);
+  /* Pushes row 3 to the right, starting under 'moves your' */
+}
+
+.textLight {
+  color: #ffffff;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.underlineText {
+  position: relative;
+  display: inline-block;
+}
+
+.underlineText::after {
+  content: '';
+  position: absolute;
+  bottom: -0.05em;
+  left: 0;
+  width: 100%;
+  height: 0.05em;
+  background: linear-gradient(90deg, #3b82f6 0%, #ef4444 100%);
+  border-radius: 9999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: draw-underline 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes draw-underline {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+/* Glassmorphic Capsule Badges Scaling with Font Size (em-based) */
+.capsule {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  height: 0.62em;
+  padding: 0 0.18em;
+  border-radius: 9999px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  user-select: none;
+  transition: border-color 0.4s ease, background-color 0.4s ease;
+  vertical-align: middle;
+  transform: translateY(-0.02em);
+  flex-shrink: 0;
+}
+
+.capsule:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.capsuleOne {
+  animation: float 6s ease-in-out infinite;
+  gap: 0.1em;
+}
+
+.capsuleTwo {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: -3s;
+  gap: 0.1em;
+}
+
+/* Avatar element inside Capsule One */
+.avatarContainer {
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark Sub-Pill design mirroring mockup inner element */
+.darkSubPill {
+  height: 0.32em;
+  width: 0.72em;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+
+/* Light dot in Capsule Two */
+.lightDot {
+  width: 0.08em;
+  height: 0.08em;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.9),
+    0 0 16px rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+  margin-left: 0.04em;
+  margin-right: 0.02em;
+}
+
+/* Ambient bottom page boundary */
+.bottomDivider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(to top, #05020c, transparent);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Floating Animation Keyframes */
+@keyframes float {
+  0% {
+    transform: translateY(-0.02em);
+  }
+
+  50% {
+    transform: translateY(-0.1em);
+  }
+
+  100% {
+    transform: translateY(-0.02em);
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 1024px) {
+  .rowThree {
+    padding-left: clamp(40px, 14vw, 180px);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 100px 0 80px 0;
+    min-height: 85vh;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8.5vw, 3.2rem);
+    gap: 0.25em;
+  }
+
+  .titleRow {
+    flex-wrap: wrap;
+    gap: 0.18em;
+  }
+
+  .rowThree {
+    padding-left: 0;
+    /* Center/Stack layout on smaller viewports to prevent layout break */
+  }
+
+  .capsule {
+    height: 0.72em;
+    padding: 0 0.18em;
+  }
+
+  .avatarContainer {
+    width: 0.48em;
+    height: 0.48em;
+  }
+
+  .darkSubPill {
+    height: 0.38em;
+    width: 0.85em;
+  }
+
+  .lightDot {
+    width: 0.1em;
+    height: 0.1em;
+  }
+}

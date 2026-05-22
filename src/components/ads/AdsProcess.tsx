@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import styles from './VideoProcess.module.css';
+import styles from './AdsProcess.module.css';
 
 interface ProcessStep {
   id: string;
@@ -12,28 +12,38 @@ interface ProcessStep {
 const steps: ProcessStep[] = [
   {
     id: '01',
-    title: 'Idea',
-    description: 'We collaborate on creative direction, mapping core angles, hooks, and video objectives to set a solid strategic foundation.'
+    title: 'Discovery',
+    description: 'We audit your historical campaign data, analyze your competitors\' creative strategy, and establish clear, data-driven KPI goals (such as CPA, ROAS, and volume targets).'
   },
   {
     id: '02',
-    title: 'Script',
-    description: 'Drafting conversion-focused scripts with strong hooks, key messaging, and explicit calls-to-action designed to capture and hold attention.'
+    title: 'Audience Research',
+    description: 'We map out your high-value customer avatars, identify core behavioral demographics, and study online search/buying behaviors to establish precise ad targeting profiles.'
   },
   {
     id: '03',
-    title: 'Visual Plan',
-    description: 'Creating detailed storyboards and shot-lists outlining frame transitions, text overlays, sound cues, and visual beats before production starts.'
+    title: 'Offer Positioning',
+    description: 'We translate your core value proposition into high-impact hooks, structures, and promotional angles (e.g., risk reversal, bundling, hook variations) that lower conversion friction.'
   },
   {
     id: '04',
-    title: 'Edit',
-    description: 'Pacing the footage dynamically with professional color grading, custom sound design, and kinetic typography overlays.'
+    title: 'Creative Production',
+    description: 'Our team writes conversion scripts, directs video creators, and designs scroll-stopping static layouts and kinetic typography videos built to capture split-second focus.'
   },
   {
     id: '05',
-    title: 'Final Delivery',
-    description: 'Exporting clean files in multiple aspect ratios — 9:16 vertical, 1:1 square, 16:9 horizontal — ready for direct publishing and ads.'
+    title: 'Campaign Launch',
+    description: 'We deploy structured, high-efficiency campaigns on Meta, Google, or TikTok, verifying pixel/CAPI setups and initializing test budgets to isolate winning creative angles.'
+  },
+  {
+    id: '06',
+    title: 'Optimization',
+    description: 'We analyze real-time account data, eliminate low-performing sets, refine copies and hooks, scale up successful assets, and monitor creative fatigue schedules.'
+  },
+  {
+    id: '07',
+    title: 'Scaling',
+    description: 'We expand budgets on our proven creative winners, deploy lookalike/broad targeting campaigns, introduce multi-channel expansion, and maintain constant creative refreshes.'
   }
 ];
 
@@ -53,19 +63,9 @@ const cardVariants: Variants = {
   }
 };
 
-interface VideoProcessProps {
-  steps?: ProcessStep[];
-  title?: string;
-}
-
-export default function VideoProcess({
-  steps: customSteps,
-  title = 'A simple collaborative workflow that guides projects from first conversation to final delivery'
-}: VideoProcessProps = {}) {
-  const activeSteps = customSteps || steps;
-
+export default function AdsProcess() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="ads-process">
       <div className={styles.container}>
 
         {/* Top label bar */}
@@ -82,8 +82,11 @@ export default function VideoProcess({
           {/* ── Sticky Left ── */}
           <div className={styles.stickyContent}>
             <h2 className={styles.title}>
-              {title}
+              A structured, data-first process to scale your ad creatives and maximize ROAS
             </h2>
+            <p className={styles.description}>
+              We minimize risk and maximize creative efficiency by guiding every ad campaign through these 7 rigorous sprint phases, keeping design and performance fully aligned.
+            </p>
           </div>
 
           {/* ── Scrolling Cards (Right) ── */}
@@ -94,7 +97,7 @@ export default function VideoProcess({
             whileInView="visible"
             viewport={{ once: true, margin: '-40px' }}
           >
-            {activeSteps.map((step) => (
+            {steps.map((step) => (
               <motion.div key={step.id} variants={cardVariants}>
                 <div className={styles.card}>
                   {/* Title at the top */}

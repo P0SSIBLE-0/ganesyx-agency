@@ -1,0 +1,1012 @@
+.section {
+  padding: 100px 0;
+  background: #c3c0eb; /* Matches the soft lilac/lavender background of the reference image */
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── HEADER block ────────────────────────────────── */
+.headerBlock {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.preHeading {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: #5855e7; /* Brand purple dark */
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: #0d0c1d;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ── BENTO GRID LAYOUT ────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+/* Card Styling */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.02),
+    0 1px 3px rgba(0, 0, 0, 0.01);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 25px 50px rgba(13, 12, 29, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+/* Grid layout mapping */
+.cardGhosting {
+  grid-column: span 2;
+  grid-row: 1;
+  min-height: 380px;
+}
+
+.cardFailures {
+  grid-column: span 1;
+  grid-row: 1;
+  min-height: 380px;
+}
+
+.cardDiscounts {
+  grid-column: span 1;
+  grid-row: 2;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardStrategies {
+  grid-column: span 1;
+  grid-row: 2;
+  min-height: 380px;
+}
+
+.cardCreative {
+  grid-column: span 1;
+  grid-row: 2;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardTeam {
+  grid-column: span 3;
+  grid-row: 3;
+  min-height: 320px;
+}
+
+.cardHeader {
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 750;
+  color: #0d0c1d;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: #5c5979;
+  line-height: 1.5;
+}
+
+/* ── CARD 1: CHAT GHOSTING SKELETON ─────────────── */
+.chatSkeleton {
+  background: #f7f6fa;
+  border-radius: 12px;
+  padding: 16px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 12px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.chatHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.chatDotRed {
+  width: 7px;
+  height: 7px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  animation: pulseGhost 1.8s infinite;
+}
+
+@keyframes pulseGhost {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.chatHeaderName {
+  font-weight: 700;
+  color: #0d0c1d;
+}
+
+.chatHeaderStatus {
+  color: #8c88a5;
+  font-size: 10px;
+  margin-left: auto;
+}
+
+.chatBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msgLeft {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-right: auto;
+}
+
+.msgRight {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-left: auto;
+}
+
+.chatAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e1def5;
+  color: #5855e7;
+  font-weight: 800;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chatAvatarAgency {
+  composes: chatAvatar;
+  background: #5855e7;
+  color: #ffffff;
+}
+
+.msgBubbleLeft {
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 4px 14px 14px 14px;
+  color: #2c2948;
+  max-width: 280px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.015);
+  line-height: 1.4;
+}
+
+.msgBubbleRight {
+  background: #5855e7;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 14px 4px 14px 14px;
+  max-width: 320px;
+  box-shadow: 0 2px 6px rgba(88, 85, 231, 0.15);
+  line-height: 1.4;
+}
+
+.hiddenMsg {
+  opacity: 0;
+  transform: translateY(8px);
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visibleMsg {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 100px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ghostAlert {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #ef4444;
+  font-size: 10px;
+  font-weight: 600;
+  padding-left: 32px;
+  transition: all 0.4s ease;
+}
+
+.msgTypingRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.4s ease;
+}
+
+.typingIndicator {
+  background: #e9e8f0;
+  padding: 8px 14px;
+  border-radius: 14px 14px 14px 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 50px;
+  justify-content: center;
+}
+
+.typingDot {
+  width: 5px;
+  height: 5px;
+  background-color: #5c5979;
+  border-radius: 50%;
+  animation: bounceDot 1.4s infinite ease-in-out;
+}
+
+.typingDot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typingDot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounceDot {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-4px); }
+}
+
+.typingText {
+  font-size: 10px;
+  color: #8c88a5;
+  font-weight: 500;
+}
+
+
+/* ── CARD 2: GROWTH CHART SKELETON ─────────────── */
+.chartSkeleton {
+  background: #f7f6fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 12px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.chartTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chartMetric {
+  font-weight: 700;
+  color: #0d0c1d;
+}
+
+.chartPeriod {
+  color: #8c88a5;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.chartBodyGrid {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+}
+
+.yAxis {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-weight: 700;
+  color: #5c5979;
+  width: 50px;
+  text-align: right;
+  font-size: 11px;
+}
+
+.barArea {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 6px 0;
+}
+
+.gridLinesContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.gridLine {
+  width: 1px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.barRow {
+  height: 20px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.barPurple {
+  height: 100%;
+  background: linear-gradient(90deg, #615fff 0%, #8c8aff 100%);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  box-shadow: 0 2px 6px rgba(97, 95, 255, 0.2);
+}
+
+.barGray {
+  height: 100%;
+  background: #dbdae8;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+.barPercent {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 10px;
+}
+
+.barGray .barPercent {
+  color: #5c5979;
+}
+
+.xAxis {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 62px;
+  color: #8c88a5;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+
+/* ── CARD 3: DISCOUNT GRAPHIC AREA ──────────────── */
+.discountGraphicArea {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 180px;
+  margin-top: 10px;
+}
+
+.glowRing {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(97, 95, 255, 0.05) 0%,
+    rgba(97, 95, 255, 0.01) 60%,
+    transparent 80%
+  );
+  position: relative;
+  border: 1px dashed rgba(97, 95, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truckBadge {
+  position: absolute;
+  top: 20%;
+  left: -5%;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #f1effd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(97, 95, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.truckIcon {
+  width: 22px;
+  height: 22px;
+  stroke: #5855e7;
+}
+
+.rupeeBadge {
+  position: absolute;
+  top: -5%;
+  right: 15%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #5855e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(88, 85, 231, 0.2);
+}
+
+.currencySymbol {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.percentOffTag {
+  position: absolute;
+  right: -10%;
+  bottom: 25%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+  padding: 8px 14px 8px 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transform: rotate(10deg);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dotHole {
+  width: 5px;
+  height: 5px;
+  background-color: #c3c0eb;
+  border-radius: 50%;
+  position: absolute;
+  left: 8px;
+}
+
+.tagText {
+  color: #5c5979;
+  font-size: 11.5px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.pricePill {
+  position: absolute;
+  bottom: 10%;
+  left: -5%;
+  background: linear-gradient(135deg, #615fff 0%, #5855e7 100%);
+  padding: 8px 24px;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(88, 85, 231, 0.25);
+  transform: rotate(-5deg);
+}
+
+.priceText {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* ── CARD 4: STRATEGIES SPARKLINE GRID ──────────── */
+.sparklineGridSkeleton {
+  flex-grow: 1;
+  background: linear-gradient(135deg, #615fff 0%, #302eb0 100%);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  margin-top: 10px;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.gridOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.hGridline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.vGridline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sparklineSvg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+}
+
+.glowingDot {
+  fill: #ffffff;
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 4;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+
+/* ── CARD 6: CREATIVE HOOK TESTING SKELETON ────── */
+.creativeSkeleton {
+  background: #f7f6fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 12px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.creativeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creativeMetric {
+  font-weight: 700;
+  color: #0d0c1d;
+}
+
+.creativeStatus {
+  color: #8c88a5;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.creativeBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.adBox {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.adBoxHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.adLabel {
+  font-weight: 700;
+  color: #5c5979;
+  font-size: 11px;
+}
+
+.winnerBadge {
+  background: #ecfdf5;
+  color: #059669;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(5, 150, 105, 0.15);
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pausedBadge {
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(107, 114, 128, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.adBarContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.adBarPurple {
+  height: 8px;
+  background: linear-gradient(90deg, #615fff 0%, #8c8aff 100%);
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(97, 95, 255, 0.15);
+}
+
+.adBarGray {
+  height: 8px;
+  background: #dbdae8;
+  border-radius: 4px;
+}
+
+.adCtrText {
+  font-weight: 800;
+  font-size: 11px;
+  color: #0d0c1d;
+  white-space: nowrap;
+  width: 55px;
+  text-align: right;
+}
+
+
+/* ── CARD 5: NODE NETWORK GRAPH SKELETON ────────── */
+.networkSkeleton {
+  flex-grow: 1;
+  height: 180px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.networkLines {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: visible;
+}
+
+.networkLinesDesktop {
+  display: block;
+}
+
+.networkLinesMobile {
+  display: none;
+}
+
+.connectingLine {
+  stroke: rgba(88, 85, 231, 0.15);
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+  animation: strokeFlow 8s linear infinite;
+}
+
+@keyframes strokeFlow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.node {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(88, 85, 231, 0.06);
+  animation: nodeBreathing 4s infinite ease-in-out;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes nodeBreathing {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    border-color: rgba(88, 85, 231, 0.2);
+    box-shadow: 0 6px 16px rgba(88, 85, 231, 0.12);
+  }
+}
+
+.node:hover {
+  animation-play-state: paused;
+  transform: translate(-50%, -50%) scale(1.08) !important;
+  border-color: rgba(88, 85, 231, 0.35);
+  box-shadow: 0 8px 20px rgba(88, 85, 231, 0.15);
+}
+
+.nodeAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(88, 85, 231, 0.1);
+}
+
+.nodeLabel {
+  font-size: 9px;
+  font-weight: 750;
+  color: #3e3a59;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.nodeMarketer {
+  top: 30%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.nodeAnalyst {
+  top: 70%;
+  left: 38%;
+  animation-delay: 1.3s;
+}
+
+/* Center node gets more priority */
+.nodeStrategist {
+  top: 30%;
+  left: 62%;
+  background: #5855e7;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(88, 85, 231, 0.3);
+  animation-name: nodeBreathingCenter;
+  animation-delay: 2s;
+}
+
+@keyframes nodeBreathingCenter {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 6px 20px rgba(88, 85, 231, 0.3);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 8px 24px rgba(88, 85, 231, 0.4);
+  }
+}
+
+.nodeStrategist:hover {
+  transform: translate(-50%, -50%) scale(1.08) !important;
+}
+
+.nodeStrategist .nodeLabel {
+  color: #ffffff;
+}
+
+.nodeRetention {
+  top: 70%;
+  left: 85%;
+  animation-delay: 2.6s;
+}
+
+
+
+/* ── BOTTOM CALL TO ACTION BLOCK ─────────────────── */
+.bottomBlock {
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.bottomSubtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 750;
+  color: #0d0c1d;
+  line-height: 1.3;
+  max-width: 600px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #615fff 0%, #5855e7 100%);
+  color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 40px;
+  font-family: var(--font-heading);
+  font-size: 15.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(88, 85, 231, 0.25);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ctaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(88, 85, 231, 0.35);
+  background: linear-gradient(135deg, #716fff 0%, #6865e7 100%);
+}
+
+.ctaIcon {
+  transition: transform 0.3s ease;
+}
+
+.ctaBtn:hover .ctaIcon {
+  transform: translateX(4px);
+}
+
+
+/* ── RESPONSIVE DESIGN ───────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+    max-width: 600px;
+    margin: 40px auto 40px auto;
+  }
+
+  .card {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .chatSkeleton {
+    min-height: 280px;
+  }
+
+  .chartSkeleton {
+    min-height: 240px;
+  }
+
+  .discountGraphicArea {
+    min-height: 220px;
+  }
+
+  .glowRing {
+    width: 200px;
+    height: 200px;
+  }
+
+  .truckBadge {
+    width: 68px;
+    height: 68px;
+  }
+
+  .pricePill {
+    padding: 10px 28px;
+  }
+
+  /* Node Network mobile overrides */
+  .networkLinesDesktop {
+    display: none !important;
+  }
+
+  .networkLinesMobile {
+    display: block !important;
+  }
+
+  .nodeMarketer {
+    top: 25% !important;
+    left: 16% !important;
+  }
+
+  .nodeAnalyst {
+    top: 75% !important;
+    left: 32% !important;
+  }
+
+  .nodeStrategist {
+    top: 45% !important;
+    left: 50% !important;
+  }
+
+  .nodeRetention {
+    top: 75% !important;
+    left: 78% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .card {
+    padding: 28px;
+  }
+
+  .headerBlock {
+    margin-bottom: 40px;
+  }
+
+  .bottomBlock {
+    margin-top: 30px;
+  }
+}
+

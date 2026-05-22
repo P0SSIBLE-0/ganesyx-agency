@@ -1,0 +1,465 @@
+.section {
+  background: #faf9f6;
+  color: #111111;
+  padding: 120px 40px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Section Header */
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 80px;
+}
+
+.subTitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--brand);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #111111;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.headerDesc {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.6;
+  color: #555555;
+}
+
+/* Layout Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Left Column: Device & Hotspots */
+.deviceArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 520px;
+}
+
+.phoneWrapper {
+  position: relative;
+  width: 280px;
+  height: 560px;
+  background: #111111;
+  border-radius: 28px;
+  padding: 10px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12),
+              inset 0 0 2px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.phoneScreen {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.phoneDynamicIsland {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 20px;
+  background: #000000;
+  border-radius: 12px;
+  z-index: 30;
+}
+
+/* Ad Mockup Contents */
+.adContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+  padding: 36px 16px 20px;
+  background: #ffffff;
+}
+
+/* Hook Section */
+.adHook {
+  flex: 1;
+  background: linear-gradient(135deg, #b3aaf2 0%, #382061 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.adHookGraphic {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hookMesh {
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(8px);
+  position: absolute;
+}
+
+.hookIllustration {
+  width: 80px;
+  height: 80px;
+  z-index: 2;
+}
+
+/* Copy Elements */
+.adHeadline {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.adCopyHighlights {
+  color: #f07191;
+}
+
+/* Social Proof */
+.adSocialProof {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  background: #fbfbfd;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  align-self: flex-start;
+}
+
+.starsRow {
+  display: flex;
+  gap: 2px;
+}
+
+.starIcon {
+  width: 10px;
+  height: 10px;
+  fill: #ffd60a;
+}
+
+.adSocialText {
+  font-size: 8px;
+  font-weight: 600;
+  color: #666666;
+  letter-spacing: 0.02em;
+}
+
+/* Action Button */
+.adCtaButton {
+  width: 100%;
+  background: #111111;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+/* Hotspots overlay positioning */
+.hotspot {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotspotActive {
+  z-index: 45;
+}
+
+.hotspotRing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(179, 170, 242, 0.5);
+  animation: pulse 2s infinite ease-out;
+}
+
+.hotspotCore {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #b3aaf2;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hotspotActive .hotspotCore {
+  background: #f07191;
+  transform: scale(1.2);
+}
+
+.hotspotActive .hotspotRing {
+  background: rgba(240, 113, 145, 0.5);
+}
+
+/* Specific Positions on Phone Frame (Adjusted for phoneScreen padding) */
+.hotspot1 {
+  top: 130px;
+  left: 124px;
+}
+
+.hotspot2 {
+  top: 300px;
+  left: 90px;
+}
+
+.hotspot3 {
+  top: 370px;
+  left: 200px;
+}
+
+.hotspot4 {
+  top: 450px;
+  left: 124px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Right Column: Display Panel */
+.detailsArea {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detailsCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
+}
+
+.detailsCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.detailsLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.detailsNumber {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.08);
+}
+
+.detailsTitle {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.detailsDesc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #555555;
+  margin-bottom: 32px;
+}
+
+/* Metrics & Stats Row */
+.metricsRow {
+  display: flex;
+  gap: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 28px;
+}
+
+.metricBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricValue {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #f07191;
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.metricLabel {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Navigation tabs below layout */
+.navTabs {
+  display: flex;
+  gap: 12px;
+}
+
+.navTabButton {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #555555;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.navTabButtonActive {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navTabButton:hover:not(.navTabButtonActive) {
+  background: rgba(0, 0, 0, 0.03);
+  color: #111111;
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .deviceArea {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 20px;
+  }
+
+  .header {
+    margin-bottom: 50px;
+  }
+
+  .detailsCard {
+    padding: 30px;
+  }
+
+  .detailsTitle {
+    font-size: 1.8rem;
+  }
+
+  .metricsRow {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .metricValue {
+    font-size: 2.2rem;
+  }
+
+  .navTabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

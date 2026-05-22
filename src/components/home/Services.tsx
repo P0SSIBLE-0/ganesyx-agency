@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import styles from './Services.module.css';
 
 const services = [
@@ -14,6 +15,7 @@ const services = [
     title: 'SEO & Content Marketing',
     description: 'Dominate search rankings with strategic SEO and compelling content that converts visitors into customers.',
     bgImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop',
+    href: '/seo',
   },
   {
     icon: (
@@ -26,6 +28,7 @@ const services = [
     title: 'Paid Ads (Google & Meta)',
     description: 'Maximize ROI with data-driven ad campaigns on Google, Facebook, and Instagram that deliver results.',
     bgImage: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop',
+    href: '/ads',
   },
   {
     icon: (
@@ -37,6 +40,7 @@ const services = [
     title: 'Social Media Marketing',
     description: 'Build engaged communities and drive brand awareness across all major social platforms.',
     bgImage: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format&fit=crop',
+    href: '/social',
   },
   {
     icon: (
@@ -48,6 +52,7 @@ const services = [
     title: 'Web Design & Development',
     description: 'Create stunning, high-converting websites that provide exceptional user experiences.',
     bgImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop',
+    href: '/design',
   },
   {
     icon: (
@@ -61,6 +66,7 @@ const services = [
     title: 'Branding & Creative',
     description: 'Craft memorable brand identities and creative assets that make you stand out from the competition.',
     bgImage: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=600&auto=format&fit=crop',
+    href: '/branding',
   },
   {
     icon: (
@@ -69,9 +75,10 @@ const services = [
         <polyline points="17 6 23 6 23 12" />
       </svg>
     ),
-    title: 'Conversion Rate Optimization',
-    description: 'Turn more visitors into customers with data-backed CRO strategies and A/B testing.',
+    title: 'Video Production',
+    description: 'Scroll-stopping reels, brand films, and ad creatives that capture attention and drive action across every platform.',
     bgImage: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600&auto=format&fit=crop',
+    href: '/video',
   },
 ];
 
@@ -105,9 +112,9 @@ const Services = () => {
                 <div className={styles.cardIcon}>{service.icon}</div>
                 <h3 className={styles.cardTitle}>{service.title}</h3>
                 <p className={styles.cardDescription}>{service.description}</p>
-                <div className={styles.cardLink}>
+                <Link href={service.href} className={styles.cardLink}>
                   Learn More <span className={styles.arrow}>&rarr;</span>
-                </div>
+                </Link>
               </div>
 
               {/* Hover Content (Fades in + scales on hover) */}
@@ -117,9 +124,9 @@ const Services = () => {
                   style={{ backgroundImage: `url(${service.bgImage})` }}
                 />
                 <div className={styles.bgOverlay} />
-                <button className={styles.learnMoreBtn}>
+                <Link href={service.href} className={styles.learnMoreBtn}>
                   Learn More
-                </button>
+                </Link>
               </div>
             </div>
           ))}
