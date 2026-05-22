@@ -12,6 +12,8 @@ import Footer from "@/components/common/Footer";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import TextMarquee from "@/components/home/TextMarquee";
 import Pricing from "@/components/home/Pricing";
+import Consultation from "@/components/home/Consultation";
+import ContactUs from "@/components/common/ContactUs";
 
 export default function Home() {
   return (
@@ -21,14 +23,15 @@ export default function Home() {
       <Work />
       <BrandGrow />
       <Services />
-      <TextMarquee />
       <WhyChooseUs />
+      <TextMarquee />
       <Pricing />
+      <Testimonials />
+      <Consultation />
       {/* <About />
-      <Stats />
-      <Testimonials /> */}
-      <FAQ />
-      {/* <Contact /> */}
+      <Stats /> */}
+      {/* <FAQ /> */}
+      <ContactUs />
     </main>
   );
 }

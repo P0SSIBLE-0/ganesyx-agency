@@ -92,7 +92,7 @@
 .card {
   position: relative;
   background: linear-gradient(135deg, rgba(255, 255, 255, .5) 0%, rgba(248, 246, 255, 0.4) 100%);
-  border: 1px solid rgba(124, 58, 237, 0.09);
+  border: 1px solid rgba(77, 77, 77, 0.13);
   border-radius: 16px;
   padding: 44px 36px;
   min-height: 330px;

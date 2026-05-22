@@ -16,7 +16,7 @@
   transform: rotate(4.5deg);
   z-index: 2;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
-  padding: 26px 0;
+  padding: 28px 0;
 }
 
 .stripTwo {
@@ -27,8 +27,8 @@
   transform: rotate(-2.5deg);
   z-index: 2;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  padding: 26px 0;
-  margin-top: -40px;
+  padding: 28px 0;
+  margin-top: -30px;
   /* Creates the overlapping cross effect in the center/right */
 }
 

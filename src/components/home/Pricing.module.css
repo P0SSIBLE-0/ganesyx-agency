@@ -23,7 +23,7 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 5vw, 3.1rem);
+  font-size: clamp(2.2rem, 5vw, 2.7rem);
   font-weight: 600;
   color: #111111;
   line-height: 1.15;
@@ -35,7 +35,7 @@
   font-family: var(--font-body);
   font-size: 1.15rem;
   color: #666666;
-  max-width: 620px;
+  max-width: 700px;
   line-height: 1.55;
   font-weight: 400;
 }

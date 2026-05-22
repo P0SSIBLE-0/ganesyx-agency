@@ -34,7 +34,7 @@ export default function BrandGrow() {
       <svg width="0" height="0" style={{ position: 'absolute', width: 0, height: 0, pointerEvents: 'none' }}>
         <defs>
           <clipPath id="brandGrowClip" clipPathUnits="objectBoundingBox">
-            <path d="M 0.08, 0 L 0.46, 0 A 0.08,0.08 0 0 1 0.54, 0.08 L 0.54, 0.31 A 0.15,0.15 0 0 0 0.69, 0.46 L 0.92, 0.46 A 0.08,0.08 0 0 1 1, 0.54 L 1, 0.92 A 0.08,0.08 0 0 1 0.92, 1 L 0.54, 1 A 0.08,0.08 0 0 1 0.46, 0.92 L 0.46, 0.69 A 0.15,0.15 0 0 0 0.31, 0.54 L 0.08, 0.54 A 0.08,0.08 0 0 1 0, 0.46 L 0, 0.08 A 0.08,0.08 0 0 1 0.08, 0 Z" />
+            <path d="M 0.08, 0 L 0.44, 0 A 0.08,0.08 0 0 1 0.52, 0.08 L 0.52, 0.375 A 0.105,0.105 0 0 0 0.625, 0.48 L 0.92, 0.48 A 0.08,0.08 0 0 1 1, 0.56 L 1, 0.92 A 0.08,0.08 0 0 1 0.92, 1 L 0.56, 1 A 0.08,0.08 0 0 1 0.48, 0.92 L 0.48, 0.625 A 0.105,0.105 0 0 0 0.375, 0.52 L 0.08, 0.52 A 0.08,0.08 0 0 1 0, 0.44 L 0, 0.08 A 0.08,0.08 0 0 1 0.08, 0 Z" />
           </clipPath>
         </defs>
       </svg>
@@ -70,9 +70,18 @@ export default function BrandGrow() {
               <div className={styles.largeImageContainer}>
                 <div
                   className={styles.bgImage}
-                  style={{ backgroundImage: "url('https://images.unsplash.com/photo-1503455637927-730bce8583c0?q=80&w=1170&auto=format&fit=crop')" }}
+                  style={{ backgroundImage: "url('/grow-brand.jpg')" }}
                 />
               </div>
+              <svg className={styles.borderOverlay} viewBox="0 0 1 1" preserveAspectRatio="none">
+                <path
+                  d="M 0.08, 0 L 0.44, 0 A 0.08,0.08 0 0 1 0.52, 0.08 L 0.52, 0.375 A 0.105,0.105 0 0 0 0.625, 0.48 L 0.92, 0.48 A 0.08,0.08 0 0 1 1, 0.56 L 1, 0.92 A 0.08,0.08 0 0 1 0.92, 1 L 0.56, 1 A 0.08,0.08 0 0 1 0.48, 0.92 L 0.48, 0.625 A 0.105,0.105 0 0 0 0.375, 0.52 L 0.08, 0.52 A 0.08,0.08 0 0 1 0, 0.44 L 0, 0.08 A 0.08,0.08 0 0 1 0.08, 0 Z"
+                  fill="none"
+                  stroke="rgba(255, 255, 255, 0.28)"
+                  strokeWidth="1.5"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
             </div>
 
             {/* 2. Top-Right Glass Card (Performance Marketing) */}

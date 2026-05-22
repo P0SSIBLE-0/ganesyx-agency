@@ -1,8 +1,8 @@
 .footer {
-  background: #ffffff;
-  color: #0f0b21;
+  background: #050505;
+  color: #ffffff;
   padding: 140px 5% 80px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -37,11 +37,12 @@
   width: auto;
   object-fit: contain;
   display: block;
+  filter: brightness(0) invert(1);
 }
 
 .tagline {
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.6;
   max-width: 320px;
 }
@@ -59,18 +60,18 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
 }
 
 .socialLink:hover {
-  background: var(--brand);
+  background: linear-gradient(125deg, #615FFF, #AD46FF);
   color: #ffffff;
   transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(51, 0, 153, 0.15);
-  border-color: var(--brand);
+  box-shadow: 0 4px 12px rgba(97, 95, 255, 0.25);
+  border-color: transparent;
 }
 
 .column {
@@ -84,7 +85,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #0f0b21;
+  color: #ffffff;
 }
 
 .links {
@@ -95,14 +96,14 @@
 
 .link {
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.3s ease;
   width: fit-content;
 }
 
 .link:hover {
-  color: var(--brand);
+  color: #a78bfa;
 }
 
 .newsletter .columnTitle {
@@ -111,7 +112,7 @@
 
 .newsletterText {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.5;
 }
 
@@ -125,17 +126,17 @@
   width: 100%;
   padding: 14px 20px;
   padding-right: 50px;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  color: #0f0b21;
+  color: #ffffff;
   font-size: 0.9rem;
   outline: none;
   transition: border-color 0.3s ease;
 }
 
 .input:focus {
-  border-color: var(--brand);
+  border-color: #8b5cf6;
 }
 
 .submit {
@@ -144,7 +145,7 @@
   top: 6px;
   bottom: 6px;
   width: 36px;
-  background: var(--brand);
+  background: linear-gradient(125deg, #615FFF, #AD46FF);
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -152,11 +153,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .submit:hover {
-  background: var(--brand-light);
+  opacity: 0.9;
 }
 
 .bottom {
@@ -164,12 +165,12 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 32px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .copyright {
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.5);
   opacity: 0.8;
 }
 
@@ -180,14 +181,14 @@
 
 .legalLink {
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.5);
   opacity: 0.8;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .legalLink:hover {
-  color: var(--brand);
+  color: #a78bfa;
 }
 
 @media (max-width: 1024px) {
