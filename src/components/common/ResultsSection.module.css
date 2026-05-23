@@ -1,0 +1,219 @@
+.sectionWrapper {
+  width: 100%;
+  padding: 100px 24px;
+  background-color: #f6f5fb;
+  background-image: repeating-linear-gradient(135deg,
+      rgba(97, 95, 255, 0.05) 0px,
+      rgba(97, 95, 255, 0.07) 1px,
+      transparent 1px,
+      transparent 14px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerContainer {
+  width: 100%;
+  max-width: 1200px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 80px 48px;
+  box-shadow:
+    0 30px 60px -15px rgba(97, 95, 255, 0.03),
+    0 10px 30px -10px rgba(0, 0, 0, 0.02),
+    0 0 1px rgba(97, 95, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── HEADER BLOCK ────────────────────────────────── */
+.headerBlock {
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: rgba(97, 95, 255, 0.05);
+  border: 1px solid rgba(97, 95, 255, 0.1);
+  border-radius: 9999px;
+  margin-bottom: 18px;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  background-color: #4f46e5;
+  border-radius: 50%;
+}
+
+.badgeText {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: #4f46e5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #0b0a0f;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+}
+
+.subheading {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── CARDS GRID ──────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  min-height: 270px;
+  border: 1px solid rgba(97, 95, 255, 0.08);
+}
+
+.featuredCard {
+  background: linear-gradient(135deg, #615fff 0%, #4f46e5 100%);
+  color: #ffffff;
+  box-shadow: 0 20px 40px -10px rgba(97, 95, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.normalCard {
+  background-color: #f7f6fd;
+  color: #0b0a0f;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.iconContainer {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.featuredIconContainer {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.normalIconContainer {
+  background-color: #ffffff;
+  border: 1px solid rgba(97, 95, 255, 0.08);
+  color: #4f46e5;
+  box-shadow: 0 4px 12px rgba(97, 95, 255, 0.05);
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardValue {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.cardDescription {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+}
+
+.featuredCard .cardDescription {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.normalCard .cardDescription {
+  color: #4b5563;
+}
+
+.cardGrid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── RESPONSIVE DESIGN ───────────────────────────── */
+@media (max-width: 992px) {
+  .innerContainer {
+    padding: 60px 32px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .sectionWrapper {
+    padding: 60px 16px;
+  }
+
+  .innerContainer {
+    padding: 48px 20px;
+    border-radius: 24px;
+  }
+
+  .headerBlock {
+    margin-bottom: 36px;
+  }
+}

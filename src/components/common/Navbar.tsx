@@ -26,6 +26,7 @@ const navLinks: NavLink[] = [
       { label: 'Video Production', href: '/video', description: 'High-impact kinetic UGC social cuts' },
       { label: 'Social Media', href: '/social', description: 'Build engaged communities and drive brand awareness across all major social platforms.' },
       { label: 'Paid Ads', href: '/ads', description: 'Conversion-optimized performance ads' },
+      { label: "Digital Marketing", href: "/digital-market", description: "Scale your business with high-performing ad campaigns." },
     ]
   },
   { label: 'About', href: '#about' },

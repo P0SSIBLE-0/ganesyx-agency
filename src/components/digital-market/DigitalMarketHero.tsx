@@ -53,27 +53,30 @@ export default function DigitalMarketHero() {
               <span className={styles.textLight}>Digital Marketing</span>
               <span className={`${styles.capsule} ${styles.capsuleOne}`}>
                 <div className={styles.avatarContainer}>
-                  <img 
-                    src="/avatar/avatar-rohan.png" 
-                    alt="User" 
-                    className={styles.avatarImg} 
+                  <img
+                    src="/avatar/avatar-rohan.png"
+                    alt="User"
+                    className={styles.avatarImg}
                   />
                 </div>
                 <div className={styles.darkSubPill} />
               </span>
             </div>
-            
+
             <div className={`${styles.titleRow} ${styles.rowTwo}`}>
               <span className={styles.textLight}>
                 that <span className={styles.underlineText}>moves your</span>
               </span>
             </div>
-            
+
             <div className={`${styles.titleRow} ${styles.rowThree}`}>
-              <span className={`${styles.capsule} ${styles.capsuleTwo}`}>
-                <div className={styles.darkSubPill} />
-                <div className={styles.lightDot} />
-              </span>
+              <a 
+                href="#contact" 
+                className={`${styles.capsule} ${styles.ctaCapsule}`}
+              >
+                <span className={styles.ctaText}>Let's Talk</span>
+                <span className={styles.lightDot} />
+              </a>
               <span className={styles.textLight}>brands forward</span>
             </div>
           </motion.h1>
@@ -85,4 +88,3 @@ export default function DigitalMarketHero() {
     </section>
   );
 }
-

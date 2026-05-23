@@ -167,8 +167,8 @@
 /* Circle Graphic Badge for Highlight Card */
 .decorativeBadge {
   position: absolute;
-  right: -10px;
-  top: 50%;
+  right: -63px;
+  top: -7rem;
   transform: translateY(-50%);
   pointer-events: none;
   opacity: 0.85;

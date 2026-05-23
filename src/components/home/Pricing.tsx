@@ -66,7 +66,7 @@ export default function Pricing() {
                 {/* Card 3 Custom circular badge graphic */}
                 {plan.isHighlighted && (
                   <div className={styles.decorativeBadge}>
-                    <svg width="72" height="72" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="50" cy="50" r="45" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="1.2" strokeDasharray="5 5" fill="none" />
                       <circle cx="50" cy="50" r="38" stroke="rgba(255, 255, 255, 0.2)" strokeWidth="1" fill="none" />
                       {/* Colon (two vertical dots on the left) */}
