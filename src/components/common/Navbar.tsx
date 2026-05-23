@@ -27,9 +27,10 @@ const navLinks: NavLink[] = [
       { label: 'Social Media', href: '/social', description: 'Build engaged communities and drive brand awareness across all major social platforms.' },
       { label: 'Paid Ads', href: '/ads', description: 'Conversion-optimized performance ads' },
       { label: "Digital Marketing", href: "/digital-market", description: "Scale your business with high-performing ad campaigns." },
+      { label: "Marketplace", href: "/marketplace", description: "Scale your business with high-performing ad campaigns." },
     ]
   },
-  { label: 'About', href: '#about' },
+  { label: 'About', href: '/about' },
   { label: 'Contact Us', href: '#contact' },
 ];
 

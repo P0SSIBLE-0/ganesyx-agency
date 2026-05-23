@@ -134,18 +134,20 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  width: 320px;
-  background: rgb(246, 246, 246);
-  backdrop-filter: blur(20px) saturate(180%);
+  width: 580px;
+  /* Streamlined width for 2 columns */
+  max-width: 90vw;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  padding: 10px;
+  border-radius: 6px;
+  padding: 12px;
   margin-top: 10px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06), 0 2px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(51, 0, 153, 0.02);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
   z-index: 120;
 }
 
@@ -167,28 +169,29 @@
 }
 
 .dropdownGrid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 4px;
 }
 
 .dropdownLink {
   display: flex;
   flex-direction: column;
-  padding: 10px 14px;
+  padding: 12px 14px;
   border-radius: 10px;
   text-decoration: none;
-  transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1.2), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
 }
 
 .dropdownLink:hover {
-  background: rgba(51, 0, 153, 0.04);
-  transform: translateX(4px);
+  background: rgba(51, 0, 153, 0.09);
+  transform: translateY(-1.5px);
 }
 
 .dropdownLabel {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--text-primary);
   transition: color 0.2s ease;
@@ -200,9 +203,25 @@
 
 .dropdownDesc {
   font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.5);
-  margin-top: 2px;
+  font-size: 0.76rem;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+@media (max-width: 1100px) {
+  .dropdownMenu {
+    width: 480px;
+    padding: 12px;
+  }
+
+  .dropdownLink {
+    padding: 10px 12px;
+  }
+
+  .dropdownDesc {
+    font-size: 0.72rem;
+  }
 }
 
 /* === CTA and Action Group === */
@@ -484,7 +503,7 @@
 /* === Responsive === */
 @media (max-width: 1024px) {
   .header {
-    height: 72px;
+    height: 60px;
     top: 16px;
     left: 4%;
     right: 4%;

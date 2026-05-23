@@ -1,0 +1,638 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 0 100px;
+  background: radial-gradient(circle at 80% 20%, rgba(97, 95, 255, 0.07) 0%, rgba(255, 255, 255, 1) 70%),
+    radial-gradient(circle at 20% 80%, rgba(51, 0, 153, 0.03) 0%, rgba(255, 255, 255, 1) 80%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Background elements for depth */
+.bgDotPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(51, 0, 153, 0.03) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bgGlow {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(97, 95, 255, 0.12) 0%, rgba(173, 70, 255, 0.05) 50%, transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: var(--container-max-width, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Left side content styles */
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brand, #330099);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  background: rgba(51, 0, 153, 0.06);
+  padding: 6px 14px;
+  border-radius: 12px;
+}
+
+.tagDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand, #330099);
+  display: inline-block;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #101010;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.inlineLogos {
+  display: inline-flex;
+  align-items: center;
+  gap: -6px; /* Overlap them */
+  vertical-align: middle;
+  margin: 0 8px;
+  position: relative;
+  top: -2px;
+}
+
+.miniLogoWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  margin-left: -10px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.miniLogoWrapper:first-child {
+  margin-left: 0;
+}
+
+.miniLogo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Overlap expansion on hover of the parent container */
+.inlineLogos:hover .miniLogoWrapper {
+  margin-left: 4px;
+}
+
+.inlineLogos:hover .miniLogoWrapper:first-child {
+  margin-left: 0;
+}
+
+/* Individual hover micro-interactions */
+.miniLogoWrapper:hover {
+  transform: scale(1.25) translateY(-3px) rotate(4deg);
+  z-index: 10 !important;
+}
+
+/* Amazon Warm Orange glow */
+.miniLogoWrapper:nth-child(1):hover {
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 10px 20px rgba(255, 153, 0, 0.2);
+}
+
+/* Shopify Green glow */
+.miniLogoWrapper:nth-child(2):hover {
+  border-color: rgba(149, 190, 80, 0.4);
+  box-shadow: 0 10px 20px rgba(149, 190, 80, 0.2);
+}
+
+/* Flipkart Blue/Yellow glow */
+.miniLogoWrapper:nth-child(3):hover {
+  border-color: rgba(40, 116, 240, 0.4);
+  box-shadow: 0 10px 20px rgba(40, 116, 240, 0.2);
+}
+
+.gradientText {
+  background: linear-gradient(135deg, var(--brand, #330099) 20%, #615FFF 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subheading {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.6;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.7));
+  margin-bottom: 40px;
+  max-width: 580px;
+}
+
+.ctaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--brand, #330099);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 12px;
+  /* 10-12px as requested */
+  border: 1px solid var(--brand, #330099);
+  transition: var(--transition-smooth, all 0.4s cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.btnPrimary:hover {
+  background: #220066;
+  border-color: #220066;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(51, 0, 153, 0.15);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: #101010;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 12px;
+  /* 10-12px as requested */
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  transition: var(--transition-smooth, all 0.4s cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.btnSecondary:hover {
+  border-color: #101010;
+  background: rgba(0, 0, 0, 0.02);
+  transform: translateY(-2px);
+}
+
+.partnersMini {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.partnersLabel {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.partnerLogos {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.partnerLogo {
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.partnerLogo:hover {
+  opacity: 0.85;
+}
+
+/* Right side content styles */
+.rightSection {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardsContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Floating Card Base */
+.floatingCard {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  /* 10-12px as requested */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  padding: 14px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.floatingCard:hover {
+  border-color: rgba(51, 0, 153, 0.15);
+  box-shadow: 0 20px 45px rgba(51, 0, 153, 0.09);
+}
+
+/* Card 1: Wireless Headphone (Left side, main product) */
+.cardHeadphones {
+  top: 15%;
+  left: 2%;
+  z-index: 10;
+  animation: bobbingSlow 7s ease-in-out infinite alternate;
+}
+
+/* Card 2: Skincare Bottle (Right side, medium card) */
+.cardSkincare {
+  top: 4%;
+  right: 5%;
+  z-index: 5;
+  width: 230px;
+  animation: bobbingMedium 9s ease-in-out infinite alternate;
+}
+
+/* Card 3: Smartwatch (Bottom center card) */
+.cardWatch {
+  bottom: 6%;
+  left: 30%;
+  z-index: 12;
+  width: 240px;
+  animation: bobbingFast 6s ease-in-out infinite alternate;
+}
+
+/* Decorative background grid for the cards */
+.decorGrid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  border: 1px dashed rgba(51, 0, 153, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decorGridInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  border: 1px dashed rgba(97, 95, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Floating Card components styling */
+.cardImgWrapper {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: #f8f8fb;
+}
+
+.cardImg {
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floatingCard:hover .cardImg {
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 12px;
+  /* 10-12px as requested */
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.badgePrimary {
+  background: var(--brand, #330099);
+  color: #ffffff;
+}
+
+.badgeSecondary {
+  background: #101010;
+  color: #f7ca00;
+  /* Gold color for Amazon's Choice star vibe */
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCategory {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: #101010;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.cardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.cardPrice {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--brand, #330099);
+}
+
+.cardRating {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.cardRatingStar {
+  color: #f7ca00;
+}
+
+/* Stat overlays */
+.statOverlay {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(51, 0, 153, 0.05);
+  border: 1px solid rgba(51, 0, 153, 0.08);
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand, #330099);
+}
+
+.statOverlayGreen {
+  background: rgba(40, 167, 69, 0.05);
+  border: 1px solid rgba(40, 167, 69, 0.08);
+  color: #28a745;
+}
+
+.statArrow {
+  font-size: 12px;
+}
+
+/* Card bobbing animations (different durations & vertical movements) */
+@keyframes bobbingSlow {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-16px) rotate(1deg);
+  }
+}
+
+@keyframes bobbingMedium {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-24px) rotate(-1.5deg);
+  }
+}
+
+@keyframes bobbingFast {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-12px) rotate(0.5deg);
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 992px) {
+  .hero {
+    min-height: auto;
+    padding: 120px 0 80px;
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .leftSection {
+    align-items: center;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .subheading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ctaGroup {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .partnerLogos {
+    justify-content: center;
+  }
+
+  .rightSection {
+    height: 480px;
+    margin-top: 20px;
+  }
+
+  .cardHeadphones {
+    left: 8%;
+  }
+
+  .cardSkincare {
+    right: 8%;
+  }
+
+  .cardWatch {
+    left: 25%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 100px 0 60px;
+  }
+
+  .heading {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+  }
+
+  .ctaGroup {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .rightSection {
+    height: 440px;
+  }
+
+  .floatingCard {
+    width: 200px;
+    padding: 10px;
+  }
+
+  .cardHeadphones {
+    left: 2%;
+    top: 10%;
+  }
+
+  .cardSkincare {
+    right: 2%;
+    top: 5%;
+    width: 190px;
+  }
+
+  .cardWatch {
+    left: 15%;
+    bottom: 2%;
+    width: 200px;
+  }
+
+  .cardImgWrapper {
+    height: 110px;
+  }
+
+  .cardTitle {
+    font-size: 12px;
+  }
+
+  .cardPrice {
+    font-size: 13px;
+  }
+
+  .miniLogoWrapper {
+    width: 26px;
+    height: 26px;
+    margin-left: -6px;
+  }
+  
+  .miniLogo {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .inlineLogos {
+    margin: 0 4px;
+    top: -1px;
+    gap: -4px;
+  }
+}

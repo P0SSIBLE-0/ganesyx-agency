@@ -1,0 +1,175 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 50px 0;
+  background: #ffffff;
+  z-index: 2;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #101010;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.subheading {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.7));
+  margin-top: 12px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Logos Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+/* Card Design with dynamic CSS variable hooks */
+.card {
+  --glow-color: rgba(51, 0, 153, 0.2);
+  --glow-shadow: rgba(51, 0, 153, 0.08);
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--glow-color);
+  box-shadow: 0 20px 40px var(--glow-shadow);
+}
+
+/* Glow Background Effect inside each card */
+.glowBg {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--glow-shadow) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card:hover .glowBg {
+  opacity: 1;
+}
+
+/* Logo Wrapper and Graphics */
+.logoWrapper {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Details Section */
+.details {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: #101010;
+  transition: color 0.3s ease;
+}
+
+.card:hover .title {
+  color: var(--brand, #330099);
+}
+
+.tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fafafc;
+  transition: all 0.3s ease;
+}
+
+.card:hover .tag {
+  color: var(--brand, #330099);
+  border-color: var(--glow-color);
+  background: transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+}

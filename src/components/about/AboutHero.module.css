@@ -1,0 +1,141 @@
+.heroSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 0;
+  /* Soft lavender/white radial background for premium depth */
+  background: radial-gradient(circle at center, #ffffff 30%, #f2effd 100%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Left and Right Ambient Glow Balls */
+.glowLeft {
+  position: absolute;
+  left: -15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(600px, 45vw);
+  height: min(600px, 45vw);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      #615FFF, #AD46FF);
+  filter: blur(200px);
+  z-index: 2;
+  pointer-events: none;
+  animation: floatLeft 12s ease-in-out infinite alternate;
+}
+
+.glowRight {
+  position: absolute;
+  right: -15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(600px, 45vw);
+  height: min(600px, 45vw);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      #615FFF, #AD46FF);
+  filter: blur(200px);
+  z-index: 2;
+  pointer-events: none;
+  animation: floatRight 12s ease-in-out infinite alternate;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px);
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Centered Bold Typography */
+.title {
+  font-family: var(--font-heading, 'Outfit', 'Inter', sans-serif);
+  font-size: clamp(2.5rem, 6vw, 6.2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #101010;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
+  text-transform: uppercase;
+}
+
+.titleRow {
+  display: block;
+}
+
+/* Animations for ambient glow balls */
+@keyframes floatLeft {
+  0% {
+    transform: translateY(-50%) translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-50%) translate(4%, -5%) scale(1.05);
+  }
+
+  100% {
+    transform: translateY(-50%) translate(-2%, 5%) scale(0.95);
+  }
+}
+
+@keyframes floatRight {
+  0% {
+    transform: translateY(-50%) translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-50%) translate(-4%, 5%) scale(1.05);
+  }
+
+  100% {
+    transform: translateY(-50%) translate(2%, -5%) scale(0.95);
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 80vh;
+    padding: 100px 0;
+  }
+
+  .glowLeft {
+    left: -25%;
+    width: 320px;
+    height: 320px;
+    filter: blur(100px);
+  }
+
+  .glowRight {
+    right: -25%;
+    width: 320px;
+    height: 320px;
+    filter: blur(100px);
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+    letter-spacing: -0.01em;
+  }
+}

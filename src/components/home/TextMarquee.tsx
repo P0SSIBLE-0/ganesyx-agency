@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './TextMarquee.module.css';
 
-const track1 = Array(8).fill('DIGITAL FIRST. RESULTS DRIVEN.');
-const track2 = Array(8).fill('CREATIVE STRATEGY. POWERFUL GROWTH.');
+const defaultTrack1 = Array(8).fill('DIGITAL FIRST. RESULTS DRIVEN.');
+const defaultTrack2 = Array(8).fill('CREATIVE STRATEGY. POWERFUL GROWTH.');
 
-const TextMarquee = () => {
+const TextMarquee = ({ track1 = defaultTrack1, track2 = defaultTrack2 }: { track1?: string[], track2?: string[] }) => {
   return (
     <section className={styles.section}>
       {/* Strip 1: Indigo/Blue background, rotating slanted downwards right (-2.5deg) */}

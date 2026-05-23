@@ -15,8 +15,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 80px;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 40px;
   align-items: center;
 }
 
@@ -38,8 +38,8 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-  font-weight: 750;
+  font-size: clamp(2.2rem, 4.5vw, 2.6rem);
+  font-weight: 600;
   color: #ffffff;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -161,9 +161,9 @@
   text-align: center;
   z-index: 3;
   /* Complex shadows: soft ambient occlusion shadow + sharp drop shadow + subtle white inner reflection */
-  box-shadow: 
-    0 10px 20px rgba(0, 0, 0, 0.15), 
-    0 35px 70px rgba(0, 0, 0, 0.35), 
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    0 35px 70px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 15px 30px rgba(255, 255, 255, 0.03);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
@@ -173,9 +173,9 @@
   transform: translateY(-6px) scale(1.02);
   border-color: rgba(255, 255, 255, 0.45);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(216, 180, 254, 0.12) 100%);
-  box-shadow: 
-    0 15px 30px rgba(0, 0, 0, 0.2), 
-    0 50px 90px rgba(0, 0, 0, 0.45), 
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.2),
+    0 50px 90px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
@@ -199,9 +199,9 @@
   text-align: center;
   z-index: 3;
   /* Complex shadows: matching neon hue for the soft shadow glow */
-  box-shadow: 
-    0 10px 20px rgba(0, 0, 0, 0.15), 
-    0 35px 70px rgba(0, 0, 0, 0.35), 
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    0 35px 70px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 15px 30px rgba(255, 255, 255, 0.03);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
@@ -211,9 +211,9 @@
   transform: translateY(-6px) scale(1.02);
   border-color: rgba(255, 255, 255, 0.45);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(216, 180, 254, 0.12) 100%);
-  box-shadow: 
-    0 15px 30px rgba(0, 0, 0, 0.2), 
-    0 50px 90px rgba(0, 0, 0, 0.45), 
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.2),
+    0 50px 90px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
@@ -408,6 +408,7 @@
 }
 
 @media (max-width: 480px) {
+
   .glassCardRight,
   .glassCardLeft {
     padding: 12px 8px;

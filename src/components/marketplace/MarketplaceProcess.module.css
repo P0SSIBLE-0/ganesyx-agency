@@ -1,0 +1,327 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 50px 0;
+  background: #ffffff;
+  z-index: 2;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+
+/* Two-column layout */
+.layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Left Sticky Side */
+.leftSection {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.subTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--brand, #330099);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  background: rgba(51, 0, 153, 0.05);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 600;
+  color: #101010;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.brandText {
+  background: linear-gradient(135deg, var(--brand, #330099) 0%, #615FFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.7));
+  max-width: 500px;
+}
+
+/* Interactive gauge widget */
+.interactiveWidget {
+  width: 100%;
+  max-width: 480px;
+  margin-top: 40px;
+  background: var(--brand, #330099);
+  /* Solid brand purple background */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  /* strict border-radius */
+  padding: 28px;
+  box-shadow: 0 15px 35px rgba(51, 0, 153, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.gaugeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gaugePhase {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.gaugePct {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.gaugeTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* Progress track */
+.gaugeProgressTrack {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  /* Semi-transparent track */
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gaugeProgressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #ffffff;
+  /* Solid white progress bar for high contrast */
+  border-radius: 3px;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gaugeDescription {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Right side vertical timeline */
+.rightSection {
+  width: 100%;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-left: 48px;
+}
+
+/* Timeline vertical lines */
+.verticalLine {
+  position: absolute;
+  left: 20px;
+  top: 36px;
+  /* Align with center of first dot */
+  bottom: 36px;
+  /* Align with center of last dot */
+  width: 2px;
+  background: rgba(51, 0, 153, 0.06);
+  z-index: 1;
+}
+
+.activeVerticalLine {
+  position: absolute;
+  left: 20px;
+  top: 36px;
+  /* Align with center of first dot */
+  width: 2px;
+  background: var(--brand, #330099);
+  box-shadow: 0 0 8px rgba(51, 0, 153, 0.4);
+  z-index: 2;
+  transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card layout */
+.card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  /* strict border-radius */
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.01);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.card:hover {
+  transform: translateX(4px);
+  border-color: rgba(51, 0, 153, 0.42);
+}
+
+/* Active Card Override */
+.cardActive {
+  border-color: rgba(51, 0, 153, 0.38);
+  background: #dedeff;
+  box-shadow: 0 15px 30px rgba(51, 0, 153, 0.04);
+}
+
+/* Floating outline number inside card */
+.stepNumber {
+  position: ab solute;
+  top: 18px;
+  right: 24px;
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 700;
+  color: rgba(51, 0, 153, 0.09);
+  transition: color 0.3s ease;
+}
+
+.cardActive .stepNumber {
+  color: rgba(51, 0, 153, 0.1);
+}
+
+.cardActive .cardTitle {
+  color: var(--brand, #330099);
+}
+
+/* Bullet nodes on the line */
+.timelineDot {
+  position: absolute;
+  left: -34px;
+  /* Center aligns exactly at 20px (48px - 34px + 6px dot center = 20px) */
+  top: 30px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid rgba(51, 0, 153, 0.2);
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.cardActive .timelineDot {
+  background: var(--brand, #330099);
+  border-color: var(--brand, #330099);
+  box-shadow: 0 0 8px rgba(51, 0, 153, 0.6);
+  transform: scale(1.15);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: #101010;
+  transition: color 0.3s ease;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 580px;
+}
+
+/* Responsive configurations */
+@media (max-width: 992px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .leftSection {
+    position: static;
+  }
+
+  .interactiveWidget {
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .timeline {
+    padding-left: 36px;
+  }
+
+  .verticalLine,
+  .activeVerticalLine {
+    left: 10px;
+    top: 36px;
+    bottom: 36px;
+  }
+
+  .timelineDot {
+    left: -32px;
+    /* Center aligns exactly at 10px (36px - 32px + 6px dot center = 10px) */
+  }
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .stepNumber {
+    font-size: 24px;
+    top: 16px;
+    right: 16px;
+  }
+}
