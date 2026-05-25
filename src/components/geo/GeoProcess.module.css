@@ -1,0 +1,595 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 50px 5% 120px 5%;
+  background: #ffffff;
+  /* Premium blueprint grid background pattern */
+  background-image:
+    radial-gradient(rgba(168, 85, 247, 0.05) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(168, 85, 247, 0.05) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  overflow: hidden;
+  z-index: 5;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* === Header === */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(139, 92, 246, 0.06);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 9999px;
+  color: var(--brand);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+
+.pillIcon {
+  color: var(--brand);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #0a0a0a;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.58);
+  max-width: 680px;
+}
+
+/* === Split Layout === */
+.grid {
+  display: grid;
+  grid-template-columns: 1.12fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* === Stepper Timeline === */
+.stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+/* Connecting line running behind numbers */
+.stepperLine {
+  position: absolute;
+  left: 36px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: rgba(var(--brand), 0.1);
+  z-index: 1;
+}
+
+.stepRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stepRowActive {
+  background: #ffffff;
+  border-color: rgba(168, 85, 247, 0.35);
+  box-shadow:
+    0 12px 30px rgba(139, 92, 246, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.01);
+  transform: translateX(6px);
+}
+
+.stepNumberWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid rgba(168, 85, 247, 0.2);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  margin-top: 2px;
+}
+
+.stepNumberWrapperActive {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(var(--brand), 0.4);
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.75);
+  transition: color 0.3s ease;
+}
+
+.stepTitleActive {
+  color: #000000;
+}
+
+.stepDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.45);
+  transition: color 0.3s ease;
+}
+
+.stepDescActive {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+/* === Console Visual Component === */
+.consoleColumn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.consoleWindow {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  box-shadow:
+    0 30px 60px rgba(139, 92, 246, 0.05),
+    inset 0 0 40px rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.consoleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.consoleDots {
+  display: flex;
+  gap: 6px;
+}
+
+.consoleDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.consoleTitle {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.consoleBody {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Screen wrapper for mounting/unmounting transitions */
+.screenWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* --- Step 01: Audit Log --- */
+.auditLog {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.65;
+  color: #3b0764;
+  background: rgba(168, 85, 247, 0.03);
+  border: 1px solid rgba(168, 85, 247, 0.08);
+  border-radius: 8px;
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.auditLine {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.promptSymbol {
+  color: #a855f7;
+  font-weight: 700;
+}
+
+.auditSuccess {
+  color: #10b981;
+}
+
+.auditWarning {
+  color: #f59e0b;
+}
+
+.auditInfo {
+  color: #3b82f6;
+}
+
+/* --- Step 02: Entity Map --- */
+.entityMapContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entitySvg {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  overflow: visible;
+}
+
+.centralNodeText {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  fill: #000000;
+  text-transform: uppercase;
+}
+
+.childNodeText {
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 600;
+  fill: rgba(0, 0, 0, 0.6);
+}
+
+.pulseCircle {
+  animation: pulseRadar 2s infinite ease-out;
+  transform-origin: center;
+}
+
+@keyframes pulseRadar {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* --- Step 03: Structuring --- */
+.structureContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  height: 100%;
+}
+
+.structurePane {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+}
+
+.paneHeader {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #a855f7;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.paneBody {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.7);
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.tagHighlighted {
+  color: #a855f7;
+  font-weight: 600;
+}
+
+.attrHighlighted {
+  color: #3b82f6;
+}
+
+.valHighlighted {
+  color: #10b981;
+}
+
+/* --- Step 04: Authority expansion --- */
+.authorityDashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.authCard {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+  position: relative;
+  overflow: hidden;
+}
+
+.authIcon {
+  color: #a855f7;
+  margin-bottom: 12px;
+}
+
+.authVal {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 28px;
+  color: #000000;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.authLabel {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+/* --- Step 05: Optimization Diff --- */
+.diffWindow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.diffLine {
+  display: flex;
+  gap: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+
+.diffAdded {
+  background: rgba(16, 185, 129, 0.08);
+  color: #065f46;
+  border-left: 3px solid #10b981;
+}
+
+.diffRemoved {
+  background: rgba(239, 68, 68, 0.06);
+  color: #991b1b;
+  border-left: 3px solid #ef4444;
+}
+
+.diffNormal {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* --- Step 06: Monitoring Chart --- */
+.chartContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chartSvg {
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  overflow: visible;
+}
+
+.chartAxis {
+  stroke: rgba(0, 0, 0, 0.1);
+  stroke-width: 1;
+}
+
+.chartLabel {
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  fill: rgba(0, 0, 0, 0.4);
+}
+
+.chartValueText {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 600;
+  fill: #a855f7;
+}
+
+/* === Responsive Breakpoints === */
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 24px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 16px 80px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+  }
+
+  .description {
+    font-size: 15.5px;
+  }
+
+  .stepper {
+    gap: 12px;
+  }
+
+  .stepperLine {
+    left: 28px;
+    top: 24px;
+    bottom: 24px;
+  }
+
+  .stepRow {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .stepNumberWrapper {
+    width: 24px;
+    height: 24px;
+    font-size: 10.5px;
+  }
+
+  .stepTitle {
+    font-size: 15px;
+  }
+
+  .stepDesc {
+    font-size: 12.5px;
+  }
+
+  .consoleWindow {
+    height: 380px;
+    padding: 16px;
+  }
+
+  .structureContainer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .paneHeader {
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+  }
+
+  .paneBody {
+    font-size: 8.5px;
+  }
+
+  .authorityDashboard {
+    gap: 12px;
+  }
+
+  .authCard {
+    padding: 14px;
+  }
+
+  .authVal {
+    font-size: 22px;
+  }
+
+  .authLabel {
+    font-size: 11px;
+  }
+
+  .diffWindow {
+    font-size: 9.5px;
+    padding: 10px;
+  }
+}

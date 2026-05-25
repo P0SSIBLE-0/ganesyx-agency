@@ -22,16 +22,19 @@ const navLinks: NavLink[] = [
     href: '#services',
     dropdown: [
       { label: 'Branding', href: '/branding', description: 'Bespoke identity design and guidelines' },
+      { label: 'Web Development', href: '/web-dev', description: 'High-performing, AI-optimized web experiences' },
+      { label: 'SEO', href: '/seo', description: 'Dominate search results with strategic SEO optimization' },
+      { label: 'GEO', href: '/geo', description: 'Optimize your brand visibility across generative engines and AI search' },
       { label: 'Graphic Design', href: '/design', description: 'Scroll-stopping bento grids and templates' },
       { label: 'Video Production', href: '/video', description: 'High-impact kinetic UGC social cuts' },
       { label: 'Social Media', href: '/social', description: 'Build engaged communities and drive brand awareness across all major social platforms.' },
       { label: 'Paid Ads', href: '/ads', description: 'Conversion-optimized performance ads' },
       { label: "Digital Marketing", href: "/digital-market", description: "Scale your business with high-performing ad campaigns." },
-      { label: "Marketplace", href: "/marketplace", description: "Scale your business with high-performing ad campaigns." },
+      { label: "Marketplace", href: "/marketplace", description: "Build engaged communities and drive brand awareness across all major social platforms." },
     ]
   },
   { label: 'About', href: '/about' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 const Navbar = () => {

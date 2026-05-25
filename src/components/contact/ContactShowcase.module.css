@@ -1,0 +1,201 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 120px 100px;
+  background-color: #7928e9;
+  /* Vibrant brand violet background matching design */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* === Watermark Letters === */
+.watermarkContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.07;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  user-select: none;
+}
+
+.watermarkLeft {
+  position: absolute;
+  left: -10%;
+  top: -15%;
+  font-size: 45vw;
+  line-height: 1;
+}
+
+.watermarkCenter {
+  position: absolute;
+  left: 20%;
+  top: -25%;
+  font-size: 35vw;
+  line-height: 1;
+}
+
+.watermarkRight {
+  position: absolute;
+  right: -8%;
+  bottom: -20%;
+  font-size: 55vw;
+  line-height: 1;
+}
+
+.watermarkBottom {
+  position: absolute;
+  left: 30%;
+  bottom: -25%;
+  font-size: 40vw;
+  line-height: 1;
+}
+
+/* === Centered Container === */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-max-width, 1400px);
+  margin: 0 auto;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Square Box Frame */
+.squareBox {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  background: #ffffff29;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+/* Clean White Stroke Border Frame behind image but in front of watermark */
+.borderFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top Right text stack */
+.topText {
+  position: relative;
+  z-index: 3;
+  align-self: flex-end;
+  text-align: right;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(12px, 1.1vw, 15px);
+  line-height: 1.35;
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  display: block;
+}
+
+/* Handshake Image - positioned in center, bleeding horizontally over the left/right borders */
+.imageContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 114%;
+  /* Extends past left & right border lines */
+  pointer-events: none;
+  z-index: 2;
+  /* Sits above borderFrame, below text content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.handshakeImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Bottom Left text stack */
+.bottomText {
+  position: relative;
+  z-index: 3;
+  align-self: flex-start;
+  text-align: left;
+  color: #ffffff;
+}
+
+.smallLabel {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 6px;
+}
+
+.mainHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+/* === Responsive queries === */
+@media (max-width: 1024px) {
+  .section {
+    padding: 100px 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 24px;
+  }
+
+  .squareBox {
+    padding: 30px;
+  }
+
+  .imageContainer {
+    width: 118%;
+    /* Increase bleed slightly on smaller viewport scales */
+  }
+}
+
+@media (max-width: 480px) {
+  .squareBox {
+    padding: 24px;
+  }
+
+  .imageContainer {
+    width: 122%;
+  }
+}

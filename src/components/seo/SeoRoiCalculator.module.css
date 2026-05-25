@@ -1,8 +1,8 @@
-﻿.section {
+.section {
   position: relative;
   width: 100%;
-  padding: 120px 24px;
-  background: #f6f5fb; /* Soft brand-tint lavender background */
+  padding: 120px 100px;
+  background: #ffffff;
   overflow: hidden;
   border-top: 1px solid rgba(51, 0, 153, 0.08);
 }

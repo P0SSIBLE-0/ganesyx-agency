@@ -1,7 +1,7 @@
-﻿.section {
+.section {
   position: relative;
   width: 100%;
-  padding: 120px 24px;
+  padding: 120px 100px !important;
   overflow: hidden;
   border-top: 1px solid rgba(51, 0, 153, 0.04);
 }
@@ -31,7 +31,7 @@
 .title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   color: #000000;
   letter-spacing: -0.02em;
@@ -54,7 +54,8 @@
 
 /* Reusable flat card styling */
 .card {
-  background: #ffffff; /* Solid white card to stand out on soft background */
+  background: #ffffff;
+  /* Solid white card to stand out on soft background */
   border: 1px solid rgba(51, 0, 153, 0.05);
   border-radius: 16px;
   padding: 36px 30px;
@@ -138,6 +139,10 @@
 
 /* === Responsive === */
 @media (max-width: 1024px) {
+  .section {
+    padding: 100px 48px !important;
+  }
+
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -146,7 +151,7 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 80px 16px;
+    padding: 80px 16px !important;
   }
 
   .header {

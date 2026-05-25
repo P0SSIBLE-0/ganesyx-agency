@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { SeoHero, SeoWorkflow } from '@/components/seo';
+import { SeoHero, SeoWorkflow, SeoInsights } from '@/components/seo';
 import ServiceCapabilities, { CapabilityItem } from '@/components/ui/ServiceCapabilities';
 import ServiceWhy, { WhyItem } from '@/components/ui/ServiceWhy';
+import ContactUs from '@/components/common/ContactUs';
 
 export const metadata: Metadata = {
   title: "SEO Services | Ganesyx Agency - Grow Organic Search Visibility",
@@ -75,17 +76,6 @@ const seoCapabilities: CapabilityItem[] = [
       "Competitor organic share-of-voice benchmarks",
       "Actionable roadmap prioritized by impact"
     ]
-  },
-  {
-    number: "07",
-    title: "Reporting & Analytics",
-    description: "Delivering fully customized, transparent performance dashboards of key traffic metrics.",
-    iconName: "barChart",
-    details: [
-      "Custom Looker Studio & GA4 dashboards",
-      "Organic conversion tracking & ROI attribution",
-      "Monthly reviews & strategic roadmap revisions"
-    ]
   }
 ];
 
@@ -114,9 +104,12 @@ const whySeoItems: WhyItem[] = [
 
 export default function SeoPage() {
   return (
-    <main style={{ minHeight: '100vh', background: '#ffffff' }}>
+    <main style={{ minHeight: '100vh' }}>
       {/* Crisp White Section with Brand-colored Interactive Dashboard */}
       <SeoHero />
+
+      {/* Dynamic Dark Section with Real-Time Content Score speedometer & SEO Checklist */}
+      <SeoInsights />
 
       {/* Soft Tinted Section with Crisp White Cards */}
       <ServiceCapabilities
@@ -137,6 +130,9 @@ export default function SeoPage() {
 
       {/* Custom Stepper Workflow Section matching the beige design layout */}
       <SeoWorkflow />
+
+      {/* Contact CTA Section */}
+      <ContactUs />
     </main>
   );
 }

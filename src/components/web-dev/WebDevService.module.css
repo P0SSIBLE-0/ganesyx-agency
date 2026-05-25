@@ -1,0 +1,312 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 120px 0;
+  background-color: #fafafa;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+
+/* Header layout - modern split grid */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 64px;
+  margin-bottom: 72px;
+}
+
+.titleWrapper {
+  max-width: 650px;
+}
+
+.badge {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6366f1;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.title {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #101010;
+}
+
+.supportText {
+  max-width: 440px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.6);
+  padding-bottom: 6px;
+}
+
+/* Flex Grid Container */
+.gridContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Accordion Row */
+.row {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Card Wrapper with flex transition */
+.cardWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  /* Crucial for text reflow in flex container */
+  transition: flex 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* Row-wide shrink logic when hovered */
+.row:hover .cardWrapper {
+  flex: 0.75;
+}
+
+/* Row-wide expand logic for hovered item */
+.row .cardWrapper:hover {
+  flex: 1.75;
+}
+
+/* Image Card Box (Fill with Image & Content) */
+.imageCard {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #0b0b0f;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.cardWrapper:hover .imageCard {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.12),
+    0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+/* Background image */
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%) contrast(95%) opacity(0.85);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+  z-index: 1;
+}
+
+.cardWrapper:hover .image {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(100%) opacity(0.9);
+}
+
+/* Gradient Overlay inside Image Container for text readability */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(10, 10, 15, 0.75) 0%,
+      rgba(10, 10, 15, 0.55) 35%,
+      rgba(10, 10, 15, 0.1) 75%,
+      transparent 100%);
+  z-index: 2;
+  transition: background 0.4s ease;
+}
+
+.cardWrapper:hover .overlay {
+  background: linear-gradient(to top,
+      rgba(10, 10, 15, 0.98) 0%,
+      rgba(10, 10, 15, 0.68) 55%,
+      rgba(10, 10, 15, 0.2) 80%,
+      transparent 100%);
+}
+
+/* Card Info Block (absolute overlay inside imageCard) */
+.cardInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 36px 28px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+  /* Let pointer events pass to container */
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Technical Stack Label Tag */
+.tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 500;
+  width: fit-content;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.cardWrapper:hover .tag {
+  color: #a5b4fc;
+  /* Light indigo */
+  background: rgba(165, 180, 252, 0.12);
+  border-color: rgba(165, 180, 252, 0.25);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: color 0.3s ease;
+}
+
+.cardWrapper:hover .cardTitle {
+  color: #ffffff;
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 400;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+
+  /* Initial hidden state */
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(8px);
+  overflow: hidden;
+  transition:
+    max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease,
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    margin-top 0.45s ease,
+    color 0.3s ease;
+  margin-top: 0;
+}
+
+.cardWrapper:hover .cardDesc {
+  opacity: 1;
+  max-height: 120px;
+  transform: translateY(0);
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Sliding hover indicator arrow */
+.hoverArrow {
+  color: #a5b4fc;
+  /* light indigo */
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardWrapper:hover .hoverArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive Media Breakpoints */
+@media (max-width: 1024px) {
+  .row {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .cardWrapper {
+    flex: none !important;
+    width: calc(50% - 12px);
+    /* 2 items per row */
+  }
+
+  .imageCard {
+    height: 340px;
+  }
+}
+
+@media (max-width: 968px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .supportText {
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .gridContainer {
+    gap: 24px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .cardWrapper {
+    width: 100% !important;
+  }
+
+  .imageCard {
+    height: 280px;
+  }
+
+  .cardInfo {
+    padding: 24px 20px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+}

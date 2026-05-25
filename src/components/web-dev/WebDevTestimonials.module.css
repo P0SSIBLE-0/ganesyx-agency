@@ -1,0 +1,276 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 100px 0 120px 0;
+  background: #f9fafb;
+  /* Light off-white background to contrast with white cards */
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.title {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #0f172a;
+  /* Slate 900 */
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #64748b;
+  /* Slate 500 */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 14px;
+}
+
+.card {
+  border-radius: 5px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+/* White cards */
+.cardWhite {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  /* slate-200 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+.cardWhite .quote {
+  color: #1e293b;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  font-weight: 450;
+  margin-bottom: 24px;
+}
+
+.cardWhite .authorName {
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cardWhite .authorTitle {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+/* Black card (Elastic) */
+.cardBlack {
+  background: #09080c;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.cardBlack .logo {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.cardBlack .quote {
+  color: #ffffff;
+  font-size: 1.25rem;
+  /* Larger font for main card */
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.cardBlack .authorName {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cardBlack .authorTitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+}
+
+/* Blue card (Statamic) */
+.cardBlue {
+  background: #0052ff;
+  /* High-intensity digital blue */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 50, 255, 0.2), 0 10px 10px -5px rgba(0, 50, 255, 0.1);
+}
+
+.cardBlue .logo {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.cardBlue .quote {
+  color: #ffffff;
+  font-size: 1.25rem;
+  /* Larger font for main card */
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.cardBlue .authorName {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cardBlue .authorTitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8rem;
+}
+
+/* Card positions inside Bento grid */
+.col1_row1_2 {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.col2_row1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.col3_row1 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.col2_row2 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.col2_row3 {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.col1_row3 {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.col3_row2_3 {
+  grid-column: 3;
+  grid-row: 2 / span 2;
+}
+
+/* Footer of the card: layout for Author and Avatar */
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+  width: 100%;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.avatarImage {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover effects */
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cardWhite:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  border-color: #cbd5e1;
+  /* slate-300 */
+}
+
+.cardBlack:hover {
+  box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.25), 0 15px 15px -5px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.cardBlue:hover {
+  box-shadow: 0 25px 30px -5px rgba(0, 50, 255, 0.35), 0 15px 15px -5px rgba(0, 50, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive grid layout */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  /* Reset all bento grid layout mappings for 2-columns */
+  .col1_row1_2,
+  .col2_row1,
+  .col3_row1,
+  .col2_row2,
+  .col2_row3,
+  .col1_row3,
+  .col3_row2_3 {
+    grid-column: unset !important;
+    grid-row: unset !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 0 80px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .cardBlack .quote,
+  .cardBlue .quote {
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+  }
+}

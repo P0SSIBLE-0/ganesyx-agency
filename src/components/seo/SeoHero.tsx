@@ -1,39 +1,17 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { ArrowRight, Sparkles, TrendingUp } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Search } from 'lucide-react';
 import styles from './SeoHero.module.css';
 
+// Framer motion variants for staggered entry of the text column
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.1,
       delayChildren: 0.1,
-    }
-  }
-};
-
-const titleContainerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.015,
-      delayChildren: 0.25,
-    }
-  }
-};
-
-const charVariants: Variants = {
-  hidden: { y: '110%', opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
     }
   }
 };
@@ -44,211 +22,210 @@ const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.8,
       ease: [0.16, 1, 0.3, 1],
     }
   }
 };
 
-const dashboardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+// Variants for the floating card and node elements
+const elementVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.9, y: 15 },
   visible: {
     opacity: 1,
+    scale: 1,
     y: 0,
     transition: {
-      duration: 1.0,
+      duration: 0.8,
       ease: [0.16, 1, 0.3, 1],
-      delay: 0.5,
+      delay: 1.8 // Appear after the graph line animates
     }
   }
 };
 
 export default function SeoHero() {
-  const headingText = "SEO that brings in qualified traffic month after month.";
-  const highlightWord = "qualified traffic";
-
-  const renderTitle = (text: string, highlight: string) => {
-    const parts = text.split(highlight);
-
-    const renderWords = (phrase: string, isHighlighted: boolean) => {
-      return phrase.split(' ').map((word, wordIdx) => {
-        if (!word && wordIdx === 0) return null;
-        return (
-          <span key={wordIdx} className={styles.wordWrapper}>
-            {Array.from(word).map((char, charIdx) => (
-              <span key={charIdx} className={styles.charWrapper}>
-                <motion.span
-                  variants={charVariants}
-                  className={`${styles.char} ${isHighlighted ? styles.headingItalic : ''}`}
-                >
-                  {char}
-                </motion.span>
-              </span>
-            ))}
-            <span className={styles.space}>&nbsp;</span>
-          </span>
-        );
-      });
-    };
-
-    return (
-      <span className={styles.headingLine}>
-        {renderWords(parts[0], false)}
-        <span className={styles.headingItalic}>{renderWords(highlight, true)}</span>
-        {renderWords(parts[1], false)}
-      </span>
-    );
-  };
-
   return (
     <section className={styles.hero}>
-      {/* Dynamic Background */}
-      <div className={styles.ambientCanvas}>
-        <div className={styles.radialGlow1} />
-        <div className={styles.radialGlow2} />
+      {/* Background Decorative Gradients & Mesh */}
+      <div className={styles.backgroundContainer}>
         <div className={styles.gridOverlay} />
+        <div className={styles.ambientGlow1} />
+        <div className={styles.ambientGlow2} />
+        {/* Subtle geometric lines */}
+        <div className={styles.geometricLine1} />
+        <div className={styles.geometricLine2} />
       </div>
 
       <div className={styles.container}>
-        {/* Main Content */}
         <motion.div
-          className={styles.content}
+          className={styles.grid}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.div className={styles.badge} variants={itemVariants}>
-            <Sparkles size={11} className={styles.badgeIcon} />
-            <span>Organic Traffic Engine</span>
-          </motion.div>
+          {/* Left Column: Content */}
+          <div className={styles.contentColumn}>
+            {/* Pill Badge */}
+            <motion.div className={styles.badge} variants={itemVariants}>
+              <Sparkles size={12} className={styles.badgeIcon} />
+              <span>Stop guessing. Start growing.</span>
+            </motion.div>
 
-          <motion.h1
-            className={styles.mainTitle}
-            variants={titleContainerVariants}
-          >
-            {renderTitle(headingText, highlightWord)}
-          </motion.h1>
+            {/* Headline */}
+            <motion.h1 className={styles.headline} variants={itemVariants}>
+              SEO Built For <br />
+              <span className={styles.highlightText}>Long-Term Organic Growth.</span>
+            </motion.h1>
 
-          <motion.p className={styles.description} variants={itemVariants}>
-            We improve your search visibility with technical SEO, content strategy, and authority building.
-          </motion.p>
+            {/* Description */}
+            <motion.p className={styles.description} variants={itemVariants}>
+              We help businesses improve search visibility, attract qualified traffic, and build sustainable growth through strategic SEO systems.
+            </motion.p>
 
-          <motion.div className={styles.actions} variants={itemVariants}>
-            <motion.a
-              href="#audit"
-              className={styles.primaryBtn}
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
-            >
-              <span>Get Free Audit Proposal</span>
-              <div className={styles.btnArrow}>
-                <ArrowRight size={14} />
-              </div>
-            </motion.a>
-            <motion.a
-              href="#services"
-              className={styles.secondaryBtn}
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
-            >
-              <span>Our Strategy</span>
-            </motion.a>
-          </motion.div>
-        </motion.div>
-
-        {/* Clean Dashboard Panel */}
-        <motion.div
-          className={styles.dashboardConsole}
-          variants={dashboardVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Header */}
-          <div className={styles.consoleHeader}>
-            <div className={styles.windowDots}>
-              <div className={`${styles.dot} ${styles.dotRed}`} />
-              <div className={`${styles.dot} ${styles.dotYellow}`} />
-              <div className={`${styles.dot} ${styles.dotGreen}`} />
-            </div>
-            <div className={styles.windowURL}>
-              ganesyx.com/seo-performance
-            </div>
-            <div className={styles.statusIndicator}>
-              <span className={styles.statusPulse} />
-              <span>Live Feed</span>
-            </div>
+            {/* Call to Actions */}
+            <motion.div className={styles.actions} variants={itemVariants}>
+              <motion.a
+                href="#services"
+                className={styles.primaryBtn}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>Start SEO Growth</span>
+                <span className={styles.btnArrow}>
+                  <ArrowRight size={15} />
+                </span>
+              </motion.a>
+              <motion.a
+                href="#audit"
+                className={styles.secondaryBtn}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>Get SEO Audit</span>
+              </motion.a>
+            </motion.div>
           </div>
 
-          {/* Key Metrics */}
-          <div className={styles.overviewStats}>
-            <div className={styles.statCard}>
-              <span className={styles.statLabel}>Organic Sessions</span>
-              <span className={styles.statValue}>142.8k</span>
-              <div className={styles.statTrend}>
-                <TrendingUp size={11} />
-                <span>+184.2% MoM</span>
-              </div>
+          {/* Right Column: Animated Graph and Stats */}
+          <div className={styles.visualColumn}>
+            {/* Background Grid Lines inside the graph area */}
+            <div className={styles.graphGrid}>
+              <div className={styles.gridRow} />
+              <div className={styles.gridRow} />
+              <div className={styles.gridRow} />
+              <div className={styles.gridRow} />
             </div>
-            <div className={styles.statCard}>
-              <span className={styles.statLabel}>Avg. Domain Authority</span>
-              <span className={styles.statValue}>58 / 100</span>
-              <div className={styles.statTrend}>
-                <TrendingUp size={11} />
-                <span>+8 positions</span>
-              </div>
-            </div>
-            <div className={styles.statCard}>
-              <span className={styles.statLabel}>SEO Health Score</span>
-              <span className={styles.statValue}>98 / 100</span>
-              <div className={styles.statTrend}>
-                <TrendingUp size={11} />
-                <span>Good standing</span>
-              </div>
-            </div>
-          </div>
 
-          {/* Elegant SVG Area Graph */}
-          <div className={styles.chartWrapper}>
-            <svg className={styles.chartSvg} viewBox="0 0 900 200" preserveAspectRatio="none">
+            {/* SVG Line Graph */}
+            <svg
+              className={styles.graphSvg}
+              viewBox="0 0 600 400"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+            >
               <defs>
-                <linearGradient id="premiumChartGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#330099" stopOpacity="0.15" />
-                  <stop offset="100%" stopColor="#330099" stopOpacity="0.0" />
+                {/* Vibrant Purple Line Gradient */}
+                <linearGradient id="purpleLineGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#6d28d9" />
+                  <stop offset="50%" stopColor="#8b5cf6" />
+                  <stop offset="100%" stopColor="#a855f7" />
+                </linearGradient>
+
+                {/* Subtle area fill gradient below line */}
+                <linearGradient id="areaFillGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.06" />
+                  <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.0" />
                 </linearGradient>
               </defs>
 
-              {/* Horizontal grid lines */}
-              <line x1="0" y1="50" x2="900" y2="50" stroke="rgba(0,0,0,0.02)" strokeWidth="1" />
-              <line x1="0" y1="100" x2="900" y2="100" stroke="rgba(0,0,0,0.02)" strokeWidth="1" />
-              <line x1="0" y1="150" x2="900" y2="150" stroke="rgba(0,0,0,0.02)" strokeWidth="1" />
-
-              {/* Gradient Area Fill */}
-              <path
-                d="M 0 170 C 150 160, 300 120, 450 110 C 600 100, 750 50, 900 30 L 900 200 L 0 200 Z"
-                fill="url(#premiumChartGrad)"
-                className={styles.chartFill}
+              {/* Dotted target markers */}
+              <line
+                x1="485" y1="110" x2="485" y2="400"
+                stroke="rgba(124, 58, 237, 0.12)"
+                strokeWidth="1.5"
+                strokeDasharray="4 4"
               />
 
-              {/* Minimal Line Drawing */}
-              <path
-                d="M 0 170 C 150 160, 300 120, 450 110 C 600 100, 750 50, 900 30"
-                fill="none"
-                stroke="#330099"
-                strokeWidth="2"
+              <line
+                x1="0" y1="110" x2="485" y2="110"
+                stroke="rgba(124, 58, 237, 0.08)"
+                strokeWidth="1"
+                strokeDasharray="4 4"
+              />
+
+              {/* Area Fill under the path */}
+              <motion.path
+                d="M 0 380 L 100 290 L 160 320 L 240 210 L 300 245 L 390 130 L 440 160 L 530 60 L 600 30 L 600 400 L 0 400 Z"
+                fill="url(#areaFillGrad)"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.5, delay: 1.0 }}
+              />
+
+              {/* Blur Glow Effect Path */}
+              <motion.path
+                d="M 0 380 L 100 290 L 160 320 L 240 210 L 300 245 L 390 130 L 440 160 L 530 60 L 600 30"
+                stroke="#8b5cf6"
+                strokeWidth="12"
                 strokeLinecap="round"
-                className={styles.chartLine}
+                strokeLinejoin="round"
+                opacity="0.12"
+                style={{ filter: 'blur(8px)' }}
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2.2, ease: "easeInOut" }}
               />
 
-              {/* Pulsing endpoint */}
-              <circle cx="900" cy="30" r="4" fill="#330099" />
-              <circle cx="900" cy="30" r="10" fill="none" stroke="#330099" opacity="0.3">
-                <animate attributeName="r" values="4;14;4" dur="2.5s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.7;0;0.7" dur="2.5s" repeatCount="indefinite" />
-              </circle>
+              {/* Primary Neon Path */}
+              <motion.path
+                d="M 0 380 L 100 290 L 160 320 L 240 210 L 300 245 L 390 130 L 440 160 L 530 60 L 600 30"
+                stroke="url(#purpleLineGrad)"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2.2, ease: "easeInOut" }}
+              />
             </svg>
+
+            {/* Pulsing Intersecting Node (positioned exactly at x=485, y=110 on 600x400 SVG) */}
+            {/* Coordinates in percent: left = (485/600)*100% = 80.83%, top = (110/400)*100% = 27.5% */}
+            <motion.div
+              className={styles.graphNode}
+              style={{ left: '79.83%', top: '24.5%' }}
+              variants={elementVariants}
+            >
+              <div className={styles.nodeCore} />
+              <div className={styles.nodePulse} />
+            </motion.div>
+
+            {/* Floating Glass Stats Card */}
+            {/* Positioned relative to node (placed to the left and slightly higher) */}
+            <motion.div
+              className={styles.statsCard}
+              style={{ left: '46%', top: '16%' }}
+              variants={elementVariants}
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            >
+              <div className={styles.cardHeader}>
+                <Search size={12} className={styles.cardIcon} />
+                <span className={styles.cardScope}>Organic Traffic</span>
+              </div>
+              <div className={styles.cardValueRow}>
+                <span className={styles.cardValue}>98.8K</span>
+                <div className={styles.cardBadge}>
+                  <TrendingUp size={10} className={styles.badgeArrow} />
+                  <span>+24.8%</span>
+                </div>
+              </div>
+              <span className={styles.cardPeriod}>Last 30 days</span>
+            </motion.div>
           </div>
         </motion.div>
       </div>
     </section>
   );
 }
+

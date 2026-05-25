@@ -1,9 +1,10 @@
-﻿.section {
+.section {
   position: relative;
   width: 100%;
-  padding: 120px 24px;
+  padding: 120px 100px;
   overflow: hidden;
-  background: #ffffff; /* Crisp white background for section */
+  background: #ffffff;
+  /* Crisp white background for section */
   border-top: 1px solid rgba(51, 0, 153, 0.08);
 }
 
@@ -32,7 +33,7 @@
 .title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
@@ -49,10 +50,14 @@
 /* === Flat Sharp Grid Layout === */
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4-column side-by-side row on desktop */
-  gap: 1px; /* 1px divider gap */
-  background: rgba(51, 0, 153, 0.12); /* acts as the divider line color */
-  border: 1px solid rgba(51, 0, 153, 0.12); /* clean sharp box bounding */
+  grid-template-columns: repeat(4, 1fr);
+  /* 4-column side-by-side row on desktop */
+  gap: 1px;
+  /* 1px divider gap */
+  background: rgba(51, 0, 153, 0.12);
+  /* acts as the divider line color */
+  border: 1px solid rgba(51, 0, 153, 0.12);
+  /* clean sharp box bounding */
   overflow: hidden;
 }
 
@@ -64,19 +69,32 @@
   gap: 24px;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  border-radius: 0px !important; /* Sharp borders */
+  border-radius: 0px !important;
+  /* Sharp borders */
 }
 
 /* Automatic stepping of brand tints */
-.card:nth-child(1) { background: rgba(51, 0, 153, 0.015); }
-.card:nth-child(2) { background: rgba(51, 0, 153, 0.035); }
-.card:nth-child(3) { background: rgba(51, 0, 153, 0.055); }
-.card:nth-child(4) { background: rgba(51, 0, 153, 0.08); }
+.card:nth-child(1) {
+  background: rgba(51, 0, 153, 0.015);
+}
+
+.card:nth-child(2) {
+  background: rgba(51, 0, 153, 0.035);
+}
+
+.card:nth-child(3) {
+  background: rgba(51, 0, 153, 0.055);
+}
+
+.card:nth-child(4) {
+  background: rgba(51, 0, 153, 0.08);
+}
 
 .iconWrapper {
   width: 44px;
   height: 44px;
-  border-radius: 0px; /* Sharp icon wrapper */
+  border-radius: 0px;
+  /* Sharp icon wrapper */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,13 +137,15 @@
 /* === Responsive === */
 @media (max-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr); /* 2x2 grid on tablets */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2x2 grid on tablets */
   }
 }
 
 @media (max-width: 640px) {
   .grid {
-    grid-template-columns: 1fr; /* 1 column grid on mobile */
+    grid-template-columns: 1fr;
+    /* 1 column grid on mobile */
   }
 
   .section {

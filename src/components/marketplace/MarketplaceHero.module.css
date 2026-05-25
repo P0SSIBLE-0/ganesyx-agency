@@ -96,7 +96,8 @@
 .inlineLogos {
   display: inline-flex;
   align-items: center;
-  gap: -6px; /* Overlap them */
+  gap: -6px;
+  /* Overlap them */
   vertical-align: middle;
   margin: 0 8px;
   position: relative;
@@ -255,10 +256,11 @@
 }
 
 .partnerLogo {
-  opacity: 0.45;
+  opacity: 0.85;
   transition: opacity 0.3s ease;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .partnerLogo:hover {
@@ -624,12 +626,12 @@
     height: 26px;
     margin-left: -6px;
   }
-  
+
   .miniLogo {
     width: 14px;
     height: 14px;
   }
-  
+
   .inlineLogos {
     margin: 0 4px;
     top: -1px;

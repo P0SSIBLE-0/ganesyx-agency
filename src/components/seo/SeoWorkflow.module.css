@@ -1,7 +1,7 @@
-﻿.section {
+.section {
   position: relative;
   width: 100%;
-  padding: 120px 24px;
+  padding: 120px 100px;
   background: #f6f5fb;
   /* Brand soft lavender background */
   overflow: visible;

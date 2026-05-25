@@ -237,7 +237,7 @@ export default function BrandingBento() {
 
           {/* Card 5: Interactive Digital Brand Portals */}
           <motion.div
-            className={`${styles.card} ${styles.cardWhite} ${styles.colSpan3}`}
+            className={`${styles.card} ${styles.cardNavy} ${styles.colSpan3}`}
             custom={4}
             initial="hidden"
             whileInView="visible"

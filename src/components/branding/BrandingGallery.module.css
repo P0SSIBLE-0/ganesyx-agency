@@ -37,8 +37,7 @@
 }
 
 .headingItalic {
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 600;
   font-family: var(--font-body);
 }
 

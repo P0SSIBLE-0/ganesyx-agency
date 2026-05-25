@@ -107,6 +107,15 @@
   border: 1px solid transparent;
 }
 
+.cardNavy {
+  background-color: #0029ff30;
+}
+
+.cardNavy:hover {
+  box-shadow: 0 20px 50px rgba(67, 30, 234, 0.09);
+  ;
+}
+
 .cardGrey:hover {
   box-shadow: 0 20px 50px rgba(12, 8, 30, 0.06);
   transform: translateY(-4px);
