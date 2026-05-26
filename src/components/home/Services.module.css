@@ -41,13 +41,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px 18px;
+  padding: 10px 16px;
   background: #7c3aed;
   color: #ffffff;
   border-radius: 9999px;
   font-family: var(--font-body);
-  height: 42px;
-  font-size: 0.85rem;
+  height: 30px;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;

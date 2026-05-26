@@ -1,10 +1,79 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { faqCategories, FAQCategory } from '@/data/faqs';
 import { FaqItem } from '@/data/types';
 import styles from './FaqPage.module.css';
+
+interface FaqRowComponentProps {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  variants?: Variants;
+  initial?: any;
+  animate?: any;
+}
+
+function FaqRowComponent({
+  question,
+  answer,
+  isOpen,
+  onToggle,
+  variants,
+  initial,
+  animate,
+}: FaqRowComponentProps) {
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (bodyRef.current) {
+      setHeight(bodyRef.current.scrollHeight);
+    }
+  }, [answer]);
+
+  return (
+    <motion.div
+      className={`${styles.faqRow} ${isOpen ? styles.faqRowActive : ''}`}
+      variants={variants}
+      initial={initial}
+      animate={animate}
+    >
+      <button
+        className={styles.faqQuestionButton}
+        onClick={onToggle}
+        aria-expanded={isOpen}
+      >
+        <span className={styles.faqQuestionText}>{question}</span>
+        <span className={`${styles.faqIcon} ${isOpen ? styles.faqIconOpen : ''}`}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </span>
+      </button>
+
+      <motion.div
+        initial={false}
+        animate={{
+          height: isOpen ? height : 0,
+          opacity: isOpen ? 1 : 0,
+        }}
+        transition={{
+          height: { duration: 0.38, ease: [0.16, 1, 0.46, 1] },
+          opacity: { duration: isOpen ? 0.25 : 0.15, delay: isOpen ? 0.05 : 0 },
+        }}
+        style={{ overflow: 'hidden' }}
+      >
+        <div ref={bodyRef} className={styles.faqAnswerWrapper}>
+          <p className={styles.faqAnswerText}>{answer}</p>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function FaqPageClient() {
   const [activeTab, setActiveTab] = useState<string>('general');
@@ -203,34 +272,14 @@ export default function FaqPageClient() {
                     const itemKey = `tab-${index}`;
                     const isOpen = openFaqKey === itemKey;
                     return (
-                      <motion.div
+                      <FaqRowComponent
                         key={index}
-                        className={`${styles.faqRow} ${isOpen ? styles.faqRowActive : ''}`}
+                        question={item.question}
+                        answer={item.answer}
+                        isOpen={isOpen}
+                        onToggle={() => setOpenFaqKey(isOpen ? null : itemKey)}
                         variants={itemVariants}
-                      >
-                        <button
-                          className={styles.faqQuestionButton}
-                          onClick={() => setOpenFaqKey(isOpen ? null : itemKey)}
-                        >
-                          <span className={styles.faqQuestionText}>{item.question}</span>
-                          <span className={`${styles.faqIcon} ${isOpen ? styles.faqIconOpen : ''}`}>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <line x1="12" y1="5" x2="12" y2="19"></line>
-                              <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                          </span>
-                        </button>
-
-                        <div
-                          className={styles.faqAnswerWrapper}
-                          style={{
-                            maxHeight: isOpen ? '500px' : '0px',
-                            opacity: isOpen ? 1 : 0,
-                          }}
-                        >
-                          <p className={styles.faqAnswerText}>{item.answer}</p>
-                        </div>
-                      </motion.div>
+                      />
                     );
                   })}
                 </motion.div>
@@ -265,35 +314,16 @@ export default function FaqPageClient() {
                           const uniqueKey = `search-${catIdx}-${itemIdx}`;
                           const isOpen = openFaqKey === uniqueKey;
                           return (
-                            <motion.div
+                            <FaqRowComponent
                               key={uniqueKey}
-                              className={`${styles.faqRow} ${isOpen ? styles.faqRowActive : ''}`}
+                              question={item.question}
+                              answer={item.answer}
+                              isOpen={isOpen}
+                              onToggle={() => setOpenFaqKey(isOpen ? null : uniqueKey)}
                               variants={itemVariants}
                               initial="hidden"
                               animate="visible"
-                            >
-                              <button
-                                className={styles.faqQuestionButton}
-                                onClick={() => setOpenFaqKey(isOpen ? null : uniqueKey)}
-                              >
-                                <span className={styles.faqQuestionText}>{item.question}</span>
-                                <span className={`${styles.faqIcon} ${isOpen ? styles.faqIconOpen : ''}`}>
-                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                  </svg>
-                                </span>
-                              </button>
-                              <div
-                                className={styles.faqAnswerWrapper}
-                                style={{
-                                  maxHeight: isOpen ? '500px' : '0px',
-                                  opacity: isOpen ? 1 : 0,
-                                }}
-                              >
-                                <p className={styles.faqAnswerText}>{item.answer}</p>
-                              </div>
-                            </motion.div>
+                            />
                           );
                         })}
                       </div>
