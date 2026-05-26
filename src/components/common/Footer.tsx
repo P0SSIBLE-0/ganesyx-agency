@@ -30,13 +30,13 @@ const resourcesLinks: FooterLink[] = [
   { label: 'Case Studies', href: '/#work' },
   { label: 'Agency Story', href: '/about' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms & Conditions', href: '/terms-of-service' },
+  { label: 'Terms & Conditions', href: '/terms-and-conditions' },
   { label: 'FAQs & Support', href: '/faq' },
 ];
 
 const legalLinks: FooterLink[] = [
   { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms of Service', href: '/terms-of-service' },
+  { label: 'Terms & Conditions', href: '/terms-and-conditions' },
 ];
 
 const Footer = () => {

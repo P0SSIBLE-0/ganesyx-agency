@@ -172,7 +172,7 @@ export default function ContactUs({ id = 'contact' }: ContactUsProps) {
                     {formData.consent && <Check size={14} strokeWidth={3} className={styles.checkIcon} />}
                   </span>
                   <span className={styles.checkboxText}>
-                    I accept the terms of service and privacy policy
+                    I accept the <a href="/terms-and-conditions" className={styles.privacyLink} target="_blank" rel="noopener noreferrer">Terms and Conditions</a> and <a href="/privacy-policy" className={styles.privacyLink} target="_blank" rel="noopener noreferrer">Privacy Policy</a>
                   </span>
                 </label>
               </div>

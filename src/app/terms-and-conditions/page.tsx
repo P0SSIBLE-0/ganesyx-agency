@@ -1,24 +1,24 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import styles from './TermsOfService.module.css';
+import styles from './TermsAndConditions.module.css';
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Ganesyx Agency",
-  description: "Read the Terms of Service for Ganesyx Agency. Understand client obligations, service deliverables, intellectual property terms, and legal regulations.",
+  title: "Terms and Conditions | Ganesyx Agency",
+  description: "Read the Terms and Conditions for Ganesyx Agency. Understand client obligations, service deliverables, intellectual property terms, and legal regulations.",
 };
 
-export default function TermsOfServicePage() {
+export default function TermsAndConditionsPage() {
   return (
     <main className={styles.wrapper}>
       <article className={styles.container}>
         <header className={styles.header}>
-          <h1 className={styles.title}>Terms of Service</h1>
+          <h1 className={styles.title}>Terms and Conditions</h1>
           <p className={styles.lastUpdated}>Last Updated: May 26, 2026</p>
         </header>
 
         <div className={styles.content}>
           <p>
-            Welcome to Ganesyx Agency. These Terms of Service (“Terms”) govern your access to and use of our website and our professional services, including Web Development, Search Engine Optimization (SEO), Paid Ads Management, Video Production, Branding, and AI Solutions development.
+            Welcome to Ganesyx Agency. These Terms and Conditions (“Terms”) govern your access to and use of our website and our professional services, including Web Development, Search Engine Optimization (SEO), Paid Ads Management, Video Production, Branding, and AI Solutions development.
           </p>
           <p>
             By accessing our website or engaging with our services, you agree to be bound by these Terms. If you do not agree to all of these Terms, you are prohibited from using the site and our services.
@@ -77,7 +77,7 @@ export default function TermsOfServicePage() {
 
           <h2>9. Contact Us</h2>
           <p>
-            If you have any questions about these Terms of Service, please contact us at <a href="mailto:hello@ganesyx.com">hello@ganesyx.com</a> or visit our <Link href="/contact">Contact Page</Link>.
+            If you have any questions about these Terms and Conditions, please contact us at <a href="mailto:hello@ganesyx.com">hello@ganesyx.com</a> or visit our <Link href="/contact">Contact Page</Link>.
           </p>
         </div>
       </article>

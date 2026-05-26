@@ -31,6 +31,7 @@ export default function BrandingPage() {
 
       {/* 5. Trust Intro Title with Morphing Text */}
       <BrandingTrustIntro />
+
       {/* 4. Brand Trust Typing & Gradient section */}
       <BrandingTrust />
 

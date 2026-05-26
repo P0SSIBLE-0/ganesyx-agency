@@ -1036,7 +1036,7 @@
 
   .headline {
     /* Aggressive clamp: never below 24px, scales with viewport */
-    font-size: clamp(1.5rem, 7vw, 2.4rem);
+    font-size: clamp(1.5rem, 10vw, 2.4rem);
     margin-bottom: 16px;
     letter-spacing: -0.02em;
   }
