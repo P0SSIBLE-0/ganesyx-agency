@@ -49,7 +49,7 @@ function ProjectCard({ project, index, total, scrollYProgress }: ProjectCardProp
 
   // opacity: offscreen = 0, entered/active/stacked = 1 (fully opaque to prevent any layer bleeding)
   const opacityOutput = Array.from({ length: total }, (_, k) => {
-    if (k < index) return 0;
+    if (k < index) return 0.6;
     return 1;
   });
 
@@ -142,7 +142,7 @@ export default function WebDevWork() {
 
   // Smooth the scroll progress with a snappy and responsive physics setting
   const scrollYProgress = useSpring(rawScrollY, {
-    stiffness: 400,
+    stiffness: 500,
     damping: 40,
     mass: 0.2,
     restDelta: 0.001

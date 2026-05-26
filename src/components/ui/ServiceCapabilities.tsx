@@ -20,13 +20,14 @@ import {
   Pencil,
   ShoppingBag,
   Share2,
-  Users
+  Users,
+  type LucideIcon
 } from 'lucide-react';
 import { Heading, SubHeading, Paragraph } from '@/components/ui/Typography';
 import styles from './ServiceCapabilities.module.css';
 
 // Type mapping for dynamic icons
-const iconMap: Record<string, React.ComponentType<any>> = {
+const iconMap: Record<string, LucideIcon> = {
   settings: Settings,
   fileText: FileText,
   sparkles: Sparkles,
@@ -114,7 +115,7 @@ export default function ServiceCapabilities({
             return (
               <motion.div
                 key={index}
-                className={styles.card}
+                className={`${styles.card} ${styles['card' + (index % 6)]}`}
                 variants={cardVariants}
                 whileHover={{ y: -4 }}
               >

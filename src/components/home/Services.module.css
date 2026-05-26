@@ -14,7 +14,7 @@
   width: 60%;
   height: 40%;
   background: radial-gradient(circle, rgba(124, 58, 237, 0.23) 0%, rgba(124, 58, 237, 0) 70%);
-  filter: blur(80px);
+  filter: blur(60px);
   pointer-events: none;
   z-index: 1;
 }
@@ -57,7 +57,7 @@
 
 .heading {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 5vw, 3.1rem);
+  font-size: clamp(2.2rem, 5vw, 2.7rem);
   font-weight: 600;
   color: #111111;
   line-height: 1.15;
@@ -66,7 +66,7 @@
 }
 
 .highlight {
-  background: linear-gradient(90deg, #a32ff0 0%, #6d28d9 100%) padding-box, linear-gradient(90deg, #7c3aed 0%, #6d28d9 100%) border-box;
+  background: linear-gradient(90deg, #5d55f7 0%, #6d28d9 100%) padding-box, linear-gradient(90deg, #7c3aed 0%, #6d28d9 100%) border-box;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -135,7 +135,7 @@
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #a32ff0 0%, #6d28d9 100%) padding-box, linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) border-box;
+  background: linear-gradient(135deg, #5d55f7 0%, #6d28d9 100%) padding-box, linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) border-box;
   color: white;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -164,12 +164,12 @@
   font-family: var(--font-body);
   font-size: 0.92rem;
   font-weight: 600;
-  color: #7c3aed;
+  color: #5d55f7;
   transition: gap 0.3s ease, color 0.3s ease;
 }
 
 .card:hover .cardLink {
-  color: #6d28d9;
+  color: #5d55f7;
 }
 
 .cardLink .arrow {
@@ -224,7 +224,7 @@
   position: relative;
   z-index: 3;
   padding: 13px 26px;
-  background: #7c3aed;
+  background: #5d55f7;
   color: #ffffff;
   border: none;
   border-radius: 100px;
@@ -247,7 +247,7 @@
 }
 
 .learnMoreBtn:hover {
-  background: #6d28d9;
+  background: #2720bc;
   box-shadow: 0 10px 25px rgba(124, 58, 237, 0.5);
   transform: scale(1.05);
 }

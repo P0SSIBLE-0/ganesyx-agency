@@ -390,11 +390,38 @@
 }
 
 .mobileCtaLink {
-  color: var(--brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--text-primary, #101010);
+  color: #ffffff !important;
+  border-radius: 100px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 .mobileCtaLink:hover {
-  color: var(--brand-light);
+  background: var(--brand, #330099);
+  color: #ffffff !important;
+  transform: translateY(-1.5px);
+  box-shadow: 0 12px 24px rgba(51, 0, 153, 0.2);
+}
+
+.mobileCtaArrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobileCtaLink:hover .mobileCtaArrow {
+  transform: translateX(4px);
 }
 
 /* === Mobile Drawer Footer === */

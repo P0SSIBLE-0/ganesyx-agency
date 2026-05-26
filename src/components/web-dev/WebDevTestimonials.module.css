@@ -56,7 +56,7 @@
 
 /* White cards */
 .cardWhite {
-  background: #ffffff;
+  background: #f4f4f4;
   border: 1px solid #e2e8f0;
   /* slate-200 */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);

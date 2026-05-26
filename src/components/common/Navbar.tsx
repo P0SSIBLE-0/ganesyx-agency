@@ -34,6 +34,7 @@ const navLinks: NavLink[] = [
     ]
   },
   { label: 'About', href: '/about' },
+  { label: 'Blogs', href: '/blogs' },
   { label: 'Contact Us', href: '/contact' },
 ];
 
@@ -298,11 +299,13 @@ const Navbar = () => {
               >
                 <a
                   href="#contact"
-                  className={`${styles.mobileNavLink} ${styles.mobileCtaLink}`}
+                  className={styles.mobileCtaLink}
                   onClick={(e) => handleLinkClick(e, '#contact')}
                 >
-                  <span className={styles.navNumber}>0{navLinks.length + 1}</span>
                   Let&apos;s Talk
+                  <svg width="16" height="16" viewBox="0 0 15 15" fill="none" className={styles.mobileCtaArrow}>
+                    <path d="M3.5 7.5H11.5M11.5 7.5L8 4M11.5 7.5L8 11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </a>
               </li>
             </ul>

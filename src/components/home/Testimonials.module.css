@@ -1,5 +1,5 @@
 .testimonials {
-  padding: 80px 0 80px;
+  padding: 50px 0 80px;
   background: #ffffff;
   position: relative;
   overflow: hidden;
@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
   padding: 8px 24px;
-  background: linear-gradient(125deg, #615FFF, #AD46FF);
+  background: linear-gradient(125deg, #7c7ae7, #6b46ff);
   color: #ffffff;
   border-radius: 100px;
   font-size: 0.85rem;

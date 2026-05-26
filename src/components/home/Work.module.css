@@ -17,7 +17,7 @@
 .badge {
   display: inline-block;
   padding: 8px 20px;
-  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #4a18c0 0%, #6366f1 100%);
   color: #ffffff;
   font-family: var(--font-body);
   font-size: 0.8rem;
@@ -63,7 +63,7 @@
 .title {
   font-family: var(--font-heading);
   font-size: clamp(2.5rem, 5vw, 2.8rem);
-  font-weight: 700;
+  font-weight: 600;
   color: #111111;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -83,7 +83,7 @@
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 600;
-  color: #8b5cf6;
+  color: #6023ee;
   text-decoration: underline;
   text-underline-offset: 6px;
   white-space: nowrap;
@@ -98,7 +98,7 @@
 
 /* 3. Marquee wrap config */
 .marqueeWrap {
-  --marquee-card-radius: 16px;
+  --marquee-card-radius: 10px;
   /* Reduced card corner radius */
   --marquee-card-height: 380px;
   /* Reduced card height from 480px */

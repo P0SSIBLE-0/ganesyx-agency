@@ -1,6 +1,6 @@
 .section {
   padding: 100px 0 160px 0;
-  background: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #7c3aed 100%);
+  background: linear-gradient(to right, #736def 0%, #160ce0d4 50%, #6d64cf 100%);
   position: relative;
   overflow: hidden;
   color: #ffffff;
@@ -22,7 +22,7 @@
   margin-bottom: 90px;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s ease, transfosrm 0.8s ease;
 }
 
 .visible .header {
@@ -138,7 +138,7 @@
   top: 0;
   right: -10px;
   transform: translateY(-50%);
-  background: linear-gradient(to right, #9119e6a1 5%, #9810FA 60%, #751e98);
+  background: linear-gradient(to right, #5019e6a1 5%, #2720bc 60%, #5019e6a1);
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: #ffffff;
   padding: 4px 12px;

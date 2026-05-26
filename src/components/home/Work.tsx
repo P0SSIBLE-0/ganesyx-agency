@@ -20,7 +20,7 @@ const projectsList: ProjectCard[] = [
   {
     id: 'abstract-wing',
     name: 'Invent Elevator',
-    image: 'https://images.unsplash.com/photo-1618005198143-e528346d9a59?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1658863025658-4a259cc68fc9?q=80&w=1025&auto=format&fit=crop',
     tags: ['Branding', 'Brand Identity', 'Brand Design', 'Brand strategy'],
   },
   {

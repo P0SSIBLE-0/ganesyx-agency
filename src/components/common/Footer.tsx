@@ -1,6 +1,44 @@
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+const companyLinks: FooterLink[] = [
+  { label: 'About Us', href: '/about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Our Work', href: '/#work' },
+  { label: 'Contact Us', href: '/contact' },
+];
+
+const servicesLinks: FooterLink[] = [
+  { label: 'Web Development', href: '/web-dev' },
+  { label: 'SEO Optimization', href: '/seo' },
+  { label: 'Paid Ads', href: '/ads' },
+  { label: 'Social Media', href: '/social' },
+  { label: 'Branding & Creative', href: '/branding' },
+  { label: 'Marketplace SEO', href: '/marketplace' },
+  { label: 'UI/UX Design', href: '/design' },
+  { label: 'Digital Marketing', href: '/digital-market' },
+  { label: 'Video Production', href: '/video' },
+];
+
+const resourcesLinks: FooterLink[] = [
+  { label: 'Latest Insights', href: '/blogs' },
+  { label: 'Case Studies', href: '/#work' },
+  { label: 'Agency Story', href: '/about' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms & Conditions', href: '/terms-of-service' },
+  { label: 'Contact Support', href: '/contact' },
+];
+
+const legalLinks: FooterLink[] = [
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms of Service', href: '/terms-of-service' },
+];
+
 const Footer = () => {
   return (
     <footer className={styles.footer}>
@@ -39,37 +77,34 @@ const Footer = () => {
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Company</h3>
             <div className={styles.links}>
-              <Link href="#" className={styles.link}>About Us</Link>
-              <Link href="#" className={styles.link}>Services</Link>
-              <Link href="#" className={styles.link}>Our Work</Link>
-              <Link href="#" className={styles.link}>Careers</Link>
+              {companyLinks.map((link) => (
+                <Link key={link.label} href={link.href} className={styles.link}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Services</h3>
             <div className={styles.links}>
-              <Link href="#" className={styles.link}>Web Development</Link>
-              <Link href="#" className={styles.link}>UI/UX Design</Link>
-              <Link href="#" className={styles.link}>Brand Strategy</Link>
-              <Link href="#" className={styles.link}>Digital Marketing</Link>
+              {servicesLinks.map((link) => (
+                <Link key={link.label} href={link.href} className={styles.link}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className={`${styles.column} ${styles.newsletter}`}>
-            <h3 className={styles.columnTitle}>Stay in the loop</h3>
-            <p className={styles.newsletterText}>
-              Get the latest insights on digital growth and design trends.
-            </p>
-            <form className={styles.form}>
-              <input type="email" placeholder="Enter your email" className={styles.input} required />
-              <button type="submit" className={styles.submit} aria-label="Subscribe">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </button>
-            </form>
+          <div className={styles.column}>
+            <h3 className={styles.columnTitle}>Resources</h3>
+            <div className={styles.links}>
+              {resourcesLinks.map((link) => (
+                <Link key={link.label} href={link.href} className={styles.link}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -78,8 +113,11 @@ const Footer = () => {
             © {new Date().getFullYear()} Ganesyx Agency. All rights reserved.
           </div>
           <div className={styles.legalLinks}>
-            <Link href="#" className={styles.legalLink}>Privacy Policy</Link>
-            <Link href="#" className={styles.legalLink}>Terms of Service</Link>
+            {legalLinks.map((link) => (
+              <Link key={link.label} href={link.href} className={styles.legalLink}>
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

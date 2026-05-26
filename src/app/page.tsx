@@ -14,6 +14,8 @@ import TextMarquee from "@/components/home/TextMarquee";
 import Pricing from "@/components/home/Pricing";
 import Consultation from "@/components/home/Consultation";
 import ContactUs from "@/components/common/ContactUs";
+import BlogCarousel from "@/components/blogs/BlogCarousel";
+import { blogsData } from "@/data/blogs";
 
 export default function Home() {
   return (
@@ -26,6 +28,7 @@ export default function Home() {
       <WhyChooseUs />
       <TextMarquee />
       <Pricing />
+      <BlogCarousel blogs={blogsData.slice(0, 6)} />
       <Testimonials />
       <Consultation />
       {/* <About />

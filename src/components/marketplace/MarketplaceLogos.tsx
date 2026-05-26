@@ -40,7 +40,7 @@ export default function MarketplaceLogos() {
       tag: 'Listing & Ads SEO',
       glowColor: 'rgba(40, 116, 240, 0.25)',
       glowShadow: 'rgba(40, 116, 240, 0.12)',
-      logoSrc: '/logos/flipkart.svg',
+      logoSrc: '/logos/flipkart-logo.png',
     },
     {
       name: 'Blinkit',

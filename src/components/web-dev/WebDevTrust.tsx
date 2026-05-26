@@ -36,7 +36,7 @@ function MetricCard({ metric, variants }: { metric: MetricItem; variants: Varian
     const rect = cardRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
-    
+
     // Position relative to card center
     const mouseX = e.clientX - rect.left - width / 2;
     const mouseY = e.clientY - rect.top - height / 2;
@@ -68,8 +68,8 @@ function MetricCard({ metric, variants }: { metric: MetricItem; variants: Varian
         transformStyle: 'preserve-3d',
         backgroundColor: isHovered ? metric.hoverBgColor : metric.bgColor,
         borderColor: isHovered ? metric.accentColor : 'rgba(0, 0, 0, 0.06)',
-        boxShadow: isHovered 
-          ? `0 20px 40px rgba(0, 0, 0, 0.05), 0 0 24px ${metric.glowColor}` 
+        boxShadow: isHovered
+          ? `0 20px 40px rgba(0, 0, 0, 0.05), 0 0 24px ${metric.glowColor}`
           : 'none',
         // Inject custom spotlight highlight color as React.CSSProperties style variable
         '--spotlight-color': metric.spotlightColor,
@@ -94,7 +94,7 @@ export default function WebDevTrust() {
       val: '100+',
       title: 'Projects Delivered',
       desc: 'Production-ready web applications deployed globally with robust scaling.',
-      bgColor: '#f5f6ff', // Solid soft indigo
+      bgColor: '#acb4faff', // Solid soft indigo
       hoverBgColor: '#ebeeff',
       accentColor: 'rgba(99, 102, 241, 0.25)',
       spotlightColor: 'rgba(99, 102, 241, 0.08)',
@@ -104,7 +104,7 @@ export default function WebDevTrust() {
       val: '100/100',
       title: 'Performance & SEO',
       desc: 'Engineered for search visibility, core web vitals, and near-zero load times.',
-      bgColor: '#f0fbf5', // Solid soft emerald
+      bgColor: 'rgba(176, 247, 208, 1)', // Solid soft emerald
       hoverBgColor: '#e1f5e8',
       accentColor: 'rgba(16, 185, 129, 0.25)',
       spotlightColor: 'rgba(16, 185, 129, 0.08)',
@@ -114,7 +114,7 @@ export default function WebDevTrust() {
       val: 'Mobile-First',
       title: 'Responsive Design',
       desc: 'Pixel-perfect rendering and fluid layouts across all device screens.',
-      bgColor: '#f1fafd', // Solid soft cyan
+      bgColor: '#b9eafbff', // Solid soft cyan
       hoverBgColor: '#def4f9',
       accentColor: 'rgba(6, 182, 212, 0.25)',
       spotlightColor: 'rgba(6, 182, 212, 0.08)',
@@ -124,7 +124,7 @@ export default function WebDevTrust() {
       val: 'Results-Driven',
       title: 'Conversion Systems',
       desc: 'Intelligent interfaces mapped to convert traffic into active leads.',
-      bgColor: '#faf5ff', // Solid soft purple
+      bgColor: '#e1c4ffff', // Solid soft purple
       hoverBgColor: '#f3e8ff',
       accentColor: 'rgba(168, 85, 247, 0.25)',
       spotlightColor: 'rgba(168, 85, 247, 0.08)',

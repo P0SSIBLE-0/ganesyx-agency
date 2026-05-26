@@ -30,8 +30,8 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 600;
   line-height: 1.2;
   color: #000000;
   letter-spacing: -0.02em;
@@ -49,7 +49,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 14px;
 }
 
 /* Reusable flat card styling */
@@ -57,7 +57,7 @@
   background: #ffffff;
   /* Solid white card to stand out on soft background */
   border: 1px solid rgba(51, 0, 153, 0.05);
-  border-radius: 16px;
+  border-radius: 5px;
   padding: 36px 30px;
   display: flex;
   flex-direction: column;
@@ -97,7 +97,7 @@
 .cardTitle {
   font-family: var(--font-heading);
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   color: #000000;
   margin-bottom: 12px;
   letter-spacing: -0.01em;
@@ -135,6 +135,153 @@
   color: var(--brand, #330099);
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+/* === Vibrant Background Cards === */
+.card.card0 {
+  background: linear-gradient(135deg, #615aed 0%, #7c3aed 100%);
+  box-shadow: 0 15px 30px rgba(124, 58, 237, 0.18);
+}
+
+.card.card1 {
+  background: linear-gradient(135deg, #1145f0 0%, #3b82f6 100%);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.18);
+}
+
+.card.card2 {
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+  box-shadow: 0 15px 30px rgba(13, 148, 136, 0.18);
+}
+
+.card.card3 {
+  background: linear-gradient(135deg, #f67028 0%, #c2410c 100%);
+  box-shadow: 0 15px 30px rgba(234, 88, 12, 0.18);
+}
+
+.card.card4 {
+  background: linear-gradient(135deg, #273c6b 0%, #1e293b 100%);
+  /* Premium Obsidian black */
+  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.18);
+}
+
+.card.card5 {
+  background: linear-gradient(135deg, #f8318b 0%, #be185d 100%);
+  box-shadow: 0 15px 30px rgba(219, 39, 119, 0.18);
+}
+
+.card0,
+.card1,
+.card2,
+.card3,
+.card4,
+.card5 {
+  border: none !important;
+}
+
+.card0 .number,
+.card1 .number,
+.card2 .number,
+.card3 .number,
+.card4 .number,
+.card5 .number {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.card0 .iconWrapper,
+.card1 .iconWrapper,
+.card2 .iconWrapper,
+.card3 .iconWrapper,
+.card4 .iconWrapper,
+.card5 .iconWrapper {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.14);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.card0:hover .iconWrapper,
+.card1:hover .iconWrapper,
+.card2:hover .iconWrapper,
+.card3:hover .iconWrapper,
+.card4:hover .iconWrapper,
+.card5:hover .iconWrapper {
+  background: #ffffff;
+  transform: scale(1.05) rotate(10deg);
+}
+
+.card0:hover .iconWrapper {
+  color: #7c3aed;
+}
+
+.card1:hover .iconWrapper {
+  color: #3b82f6;
+}
+
+.card2:hover .iconWrapper {
+  color: #0d9488;
+}
+
+.card3:hover .iconWrapper {
+  color: #ea580c;
+}
+
+.card4:hover .iconWrapper {
+  color: #0f172a;
+}
+
+.card5:hover .iconWrapper {
+  color: #db2777;
+}
+
+.card0 .cardTitle,
+.card1 .cardTitle,
+.card2 .cardTitle,
+.card3 .cardTitle,
+.card4 .cardTitle,
+.card5 .cardTitle {
+  color: #ffffff;
+}
+
+.card0 .cardText,
+.card1 .cardText,
+.card2 .cardText,
+.card3 .cardText,
+.card4 .cardText,
+.card5 .cardText {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.card0 .bulletList,
+.card1 .bulletList,
+.card2 .bulletList,
+.card3 .bulletList,
+.card4 .bulletList,
+.card5 .bulletList {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.card0 .bulletItem,
+.card1 .bulletItem,
+.card2 .bulletItem,
+.card3 .bulletItem,
+.card4 .bulletItem,
+.card5 .bulletItem {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.card0 .bulletIcon,
+.card1 .bulletIcon,
+.card2 .bulletIcon,
+.card3 .bulletIcon,
+.card4 .bulletIcon,
+.card5 .bulletIcon {
+  color: #c5f82a;
+  /* Custom lime green bullet icons */
 }
 
 /* === Responsive === */
