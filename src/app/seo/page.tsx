@@ -3,6 +3,9 @@ import { SeoHero, SeoWorkflow, SeoInsights } from '@/components/seo';
 import ServiceCapabilities, { CapabilityItem } from '@/components/ui/ServiceCapabilities';
 import ServiceWhy, { WhyItem } from '@/components/ui/ServiceWhy';
 import ContactUs from '@/components/common/ContactUs';
+import { BrandingFaq } from '@/components/branding';
+import { faqCategories } from '@/data/faqs';
+
 
 export const metadata: Metadata = {
   title: "SEO Services | Ganesyx Agency - Grow Organic Search Visibility",
@@ -130,6 +133,9 @@ export default function SeoPage() {
 
       {/* Custom Stepper Workflow Section matching the beige design layout */}
       <SeoWorkflow />
+
+      {/* FAQ Section */}
+      <BrandingFaq data={faqCategories.find(cat => cat.id === 'seo')?.items || []} />
 
       {/* Contact CTA Section */}
       <ContactUs />

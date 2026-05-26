@@ -31,7 +31,7 @@ const resourcesLinks: FooterLink[] = [
   { label: 'Agency Story', href: '/about' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms & Conditions', href: '/terms-of-service' },
-  { label: 'Contact Support', href: '/contact' },
+  { label: 'FAQs & Support', href: '/faq' },
 ];
 
 const legalLinks: FooterLink[] = [

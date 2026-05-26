@@ -36,6 +36,7 @@ const navLinks: NavLink[] = [
   { label: 'About', href: '/about' },
   { label: 'Blogs', href: '/blogs' },
   { label: 'Contact Us', href: '/contact' },
+  { label: 'Faqs', href: '/faq' },
 ];
 
 const Navbar = () => {

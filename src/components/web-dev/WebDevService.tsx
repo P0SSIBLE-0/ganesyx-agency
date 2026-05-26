@@ -42,7 +42,7 @@ export default function WebDevBuild() {
       title: 'LMS Development',
       desc: 'Highly interactive creative experiences tailored for premium brands and individuals.',
       tag: 'Creative',
-      imageUrl: 'https://images.unsplash.com/photo-1677530410699-f692c94cf806?q=80&w=848&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1617469955236-7f13d137a4f0?q=80&w=1170&auto=format&fit=crop',
     },
     {
       title: 'CMS Development',
@@ -57,10 +57,10 @@ export default function WebDevBuild() {
       imageUrl: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=600&auto=format&fit=crop',
     },
     {
-      title: 'API & Integrations',
-      desc: 'Connecting third-party applications, automated workflows, and custom backend syncs.',
-      tag: 'Automations',
-      imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop',
+      title: 'Custom Coded',
+      desc: 'websites from scratch, tailored precisely to your requirements.',
+      tag: 'Custom Coded',
+      imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1170&auto=format&fit=crop',
     },
   ];
 

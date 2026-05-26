@@ -62,6 +62,26 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
 }
 
+.card:nth-child(2) {
+  background-color: rgb(247, 130, 41);
+}
+
+.card:nth-child(3) {
+  background-color: pink;
+}
+
+.card:nth-child(4) {
+  background-color: lightgreen;
+}
+
+.card:nth-child(5) {
+  background-color: rgba(137, 43, 226, 0.64);
+}
+
+.card:nth-child(6) {
+  background-color: rgb(242, 242, 24);
+}
+
 .cardWhite .quote {
   color: #1e293b;
   font-size: 0.98rem;
@@ -77,7 +97,7 @@
 }
 
 .cardWhite .authorTitle {
-  color: #64748b;
+  color: #303235;
   font-size: 0.8rem;
 }
 

@@ -133,7 +133,7 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to top,
-      rgba(10, 10, 15, 0.75) 0%,
+      rgba(11, 11, 84, 0.65) 0%,
       rgba(10, 10, 15, 0.55) 35%,
       rgba(10, 10, 15, 0.1) 75%,
       transparent 100%);
@@ -143,7 +143,7 @@
 
 .cardWrapper:hover .overlay {
   background: linear-gradient(to top,
-      rgba(10, 10, 15, 0.98) 0%,
+      rgba(14, 14, 52, 0.98) 0%,
       rgba(10, 10, 15, 0.68) 55%,
       rgba(10, 10, 15, 0.2) 80%,
       transparent 100%);

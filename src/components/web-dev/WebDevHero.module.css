@@ -134,8 +134,8 @@
 }
 
 .secondaryBtn {
-  color: #0d0d0d;
-  background-color: #15151512;
+  color: #0d0d0dc4;
+  background-color: #15151514;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 6px;
@@ -152,8 +152,8 @@
 
 .secondaryBtn:hover {
   background: rgba(0, 0, 0, 0.03);
-  border-color: rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
+  border-color: rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 /* Mobile responsive styling */

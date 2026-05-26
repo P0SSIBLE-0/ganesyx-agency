@@ -159,7 +159,7 @@ export default function SeoInsights() {
                     </filter>
                   </defs>
 
-                   {/* Main Gauge Arc Track */}
+                  {/* Main Gauge Arc Track */}
                   <path
                     d={`M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
                     stroke="rgba(255, 255, 255, 0.08)"
@@ -188,16 +188,19 @@ export default function SeoInsights() {
 
                   {/* Needle Indicator dot */}
                   <motion.circle
-                    cx={initialDotX}
-                    cy={initialDotY}
+                    cx={cx - r}
+                    cy={cy}
                     r="9"
                     fill="#ffffff"
                     stroke={getScoreColor(currentScore)}
                     strokeWidth="3.5"
                     filter="url(#glow)"
+                    style={{
+                      originX: cx,
+                      originY: cy
+                    }}
                     animate={{
-                      cx: dotX,
-                      cy: dotY
+                      rotate: (currentScore / 100) * 180
                     }}
                     transition={{
                       type: 'spring',
@@ -222,7 +225,7 @@ export default function SeoInsights() {
 
               {/* Description Link */}
               <div className={styles.learnMoreRow}>
-                <a href="#learn-more" className={styles.learnMoreLink}>
+                <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target='_blank' className={styles.learnMoreLink}>
                   Learn more about how content SEO score works.
                 </a>
               </div>

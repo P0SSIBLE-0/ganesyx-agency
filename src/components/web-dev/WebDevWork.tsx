@@ -44,12 +44,12 @@ function ProjectCard({ project, index, total, scrollYProgress }: ProjectCardProp
   const scaleOutput = Array.from({ length: total }, (_, k) => {
     if (k < index) return 1;
     if (k === index) return 1;
-    return 1 - (k - index) * 0.04; // scale down by 4% per stacked card
+    return 1 - (k - index) * 0.12; // scale down by 4% per stacked card
   });
 
   // opacity: offscreen = 0, entered/active/stacked = 1 (fully opaque to prevent any layer bleeding)
   const opacityOutput = Array.from({ length: total }, (_, k) => {
-    if (k < index) return 0.6;
+    if (k < index) return 0.5;
     return 1;
   });
 
@@ -143,9 +143,8 @@ export default function WebDevWork() {
   // Smooth the scroll progress with a snappy and responsive physics setting
   const scrollYProgress = useSpring(rawScrollY, {
     stiffness: 500,
-    damping: 40,
-    mass: 0.2,
-    restDelta: 0.001
+    damping: 50,
+    mass: 0.2
   });
 
   const projects: Project[] = [
@@ -251,5 +250,4 @@ export default function WebDevWork() {
     </section>
   );
 }
-
 

@@ -152,12 +152,12 @@
 }
 
 .checkboxLabel:hover input~.checkboxCustom {
-  border-color: #7c3aed;
+  border-color: #620df6;
 }
 
 .checkboxLabel input:checked~.checkboxCustom {
-  background: #7c3aed;
-  border-color: #7c3aed;
+  background: #5908e6;
+  border-color: #5d0aec;
 }
 
 .checkIcon {
@@ -171,7 +171,7 @@
 }
 
 .privacyLink {
-  color: #7c3aed;
+  color: #5b08eb;
   text-decoration: none;
   font-weight: 500;
 }
@@ -268,7 +268,7 @@
 
 /* === Right Column: Map & Border Accent === */
 .rightCol {
-  background-color: #7c3aed;
+  background-color: #610eef;
   /* Purple backdrop border-accent */
   border-radius: 0 32px 32px 0;
   padding: 36px 36px 36px 0;
