@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import styles from './Navbar.module.css';
 
@@ -43,6 +43,7 @@ const Navbar = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,15 +55,25 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = '';
+    };
   }, []);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    const nextOpen = !isOpen;
+    setIsOpen(nextOpen);
     // Reset mobile accordion on menu toggle
     setMobileServicesOpen(false);
+
+    // Reset scroll position of drawer container if opening
+    if (nextOpen && drawerRef.current) {
+      drawerRef.current.scrollTop = 0;
+    }
+
     // Prevent body scroll when mobile menu is open
-    if (!isOpen) {
+    if (nextOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -211,7 +222,7 @@ const Navbar = () => {
       </header>
 
       {/* Mobile Drawer Overlay */}
-      <div className={`${styles.mobileDrawer} ${isOpen ? styles.drawerActive : ''}`}>
+      <div ref={drawerRef} className={`${styles.mobileDrawer} ${isOpen ? styles.drawerActive : ''}`}>
         <div className={styles.drawerContainer}>
 
           <nav className={styles.mobileNav}>

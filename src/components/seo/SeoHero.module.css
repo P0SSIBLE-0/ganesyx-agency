@@ -153,12 +153,16 @@
 
 .headline {
   font-family: var(--font-heading);
-  font-size: clamp(2.6rem, 4.5vw, 4.4rem);
+  font-size: clamp(2.05rem, 5.5vw, 4.4rem);
   font-weight: 700;
   line-height: 1.1;
   color: #0a0a0a;
   letter-spacing: -0.03em;
   margin-bottom: 22px;
+}
+
+.desktopBr {
+  display: inline;
 }
 
 .highlightText {
@@ -289,6 +293,8 @@
 /* === Graph node === */
 .graphNode {
   position: absolute;
+  left: var(--node-left);
+  top: var(--node-top);
   transform: translate(-50%, -50%);
   width: 16px;
   height: 16px;
@@ -337,6 +343,8 @@
 /* === Floating stats card — light glassmorphism === */
 .statsCard {
   position: absolute;
+  left: var(--card-left);
+  top: var(--card-top);
   transform: translate(-50%, -50%);
   z-index: 15;
   background: rgba(255, 255, 255, 0.75);
@@ -419,13 +427,17 @@
     padding: 140px 24px 80px;
   }
 
+  .desktopBr {
+    display: none;
+  }
+
   .grid {
     grid-template-columns: 1fr;
     gap: 56px;
   }
 
   .contentColumn {
-    grid-column: span 12;
+    grid-column: 1 / -1;
     align-items: center;
     text-align: center;
   }
@@ -439,7 +451,7 @@
   }
 
   .visualColumn {
-    grid-column: span 12;
+    grid-column: 1 / -1;
     width: 100%;
     max-width: 620px;
     margin: 0 auto;
@@ -462,7 +474,14 @@
     justify-content: center;
   }
 
+  .visualColumn {
+    aspect-ratio: 4 / 3;
+    max-width: 100%;
+  }
+
   .statsCard {
+    --card-left: 48%;
+    --card-top: 26%;
     width: 150px;
     padding: 12px 14px;
   }
@@ -474,5 +493,27 @@
   .cardBadge {
     padding: 2px 6px;
     font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsCard {
+    --card-left: 50%;
+    --card-top: 28%;
+    width: 140px;
+    padding: 10px 12px;
+    gap: 4px;
+  }
+
+  .cardValue {
+    font-size: 19px;
+  }
+
+  .cardScope {
+    font-size: 8.5px;
+  }
+
+  .cardPeriod {
+    font-size: 9px;
   }
 }

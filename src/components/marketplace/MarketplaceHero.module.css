@@ -568,7 +568,7 @@
   }
 
   .heading {
-    font-size: clamp(2rem, 8vw, 2.6rem);
+    font-size: clamp(2.5rem, 10vw, 2.6rem);
   }
 
   .ctaGroup {
@@ -581,6 +581,7 @@
   .btnSecondary {
     width: 100%;
     justify-content: center;
+    border-radius: 50px;
   }
 
   .rightSection {

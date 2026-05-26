@@ -73,7 +73,7 @@ export default function SeoHero() {
 
             {/* Headline */}
             <motion.h1 className={styles.headline} variants={itemVariants}>
-              SEO Built For <br />
+              SEO Built For <br className={styles.desktopBr} />
               <span className={styles.highlightText}>Long-Term Organic Growth.</span>
             </motion.h1>
 
@@ -194,7 +194,7 @@ export default function SeoHero() {
             {/* Coordinates in percent: left = (485/600)*100% = 80.83%, top = (110/400)*100% = 27.5% */}
             <motion.div
               className={styles.graphNode}
-              style={{ left: '79.83%', top: '24.5%' }}
+              style={{ '--node-left': '79.83%', '--node-top': '24.5%' } as React.CSSProperties}
               variants={elementVariants}
             >
               <div className={styles.nodeCore} />
@@ -205,7 +205,7 @@ export default function SeoHero() {
             {/* Positioned relative to node (placed to the left and slightly higher) */}
             <motion.div
               className={styles.statsCard}
-              style={{ left: '46%', top: '16%' }}
+              style={{ '--card-left': '46%', '--card-top': '16%' } as React.CSSProperties}
               variants={elementVariants}
               whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
