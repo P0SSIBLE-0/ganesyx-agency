@@ -4,6 +4,8 @@ import GeoWhy from '@/components/geo/GeoWhy';
 import GeoProblem from '@/components/geo/GeoProblem';
 import GeoHow from '@/components/geo/GeoHow';
 import GeoProcess from '@/components/geo/GeoProcess';
+import GeoTracking from '@/components/geo/GeoTracking';
+import GeoIndustries from '@/components/geo/GeoIndustries';
 import { BrandingFaq } from '@/components/branding';
 import { FaqItem } from '@/data/types';
 import type { Metadata } from 'next';
@@ -62,6 +64,12 @@ export default function GeoPage() {
 
             {/* GEO Process Section */}
             <GeoProcess />
+
+            {/* GEO Tracking & Reporting Section */}
+            <GeoTracking />
+
+            {/* GEO Industries Section */}
+            <GeoIndustries />
 
             {/* FAQ Section */}
             <BrandingFaq data={geoFaq} />

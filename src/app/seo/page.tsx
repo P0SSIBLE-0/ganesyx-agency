@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { SeoHero, SeoWorkflow, SeoInsights } from '@/components/seo';
+import { SeoHero, SeoWorkflow, SeoInsights, SeoResults } from '@/components/seo';
 import ServiceCapabilities, { CapabilityItem } from '@/components/ui/ServiceCapabilities';
 import ServiceWhy, { WhyItem } from '@/components/ui/ServiceWhy';
+import StatsSection, { StatItem } from '@/components/ui/StatsSection';
 import ContactUs from '@/components/common/ContactUs';
 import { BrandingFaq } from '@/components/branding';
 import { faqCategories } from '@/data/faqs';
-
 
 export const metadata: Metadata = {
   title: "SEO Services | Ganesyx Agency - Grow Organic Search Visibility",
@@ -79,6 +79,28 @@ const seoCapabilities: CapabilityItem[] = [
       "Competitor organic share-of-voice benchmarks",
       "Actionable roadmap prioritized by impact"
     ]
+  },
+  {
+    number: "07",
+    title: "Schema Implementation",
+    description: "Integrating rich structured data to help search engines understand your content and display rich snippets.",
+    iconName: "code",
+    details: [
+      "JSON-LD structured data injection",
+      "Review, product, FAQ & organization schemas",
+      "Rich snippet and merchant center validation"
+    ]
+  },
+  {
+    number: "08",
+    title: "E-commerce SEO",
+    description: "Optimizing online product catalogs, collections, and purchase funnels to drive organic buyers and boost sales.",
+    iconName: "shoppingBag",
+    details: [
+      "Product page SEO & schema optimization",
+      "Faceted navigation & duplicate URL handling",
+      "Merchant Center feed setup & tuning"
+    ]
   }
 ];
 
@@ -105,6 +127,24 @@ const whySeoItems: WhyItem[] = [
   }
 ];
 
+const seoStats: StatItem[] = [
+  {
+    value: 320,
+    suffix: '%',
+    label: 'Average Organic Traffic Increase',
+  },
+  {
+    value: 48,
+    suffix: 'x',
+    label: 'Average ROI On Digital Campaigns',
+  },
+  {
+    value: 140,
+    suffix: '+',
+    label: 'Top 3 Organic Search Rankings Secured',
+  },
+];
+
 export default function SeoPage() {
   return (
     <main style={{ minHeight: '100vh' }}>
@@ -114,6 +154,8 @@ export default function SeoPage() {
       {/* Dynamic Dark Section with Real-Time Content Score speedometer & SEO Checklist */}
       <SeoInsights />
 
+      {/* Campaign Achievements and Results Section */}
+      <SeoResults />
       {/* Soft Tinted Section with Crisp White Cards */}
       <ServiceCapabilities
         subHeading="What We Do"
@@ -131,8 +173,16 @@ export default function SeoPage() {
         items={whySeoItems}
       />
 
+      {/* Reusable Animated Stats Counter Section */}
+      <StatsSection
+        title="Here's the Math Behind the Madness"
+        items={seoStats}
+        theme="dark"
+      />
+
       {/* Custom Stepper Workflow Section matching the beige design layout */}
       <SeoWorkflow />
+
 
       {/* FAQ Section */}
       <BrandingFaq data={faqCategories.find(cat => cat.id === 'seo')?.items || []} />

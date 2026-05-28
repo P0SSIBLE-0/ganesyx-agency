@@ -180,7 +180,7 @@
   transition: color 0.2s ease;
 }
 
-.card:hover .cardTag {
+.cardTag:hover {
   color: rgba(0, 0, 0, 0.75);
 }
 

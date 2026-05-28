@@ -21,8 +21,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <BrandMarquee />
       <Work />
+      <BrandMarquee />
       <BrandGrow />
       <Services />
       <WhyChooseUs />

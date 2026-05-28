@@ -2,104 +2,147 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, TrendingUp, Sparkles, Target, Zap } from 'lucide-react';
 import styles from './WhyChooseUs.module.css';
 
-interface Reason {
-  num: string;
-  title: string;
-  desc: string;
-  icon: React.ReactNode;
+// Line-art Sad Monitor Icon matching the design's style
+const SadMonitorIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.headerIcon}>
+    {/* Monitor Frame */}
+    <rect x="3" y="4" width="26" height="18" rx="2" stroke="#0f172a" strokeWidth="2.2" />
+    {/* Screen stand */}
+    <path d="M12 22L9 28H23L20 22" stroke="#0f172a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    {/* Stand base line */}
+    <line x1="11" y1="28" x2="21" y2="28" stroke="#0f172a" strokeWidth="2.2" strokeLinecap="round" />
+    {/* Sad face eyes */}
+    <circle cx="12" cy="11.5" r="1.5" fill="#0f172a" />
+    <circle cx="20" cy="11.5" r="1.5" fill="#0f172a" />
+    {/* Sad face mouth */}
+    <path d="M13.5 16.5C14.5 15.5 17.5 15.5 18.5 16.5" stroke="#0f172a" strokeWidth="2.2" strokeLinecap="round" />
+  </svg>
+);
+
+// Sparkle Star Icon (Agentic Sparkle) matching the design's style
+const SparkleStarIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.headerIcon}>
+    {/* Sparkle Star with black outline and vibrant purple fill */}
+    <path d="M16 2C16 9.7 22.3 16 30 16C22.3 16 16 22.3 16 30C16 22.3 9.7 16 2 16C9.7 16 16 9.7 16 2Z" fill="#7c3aed" stroke="#0f172a" strokeWidth="2" strokeLinejoin="round" />
+  </svg>
+);
+
+// Custom Bullet Icons
+const XCircleIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.bulletIcon}>
+    <circle cx="10" cy="10" r="9" fill="#cbd5e1" stroke="#cbd5e1" strokeWidth="1" />
+    <path d="M7 7L13 13M13 7L7 13" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+const CheckCircleIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.bulletIcon}>
+    <circle cx="10" cy="10" r="9" fill="#7c3aed" stroke="#7c3aed" strokeWidth="1" />
+    <path d="M6 10L9 13L14 7" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+interface ComparisonRow {
+  freelancer: string;
+  agency: string;
 }
 
-const reasonsData: Reason[] = [
+const comparisonRows: ComparisonRow[] = [
   {
-    num: '01',
-    title: 'Data-Backed Strategy (No Guesswork)',
-    desc: 'We map out exact customer acquisition channels, conversion rates, and revenue impact before launching campaigns, ensuring every dollar spent has a clear purpose.',
-    icon: <Target size={20} />
+    freelancer: "Siloed tactics that don't talk to each other",
+    agency: "Fully connected, multi-channel growth engine"
   },
   {
-    num: '02',
-    title: 'Multi-Touch Attribution Maps',
-    desc: 'We track user behavior across organic search (SEO), AI chat recommendations (GEO), paid ads, and emails, eliminating dark spots in your marketing funnel.',
-    icon: <TrendingUp size={20} />
+    freelancer: "Rely on standard vanity traffic metrics",
+    agency: "Optimize for actual pipeline revenue and ROAS"
   },
   {
-    num: '03',
-    title: 'Integrated Channel Compound',
-    desc: 'Instead of isolated tactics, our channels are connected. Your SEO content fuels your paid ads search intent, and your email flows nurture retargeted leads automatically.',
-    icon: <Zap size={20} />
+    freelancer: "Campaign freezes if they are sick or busy",
+    agency: "Dedicated growth team with zero downtime"
   },
   {
-    num: '04',
-    title: 'Pure Revenue Focus (No Vanity Metrics)',
-    desc: 'We optimize campaigns for pipeline value, qualified demo signups, and customer acquisition cost (CAC) rather than clicks, impressions, or likes.',
-    icon: <Sparkles size={20} />
+    freelancer: "Guesswork setups and basic pixel tracking",
+    agency: "Custom server-side tracking (CAPI) & data APIs"
+  },
+  {
+    freelancer: "Spend weeks launch-testing a single channel",
+    agency: "Launch, scale, and compound cross-channels in days"
   }
 ];
 
 export default function WhyChooseUs() {
   return (
     <section className={styles.section}>
+      {/* Grid Line 1 */}
+      <div className={styles.gridLine} />
+      
       <div className={styles.container}>
-        
-        <div className={styles.layout}>
+        {/* Main Header Title */}
+        <div className={styles.header}>
+          <h2 className={styles.heading}>
+            The old playbook for <br />
+            channel growth <span className={styles.grayText}>is broken.</span>
+          </h2>
+        </div>
+      </div>
+
+      {/* Grid Line 2 */}
+      <div className={styles.gridLine} />
+
+      <div className={styles.container}>
+        <div className={styles.comparisonGrid}>
           
-          {/* Left Column: Premium Image Block */}
-          <div className={styles.imageColumn}>
-            <div className={styles.imageFrame}>
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
-                alt="Why Choose Ganesyx digital marketing team"
-                className={styles.image}
-                loading="lazy"
-              />
-              <div className={styles.accentBorder}></div>
-              {/* Float badge */}
-              <div className={styles.floatBadge}>
-                <span className={styles.badgeNum}>+340%</span>
-                <span className={styles.badgeLabel}>Average ROAS Increase</span>
-              </div>
+          {/* Left Column: Traditional Freelancer Card */}
+          <motion.div 
+            className={styles.leftCard}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className={styles.cardHeader}>
+              <SadMonitorIcon />
+              <h3 className={styles.cardTitle}>Traditional Freelancer</h3>
             </div>
-          </div>
-
-          {/* Right Column: Reasons List */}
-          <div className={styles.contentColumn}>
-            <span className={styles.tag}>THE GANESYX ADVANTAGE</span>
-            <h2 className={styles.heading}>
-              Why brands trust Ganesyx <br />
-              to scale
-            </h2>
-            <p className={styles.lead}>
-              We replace standard guesswork with high-fidelity analytics, integrated digital marketing channels, and conversion-optimized systems built for long-term revenue growth.
-            </p>
-
-            <div className={styles.reasonsList}>
-              {reasonsData.map((reason, index) => (
-                <motion.div
-                  key={reason.num}
-                  className={styles.reasonItem}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.4, delay: index * 0.1, ease: 'easeOut' }}
-                >
-                  <div className={styles.numIconWrapper}>
-                    <span className={styles.num}>{reason.num}</span>
-                  </div>
-                  <div className={styles.reasonText}>
-                    <h3 className={styles.reasonTitle}>{reason.title}</h3>
-                    <p className={styles.reasonDesc}>{reason.desc}</p>
-                  </div>
-                </motion.div>
+            <div className={styles.listContainer}>
+              {comparisonRows.map((row, idx) => (
+                <div key={`free-${idx}`} className={styles.listItem}>
+                  <XCircleIcon />
+                  <span className={styles.itemText}>{row.freelancer}</span>
+                </div>
               ))}
             </div>
-          </div>
+          </motion.div>
+
+          {/* Right Column: Ganesyx Agency Card */}
+          <motion.div 
+            className={styles.rightCard}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className={styles.cardHeader}>
+              <SparkleStarIcon />
+              <h3 className={styles.cardTitle}>Ganesyx Agency</h3>
+            </div>
+            <div className={styles.listContainer}>
+              {comparisonRows.map((row, idx) => (
+                <div key={`agency-${idx}`} className={styles.listItem}>
+                  <CheckCircleIcon />
+                  <span className={styles.itemText}>{row.agency}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
         </div>
-
       </div>
+
+      {/* Grid Line 3 */}
+      <div className={styles.gridLine} />
     </section>
   );
 }

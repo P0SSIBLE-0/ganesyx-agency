@@ -14,7 +14,7 @@ export default function ContactPage() {
     return (
         <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
             <ContactHero />
-            <ContactShowcase />
+            {/* <ContactShowcase /> */}
             <Consultation />
             <ContactUs />
         </main>

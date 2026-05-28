@@ -36,7 +36,7 @@ export default function DigitalMarketHero() {
 
   return (
     <section className={`${styles.heroSection} ${loaded ? styles.loaded : ''}`}>
-      {/* Premium Vignette Overlays for Maximum Text Contrast */}
+      {/* Premium Vignette Overlays for Maximum Contrast */}
       <div className={styles.overlayBg} />
       <div className={styles.radialGlow} />
 
@@ -47,39 +47,22 @@ export default function DigitalMarketHero() {
           initial="hidden"
           animate="visible"
         >
-          {/* Staggered Main Headline matching UI design mockup */}
+          {/* Simple Text Heading */}
           <motion.h1 className={styles.title} variants={itemVariants}>
-            <div className={`${styles.titleRow} ${styles.rowOne}`}>
-              <span className={styles.textLight}>Digital Marketing</span>
-              <span className={`${styles.capsule} ${styles.capsuleOne}`}>
-                <div className={styles.avatarContainer}>
-                  <img
-                    src="/avatar/avatar-rohan.png"
-                    alt="User"
-                    className={styles.avatarImg}
-                  />
-                </div>
-                <div className={styles.darkSubPill} />
-              </span>
-            </div>
-
-            <div className={`${styles.titleRow} ${styles.rowTwo}`}>
-              <span className={styles.textLight}>
-                that <span className={styles.underlineText}>moves your</span>
-              </span>
-            </div>
-
-            <div className={`${styles.titleRow} ${styles.rowThree}`}>
-              <a 
-                href="#contact" 
-                className={`${styles.capsule} ${styles.ctaCapsule}`}
-              >
-                <span className={styles.ctaText}>Let's Talk</span>
-                <span className={styles.lightDot} />
-              </a>
-              <span className={styles.textLight}>brands forward</span>
-            </div>
+            Digital marketing that <span className={styles.gradientText}>moves your brand forward.</span>
           </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p className={styles.subtitle} variants={itemVariants}>
+            Scale your brand's footprint and capture high-intent buyers with high-performance digital marketing campaigns.
+          </motion.p>
+
+          {/* Simple CTA Button at the Bottom */}
+          <motion.div className={styles.ctaRow} variants={itemVariants}>
+            <a href="#contact" className={styles.ctaButton}>
+              <span>Let's Talk</span>
+            </a>
+          </motion.div>
         </motion.div>
       </div>
 

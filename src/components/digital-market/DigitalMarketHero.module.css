@@ -5,7 +5,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  padding: 160px 0 80px 0;
+  padding: 160px 0 120px 0;
   background-color: #05020c;
   background-image: url('https://images.unsplash.com/photo-1635776063043-ab23b4c226f6?q=80&w=1332&auto=format&fit=crop');
   background-size: cover;
@@ -23,23 +23,23 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg,
-      rgba(5, 2, 12, 0.15) 0%,
-      rgba(5, 2, 12, 0.25) 50%,
-      rgba(5, 2, 12, 0.3) 100%);
+      rgba(5, 2, 12, 0.25) 0%,
+      rgba(5, 2, 12, 0.45) 50%,
+      rgba(5, 2, 12, 0.6) 100%);
   z-index: 2;
   pointer-events: none;
 }
 
 .radialGlow {
   position: absolute;
-  top: 40%;
-  left: 30%;
+  top: 50%;
+  left: 50%;
   width: 800px;
   height: 800px;
   border-radius: 50%;
   background: radial-gradient(circle,
-      rgba(59, 130, 246, 0.15) 0%,
-      rgba(239, 68, 68, 0.08) 50%,
+      rgba(168, 85, 247, 0.15) 0%,
+      rgba(59, 130, 246, 0.08) 50%,
       rgba(0, 0, 0, 0) 100%);
   filter: blur(100px);
   z-index: 2;
@@ -61,204 +61,71 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  text-align: left;
+  max-width: 900px;
+  margin: 0;
 }
 
-/* Staggered Typography Grid Matching the Mockup */
+/* Simple Premium Heading */
 .title {
   font-family: var(--font-heading, 'Outfit', 'Inter', sans-serif);
-  font-size: clamp(2.6rem, 6.4vw, 5.8rem);
-  font-weight: 500;
+  font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+  font-weight: 650;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #cbccce 0%, #2b02f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* Subtitle */
+.subtitle {
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 620px;
+  margin: 0 0 36px 0;
+}
+
+/* Simple CTA Button */
+.ctaRow {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.1em;
+  justify-content: flex-start;
   width: 100%;
 }
 
-.titleRow {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-/* Row alignments matching mockup */
-.rowOne {
-  justify-content: flex-start;
-  gap: 0.25em;
-}
-
-.rowTwo {
-  justify-content: flex-start;
-}
-
-.rowThree {
-  justify-content: flex-start;
-  gap: 0.25em;
-  padding-left: clamp(100px, 24vw, 360px);
-  /* Pushes row 3 to the right, starting under 'moves your' */
-}
-
-.textLight {
-  color: #ffffff;
-  display: inline-block;
-  line-height: 1.1;
-}
-
-.underlineText {
-  position: relative;
-  display: inline-block;
-}
-
-.underlineText::after {
-  content: '';
-  position: absolute;
-  bottom: -0.05em;
-  left: 0;
-  width: 100%;
-  height: 0.05em;
-  background: linear-gradient(90deg, #3b82f6 0%, #ef4444 100%);
-  border-radius: 9999px;
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: draw-underline 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.6s;
-}
-
-@keyframes draw-underline {
-  to {
-    transform: scaleX(1);
-  }
-}
-
-/* Glassmorphic Capsule Badges Scaling with Font Size (em-based) */
-.capsule {
+.ctaButton {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  height: 0.62em;
-  padding: 0 0.18em;
-  border-radius: 9999px;
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  user-select: none;
-  transition: border-color 0.4s ease, background-color 0.4s ease;
-  vertical-align: middle;
-  transform: translateY(-0.02em);
-  flex-shrink: 0;
-}
-
-.capsule:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.28);
-}
-
-.capsuleOne {
-  animation: float 6s ease-in-out infinite;
-  gap: 0.1em;
-}
-
-.capsuleTwo {
-  animation: float 6s ease-in-out infinite;
-  animation-delay: -3s;
-  gap: 0.1em;
-}
-
-/* Avatar element inside Capsule One */
-.avatarContainer {
-  width: 0.42em;
-  height: 0.42em;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-}
-
-.avatarImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Dark Sub-Pill design mirroring mockup inner element */
-.darkSubPill {
-  height: 0.32em;
-  width: 0.72em;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 9999px;
-  border: 1.5px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.6);
-  flex-shrink: 0;
-}
-
-/* Light dot in Capsule Two */
-.lightDot {
-  width: 0.08em;
-  height: 0.08em;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow:
-    0 0 8px rgba(255, 255, 255, 0.9),
-    0 0 16px rgba(255, 255, 255, 0.4);
-  flex-shrink: 0;
-  margin-left: 0.04em;
-  margin-right: 0.02em;
-}
-
-/* Solid Premium Accent CTA Button styles */
-.ctaCapsule {
-  cursor: pointer;
-  text-decoration: none;
-  padding: 0 0.28em !important;
-  height: 0.58em;
-  margin-top: 6px;
-  gap: 0.12em;
-  background-color: var(--brand, #330099) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  animation: none !important;
-  transition:
-    background-color 0.4s ease,
-    border-color 0.4s ease,
-    transform 0.2s ease,
-    box-shadow 0.4s ease !important;
-}
-
-.ctaCapsule:hover {
-  background: var(--brand-light, #4a00cc) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
-  box-shadow: 0 10px 30px rgba(51, 0, 153, 0.4) !important;
-  transform: translateY(-0.04em) scale(1.03) !important;
-}
-
-.ctaCapsule:active {
-  transform: translateY(-0.01em) scale(0.98) !important;
-}
-
-.ctaCapsule .lightDot {
-  width: 0.06em;
-  height: 0.06em;
-  margin-left: 0.02em;
-  margin-right: 0.01em;
-}
-
-.ctaText {
-  font-family: var(--font-heading);
-  font-size: 0.20em;
-  font-weight: 800;
+  padding: 14px 36px;
+  background-color: var(--brand, #330099);
   color: #ffffff;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 1px solid var(--brand, #330099);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(51, 0, 153, 0.2);
+}
+
+.ctaButton:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #2e2e2e;
+  box-shadow: 0 15px 35px rgba(51, 0, 153, 0.35);
+  transform: translateY(-2px);
 }
 
 /* Ambient bottom page boundary */
@@ -273,67 +140,24 @@
   pointer-events: none;
 }
 
-/* Floating Animation Keyframes */
-@keyframes float {
-  0% {
-    transform: translateY(-0.02em);
-  }
-
-  50% {
-    transform: translateY(-0.1em);
-  }
-
-  100% {
-    transform: translateY(-0.02em);
-  }
-}
-
 /* Mobile responsive adjustments */
-@media (max-width: 1024px) {
-  .rowThree {
-    padding-left: clamp(40px, 14vw, 180px);
-  }
-}
-
 @media (max-width: 768px) {
   .heroSection {
-    padding: 100px 0 80px 0;
+    padding: 140px 0 100px 0;
     min-height: 85vh;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .capsule {
-    display: none !important;
-  }
-
-  .container {
-    padding: 0 24px;
-  }
-
-  .content {
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
   }
 
   .title {
     font-size: clamp(2rem, 8.5vw, 3.2rem);
-    gap: 0.25em;
-    align-items: center !important;
-    text-align: center !important;
+    margin-bottom: 18px;
   }
 
-  .titleRow {
-    flex-wrap: wrap;
-    gap: 0.18em;
-    justify-content: center !important;
+  .subtitle {
+    margin-bottom: 28px;
   }
 
-  .rowOne,
-  .rowTwo,
-  .rowThree {
-    justify-content: center !important;
-    padding-left: 0 !important;
+  .ctaButton {
+    padding: 14px 30px;
+    font-size: 13px;
   }
 }

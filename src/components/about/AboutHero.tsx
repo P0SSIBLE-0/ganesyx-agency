@@ -154,9 +154,10 @@ export default function AboutHero() {
               exit={{
                 scale: 0,
                 opacity: 0,
+                filter: 'blur(14px)',
                 transition: {
-                  duration: 0.34,
-                  ease: [0.16, 1, 0.56, 1.1], // Premium ease-out
+                  duration: 0.56,
+                  ease: [0.16, 1, 0.56, 1], // Premium ease-out
                 },
               }}
             >

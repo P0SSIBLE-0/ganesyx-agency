@@ -1,231 +1,170 @@
 .section {
   width: 100%;
-  background-color: #fafafd;
-  padding: 100px 0;
+  background-color: #ffffff;
+  padding: 40px 0;
   position: relative;
-  overflow: visible;
-  border-top: 1px solid rgba(51, 0, 153, 0.04);
-  border-bottom: 1px solid rgba(51, 0, 153, 0.04);
 }
 
 .container {
-  max-width: 1360px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
 }
 
-/* ── LAYOUT ──────────────────────────────────────── */
-.layout {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 80px;
-  align-items: center;
-}
-
-/* ── LEFT COLUMN: IMAGE BLOCK ────────────────────── */
-.imageColumn {
-  position: relative;
-  padding-left: 20px;
-  padding-bottom: 20px;
-}
-
-.imageFrame {
-  position: relative;
+/* Dotted Grid Line dividers spanning 100% viewport width */
+.gridLine {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  background-color: #f3f2fa;
+  height: 0;
+  border-top: 1px dotted #e2e8f0;
+  margin: 0;
 }
 
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.97);
-}
-
-/* Double-border editorial offset frame */
-.accentBorder {
-  position: absolute;
-  top: 16px;
-  left: -16px;
-  right: 16px;
-  bottom: -16px;
-  border: 1.5px solid var(--brand, #330099);
-  z-index: -1;
-}
-
-/* Float Badge overlapping image */
-.floatBadge {
-  position: absolute;
-  bottom: 40px;
-  right: -24px;
-  background-color: #ffffff;
-  border: 1.5px solid rgba(0, 0, 0, 0.08);
-  padding: 16px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  box-shadow:
-    0 20px 40px -15px rgba(51, 0, 153, 0.09),
-    0 10px 20px -10px rgba(0, 0, 0, 0.03);
-}
-
-.badgeNum {
-  font-family: var(--font-heading);
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--brand, #330099);
-  line-height: 1;
-}
-
-.badgeLabel {
-  font-family: var(--font-body);
-  font-size: 11px;
-  color: rgba(11, 10, 15, 0.5);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* ── RIGHT COLUMN: REASONS ───────────────────────── */
-.contentColumn {
-  display: flex;
-  flex-direction: column;
-}
-
-.tag {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--brand, #330099);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+/* Header styles matching screenshot */
+.header {
+  text-align: center;
+  padding: 60px 0;
 }
 
 .heading {
-  font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 4vw, 2.7rem);
-  font-weight: 600;
-  color: #0b0a0f;
-  line-height: 1.1;
-  margin: 0 0 20px 0;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading, 'Outfit', 'Inter', sans-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0;
 }
 
-.lead {
-  font-family: var(--font-body);
-  font-size: 16px;
-  color: rgba(11, 10, 15, 0.65);
-  line-height: 1.6;
-  margin: 0 0 40px 0;
+.grayText {
+  color: #94a3b8;
+  font-weight: 700;
 }
 
-.reasonsList {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+/* Comparison Grid Card container layout */
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  align-items: stretch;
 }
 
-.reasonItem {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
+/* Left Card (Traditional Freelancer) */
+.leftCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.numIconWrapper {
-  width: 32px;
-  height: 32px;
+/* Right Card (Ganesyx Agency - Lavender backdrop) */
+.rightCard {
+  background-color: #f5f3ff;
+  border: 1px solid #e0dbff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Card Header Block */
+.cardHeader {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  border-bottom: 1.5px solid var(--brand, #330099);
+  gap: 16px;
+  padding: 24px 32px;
+  background-color: transparent;
+  border-bottom: 1px dotted #e2e8f0;
 }
 
-.num {
-  font-family: var(--font-heading);
+.rightCard .cardHeader {
+  border-bottom: 1px dotted #e0dbff;
+}
+
+.headerIcon {
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-family: var(--font-heading, 'Outfit', 'Inter', sans-serif);
   font-size: 16px;
-  font-weight: 800;
-  color: var(--brand, #330099);
-  line-height: 1;
-}
-
-.reasonText {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1;
-}
-
-.reasonTitle {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 700;
-  color: #0b0a0f;
+  font-weight: 750;
+  color: #0f172a;
   margin: 0;
   letter-spacing: -0.01em;
 }
 
-.reasonDesc {
-  font-family: var(--font-body);
-  font-size: 14px;
-  color: rgba(11, 10, 15, 0.6);
-  line-height: 1.55;
-  margin: 0;
+/* List Items */
+.listContainer {
+  display: flex;
+  flex-direction: column;
 }
 
-/* ── RESPONSIVE DESIGN ───────────────────────────── */
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 32px;
+  min-height: 72px;
+  /* Ensures vertical alignment parity across cards on desktop */
+  border-bottom: 1px dotted #e2e8f0;
+}
+
+.rightCard .listItem {
+  border-bottom: 1px dotted #e0dbff;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.bulletIcon {
+  flex-shrink: 0;
+}
+
+.itemText {
+  font-family: var(--font-body), sans-serif;
+  font-size: 14.5px;
+  color: #334155;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.rightCard .itemText {
+  color: #0f172a;
+}
+
+/* Responsive adjustments */
 @media (max-width: 1024px) {
-  .layout {
-    gap: 48px;
+  .comparisonGrid {
+    gap: 24px;
+  }
+
+  .listItem {
+    padding: 18px 24px;
+    min-height: 76px;
+  }
+
+  .cardHeader {
+    padding: 20px 24px;
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 80px 0;
+    padding: 60px 0;
   }
 
-  .container {
-    padding: 0 24px;
+  .header {
+    padding: 40px 0;
   }
 
-  .layout {
+  .comparisonGrid {
     grid-template-columns: 1fr;
-    gap: 64px;
+    gap: 32px;
+    padding: 50px 0;
   }
 
-  .imageColumn {
-    padding: 0;
-    max-width: 440px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .contentColumn {
-    padding: 0 1rem;
-  }
-
-  .accentBorder {
-    top: 12px;
-    left: -12px;
-    right: 12px;
-    bottom: -12px;
-  }
-
-  .floatBadge {
-    bottom: 20px;
-    right: -12px;
-    padding: 12px 18px;
-  }
-
-  .badgeNum {
-    font-size: 22px;
-  }
-
-  .lead {
-    margin-bottom: 32px;
+  .listItem {
+    min-height: auto;
+    /* Allow auto heights when stacked vertically */
   }
 }

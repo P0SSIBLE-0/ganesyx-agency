@@ -206,6 +206,11 @@ export default function WebDevWork() {
 
   return (
     <section className={styles.section} id="work">
+      {/* Header Ambient Background Blob */}
+      <div className={styles.headerBg}>
+        <div className={`${styles.blob} ${styles.blobHeader}`} />
+      </div>
+
       <div className={styles.container}>
         {/* Header Block */}
         <motion.div
@@ -232,6 +237,13 @@ export default function WebDevWork() {
         style={{ height: `${projects.length * 100}vh` }}
       >
         <div className={styles.stickyViewport}>
+          {/* Viewport Floating Background Blobs */}
+          <div className={styles.viewportBg}>
+            <div className={`${styles.blob} ${styles.blob1}`} />
+            <div className={`${styles.blob} ${styles.blob2}`} />
+            <div className={`${styles.blob} ${styles.blob3}`} />
+          </div>
+
           <div className={styles.container}>
             <div className={styles.cardsStack}>
               {projects.map((project, idx) => (

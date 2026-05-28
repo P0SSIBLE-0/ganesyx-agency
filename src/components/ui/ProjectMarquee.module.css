@@ -109,9 +109,9 @@
 .cardName {
   font-family: var(--font-heading);
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   color: #ffffff;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
   letter-spacing: -0.01em;
 }
 

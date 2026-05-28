@@ -8,6 +8,7 @@ interface SubLink {
   label: string;
   href: string;
   description: string;
+  image: string;
 }
 
 interface NavLink {
@@ -17,20 +18,21 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
+  { label: 'Home', href: "/" },
   {
     label: 'Services',
     href: '#services',
     dropdown: [
-      { label: 'Branding', href: '/branding', description: 'Bespoke identity design and guidelines' },
-      { label: 'Web Development', href: '/web-dev', description: 'High-performing, AI-optimized web experiences' },
-      { label: 'SEO', href: '/seo', description: 'Dominate search results with strategic SEO optimization' },
-      { label: 'GEO', href: '/geo', description: 'Optimize your brand visibility across generative engines and AI search' },
-      { label: 'Graphic Design', href: '/design', description: 'Scroll-stopping bento grids and templates' },
-      { label: 'Video Production', href: '/video', description: 'High-impact kinetic UGC social cuts' },
-      { label: 'Social Media', href: '/social', description: 'Build engaged communities and drive brand awareness across all major social platforms.' },
-      { label: 'Paid Ads', href: '/ads', description: 'Conversion-optimized performance ads' },
-      { label: "Digital Marketing", href: "/digital-market", description: "Scale your business with high-performing ad campaigns." },
-      { label: "Marketplace", href: "/marketplace", description: "Build engaged communities and drive brand awareness across all major social platforms." },
+      { label: 'Branding', href: '/branding', description: 'Bespoke identity design and guidelines', image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80' },
+      { label: 'Web Development', href: '/web-dev', description: 'High-performing, AI-optimized web experiences', image: 'https://images.unsplash.com/photo-1618477388954-7852f32655ec?auto=format&fit=crop&w=600&q=80' },
+      { label: 'SEO', href: '/seo', description: 'Dominate search results with strategic SEO optimization', image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=600&q=80' },
+      { label: 'GEO', href: '/geo', description: 'Optimize your brand visibility across generative engines and AI search', image: 'https://images.unsplash.com/photo-1677691824188-3e266886cb27?q=80&w=735&auto=format&fit=crop' },
+      { label: 'Graphic Design', href: '/design', description: 'Scroll-stopping bento grids and templates', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80' },
+      { label: 'Video Production', href: '/video', description: 'High-impact kinetic UGC social cuts', image: 'https://images.unsplash.com/photo-1622737133809-d95047b9e673?auto=format&fit=crop&w=600&q=80' },
+      { label: 'Social Media', href: '/social', description: 'Build engaged communities and drive brand awareness across all major social platforms.', image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80' },
+      { label: 'Paid Ads', href: '/ads', description: 'Conversion-optimized performance ads', image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80' },
+      { label: "Digital Marketing", href: "/digital-market", description: "Scale your business with high-performing ad campaigns.", image: 'https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=600&q=80' },
+      { label: "Marketplace", href: "/marketplace", description: "Build engaged communities and drive brand awareness across all major social platforms.", image: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=600&q=80' },
     ]
   },
   { label: 'About', href: '/about' },
@@ -43,6 +45,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [hoveredService, setHoveredService] = useState('Branding');
   const pathname = usePathname();
   const router = useRouter();
   const drawerRef = useRef<HTMLDivElement>(null);
@@ -161,17 +164,39 @@ const Navbar = () => {
                       {/* Dropdown Menu Overlay */}
                       <div className={styles.dropdownMenu}>
                         <div className={styles.dropdownGrid}>
-                          {link.dropdown.map((subLink) => (
-                            <a
-                              key={subLink.label}
-                              href={subLink.href}
-                              className={styles.dropdownLink}
-                              onClick={(e) => handleLinkClick(e, subLink.href)}
-                            >
-                              <span className={styles.dropdownLabel}>{subLink.label}</span>
-                              <span className={styles.dropdownDesc}>{subLink.description}</span>
-                            </a>
-                          ))}
+                          {/* Left: Link List Column */}
+                          <div className={styles.dropdownLinksColumn}>
+                            {link.dropdown.map((subLink) => (
+                              <a
+                                key={subLink.label}
+                                href={subLink.href}
+                                className={`${styles.dropdownLink} ${hoveredService === subLink.label ? styles.activeLink : ''}`}
+                                onClick={(e) => handleLinkClick(e, subLink.href)}
+                                onMouseEnter={() => setHoveredService(subLink.label)}
+                              >
+                                <span className={styles.dropdownLabel}>{subLink.label}</span>
+                                <span className={styles.dropdownDesc}>{subLink.description}</span>
+                              </a>
+                            ))}
+                          </div>
+
+                          {/* Right: Image Preview Column */}
+                          <div className={styles.dropdownPreviewColumn}>
+                            {link.dropdown.map((subLink) => (
+                              <div
+                                key={`img-${subLink.label}`}
+                                className={`${styles.dropdownImageWrapper} ${hoveredService === subLink.label ? styles.activeImage : ''}`}
+                              >
+                                <img
+                                  src={subLink.image}
+                                  alt={subLink.label}
+                                  className={styles.dropdownImage}
+                                />
+                                <div className={styles.dropdownImageOverlay} />
+                                <span className={styles.dropdownImageCaption}>{subLink.label}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </li>

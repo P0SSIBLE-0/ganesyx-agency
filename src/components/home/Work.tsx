@@ -72,7 +72,7 @@ export default function Work() {
         {/* Section Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <h2 className={styles.title}>Case Studies</h2>
+            <h2 className={styles.title}>Featured Works</h2>
             <p className={styles.description}>
               Explore how Ganesyx helped brands increase visibility, drive engagement, and elevate market presence.
             </p>

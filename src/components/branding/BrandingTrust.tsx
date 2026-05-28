@@ -79,7 +79,7 @@ export default function BrandingTrust() {
             variants={cellVariants}
           >
             <h2 className={styles.centerTitle}>
-              Trusted By 100+ Forward Thinking Sales Teams
+              Trusted By 100+ Forward-Thinking Brands
             </h2>
             <a href="#cta" className={styles.centerBtn}>
               <span>Book a call</span>

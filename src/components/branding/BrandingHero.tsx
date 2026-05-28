@@ -107,7 +107,7 @@ export default function BrandingHero() {
         <div className={styles.retroTape} />
         <div className={styles.retroImgWrapper}>
           <img
-            src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=600&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1636247499734-893da2bcfc1c?q=80&w=1332&auto=format&fit=crop"
             alt="Design Grid"
             className={styles.retroImg}
           />
@@ -132,7 +132,7 @@ export default function BrandingHero() {
         <div className={styles.retroTape} />
         <div className={styles.retroImgWrapper}>
           <img
-            src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=600&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1762365189058-7be5b07e038b?q=80&w=1170&auto=format&fit=crop"
             alt="Branding Stationery"
             className={styles.retroImg}
           />
@@ -158,7 +158,7 @@ export default function BrandingHero() {
         <div className={styles.retroTape} />
         <div className={styles.retroImgWrapper}>
           <img
-            src="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?q=80&w=600&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1706881811917-6590b1054050?q=80&w=1170&auto=format&fit=crop"
             alt="Brand Identity Presentation"
             className={styles.retroImg}
           />

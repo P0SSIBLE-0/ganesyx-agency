@@ -47,7 +47,7 @@ export default function BlogCarousel({
       checkScrollLimits();
       container.addEventListener('scroll', checkScrollLimits);
       window.addEventListener('resize', checkScrollLimits);
-      
+
       // Secondary check after layout renders
       const timer = setTimeout(checkScrollLimits, 150);
 
@@ -70,7 +70,7 @@ export default function BlogCarousel({
             </span>
             <h2 className={styles.title}>{title}</h2>
           </div>
-          
+
           {/* Slider Controls */}
           <div className={styles.controls}>
             <button
@@ -116,7 +116,7 @@ export default function BlogCarousel({
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{blog.title}</h3>
-                <p className={styles.cardExcerpt}>{blog.excerpt}</p>
+                {/* <p className={styles.cardExcerpt}>{blog.excerpt}</p> */}
                 <div className={styles.cardFooter}>
                   {blog.tags && blog.tags.slice(0, 2).map((tag, idx) => (
                     <span key={idx} className={styles.cardTag}>

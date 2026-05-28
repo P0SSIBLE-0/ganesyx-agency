@@ -1,5 +1,6 @@
 .section {
-  padding: 120px 0;
+  padding: 60px 0;
+  padding-top: 30px;
   background: var(--background, #ffffff);
   overflow: hidden;
   position: relative;
@@ -62,6 +63,8 @@
 .galleryTrack {
   /* Leave bottom space for card shadow/elevation */
   gap: 32px;
+  -webkit-mask-image: linear-gradient(to right, #000000 85%, transparent 100%);
+  mask-image: linear-gradient(to right, #ffffff 92%, transparent 99%);
 }
 
 .galleryCard {

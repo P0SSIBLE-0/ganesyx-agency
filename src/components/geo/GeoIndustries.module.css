@@ -1,0 +1,128 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 50px 5%;
+  background: #ffffff;
+  /* Clean pure white background */
+  overflow: hidden;
+  color: #000000;
+  border-top: 1px solid rgba(168, 85, 247, 0.08);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === Section Header === */
+.header {
+  max-width: 600px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.pillTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(168, 85, 247, 0.05);
+  border: 1px solid rgba(168, 85, 247, 0.12);
+  border-radius: 9999px;
+  width: fit-content;
+  color: #a855f7;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pillIcon {
+  color: #a855f7;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #000000;
+  letter-spacing: -0.02em;
+}
+
+/* === Pills Container === */
+.pillsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* === Industry Pill === */
+.industryPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #f4f1f1;
+  background: rgba(20, 35, 247, 0.881);
+  border: 1px solid rgba(168, 85, 247, 0.08);
+  border-radius: 9999px;
+  cursor: default;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1d2cfa;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover State */
+.industryPill:hover {
+  background: rgba(168, 85, 247, 0.08);
+  color: #0d0b87;
+  border-color: rgba(168, 85, 247, 0.35);
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.04);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .header {
+    margin-bottom: 32px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .pillsContainer {
+    gap: 10px;
+  }
+
+  .industryPill {
+    padding: 10px 20px;
+    font-size: 13.5px;
+  }
+}

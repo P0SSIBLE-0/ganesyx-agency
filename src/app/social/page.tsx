@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SocialHero, ConsistencyProblem, WhatWeDo, ContentShowcase } from '@/components/social';
+import { SocialHero, ConsistencyProblem, WhatWeDo, ContentShowcase, InfluencerMarketing } from '@/components/social';
 import ContactUs from '@/components/common/ContactUs';
 import BrandMarquee from '@/components/home/BrandMarquee';
 import { VideoProcess } from '@/components/video';
@@ -42,6 +42,9 @@ export default function SocialPage() {
 
             {/* 4. Content Showcase (Pinterest-Style Masonry) */}
             <ContentShowcase />
+
+            {/* 4.5. Influencer Marketing Section */}
+            <InfluencerMarketing />
 
             {/* 5. Our Social Growth Process */}
             <VideoProcess

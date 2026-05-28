@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
 import { 
   TrendingDown, 
@@ -15,8 +16,20 @@ import {
 import { Heading, SubHeading, Paragraph } from '@/components/ui/Typography';
 import styles from './ServiceWhy.module.css';
 
-// Type mapping for dynamic icons
-const iconMap: Record<string, React.ComponentType<any>> = {
+// Mapping for custom PNG images
+const imageMap: Record<string, string> = {
+  trendingDown: "/icons/stop.png",
+  trendingUp: "/icons/grow.png",
+  shieldCheck: "/icons/rank.png",
+  users: "/icons/time.png",
+  stop: "/icons/stop.png",
+  grow: "/icons/grow.png",
+  rank: "/icons/rank.png",
+  time: "/icons/time.png"
+};
+
+// Fallback mapping for Lucide icons
+const lucideMap: Record<string, React.ComponentType<any>> = {
   trendingDown: TrendingDown,
   trendingUp: TrendingUp,
   award: Award,
@@ -96,7 +109,9 @@ export default function ServiceWhy({
           viewport={{ once: true, margin: "-100px" }}
         >
           {items.map((item, index) => {
-            const IconComponent = iconMap[item.iconName] || HelpCircle;
+            const imageSrc = imageMap[item.iconName];
+            const LucideIcon = lucideMap[item.iconName] || HelpCircle;
+
             return (
               <motion.div 
                 key={index} 
@@ -104,11 +119,24 @@ export default function ServiceWhy({
                 variants={cardVariants}
                 whileHover={{ y: -4 }}
               >
-                <div className={styles.iconWrapper}>
-                  <IconComponent size={22} />
-                </div>
+                {imageSrc ? (
+                  <div className={styles.imagePlaceholderWrapper}>
+                    <Image 
+                      src={imageSrc} 
+                      alt={item.title} 
+                      width={150} 
+                      height={150} 
+                      className={styles.placeholderImage}
+                      priority
+                    />
+                  </div>
+                ) : (
+                  <div className={styles.iconWrapper}>
+                    <LucideIcon size={22} />
+                  </div>
+                )}
                 
-                <div>
+                <div className={styles.cardBody}>
                   <Heading level={3} className={styles.cardTitle}>{item.title}</Heading>
                   <Paragraph variant="default" className={styles.cardText}>{item.description}</Paragraph>
                 </div>
