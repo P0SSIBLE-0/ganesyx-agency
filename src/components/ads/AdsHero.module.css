@@ -597,3 +597,58 @@
     box-sizing: border-box;
   }
 }
+
+/* ── FLOATING BRAND LOGOS ───────────────────────── */
+.floatingLogo,
+.floatingLogoCircle {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 10px 30px rgba(97, 95, 255, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.floatingLogo {
+  padding: 10px 18px;
+  border-radius: 99px;
+}
+
+.floatingLogoCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.floatMeta {
+  left: 8%;
+  top: 18%;
+}
+
+.floatGoogle {
+  right: 8%;
+  top: 15%;
+}
+
+.floatInstagram {
+  left: 6%;
+  top: 34%;
+}
+
+.floatWhatsapp {
+  right: 6%;
+  top: 30%;
+}
+
+/* Hide floating elements on tablets & mobile to avoid clutter */
+@media (max-width: 1024px) {
+
+  .floatingLogo,
+  .floatingLogoCircle {
+    display: none;
+  }
+}

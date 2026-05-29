@@ -45,6 +45,113 @@ export default function AdsHero() {
       <div className={styles.bgDotPattern} />
       <div className={styles.bgGlow} />
 
+      {/* Premium Floating Brand Logos */}
+      <motion.div
+        className={`${styles.floatingLogo} ${styles.floatMeta}`}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{
+          opacity: 0.75,
+          scale: 1,
+          y: [0, -12, 0],
+          x: [0, 6, 0],
+          rotate: [0, 4, 0]
+        }}
+        transition={{
+          y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+          x: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
+          rotate: { duration: 8, repeat: Infinity, ease: 'easeInOut' },
+          opacity: { duration: 1 },
+          scale: { duration: 1 }
+        }}
+      >
+        <Image
+          src="/logos/meta.svg"
+          alt="Meta Logo"
+          width={160}
+          height={100}
+          style={{ objectFit: 'contain', width: 'auto', height: '60px' }}
+        />
+      </motion.div>
+
+      <motion.div
+        className={`${styles.floatingLogo} ${styles.floatGoogle}`}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{
+          opacity: 0.7,
+          scale: 1,
+          y: [0, 12, 0],
+          x: [0, -8, 0],
+          rotate: [0, -3, 0]
+        }}
+        transition={{
+          y: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+          x: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+          rotate: { duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+          opacity: { duration: 1 },
+          scale: { duration: 1 }
+        }}
+      >
+        <Image
+          src="/logos/google-wordmark.svg"
+          alt="Google Logo"
+          width={65}
+          height={20}
+          style={{ objectFit: 'contain', width: 'auto', height: '40px' }}
+        />
+      </motion.div>
+
+      <motion.div
+        className={`${styles.floatingLogoCircle} ${styles.floatInstagram}`}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{
+          opacity: 0.8,
+          scale: 1,
+          y: [0, -15, 0],
+          x: [0, -5, 0],
+          rotate: [0, 8, 0]
+        }}
+        transition={{
+          y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1 },
+          x: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 },
+          rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 },
+          opacity: { duration: 1 },
+          scale: { duration: 1 }
+        }}
+      >
+        <Image
+          src="/logos/instagram-icon.svg"
+          alt="Instagram Logo"
+          width={64}
+          height={60}
+        />
+      </motion.div>
+
+      <motion.div
+        className={`${styles.floatingLogoCircle} ${styles.floatWhatsapp}`}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{
+          opacity: 0.8,
+          scale: 1,
+          y: [0, 14, 0],
+          x: [0, 7, 0],
+          rotate: [0, -6, 0]
+        }}
+        transition={{
+          y: { duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 },
+          x: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 },
+          rotate: { duration: 8.5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 },
+          opacity: { duration: 1 },
+          scale: { duration: 1 }
+        }}
+      >
+        <Image
+          src="/logos/whatsapp-icon.svg"
+          alt="WhatsApp Logo"
+          width={64}
+          height={64}
+        />
+      </motion.div>
+
       <div className={styles.wrapper}>
 
         {/* Header content section */}

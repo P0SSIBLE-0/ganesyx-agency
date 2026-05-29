@@ -1,7 +1,7 @@
 .section {
   background: #ffffff;
   color: #111111;
-  padding: 120px 40px;
+  padding: 80px 40px;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -35,7 +35,7 @@
 .title {
   font-family: var(--font-heading);
   font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.15;
   color: #111111;
   letter-spacing: -0.03em;
@@ -68,8 +68,8 @@
   justify-content: space-between;
   min-height: 480px;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
   cursor: pointer;
 }
@@ -78,7 +78,7 @@
   transform: translateY(-6px);
   border-color: #b3aaf2;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05),
-              0 0 0 1px rgba(179, 170, 242, 0.3);
+    0 0 0 1px rgba(179, 170, 242, 0.3);
 }
 
 /* Top Section of Card */
@@ -179,12 +179,13 @@
 
 /* Aligning 2 items centered in row 2 on desktop */
 @media (min-width: 1025px) {
-  .grid > div:nth-child(4) {
+  .grid>div:nth-child(4) {
     grid-column: 1 / span 1;
     margin-left: 50%;
     width: calc(100% - 16px);
   }
-  .grid > div:nth-child(5) {
+
+  .grid>div:nth-child(5) {
     grid-column: 2 / span 1;
     margin-left: 50%;
     width: calc(100% - 16px);
@@ -198,9 +199,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
+
   /* Remove desktop offset positioning */
-  .grid > div:nth-child(4),
-  .grid > div:nth-child(5) {
+  .grid>div:nth-child(4),
+  .grid>div:nth-child(5) {
     grid-column: auto !important;
     margin-left: 0 !important;
     width: 100% !important;

@@ -15,10 +15,10 @@ interface ServiceItem {
 export default function WebDevBuild() {
   const services: ServiceItem[] = [
     {
-      title: 'Business Websites',
-      desc: 'Professional websites designed for visibility, clean layouts, and brand trust.',
-      tag: 'Visibility',
-      imageUrl: 'https://images.unsplash.com/photo-1642132652860-471b4228023e?q=80&w=1460&auto=format&fit=crop',
+      title: 'App Development',
+      desc: 'Native and cross-platform mobile apps custom-built for iOS and Android platforms.',
+      tag: 'iOS & Android',
+      imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1170&auto=format&fit=crop',
     },
     {
       title: 'Landing Pages',

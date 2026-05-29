@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { AdsHero, AdsStats, AdsBento, AdsAnatomy, AdsServices, AdsProcess } from '@/components/ads';
+import { AdsHero, AdsStats, AdsBento, AdsAnatomy, AdsServices, AdsProcess, AdsSandbox, AdsCaseStudies } from '@/components/ads';
 import ContactUs from '@/components/common/ContactUs';
 import BrandMarquee from '@/components/home/BrandMarquee';
 
@@ -15,7 +15,9 @@ export default function AdsPage() {
             <AdsHero />
             <BrandMarquee />
             <AdsStats />
+            <AdsCaseStudies />
             <AdsServices />
+            <AdsSandbox />
             <AdsBento />
             <AdsAnatomy />
             <AdsProcess />
