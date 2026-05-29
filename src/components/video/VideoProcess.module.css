@@ -74,7 +74,7 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-size: clamp(1.8rem, 2.8vw, 3.2rem);
   font-weight: 600;
   line-height: 1.15;
   color: #06050c;
@@ -91,16 +91,6 @@
   /* Cards are flush/connected - no gap, divider line separates them */
 }
 
-/*
-  Card layout (matching reference):
-  ┌────────────────────────────────────┐
-  │  TITLE (top left, uppercase mono)  │
-  │                                    │
-  │                                    │
-  │  Description text…       [01]      │
-  └────────────────────────────────────┘
-  ──── thin bottom separator ────────────
-*/
 .card {
   background-color: #f5f4f0;
   /* Light warm grey cards matching reference */
@@ -175,6 +165,240 @@
   /* Bleed to full card width */
 }
 
+/* ── Phone Mockup styling ────────────────────────────── */
+.phoneContainer {
+  position: relative;
+  width: 260px;
+  height: 500px;
+  background-color: #000000;
+  border-radius: 35px;
+  border: 8px solid #1c1a24;
+  outline: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.22),
+    0 0 35px rgba(104, 82, 240, 0.12);
+  overflow: hidden;
+  /* margin: auto; */
+  margin-left: 40px;
+  margin-top: 25px;
+  z-index: 5;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phoneContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 32px 70px -12px rgba(0, 0, 0, 0.28),
+    0 0 45px rgba(104, 82, 240, 0.22);
+}
+
+.phoneNotch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 104px;
+  height: 22px;
+  background-color: #1c1a24;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.notchCamera {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #0c0b0f;
+  margin-right: 10px;
+}
+
+.notchSpeaker {
+  width: 32px;
+  height: 3px;
+  border-radius: 1.5px;
+  background-color: #2b2933;
+}
+
+.phoneScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #050508;
+}
+
+.reelVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phoneOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 26px 14px 16px 14px;
+  background: linear-gradient(rgba(0, 0, 0, 0.32) 0%, transparent 20%, transparent 70%, rgba(0, 0, 0, 0.65) 100%);
+  z-index: 6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  pointer-events: none;
+}
+
+.overlayTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.liveBadge {
+  background-color: rgba(255, 42, 84, 0.95);
+  padding: 2.5px 7px;
+  border-radius: 4px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.livePulseDot {
+  width: 4px;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  animation: pulseLive 1s infinite alternate;
+}
+
+@keyframes pulseLive {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+.soundToggle {
+  background-color: rgba(0, 0, 0, 0.45);
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background-color 0.2s, transform 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.soundToggle:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.overlayRight {
+  position: absolute;
+  right: 12px;
+  bottom: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: #ffffff;
+  pointer-events: auto;
+}
+
+.actionButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #ffffff;
+}
+
+.actionIconWrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.actionButton:hover .actionIconWrapper {
+  transform: scale(1.12);
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.overlayBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #ffffff;
+  max-width: 82%;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.creatorName {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.captionText {
+  font-size: 9.5px;
+  line-height: 1.35;
+  opacity: 0.95;
+}
+
+.musicTrack {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8.5px;
+  background-color: rgba(255, 255, 255, 0.16);
+  padding: 3px 8px;
+  border-radius: 10px;
+  width: max-content;
+}
+
+.musicNoteIcon {
+  animation: rotateMusic 4s linear infinite;
+}
+
+@keyframes rotateMusic {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 1024px) {
@@ -188,10 +412,18 @@
     position: relative;
     top: 0;
     align-self: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .title {
     max-width: 100%;
+  }
+
+  .phoneContainer {
+    margin: 20px auto 0 auto;
   }
 }
 

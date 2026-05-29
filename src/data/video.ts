@@ -140,7 +140,7 @@ export const videoData: ServicePageData = {
     description: 'Transform your marketing campaigns with production-oriented videos built for attention and action.',
     primaryCta: {
       text: 'Get A Quote',
-      href: '#contact',
+      href: '/contact#consultation',
     },
   },
 };

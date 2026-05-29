@@ -6,6 +6,7 @@ import ClientSuccessMetrics from "@/components/design/ClientSuccessMetrics";
 import DesignProcess from "@/components/design/DesignProcess";
 import { BrandingFaq } from "@/components/branding";
 import { designFaq } from "@/data/design";
+import CtaSection from "@/components/common/CtaSection";
 
 export const metadata = {
   title: "Premium Design Services | Ganesyx Agency",
@@ -22,6 +23,7 @@ export default function DesignPage() {
       <ClientSuccessMetrics />
       <DesignProcess />
       <BrandingFaq data={designFaq} />
+      <CtaSection />
     </main>
   );
 }

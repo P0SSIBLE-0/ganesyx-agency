@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { VideoHero, WhatWeMake, VideoWork, VideoProcess, WhyWorkWithUs } from '@/components/video';
 import { BrandingFaq } from '@/components/branding';
+import CtaSection from '@/components/common/CtaSection';
 import { videoData } from '@/data/video';
 
 export const metadata: Metadata = {
@@ -29,6 +30,10 @@ export default function VideoPage() {
 
             {/* 6. FAQ */}
             <BrandingFaq data={videoData.faq} />
+
+            {/* 7. Final CTA */}
+            <CtaSection data={videoData.cta} />
         </main>
     );
 }
+

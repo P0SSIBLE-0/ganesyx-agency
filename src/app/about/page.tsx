@@ -9,6 +9,7 @@ import Testimonials from '@/components/home/Testimonials';
 import ContactUs from '@/components/common/ContactUs';
 import Consultation from '@/components/home/Consultation';
 import TextMarquee from '@/components/home/TextMarquee';
+import BrandPhilosophy from '@/components/about/BrandPhilosophy';
 
 export const metadata: Metadata = {
     title: 'About Our Team | Ganesyx Agency',
@@ -57,6 +58,7 @@ export default function AboutPage() {
                 items={aboutStats} 
                 theme="light" 
             />
+            <BrandPhilosophy />
             <TextMarquee track1={Track1} track2={Track2} />
             <Testimonials />
             <Consultation />

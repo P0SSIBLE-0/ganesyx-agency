@@ -6,6 +6,7 @@ import StatsSection, { StatItem } from '@/components/ui/StatsSection';
 import ContactUs from '@/components/common/ContactUs';
 import { BrandingFaq } from '@/components/branding';
 import { faqCategories } from '@/data/faqs';
+import CtaSection from '@/components/common/CtaSection';
 
 export const metadata: Metadata = {
   title: "SEO Services | Ganesyx Agency - Grow Organic Search Visibility",
@@ -189,6 +190,7 @@ export default function SeoPage() {
 
       {/* Contact CTA Section */}
       <ContactUs />
+      <CtaSection />
     </main>
   );
 }

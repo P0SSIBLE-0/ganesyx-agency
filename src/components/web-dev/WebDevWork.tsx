@@ -5,21 +5,8 @@ import { motion, useScroll, useTransform, useSpring, type Variants } from 'frame
 import { ArrowUpRight } from 'lucide-react';
 import styles from './WebDevWork.module.css';
 
-interface Metric {
-  label: string;
-  value: string;
-}
+import { webDevProjects, type WebDevProject as Project } from '@/data/work';
 
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  desc: string;
-  tech: string[];
-  metrics: Metric[];
-  imageUrl: string;
-  link: string;
-}
 
 interface ProjectCardProps {
   project: Project;
@@ -147,50 +134,7 @@ export default function WebDevWork() {
     mass: 0.2
   });
 
-  const projects: Project[] = [
-    {
-      id: 'zenith-marketplace',
-      title: 'Zenith Marketplace',
-      category: 'E-Commerce & Retail',
-      desc: 'A high-performance luxury e-commerce engine custom-built for a premium apparel brand. Re-engineered from the ground up to support instant page navigations, fluid media-rich product listing paths, and a single-step checkout flow.',
-      tech: ['Next.js 15', 'RSC', 'Shopify Storefront API', 'Framer Motion', 'TailwindCSS'],
-      metrics: [
-        { label: 'Mobile Speed Score', value: '99/100' },
-        { label: 'Conversion Boost', value: '+42%' },
-        { label: 'Time-To-Interactive', value: '1.1s' }
-      ],
-      imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
-      link: '#contact',
-    },
-    {
-      id: 'pulse-analytics',
-      title: 'PulseAnalytics Dash',
-      category: 'SaaS & Enterprise',
-      desc: 'A real-time data streaming dashboard aggregating and rendering millions of telemetry events. Tailored for infrastructure monitoring and high-frequency data views with canvas-based visual graphing engines.',
-      tech: ['Next.js', 'TypeScript', 'Recharts', 'WebSockets', 'Node.js'],
-      metrics: [
-        { label: 'Rendering Speed', value: '5x Faster' },
-        { label: 'System Uptime', value: '99.99%' },
-        { label: 'Daily Events Streamed', value: '3.2M' }
-      ],
-      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
-      link: '#contact',
-    },
-    {
-      id: 'aether-estate',
-      title: 'Aether Estate Portal',
-      category: '3D WebGL / Real Estate',
-      desc: 'An immersive residential property platform presenting virtual walkthroughs. Users explore photo-realistic interior models directly inside the web browser with zero loading delays and fluid UI paths.',
-      tech: ['React Three Fiber', 'Next.js', 'Three.js', 'Prismic CMS', 'Vanilla CSS'],
-      metrics: [
-        { label: 'Avg Session Duration', value: '+150%' },
-        { label: 'Lighthouse SEO', value: '100/100' },
-        { label: 'Cumulative Layout Shift', value: '0.00' }
-      ],
-      imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop',
-      link: '#contact',
-    }
-  ];
+  const projects = webDevProjects;
 
   const headerVariants: Variants = {
     hidden: { opacity: 0, y: 25 },

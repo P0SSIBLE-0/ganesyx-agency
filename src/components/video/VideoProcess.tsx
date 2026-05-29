@@ -1,6 +1,8 @@
 'use client';
 
+import React, { useState, useRef } from 'react';
 import { motion, type Variants } from 'framer-motion';
+import { Heart, MessageCircle, Share2, Music, Volume2, VolumeX } from 'lucide-react';
 import styles from './VideoProcess.module.css';
 
 interface ProcessStep {
@@ -56,13 +58,33 @@ const cardVariants: Variants = {
 interface VideoProcessProps {
   steps?: ProcessStep[];
   title?: string;
+  reelVideoUrl?: string;
 }
 
 export default function VideoProcess({
   steps: customSteps,
-  title = 'A simple collaborative workflow that guides projects from first conversation to final delivery'
+  title = 'A simple collaborative workflow that guides projects from first conversation to final delivery',
+  reelVideoUrl = 'https://cdn.pixabay.com/video/2025/02/12/257851_large.mp4'
 }: VideoProcessProps = {}) {
   const activeSteps = customSteps || steps;
+  const [isMuted, setIsMuted] = useState(true);
+  const [likes, setLikes] = useState(842);
+  const [hasLiked, setHasLiked] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  const handleLike = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setLikes(prev => (hasLiked ? prev - 1 : prev + 1));
+    setHasLiked(!hasLiked);
+  };
 
   return (
     <section className={styles.section}>
@@ -84,6 +106,76 @@ export default function VideoProcess({
             <h2 className={styles.title}>
               {title}
             </h2>
+
+            {/* Phone Mockup Container */}
+            <div className={styles.phoneContainer}>
+              <div className={styles.phoneNotch}>
+                <div className={styles.notchCamera} />
+                <div className={styles.notchSpeaker} />
+              </div>
+
+              <div className={styles.phoneScreen}>
+                <video
+                  ref={videoRef}
+                  src={reelVideoUrl}
+                  className={styles.reelVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+
+                {/* Simulated Screen UI Overlay */}
+                <div className={styles.phoneOverlay}>
+                  {/* Top: Badges & Sound Toggle */}
+                  <div className={styles.overlayTop}>
+                    <span className={styles.liveBadge}>
+                      <span className={styles.livePulseDot} />
+                      REEL
+                    </span>
+                    <button
+                      className={styles.soundToggle}
+                      onClick={toggleMute}
+                      aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                    >
+                      {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                    </button>
+                  </div>
+
+                  {/* Right side interaction buttons */}
+                  <div className={styles.overlayRight}>
+                    <button className={styles.actionButton} onClick={handleLike} aria-label="Like Video">
+                      <div className={styles.actionIconWrapper}>
+                        <Heart size={16} fill={hasLiked ? '#ff2a54' : 'transparent'} stroke={hasLiked ? '#ff2a54' : '#ffffff'} />
+                      </div>
+                      <span>{likes}</span>
+                    </button>
+                    <div className={styles.actionButton}>
+                      <div className={styles.actionIconWrapper}>
+                        <MessageCircle size={16} stroke="#ffffff" />
+                      </div>
+                      <span>142</span>
+                    </div>
+                    <div className={styles.actionButton}>
+                      <div className={styles.actionIconWrapper}>
+                        <Share2 size={16} stroke="#ffffff" />
+                      </div>
+                      <span>Share</span>
+                    </div>
+                  </div>
+
+                  {/* Bottom: Caption & creator tag */}
+                  <div className={styles.overlayBottom}>
+                    <div className={styles.creatorName}>@ganesyxagency</div>
+                    <div className={styles.captionText}>Workflow details built for high performance campaigns 🚀</div>
+                    <div className={styles.musicTrack}>
+                      <Music size={10} className={styles.musicNoteIcon} />
+                      <span>Original Audio • Ganesyx</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* ── Scrolling Cards (Right) ── */}
@@ -118,3 +210,4 @@ export default function VideoProcess({
     </section>
   );
 }
+

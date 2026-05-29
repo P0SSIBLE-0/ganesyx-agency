@@ -3,28 +3,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './BrandGrow.module.css';
 
-export interface CardData {
-  icon: string;
-  title: string;
-  desc: string;
-}
-
 export interface BrandGrowProps {
   imageUrl?: string;
   title?: React.ReactNode;
   descriptions?: string[];
   ctaText?: string;
   ctaLink?: string;
-  rightCard?: CardData;
-  leftCard?: CardData;
+  floatingImageLeft?: string;
+  floatingImageRight?: string;
 }
 
 export default function BrandGrow({
   imageUrl = '/grow-brand.jpg',
   title = (
     <>
-      Everything we do to <br />
-      grow your brand online
+      Everything We do to <br />
+      Grow Your Brand Online
     </>
   ),
   descriptions = [
@@ -33,16 +27,8 @@ export default function BrandGrow({
   ],
   ctaText = 'Book a free Consultation',
   ctaLink = '#contact',
-  rightCard = {
-    icon: '/icons/target-cross-small.svg',
-    title: 'Performance Marketing',
-    desc: 'Run targeted ad campaigns designed to generate leads and maximize ROI.'
-  },
-  leftCard = {
-    icon: '/icons/seo-search-symbol.png',
-    title: 'SEO Optimization',
-    desc: 'Improve your search rankings and bring more organic traffic to your website.'
-  }
+  floatingImageLeft = 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&h=400&fit=crop&q=80',
+  floatingImageRight = 'https://images.unsplash.com/photo-1586880244406-556ebe35f282?q=80&w=687&auto=format&fit=crop'
 }: BrandGrowProps) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -70,19 +56,10 @@ export default function BrandGrow({
       ref={sectionRef}
       className={`${styles.section} ${isVisible ? styles.visible : ''}`}
     >
-      {/* Inline SVG Clip Path definition for the custom background shape */}
-      <svg width="0" height="0" style={{ position: 'absolute', width: 0, height: 0, pointerEvents: 'none' }}>
-        <defs>
-          <clipPath id="brandGrowClip" clipPathUnits="objectBoundingBox">
-            <path d="M 0.08, 0 L 0.44, 0 A 0.08,0.08 0 0 1 0.52, 0.08 L 0.52, 0.375 A 0.105,0.105 0 0 0 0.625, 0.48 L 0.92, 0.48 A 0.08,0.08 0 0 1 1, 0.56 L 1, 0.92 A 0.08,0.08 0 0 1 0.92, 1 L 0.56, 1 A 0.08,0.08 0 0 1 0.48, 0.92 L 0.48, 0.625 A 0.105,0.105 0 0 0 0.375, 0.52 L 0.08, 0.52 A 0.08,0.08 0 0 1 0, 0.44 L 0, 0.08 A 0.08,0.08 0 0 1 0.08, 0 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-
       <div className={styles.container}>
         <div className={styles.grid}>
 
-          {/* Left content block */}
+          {/* Left Content Block */}
           <div className={styles.leftContent}>
             <h2 className={styles.title}>
               {title}
@@ -94,64 +71,41 @@ export default function BrandGrow({
               </p>
             ))}
 
-            <a href={ctaLink} className={styles.viewMoreBtn}>
+            <a href={ctaLink} className={styles.ctaBtn}>
               {ctaText}
             </a>
           </div>
 
-          {/* Right graphics overlapping layout */}
+          {/* Right Graphics Overlapping Layout */}
           <div className={styles.rightGraphics}>
 
-            {/* 1. Large Central Image Background with custom shape drop shadow */}
-            <div className={styles.largeImageWrapper}>
-              <div className={styles.largeImageContainer}>
-                <div
-                  className={styles.bgImage}
-                  style={{ backgroundImage: `url('${imageUrl}')` }}
-                />
-              </div>
-              <svg className={styles.borderOverlay} viewBox="0 0 1 1" preserveAspectRatio="none">
-                <path
-                  d="M 0.08, 0 L 0.44, 0 A 0.08,0.08 0 0 1 0.52, 0.08 L 0.52, 0.375 A 0.105,0.105 0 0 0 0.625, 0.48 L 0.92, 0.48 A 0.08,0.08 0 0 1 1, 0.56 L 1, 0.92 A 0.08,0.08 0 0 1 0.92, 1 L 0.56, 1 A 0.08,0.08 0 0 1 0.48, 0.92 L 0.48, 0.625 A 0.105,0.105 0 0 0 0.375, 0.52 L 0.08, 0.52 A 0.08,0.08 0 0 1 0, 0.44 L 0, 0.08 A 0.08,0.08 0 0 1 0.08, 0 Z"
-                  fill="none"
-                  stroke="rgba(255, 255, 255, 0.28)"
-                  strokeWidth="1.5"
-                  vectorEffect="non-scaling-stroke"
-                />
-              </svg>
+            {/* 1. Large Central Image Background with modern rounded corners */}
+            <div className={styles.mainImageWrapper}>
+              <div
+                className={styles.mainImage}
+                style={{ backgroundImage: `url('${imageUrl}')` }}
+              />
             </div>
 
-            {/* 2. Top-Right Glass Card (Performance Marketing / Custom) */}
-            {rightCard && (
-              <div className={styles.glassCardRight}>
-                <div className={styles.iconContainer}>
-                  <img
-                    src={rightCard.icon}
-                    alt={`${rightCard.title} Icon`}
-                    className={styles.targetIcon}
-                  />
-                </div>
-                <h3 className={styles.cardTitle}>{rightCard.title}</h3>
-                <p className={styles.cardDesc}>
-                  {rightCard.desc}
-                </p>
+            {/* 2. Top-Left Feature Card */}
+            {floatingImageLeft && (
+              <div className={styles.floatingCardLeft}>
+                <img
+                  src={floatingImageLeft}
+                  alt="Brand growth showcase"
+                  className={styles.cardImage}
+                />
               </div>
             )}
 
-            {/* 3. Bottom-Left Glass Card (SEO Optimization / Custom) */}
-            {leftCard && (
-              <div className={styles.glassCardLeft}>
-                <div className={styles.iconContainer}>
-                  <img
-                    src={leftCard.icon}
-                    alt={`${leftCard.title} Icon`}
-                    className={styles.seoIcon}
-                  />
-                </div>
-                <h3 className={styles.cardTitle}>{leftCard.title}</h3>
-                <p className={styles.cardDesc}>
-                  {leftCard.desc}
-                </p>
+            {/* 3. Bottom-Right Feature Card */}
+            {floatingImageRight && (
+              <div className={styles.floatingCardRight}>
+                <img
+                  src={floatingImageRight}
+                  alt="Digital marketing results"
+                  className={styles.cardImage}
+                />
               </div>
             )}
 
@@ -162,3 +116,5 @@ export default function BrandGrow({
     </section>
   );
 }
+
+

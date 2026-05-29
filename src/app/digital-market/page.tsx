@@ -8,6 +8,7 @@ import WhyChooseUs from '@/components/digital-market/WhyChooseUs';
 import ContactUs from '@/components/common/ContactUs';
 import BrandMarquee from '@/components/home/BrandMarquee';
 import { DollarSign, Users, Target } from 'lucide-react';
+import CtaSection from '@/components/common/CtaSection';
 
 export const metadata: Metadata = {
   title: "Digital Marketing Services | Ganesyx Agency",
@@ -67,6 +68,7 @@ export default function DigitalMarketPage() {
 
       {/* 7. Standard Contact Form Section */}
       <ContactUs id="contact" />
+      <CtaSection />
     </main>
   );
 }

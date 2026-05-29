@@ -343,7 +343,7 @@ export const brandingData: ServicePageData = {
     description: "Use Ganesyx's premium design systems and visual standards to build memorable brand identities.",
     primaryCta: {
       text: 'Book a call',
-      href: '#contact',
+      href: '/contact#consultation',
     },
     secondaryCta: {
       text: 'Explore our work',

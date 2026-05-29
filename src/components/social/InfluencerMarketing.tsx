@@ -86,9 +86,9 @@ export default function InfluencerMarketing() {
     <section className={styles.section} id="influencer-marketing">
       <div className={styles.container}>
         <div className={styles.grid}>
-          
+
           {/* Left Column — Text & Strategy info */}
-          <motion.div 
+          <motion.div
             className={styles.leftCol}
             variants={leftColVariants}
             initial="hidden"
@@ -97,7 +97,7 @@ export default function InfluencerMarketing() {
           >
             <SubHeading className={styles.tagline}>Influencer Marketing</SubHeading>
             <Heading level={2} className={styles.title}>
-              Creator partnerships that drive conversions.
+              Creator Partnerships That Drive Conversions.
             </Heading>
             <Paragraph variant="default" className={styles.description}>
               We don't just buy follower counts. We match your brand with creator personalities who produce native, high-trust content that actually converts audiences into buyers.
@@ -156,7 +156,7 @@ export default function InfluencerMarketing() {
 
           {/* Right Column — Premium Creator Mockup Cards */}
           <div className={styles.rightCol}>
-            <motion.div 
+            <motion.div
               className={styles.creatorList}
               variants={containerVariants}
               initial="hidden"
@@ -164,18 +164,18 @@ export default function InfluencerMarketing() {
               viewport={{ once: true, margin: "-100px" }}
             >
               {creators.map((creator, idx) => (
-                <motion.div 
+                <motion.div
                   key={idx}
                   className={styles.creatorCard}
                   variants={creatorCardVariants}
                   whileHover={{ y: -5 }}
                 >
                   <div className={styles.avatarWrapper}>
-                    <Image 
-                      src={creator.image} 
-                      alt={creator.name} 
-                      width={70} 
-                      height={70} 
+                    <Image
+                      src={creator.image}
+                      alt={creator.name}
+                      width={70}
+                      height={70}
                       className={styles.avatar}
                       priority={idx === 0}
                     />
@@ -187,7 +187,7 @@ export default function InfluencerMarketing() {
                       <span className={styles.creatorHandle}>{creator.handle}</span>
                     </div>
                     <span className={styles.creatorNiche}>{creator.niche}</span>
-                    
+
                     <div className={styles.creatorStats}>
                       <span className={styles.statLabel}>Followers: <strong>{creator.followers}</strong></span>
                       <span className={styles.statDot} />

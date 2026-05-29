@@ -4,50 +4,9 @@ import { useRef, useState } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import styles from './VideoWork.module.css';
+import { videoProjects, type VideoProject } from '@/data/work';
 
-interface Project {
-  id: string;
-  title: string;
-  image: string;
-  video: string;
-  tags: string[];
-  gridClass: string;
-}
-
-const projects: Project[] = [
-  {
-    id: '01',
-    title: 'Techvision Ad Campaign',
-    image: '/work-vr.png',
-    video: 'https://cdn.pixabay.com/video/2025/04/23/273883_large.mp4',
-    tags: ['Campaign', 'Video Ad', 'Branding'],
-    gridClass: styles.card1
-  },
-  {
-    id: '02',
-    title: "Short Film 'Echoes'",
-    image: '/work-nature.png',
-    video: 'https://cdn.pixabay.com/video/2025/04/23/273883_large.mp4',
-    tags: ['Movie', 'Documentary', 'Editing'],
-    gridClass: styles.card2
-  },
-  {
-    id: '03',
-    title: 'Fitpro Youtube Series',
-    image: '/work-fitness.png',
-    video: 'https://cdn.pixabay.com/video/2025/04/23/273883_large.mp4',
-    tags: ['Strategy', 'Video Ad', 'Branding'],
-    gridClass: styles.card3
-  },
-  {
-    id: '04',
-    title: 'Wedding Highlights for Elite Events',
-    image: '/work-wedding.png',
-    video: 'https://cdn.pixabay.com/video/2025/04/23/273883_large.mp4',
-    tags: ['Event', 'Personal', 'Intimate'],
-    gridClass: styles.card4
-  }
-];
+const gridClasses = [styles.card1, styles.card2, styles.card3, styles.card4];
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -61,7 +20,7 @@ const cardVariants: Variants = {
   }
 };
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project }: { project: VideoProject }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -147,10 +106,10 @@ export default function VideoWork() {
             }
           }}
         >
-          {projects.map((project) => (
+          {videoProjects.map((project, idx) => (
             <motion.div
               key={project.id}
-              className={project.gridClass}
+              className={gridClasses[idx % gridClasses.length]}
               variants={cardVariants}
             >
               <ProjectCard project={project} />

@@ -1,12 +1,45 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Check, type LucideIcon } from 'lucide-react';
 import styles from './ContactUs.module.css';
 
 interface ContactUsProps {
   id?: string;
 }
+
+interface ContactDetail {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href?: string;
+}
+
+const CONTACT_DETAILS: ContactDetail[] = [
+  {
+    icon: Phone,
+    label: 'CALL US',
+    value: '(+91) 920-546-6534',
+    href: 'tel:+919205466534',
+  },
+  {
+    icon: Mail,
+    label: 'MAIL US',
+    value: 'info.ganesyx@gmail.com',
+    href: 'mailto:info.ganesyx@gmail.com',
+  },
+  {
+    icon: MapPin,
+    label: 'FIND US',
+    value: 'Prashant Vihar, Sector 14, Rohini, Delhi, 110085, India',
+    href: 'https://www.google.com/maps/place/Ganesyx+Private+Limited+%7C+Best+Digital+Marketing+Agency+in+Delhi/@28.7148831,77.1387015,17z/data=!3m1!4b1!4m6!3m5!1s0x390d013cad083af7:0xee3c42742c8c8191!8m2!3d28.7148831!4d77.1387015!16s%2Fg%2F11m67l4vm3?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D',
+  },
+  {
+    icon: Clock,
+    label: 'WORKING HOURS',
+    value: 'Mon - Sat: 08.00 - 7.00',
+  },
+];
 
 export default function ContactUs({ id = 'contact' }: ContactUsProps) {
   const [formData, setFormData] = useState({
@@ -76,45 +109,21 @@ export default function ContactUs({ id = 'contact' }: ContactUsProps) {
             <div className={styles.infoArea}>
               <h3 className={styles.infoTitle}>Contact Info</h3>
               <div className={styles.infoGrid}>
-                <div className={styles.infoItem}>
-                  <div className={styles.iconCircle}>
-                    <Phone size={20} />
+                {CONTACT_DETAILS.map(({ icon: Icon, label, value, href }) => (
+                  <div key={label} className={styles.infoItem}>
+                    <div className={styles.iconCircle}>
+                      <Icon size={20} />
+                    </div>
+                    <div className={styles.infoContent}>
+                      <span className={styles.infoLabel}>{label}</span>
+                      {href ? (
+                        <a href={href} className={styles.infoValue}>{value}</a>
+                      ) : (
+                        <span className={styles.infoValue}>{value}</span>
+                      )}
+                    </div>
                   </div>
-                  <div className={styles.infoContent}>
-                    <span className={styles.infoLabel}>CALL US</span>
-                    <a href="tel:+995555555555" className={styles.infoValue}>(+995) 555-55-55-55</a>
-                  </div>
-                </div>
-
-                <div className={styles.infoItem}>
-                  <div className={styles.iconCircle}>
-                    <Mail size={20} />
-                  </div>
-                  <div className={styles.infoContent}>
-                    <span className={styles.infoLabel}>MAIL US</span>
-                    <a href="mailto:hello@ganesyx.com" className={styles.infoValue}>hello@ganesyx.com</a>
-                  </div>
-                </div>
-
-                <div className={styles.infoItem}>
-                  <div className={styles.iconCircle}>
-                    <MapPin size={20} />
-                  </div>
-                  <div className={styles.infoContent}>
-                    <span className={styles.infoLabel}>FIND US</span>
-                    <span className={styles.infoValue}>67 Wisteria Way, VIC 3136</span>
-                  </div>
-                </div>
-
-                <div className={styles.infoItem}>
-                  <div className={styles.iconCircle}>
-                    <Clock size={20} />
-                  </div>
-                  <div className={styles.infoContent}>
-                    <span className={styles.infoLabel}>WORKING HOURS</span>
-                    <span className={styles.infoValue}>Mon - Fri: 08.00 - 20.00</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

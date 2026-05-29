@@ -10,11 +10,12 @@ import { BrandingFaq } from '@/components/branding';
 import { FaqItem } from '@/data/types';
 import type { Metadata } from 'next';
 import ContactUs from '@/components/common/ContactUs';
+import CtaSection from '@/components/common/CtaSection';
 
 export const metadata: Metadata = {
-    title: "GEO Services | Ganesyx Agency - Optimize for AI Search & Engines",
-    description: "Improve visibility, recommendations, and citation share across AI conversational search models, including ChatGPT, Google Gemini, Claude, and Perplexity.",
-    keywords: ["GEO Services", "Generative Engine Optimization", "LLM Optimization", "AI Search Visibility", "RAG Pipeline Tuning", "ChatGPT Citation building", "Gemini Visibility Index"],
+  title: "GEO Services | Ganesyx Agency - Optimize for AI Search & Engines",
+  description: "Improve visibility, recommendations, and citation share across AI conversational search models, including ChatGPT, Google Gemini, Claude, and Perplexity.",
+  keywords: ["GEO Services", "Generative Engine Optimization", "LLM Optimization", "AI Search Visibility", "RAG Pipeline Tuning", "ChatGPT Citation building", "Gemini Visibility Index"],
 };
 
 const geoFaq: FaqItem[] = [
@@ -45,36 +46,37 @@ const geoFaq: FaqItem[] = [
 ];
 
 export default function GeoPage() {
-    return (
-        <main style={{ minHeight: '100vh' }}>
-            {/* Dynamic Conversational Hero Visual */}
-            <GeoHero />
+  return (
+    <main style={{ minHeight: '100vh' }}>
+      {/* Dynamic Conversational Hero Visual */}
+      <GeoHero />
 
-            {/* What Is GEO Comparative Explanation Section */}
-            <WhatIsGeo />
+      {/* What Is GEO Comparative Explanation Section */}
+      <WhatIsGeo />
 
-            {/* Why GEO Matters Section */}
-            <GeoWhy />
+      {/* Why GEO Matters Section */}
+      <GeoWhy />
 
-            {/* The Problem Section */}
-            <GeoProblem />
+      {/* The Problem Section */}
+      <GeoProblem />
 
-            {/* How AI Search Works Section */}
-            <GeoHow />
+      {/* How AI Search Works Section */}
+      <GeoHow />
 
-            {/* GEO Process Section */}
-            <GeoProcess />
+      {/* GEO Process Section */}
+      <GeoProcess />
 
-            {/* GEO Tracking & Reporting Section */}
-            <GeoTracking />
+      {/* GEO Tracking & Reporting Section */}
+      <GeoTracking />
 
-            {/* GEO Industries Section */}
-            <GeoIndustries />
+      {/* GEO Industries Section */}
+      <GeoIndustries />
 
-            {/* FAQ Section */}
-            <BrandingFaq data={geoFaq} />
+      {/* FAQ Section */}
+      <BrandingFaq data={geoFaq} />
 
-            <ContactUs />
-        </main>
-    );
+      <CtaSection />
+      <ContactUs />
+    </main>
+  );
 }

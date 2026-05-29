@@ -8,6 +8,7 @@ import WebDevTech from '@/components/web-dev/WebDevTech';
 import WebDevTestimonials from '@/components/web-dev/WebDevTestimonials';
 import WebDevFaq from '@/components/web-dev/WebDevFaq';
 import ContactUs from '@/components/common/ContactUs';
+import CtaSection from '@/components/common/CtaSection';
 
 export const metadata: Metadata = {
     title: 'Next-Gen Web Development | Ganesyx Agency',
@@ -34,6 +35,7 @@ export default function WebDevPage() {
             <WebDevTestimonials />
             <WebDevFaq />
             <ContactUs />
+            <CtaSection />
         </main>
     );
 }

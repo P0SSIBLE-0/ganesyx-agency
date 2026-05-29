@@ -4,6 +4,7 @@ import ContactUs from '@/components/common/ContactUs';
 import BrandMarquee from '@/components/home/BrandMarquee';
 import { VideoProcess } from '@/components/video';
 import { socialProcess } from '@/data/social';
+import CtaSection from '@/components/common/CtaSection';
 
 export const metadata: Metadata = {
     title: "Social Media Content Systems & Growth | Ganesyx Agency",
@@ -54,6 +55,7 @@ export default function SocialPage() {
 
             {/* 6. Standard Contact Form Section */}
             <ContactUs id="contact" />
+            <CtaSection />
         </main>
     );
 }

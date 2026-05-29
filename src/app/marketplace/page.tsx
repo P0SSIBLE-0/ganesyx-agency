@@ -8,6 +8,7 @@ import MarketplaceWhy from '@/components/marketplace/MarketplaceWhy';
 import MarketplaceSuccess from '@/components/marketplace/MarketplaceSuccess';
 import { BrandingFaq } from '@/components/branding';
 import ContactUs from '@/components/common/ContactUs';
+import CtaSection from '@/components/common/CtaSection';
 
 export const metadata: Metadata = {
     title: 'Marketplace E-commerce Strategies | Ganesyx Agency',
@@ -63,6 +64,7 @@ export default function MarketplacePage() {
             <MarketplaceWhy />
             <BrandingFaq data={faqData} />
             <ContactUs />
+            <CtaSection />
         </main>
     );
 }

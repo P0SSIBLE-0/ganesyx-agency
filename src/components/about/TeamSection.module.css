@@ -64,7 +64,8 @@
 .quoteDivider {
   width: 1px;
   height: 48px;
-  background-color: #000000;
+  background-color: #0000007a;
+  margin: auto;
 }
 
 .quoteText {
@@ -243,7 +244,7 @@
   }
 
   .teamGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
 

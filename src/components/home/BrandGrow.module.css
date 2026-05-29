@@ -1,34 +1,138 @@
 .section {
-  padding: 120px 0;
-  background: linear-gradient(135deg, #5d55f7 0%, #7c3aed 100%);
+  padding: 80px 0;
+  background-color: #faf9fc;
+  /* Premium soft grey/violet background */
   position: relative;
   overflow: hidden;
-  color: #ffffff;
+  color: #111827;
 }
 
 .container {
   width: 100%;
-  max-width: var(--container-max-width);
+  max-width: var(--container-max-width, 1400px);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 clamp(24px, 5vw, 80px);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 40px;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(40px, 8vw, 80px);
   align-items: center;
 }
 
-/* Left Content Details */
+/* Right Graphics Layout */
+.rightGraphics {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translate(30px, 30px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 5;
+}
+
+.visible .rightGraphics {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* 1. Large Central Image with round corners */
+.mainImageWrapper {
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  width: 76%;
+  height: 76%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.08),
+    0 5px 15px rgba(0, 0, 0, 0.04);
+  z-index: 1;
+  background-color: #f3f4f6;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rightGraphics:hover .mainImage {
+  transform: scale(1.05);
+}
+
+/* 2. Floating Image Cards */
+.floatingCardLeft {
+  position: absolute;
+  top: -1%;
+  left: -5%;
+  width: 38%;
+  aspect-ratio: 16/10;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  z-index: 3;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.10),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.floatingCardRight {
+  position: absolute;
+  bottom: -5%;
+  right: -5%;
+  width: 48%;
+  aspect-ratio: 4/5;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 3;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.10),
+    0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.floatingCardLeft:hover,
+.floatingCardRight:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floatingCardLeft:hover .cardImage,
+.floatingCardRight:hover .cardImage {
+  transform: scale(1.05);
+}
+
+/* Left Content Block */
 .leftContent {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 30px;
+  gap: 28px;
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateX(-30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .visible .leftContent {
@@ -37,406 +141,106 @@
 }
 
 .title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 4.5vw, 2.6rem);
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 600;
-  color: #ffffff;
+  color: #111827;
   line-height: 1.15;
   letter-spacing: -0.02em;
+  margin: 0;
 }
 
 .description {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: clamp(0.98rem, 1.2vw, 1.05rem);
+  color: #4b5563;
   line-height: 1.65;
-  font-weight: 400;
+  margin: 0;
 }
 
-.viewMoreBtn {
+.ctaBtn {
   display: inline-block;
-  padding: 14px 38px;
-  background: #111111;
+  padding: 16px 36px;
+  background-color: var(--brand, #330099);
   color: #ffffff;
-  font-family: var(--font-body);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
   font-size: 0.95rem;
   font-weight: 600;
   border-radius: 9999px;
   text-decoration: none;
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.viewMoreBtn:hover {
-  background: #000000;
+.ctaBtn:hover {
+  background-color: var(--brand-light, #4a00cc);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(51, 0, 153, 0.25);
 }
 
-/* Right Graphics Staggered Overlapping Cards */
-.rightGraphics {
-  position: relative;
-  width: 100%;
-  max-width: 550px;
-  aspect-ratio: 1 / 1;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
-}
-
-.visible .rightGraphics {
-  opacity: 1;
+.ctaBtn:active {
   transform: translateY(0);
 }
 
-/* 1. Large Central Image Background */
-.largeImageWrapper {
-  position: absolute;
-  inset: 0;
-  /* Multi-layered drop shadow for deep realistic look */
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3)) drop-shadow(0 30px 60px rgba(0, 0, 0, 0.45));
-  z-index: 1;
-}
-
-/* Background glowing aura behind the clipped shape for depth */
-.largeImageWrapper::before {
-  content: '';
-  position: absolute;
-  inset: 15%;
-  background: radial-gradient(circle, rgba(91, 51, 234, 0.4) 0%, transparent 70%);
-  filter: blur(50px);
-  z-index: -1;
-  pointer-events: none;
-}
-
-.largeImageContainer {
-  width: 100%;
-  height: 100%;
-  clip-path: url(#brandGrowClip);
-  background: #050c21;
-  position: relative;
-  overflow: hidden;
-}
-
-.bgImage {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 1;
-  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.largeImageContainer:hover .bgImage {
-  transform: scale(1.06);
-}
-
-.borderOverlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-  overflow: visible;
-}
-
-/* 2. Top-Right Glass Card */
-.glassCardRight {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 44%;
-  height: 44%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(216, 180, 254, 0.08) 100%);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border: 1.5px solid rgba(255, 255, 255, 0.28);
-  border-radius: 36px;
-  padding: clamp(16px, 3vw, 24px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 3;
-  /* Complex shadows: soft ambient occlusion shadow + sharp drop shadow + subtle white inner reflection */
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.15),
-    0 35px 70px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 15px 30px rgba(255, 255, 255, 0.03);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
-}
-
-.glassCardRight:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.45);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(216, 180, 254, 0.12) 100%);
-  box-shadow:
-    0 15px 30px rgba(0, 0, 0, 0.2),
-    0 50px 90px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-}
-
-/* 3. Bottom-Left Glass Card (Purple Tinted) */
-.glassCardLeft {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 44%;
-  height: 44%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(216, 180, 254, 0.08) 100%);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border: 1.5px solid rgba(255, 255, 255, 0.28);
-  border-radius: 36px;
-  padding: clamp(16px, 3vw, 24px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 3;
-  /* Complex shadows: matching neon hue for the soft shadow glow */
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.15),
-    0 35px 70px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 15px 30px rgba(255, 255, 255, 0.03);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
-}
-
-.glassCardLeft:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.45);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(216, 180, 254, 0.12) 100%);
-  box-shadow:
-    0 15px 30px rgba(0, 0, 0, 0.2),
-    0 50px 90px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-}
-
-/* Common Card contents */
-.iconContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease;
-}
-
-.glassCardRight:hover .iconContainer,
-.glassCardLeft:hover .iconContainer {
-  transform: scale(1.05);
-}
-
-.targetIcon {
-  width: 76px;
-  height: 76px;
-  filter: brightness(0) invert(1);
-  /* Makes target cross SVG render in pure white */
-}
-
-.seoIcon {
-  width: 96px;
-  height: 96px;
-}
-
-.cardTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 10px;
-  letter-spacing: -0.01em;
-}
-
-.cardDesc {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.55;
-  font-weight: 400;
-}
-
-/* Custom Growth Chart visualizer */
-.growthChart {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  overflow: hidden;
-}
-
-.chartLine {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.chartLine.dotted {
-  border-left: 1px dotted rgba(255, 255, 255, 0.12);
-  background: none;
-}
-
-.arrow {
-  position: absolute;
-  bottom: 0;
-  width: 2px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #38bdf8;
-  transform-origin: bottom;
-  animation: growVertical 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.arrowShaft {
-  width: 100%;
-  flex: 1;
-  background: linear-gradient(to top, rgba(56, 189, 248, 0.02) 0%, rgba(56, 189, 248, 0.5) 100%);
-}
-
-.arrowHead {
-  width: 12px;
-  height: 12px;
-  margin-top: -6px;
-  color: rgba(56, 189, 248, 0.8);
-  flex-shrink: 0;
-}
-
-/* Main Cyan-Blue gradient Arrow */
-.mainArrow {
-  width: 4px;
-  color: #00f2fe;
-  filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.8));
-}
-
-.mainArrow .arrowShaft {
-  background: linear-gradient(to top, rgba(0, 102, 255, 0.1) 0%, #00f2fe 100%);
-}
-
-.mainArrow .arrowHead {
-  width: 22px;
-  height: 22px;
-  margin-top: -11px;
-  color: #00f2fe;
-}
-
-@keyframes growVertical {
-  from {
-    transform: scaleY(0);
-  }
-
-  to {
-    transform: scaleY(1);
-  }
-}
-
-/* Responsive Adaptive Viewports */
-@media (max-width: 1100px) {
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
   .grid {
     grid-template-columns: 1fr;
     gap: 60px;
   }
 
-  .leftContent {
-    max-width: 100%;
+  .rightGraphics {
+    order: 1;
+    /* Keep visual grid on top of text on tablet/mobile */
+    max-width: 500px;
   }
 
-  .rightGraphics {
-    max-width: 480px;
+  .leftContent {
+    order: 2;
+    max-width: 100%;
+    transform: translateY(30px);
+  }
+
+  .visible .leftContent {
+    transform: translateY(0);
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 80px 0;
+    padding: 100px 0;
   }
 
-  .container {
-    padding: 0 24px;
-  }
-
-  .leftContent {
-    gap: 20px;
-  }
-
-  .title {
-    font-size: 2.2rem;
-  }
-
-  .description {
-    font-size: 0.98rem;
-  }
-
-  .rightGraphics {
-    gap: 16px;
-  }
-
-  .glassCardRight,
-  .glassCardLeft {
-    border-radius: 24px;
-    padding: 20px 16px;
-  }
-
-  .iconContainer {
-    margin-bottom: 12px;
-  }
-
-  .targetIcon {
-    width: 48px;
-    height: 48px;
-  }
-
-  .seoIcon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .cardTitle {
-    font-size: 1.05rem;
-  }
-
-  .cardDesc {
-    font-size: 0.8rem;
+  .floatingCardLeft,
+  .floatingCardRight {
+    border-radius: 12px;
   }
 }
 
 @media (max-width: 480px) {
-
-  .glassCardRight,
-  .glassCardLeft {
-    padding: 12px 8px;
-    border-radius: 16px;
-    border-width: 1px;
+  .section {
+    padding: 80px 0;
   }
 
-  .iconContainer {
-    margin-bottom: 6px;
+  .rightGraphics {
+    aspect-ratio: 1.1 / 1;
   }
 
-  .targetIcon {
-    width: 28px;
-    height: 28px;
+  .mainImageWrapper {
+    top: 15%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    border-radius: 20px;
   }
 
-  .seoIcon {
-    width: 36px;
-    height: 36px;
+  .floatingCardLeft,
+  .floatingCardRight {
+    border-radius: 10px;
   }
 
-  .cardTitle {
-    font-size: 0.82rem;
-    margin-bottom: 2px;
-  }
-
-  .cardDesc {
-    font-size: 0.68rem;
-    line-height: 1.25;
+  .ctaBtn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 28px;
   }
 }
