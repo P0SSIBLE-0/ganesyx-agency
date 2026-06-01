@@ -1,6 +1,8 @@
 .section {
-  background-color: #f7f6fc; /* Off-white brand tint background */
-  padding: 140px 40px;
+  background-color: #f7f6fc;
+  /* Off-white brand tint background */
+  padding: 140px 40px 180px 40px;
+  /* Increased bottom padding for stagger offset */
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -31,60 +33,65 @@
   line-height: 1.1;
   color: #06050c;
   text-transform: uppercase;
-  margin: 0 0 80px 0;
+  margin: 0 0 100px 0;
+  /* Slightly more space before grid */
   letter-spacing: -0.01em;
 }
 
-/* Asymmetrical 12-Column Grid */
+/* 4-Column Grid for Reels */
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 60px 32px;
+  gap: 64px 32px;
 }
 
-/* Card 1 & 2 (Top Row - 6 cols each) */
-.card1, .card2 {
-  grid-column: span 6;
+.card {
+  grid-column: span 3;
   display: flex;
   flex-direction: column;
 }
 
-.card1 .mediaWrapper, .card2 .mediaWrapper {
-  aspect-ratio: 16 / 10;
+/* Premium Stagger Effect on Desktop */
+@media (min-width: 1025px) {
+  .card:nth-child(even) {
+    transform: translateY(40px);
+  }
 }
 
-/* Card 3 (Bottom Row Left - Narrower: 5 cols) */
-.card3 {
-  grid-column: span 5;
-  display: flex;
-  flex-direction: column;
-}
-
-.card3 .mediaWrapper {
-  aspect-ratio: 4 / 3; /* Taller/narrower aspect ratio */
-}
-
-/* Card 4 (Bottom Row Right - Wider: 7 cols) */
-.card4 {
-  grid-column: span 7;
-  display: flex;
-  flex-direction: column;
-}
-
-.card4 .mediaWrapper {
-  aspect-ratio: 18 / 9; /* Wide aspect ratio */
-}
-
-/* Common Media Wrapper */
+/* Common Media Wrapper (Phone Mockup) */
 .mediaWrapper {
   position: relative;
   width: 100%;
+  aspect-ratio: 9 / 16;
+  /* Perfect Reel ratio */
   overflow: hidden;
-  border-radius: 0px; /* Sharp corners matching mockup */
+  border-radius: 32px;
+  /* Phone rounded corners */
   cursor: pointer;
   margin-bottom: 24px;
   background-color: #000000;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.08),
+    0 5px 15px rgba(0, 0, 0, 0.04);
+  border: 8px solid #0d0c14;
+  /* Phone-like bezel */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
+}
+
+/* Phone Screen Notch Overlay */
+.mediaWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 14px;
+  background: #0d0c14;
+  border-radius: 0 0 10px 10px;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .thumbnail {
@@ -95,29 +102,33 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
 
-/* Play Button Overlay (Top-Right) */
+/* Play Button Overlay (Centered & Glassmorphic) */
 .playBtn {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 52px;
-  height: 52px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #06050c;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  color: #ffffff;
   z-index: 10;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              background-color 0.3s ease, 
-              color 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease,
+    color 0.3s ease;
+  pointer-events: none;
+  /* Let clicks pass through to mediaWrapper */
 }
 
 .playIcon {
   fill: currentColor;
-  margin-left: 3px;
+  margin-left: 4px;
 }
 
 /* Hover Preview Video */
@@ -135,18 +146,27 @@
 }
 
 /* Hover States on Card Wrapper */
+.mediaWrapper:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
 .mediaWrapper:hover .thumbnail {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .mediaWrapper:hover .hoverVideo {
-  opacity: 1; /* Autoplay video preview fades in on hover */
+  opacity: 1;
+  /* Autoplay video preview fades in on hover */
 }
 
 .mediaWrapper:hover .playBtn {
-  transform: scale(1.08);
-  background-color: var(--brand-light);
-  color: #ffffff;
+  transform: translate(-50%, -50%) scale(1.12);
+  background-color: #ffffff;
+  color: #06050c;
+  border-color: #ffffff;
 }
 
 /* Text & Info Area */
@@ -156,7 +176,7 @@
   font-weight: 700;
   color: #06050c;
   text-transform: uppercase;
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
@@ -170,12 +190,13 @@
 
 .tag {
   font-family: var(--font-geist-mono);
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 600;
   color: #4c4a54;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  padding: 5px 12px;
-  border-radius: 0px; /* Sharp tags matching mockup */
+  padding: 4px 10px;
+  border-radius: 0px;
+  /* Sharp tags matching mockup */
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -193,6 +214,8 @@
   text-decoration: none;
   transition: color 0.3s ease;
   width: fit-content;
+  margin-top: auto;
+  /* Align details link to the bottom if title is short */
 }
 
 .detailsLink svg {
@@ -207,23 +230,21 @@
   transform: translateX(4px);
 }
 
-
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
   .section {
     padding: 100px 24px;
   }
-  
+
   .grid {
     gap: 48px 24px;
   }
-  
-  .card1, .card2, .card3, .card4 {
-    grid-column: span 6; /* 2 columns on tablets */
-  }
-  
-  .card3 .mediaWrapper, .card4 .mediaWrapper {
-    aspect-ratio: 16 / 10; /* Reset aspect ratio for uniform tablet grid */
+
+  .card {
+    grid-column: span 6;
+    max-width: 300px;
+    width: 100%;
+    justify-self: center;
   }
 }
 
@@ -231,16 +252,19 @@
   .section {
     padding: 80px 20px;
   }
-  
+
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
-  
-  .card1, .card2, .card3, .card4 {
-    grid-column: span 1; /* Stack 1 column on mobile */
+
+  .card {
+    grid-column: span 1;
+    max-width: 320px;
+    width: 100%;
+    justify-self: center;
   }
-  
+
   .title {
     margin-bottom: 50px;
   }
@@ -261,10 +285,8 @@
   }
 
   .playBtn {
-    width: 44px;
-    height: 44px;
-    top: 16px;
-    right: 16px;
+    width: 50px;
+    height: 50px;
   }
 
   .tags {
@@ -272,7 +294,7 @@
   }
 
   .tag {
-    font-size: 10px;
-    padding: 4px 10px;
+    font-size: 9px;
+    padding: 3px 8px;
   }
 }

@@ -6,34 +6,40 @@ import styles from './Work.module.css';
 
 const projectsList: ProjectCard[] = [
   {
-    id: 'metro-banners',
-    name: 'Invent Elevator',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop',
-    tags: ['Branding', 'Brand Identity', 'Brand Design', 'Brand strategy'],
+    id: 'nutribray',
+    name: 'Nutribray E-Commerce',
+    image: '/images/braymil.webp',
+    tags: ['E-Commerce', 'Brand Design', 'Shopify Development', 'Web Design'],
   },
   {
-    id: 'elevator-construction',
+    id: 'invent-elevator',
     name: 'Invent Elevator',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop',
-    tags: ['Branding', 'Brand Identity', 'Brand Design', 'Brand strategy'],
+    image: '/images/invent-website.webp',
+    tags: ['Next.js', 'React', 'TailwindCSS', 'B2B Sales Operations'],
   },
   {
-    id: 'abstract-wing',
-    name: 'Invent Elevator',
-    image: 'https://images.unsplash.com/photo-1658863025658-4a259cc68fc9?q=80&w=1025&auto=format&fit=crop',
-    tags: ['Branding', 'Brand Identity', 'Brand Design', 'Brand strategy'],
+    id: 'gkpro-academy',
+    name: 'GKPro Academy',
+    image: '/images/gk-pro.webp',
+    tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Admin Automation'],
   },
   {
-    id: 'laptop-setup',
-    name: 'Invent Elevator',
-    image: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop',
-    tags: ['Branding', 'Brand Identity', 'Brand Design', 'Brand strategy'],
+    id: 'sifars',
+    name: 'Sifars Brand Identity',
+    image: '/images/sifars_1.png',
+    tags: ['Brand Identity', 'UI/UX Design', 'Visual Strategy'],
   },
   {
-    id: 'designer-office',
-    name: 'Invent Elevator',
-    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800&auto=format&fit=crop',
-    tags: ['Branding', 'Brand Identity', 'Brand Design', 'Brand strategy'],
+    id: 'kanishk-oil',
+    name: 'Kanishk Oil Packaging',
+    image: '/images/kanishk_oil.png',
+    tags: ['Branding', 'Packaging Design', 'Social Media Strategy'],
+  },
+  {
+    id: 'reggal',
+    name: 'Reggal Branding',
+    image: '/images/reggal.png',
+    tags: ['Branding', 'Brand Communication', 'Identity Design'],
   },
 ];
 
@@ -78,9 +84,9 @@ export default function Work() {
             </p>
           </div>
 
-          <a href="#portfolio" className={styles.viewAll}>
+          {/* <a href="#portfolio" className={styles.viewAll}>
             View All Projects
-          </a>
+          </a> */}
         </div>
       </div>
 

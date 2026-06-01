@@ -23,7 +23,7 @@ export default function Home() {
       <Hero />
       <Work />
       <BrandMarquee />
-      <BrandGrow />
+      <BrandGrow imageUrl="https://images.unsplash.com/photo-1517602302552-471fe67acf66?q=80&w=735&auto=format&fit=crop" />
       <Services />
       <WhyChooseUs />
       <TextMarquee />

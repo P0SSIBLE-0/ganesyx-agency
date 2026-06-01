@@ -71,31 +71,31 @@ export interface BrandingProject {
 export const videoProjects: VideoProject[] = [
   {
     id: '01',
-    title: 'Techvision Ad Campaign',
-    image: '/work-vr.png',
-    video: 'https://cdn.pixabay.com/video/2025/04/23/273883_large.mp4',
-    tags: ['Campaign', 'Video Ad', 'Branding']
+    title: 'NJ Infinity',
+    image: 'images/nj_classes.png',
+    video: '/video/nj_infinity.mp4',
+    tags: ['EdTech', 'Social media', 'Education']
   },
   {
     id: '02',
-    title: "Short Film 'Echoes'",
-    image: '/work-nature.png',
-    video: 'https://cdn.pixabay.com/video/2025/04/23/273883_large.mp4',
-    tags: ['Movie', 'Documentary', 'Editing']
+    title: "Invent Elevator",
+    image: '/images/invent_2.webp',
+    video: '/video/Invent_Elevator.mp4',
+    tags: ['Campaign', 'Video Ad', 'Branding']
   },
   {
     id: '03',
-    title: 'Fitpro Youtube Series',
-    image: '/work-fitness.png',
-    video: 'https://cdn.pixabay.com/video/2025/04/23/273883_large.mp4',
+    title: 'Roll with Bonds',
+    image: 'https://images.unsplash.com/photo-1626242108323-cc46c98acdea?q=80&w=687&auto=format&fit=crop',
+    video: '/video/rolls_with_bonds.mp4',
     tags: ['Strategy', 'Video Ad', 'Branding']
   },
   {
     id: '04',
-    title: 'Wedding Highlights for Elite Events',
-    image: '/work-wedding.png',
-    video: 'https://cdn.pixabay.com/video/2025/04/23/273883_large.mp4',
-    tags: ['Event', 'Personal', 'Intimate']
+    title: 'Madhuban Kidney Care',
+    image: '/images/mkc_2.jpeg',
+    video: '/video/Protein_Part3_compressed.mp4',
+    tags: ['Healthcare', 'Awareness', 'Campaign']
   }
 ];
 
@@ -164,39 +164,39 @@ export const adsCaseStudies: AdsCaseStudy[] = [
 export const digitalMarketingCaseStudies: DigitalMarketingCaseStudy[] = [
   {
     id: '1',
-    client: 'SCALEFLOW SAAS',
-    category: 'SEO & GEO Scaling',
-    headline: 'Scaling organic demos by 240% via search and generative engine optimization.',
+    client: 'COLLEGE TIME',
+    category: 'Lead Generation Funnel',
+    headline: 'Scaling admissions lead generation to 4,148 leads at a cost-efficient ₹39.51 per lead.',
     metrics: [
-      { value: '+240%', label: 'Demo Signups' },
-      { value: '18%', label: 'AI Engine Citations' },
-      { value: '10.2%', label: 'Landing Page CVR' }
+      { value: '4,148', label: 'Total Leads' },
+      { value: '₹39.51', label: 'Average CPL' },
+      { value: '1.14M+', label: 'Campaign Reach' }
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop'
+    imageUrl: '/images/college-time.png'
   },
   {
     id: '2',
-    client: 'AURA INTERIORS',
-    category: 'Paid Media & ROAS',
-    headline: 'Scaling DTC ad spend to $150K/mo while securing a stable 4.8x ROAS.',
+    client: 'KR COLLEGE',
+    category: 'Paid Social Ads',
+    headline: 'Driving over 800+ qualified admissions leads through hyper-targeted Meta Lead Ad sets.',
     metrics: [
-      { value: '4.8x', label: 'Average ROAS' },
-      { value: '+310%', label: 'E-commerce Revenue' },
-      { value: '-32%', label: 'DTC Acquisition Cost' }
+      { value: '800+', label: 'Form Leads' },
+      { value: '₹66.78', label: 'Lowest CPL' },
+      { value: '490K+', label: 'Ad Impressions' }
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800&auto=format&fit=crop'
+    imageUrl: '/images/kr-college.png'
   },
   {
     id: '3',
-    client: 'VORTEX ANALYTICS',
-    category: 'Unified Lead Funnel',
-    headline: 'Generating $2.4M in pipeline revenue through email and attribution flows.',
+    client: 'INVENT ELEVATOR',
+    category: 'B2B Lead Generation',
+    headline: 'Scaling B2B inquiries for custom elevators via direct WhatsApp chat and instant forms.',
     metrics: [
-      { value: '$2.4M', label: 'Attributed Pipeline' },
-      { value: '8.4%', label: 'Lead-to-Customer CVR' },
-      { value: '+115%', label: 'Email Click Rate' }
+      { value: '3,777', label: 'Conversions' },
+      { value: '201K+', label: 'Targeted Reach' },
+      { value: '₹223K+', label: 'Total Ad Spend' }
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop'
+    imageUrl: '/images/invent.png'
   }
 ];
 
@@ -213,7 +213,7 @@ export const webDevProjects: WebDevProject[] = [
       { label: 'Conversion Boost', value: '+42%' },
       { label: 'Time-To-Interactive', value: '1.1s' }
     ],
-    imageUrl: '/images/braymil.png',
+    imageUrl: '/images/braymil.webp',
     link: '#contact'
   },
   {
@@ -227,7 +227,7 @@ export const webDevProjects: WebDevProject[] = [
       { label: 'Inquiry Flow', value: 'Increased' },
       { label: 'Sales Operations', value: 'Digital' }
     ],
-    imageUrl: '/images/invent-website.png',
+    imageUrl: '/images/invent-website.webp',
     link: '#contact'
   },
   {
@@ -241,7 +241,7 @@ export const webDevProjects: WebDevProject[] = [
       { label: 'Admin Automation', value: '100+' },
       { label: 'Manual Work Reduction', value: '-70%' }
     ],
-    imageUrl: '/images/gk-pro.png',
+    imageUrl: '/images/gk-pro.webp',
     link: '#contact'
   },
   {
@@ -255,7 +255,7 @@ export const webDevProjects: WebDevProject[] = [
       { label: 'Local SEO Ranking', value: 'Improved' },
       { label: 'Visual Experience', value: 'Trust-Driven' }
     ],
-    imageUrl: '/images/mkc.png',
+    imageUrl: '/images/mkc.webp',
     link: '#contact'
   }
 ];
@@ -263,45 +263,44 @@ export const webDevProjects: WebDevProject[] = [
 // ── 5. Branding Projects ──
 export const brandingProjects: BrandingProject[] = [
   {
-    id: 'manup',
-    name: 'ManUp',
-    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&h=800&fit=crop',
-    tags: ['Brand Strategy', 'Packaging Design'],
-    bgColor: '#e8c84a',
+    id: 'kanishk-oil',
+    name: 'Kanishk Oil',
+    image: '/images/kanishk_oil.png',
+    tags: ['Brand Strategy', 'Packaging Design', 'Visual Identity'],
+    bgColor: '#1c1b18',
     wide: true
   },
   {
-    id: 'burp',
-    name: 'Burp',
-    image: 'https://images.unsplash.com/photo-1612831455359-970e23a1e4e9?w=500&h=700&fit=crop',
-    tagline: 'LET THE SODA\nSAY IT ALL.',
-    tags: ['Brand Design', 'Brand Strategy', 'Brand Identity', 'Packaging Design'],
-    bgColor: '#1a3bcc'
+    id: 'sifars',
+    name: 'Sifars',
+    image: '/images/sifars_1.png',
+    tagline: 'STRATEGIC DESIGN\nBUILT TO ELEVATE.',
+    tags: ['Brand Design', 'Brand Strategy', 'Brand Identity'],
+    bgColor: '#111111'
   },
   {
-    id: 'unisquad',
-    name: 'Unisquad',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=700&fit=crop&crop=center',
-    tags: ['Branding', 'Brand Communication', 'Brand Identity', 'Packaging Designing']
+    id: 'reggal',
+    name: 'Reggal',
+    image: '/images/reggal.png',
+    tags: ['Branding', 'Brand Communication', 'Identity Design']
   },
   {
-    id: 'lyteplus',
-    name: 'Lyteplus',
-    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&h=700&fit=crop',
-    tags: ['Logo Design', 'Brand Strategy', 'Packaging Design', 'Visual Identity']
+    id: 'nj-classes',
+    name: 'NJ Classes',
+    image: '/images/nj_classes.png',
+    tags: ['Logo Design', 'Brand Strategy', 'Ad Design']
   },
   {
-    id: 'liferise',
-    name: 'LifeRise',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=700&fit=crop',
-    tags: ['Brand Strategy', 'Brand Identity', 'Packaging Design', 'Doctor-led'],
+    id: 'braymil',
+    name: 'Braymil',
+    image: '/images/braymil.webp',
+    tags: ['Brand Strategy', 'Brand Identity', 'Packaging Design'],
     bgColor: '#1a4a1a'
   },
   {
-    id: 'novaform',
-    name: 'Novaform',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=700&fit=crop',
-    tagline: 'TIME BUILT\nPERFECTLY.',
+    id: 'sifars-packaging',
+    name: 'Sifars Packaging',
+    image: '/images/sifars_4.png',
     tags: ['Brand Identity', 'Visual Design', 'Art Direction'],
     bgColor: '#111111'
   }

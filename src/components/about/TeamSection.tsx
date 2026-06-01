@@ -27,7 +27,7 @@ export default function TeamSection() {
 
               <div className={styles.authorBox}>
                 <img
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop"
+                  src="/avatar/avatar-priya-sharma.png"
                   alt="Krishna Prasad"
                   className={styles.authorAvatar}
                 />

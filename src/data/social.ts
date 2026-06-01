@@ -11,16 +11,16 @@ export interface ShowcaseItem {
   title: string;
   category: 'video' | 'visual';
   type:
-    | 'reel'
-    | 'carousel'
-    | 'motion'
-    | 'short-form'
-    | 'story'
-    | 'campaign'
-    | 'thumbnail'
-    | 'ad'
-    | 'branded-content'
-    | 'ugc';
+  | 'reel'
+  | 'carousel'
+  | 'motion'
+  | 'short-form'
+  | 'story'
+  | 'campaign'
+  | 'thumbnail'
+  | 'ad'
+  | 'branded-content'
+  | 'ugc';
   videoUrl?: string;
   images?: string[];
   image?: string;
@@ -50,34 +50,33 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
   // ── REEL 1 – portrait ────────────────────────────────────────────────────
   {
     id: 'reel-1',
-    title: 'Fintech App Launch Reel',
+    title: 'GKPro Academy Admissions Reel',
     category: 'video',
     type: 'reel',
-    videoUrl: 'https://cdn.pixabay.com/video/2025/04/19/272903_large.mp4',
-    image:
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=960&fit=crop&q=80',
+    videoUrl: '/video/nj_infinity.mp4',
+    image: '/images/nj_classes.png',
     aspectRatio: 'portrait',
-    stats: { label: 'Reactions', value: '45.2K', icon: 'heart' },
-    badge: 'REEL',
+    stats: { label: 'Capacity', value: '5,000+', icon: 'trend' },
+    badge: 'EDTECH REEL',
     accentColor: '#4F46E5',
     accentBg: '#EEF2FF',
     accentBorder: '#C7D2FE',
   },
 
-  // ── CAROUSEL 1 – square ──────────────────────────────────────────────────
+  // ── CAROUSEL 1 – square ───────────
   {
     id: 'carousel-1',
-    title: 'UX Psychology Slide Deck',
+    title: 'Sifars Strategic Brand Identity Deck',
     category: 'visual',
     type: 'carousel',
     images: [
-      'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&h=600&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=600&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=600&fit=crop&q=80',
+      '/images/sifars_1.png',
+      '/images/sifars_2.png',
+      '/images/sifars_3.png',
     ],
     aspectRatio: 'square',
     stats: { label: 'Saves', value: '2.4K', icon: 'flame' },
-    badge: 'CAROUSEL',
+    badge: 'BRAND SLIDES',
     accentColor: '#DB2777',
     accentBg: '#FDF2F8',
     accentBorder: '#FBCFE8',
@@ -86,15 +85,13 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
   // ── MOTION GRAPHICS – landscape ──────────────────────────────────────────
   {
     id: 'motion-1',
-    title: 'SaaS Product Interface Reveal',
-    category: 'video',
+    title: 'Ganesyx Web Interface Motion Showreel',
+    category: 'visual',
     type: 'motion',
-    videoUrl: 'https://cdn.pixabay.com/video/2016/09/13/5157-183300197_large.mp4',
-    image:
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80',
-    aspectRatio: 'landscape',
+    image: '/images/ganesyx_websites.png',
+    aspectRatio: 'square',
     stats: { label: 'Retention', value: '92%', icon: 'eye' },
-    badge: 'MOTION',
+    badge: 'MOTION REVEAL',
     accentColor: '#059669',
     accentBg: '#ECFDF5',
     accentBorder: '#A7F3D0',
@@ -103,16 +100,17 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
   // ── STORY SYSTEM – portrait ───────────────────────────────────────────────
   {
     id: 'story-1',
-    title: 'Nike Running Story System',
+    title: 'Kanishk Oil Brand Storytelling System',
     category: 'visual',
     type: 'story',
     images: [
-      'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&h=960&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1595909315602-3b5a6e14e85d?w=600&h=960&fit=crop&q=80',
+      '/images/kanishk_oil.png',
+      '/images/kanishk_oil_2.png',
+      '/images/kanishk_oil_3.png',
     ],
     aspectRatio: 'portrait',
     stats: { label: 'CTR', value: '11.8%', icon: 'trend' },
-    badge: 'STORY',
+    badge: 'BRAND STORY',
     accentColor: '#DC2626',
     accentBg: '#FEF2F2',
     accentBorder: '#FECACA',
@@ -121,16 +119,14 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
   // ── SHORT-FORM EDIT – portrait ────────────────────────────────────────────
   {
     id: 'short-form-1',
-    title: 'Founder Storytelling Edit',
+    title: 'College Time Student Storytelling Edit',
     category: 'video',
     type: 'short-form',
-    videoUrl:
-      'https://cdn.pixabay.com/video/2016/09/21/5388-183788591_medium.mp4',
-    image:
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=960&fit=crop&q=80',
+    videoUrl: '/video/rolls_with_bonds.mp4',
+    image: '/images/college-time.png',
     aspectRatio: 'portrait',
     stats: { label: 'Shares', value: '18.5K', icon: 'zap' },
-    badge: 'SHORT-FORM',
+    badge: 'GROWTH EDIT',
     accentColor: '#9333EA',
     accentBg: '#FAF5FF',
     accentBorder: '#E9D5FF',
@@ -139,67 +135,45 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
   // ── CAMPAIGN VISUAL – landscape ───────────────────────────────────────────
   {
     id: 'campaign-1',
-    title: 'Web3 Rebrand Campaign Visual',
+    title: 'Reggal Identity Launch Campaign Visual',
     category: 'visual',
     type: 'campaign',
-    image:
-      'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=600&h=420&fit=crop&q=80',
-    aspectRatio: 'landscape',
+    image: '/images/reggal.png',
+    aspectRatio: 'square',
     stats: { label: 'Impressions', value: '1.2M', icon: 'eye' },
     badge: 'CAMPAIGN',
     accentColor: '#0891B2',
     accentBg: '#ECFEFF',
     accentBorder: '#A5F3FC',
   },
-
-  // ── THUMBNAIL – landscape ─────────────────────────────────────────────────
-  {
-    id: 'thumbnail-1',
-    title: 'High-CTR YouTube Thumbnails',
-    category: 'visual',
-    type: 'thumbnail',
-    images: [
-      'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&h=340&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=340&fit=crop&q=80',
-    ],
-    aspectRatio: 'landscape',
-    stats: { label: 'CTR Boost', value: '+14.8%', icon: 'trend' },
-    badge: 'THUMBNAIL',
-    accentColor: '#D97706',
-    accentBg: '#FFFBEB',
-    accentBorder: '#FDE68A',
-  },
-
   // ── AD CREATIVE – square ──────────────────────────────────────────────────
   {
     id: 'ad-1',
-    title: 'DTC Skincare TikTok Spark Ad',
+    title: 'Ganesyx Performance Marketing Ad',
     category: 'visual',
     type: 'ad',
     videoUrl:
       'https://cdn.pixabay.com/video/2022/12/30/144763-785265042_large.mp4',
-    image:
-      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=600&fit=crop&q=80',
+    image: '/ads/saas.png',
     aspectRatio: 'square',
     stats: { label: 'ROAS', value: '4.8×', icon: 'flame' },
-    badge: 'AD CREATIVE',
+    badge: 'PERFORMANCE AD',
     accentColor: '#2563EB',
     accentBg: '#EFF6FF',
     accentBorder: '#BFDBFE',
   },
 
-  // ── REEL 2 – portrait ────────────────────────────────────────────────────
+  // ── REEL 2 – portrait ────────
   {
     id: 'reel-2',
-    title: 'Fashion Brand Story Reel',
+    title: 'Invent Elevator Reel',
     category: 'video',
     type: 'reel',
-    videoUrl: 'https://cdn.pixabay.com/video/2025/05/06/277097_large.mp4',
-    image:
-      'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=960&fit=crop&q=80',
+    videoUrl: '/video/Invent_Elevator.mp4',
+    image: '/images/reggal.png',
     aspectRatio: 'portrait',
     stats: { label: 'Reach', value: '820K', icon: 'trend' },
-    badge: 'REEL',
+    badge: 'LIFESTYLE REEL',
     accentColor: '#BE185D',
     accentBg: '#FDF2F8',
     accentBorder: '#FBCFE8',
@@ -208,72 +182,46 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
   // ── BRANDED CONTENT – landscape ───────────────────────────────────────────
   {
     id: 'branded-1',
-    title: 'Luxury Hotel Brand Film',
-    category: 'video',
+    title: 'Madhuban Kidney Care',
+    category: 'visual',
     type: 'branded-content',
-    videoUrl:
-      'https://cdn.pixabay.com/video/2021/02/17/65494-514501826_large.mp4',
-    image:
-      'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop&q=80',
-    aspectRatio: 'landscape',
-    stats: { label: 'Watch Time', value: '3m 42s', icon: 'eye' },
-    badge: 'BRAND FILM',
+    image: '/images/mkc_2.jpeg',
+    aspectRatio: 'square',
+    stats: { label: 'Inquiries', value: '3X Boost', icon: 'eye' },
+    badge: 'HEALTH',
     accentColor: '#B45309',
     accentBg: '#FFFBEB',
     accentBorder: '#FDE68A',
   },
 
-  // ── CAROUSEL 2 – portrait ────────────────────────────────────────────────
+  // ── LOGO DESIGN – portrait ────────────────────────────────────────────────
   {
     id: 'carousel-2',
-    title: 'B2B Sales Funnel Carousel',
+    title: 'NJ Classes Brand Identity Visual',
     category: 'visual',
-    type: 'carousel',
-    images: [
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=960&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=960&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=960&fit=crop&q=80',
-    ],
+    type: 'ad',
+    image: '/images/nj_classes.png',
     aspectRatio: 'portrait',
-    stats: { label: 'Leads Gen', value: '340+', icon: 'zap' },
-    badge: 'CAROUSEL',
+    stats: { label: 'Design', value: '100% Custom', icon: 'zap' },
+    badge: 'Social media',
     accentColor: '#0369A1',
     accentBg: '#F0F9FF',
     accentBorder: '#BAE6FD',
   },
 
-  // ── UGC – square ─────────────────────────────────────────────────────────
-  {
-    id: 'ugc-1',
-    title: 'Skincare UGC Bundle',
-    category: 'video',
-    type: 'ugc',
-    videoUrl:
-      'https://cdn.pixabay.com/video/2025/04/23/273883_large.mp4',
-    image:
-      'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=600&fit=crop&q=80',
-    aspectRatio: 'square',
-    stats: { label: 'Conv. Rate', value: '8.3%', icon: 'flame' },
-    badge: 'UGC',
-    accentColor: '#7C3AED',
-    accentBg: '#F5F3FF',
-    accentBorder: '#DDD6FE',
-  },
-
   // ── CAMPAIGN 2 – square ───────────────────────────────────────────────────
   {
     id: 'campaign-2',
-    title: 'SaaS Product Hunt Launch Kit',
+    title: 'Sifars viusal deck',
     category: 'visual',
     type: 'campaign',
     images: [
-      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&h=600&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=600&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=600&fit=crop&q=80',
+      '/images/sifars_3.png',
+      '/images/sifars_4.png',
     ],
     aspectRatio: 'square',
     stats: { label: 'Upvotes', value: '#1 Day', icon: 'trend' },
-    badge: 'CAMPAIGN',
+    badge: 'Social Media',
     accentColor: '#EA580C',
     accentBg: '#FFF7ED',
     accentBorder: '#FED7AA',
@@ -282,35 +230,19 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
   // ── STORY 2 – portrait ────────────────────────────────────────────────────
   {
     id: 'story-2',
-    title: 'E-commerce Flash Sale Stories',
+    title: 'Braymil & Kanishk Oil Social Story Ads',
     category: 'visual',
     type: 'story',
     images: [
-      'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&h=960&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=960&fit=crop&q=80',
+      '/images/braymil.webp',
+      '/images/kanishk_oil_3.png',
     ],
     aspectRatio: 'portrait',
     stats: { label: 'Revenue', value: '$48K', icon: 'zap' },
-    badge: 'STORY',
+    badge: 'SOCIAL STORIES',
     accentColor: '#16A34A',
     accentBg: '#F0FDF4',
     accentBorder: '#BBF7D0',
-  },
-
-  // ── AD 2 – landscape ──────────────────────────────────────────────────────
-  {
-    id: 'ad-2',
-    title: 'SaaS Meta Ads Creative Pack',
-    category: 'visual',
-    type: 'ad',
-    image:
-      'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=380&fit=crop&q=80',
-    aspectRatio: 'landscape',
-    stats: { label: 'CPA Drop', value: '−62%', icon: 'flame' },
-    badge: 'AD CREATIVE',
-    accentColor: '#4338CA',
-    accentBg: '#EEF2FF',
-    accentBorder: '#C7D2FE',
   },
 ];
 

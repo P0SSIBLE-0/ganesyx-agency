@@ -21,39 +21,39 @@ interface WorkMarqueeSectionProps {
 
 const defaultItems: WorkMarqueeItem[] = [
   {
-    id: 'corporate',
-    title: 'Corporate & Internal Design',
-    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop',
-    tags: ['#HANDBOOKS', '#MATERIALS', '#TRAININGDECKS']
+    id: 'edtech',
+    title: 'EdTech & E-Learning Platforms',
+    image: '/images/gk-pro.webp',
+    tags: ['#PORTALS', '#DASHBOARDS', '#ACADEMY']
   },
   {
     id: 'brand',
-    title: 'Brand & Identity',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
+    title: 'Brand & Visual Systems',
+    image: '/images/sifars_4.png',
     tags: ['#LOGO', '#GUIDELINES', '#STATIONERY']
   },
   {
     id: 'marketing',
-    title: 'Marketing & Advertising',
-    image: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop',
-    tags: ['#ADCREATIVE', '#SOCIALMEDIA', '#EMAIL']
+    title: 'Social & Performance Ads',
+    image: '/images/fathers_day.png',
+    tags: ['#ADCREATIVE', '#SOCIALMEDIA', '#HOOKS']
   },
   {
-    id: 'digital',
-    title: 'Digital & Web',
-    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800&auto=format&fit=crop',
-    tags: ['#WEBSITE', '#LANDING']
+    id: 'uiux',
+    title: 'UI/UX & Interactive Design',
+    image: '/images/sifars_3.png',
+    tags: ['#MOBILEAPP', '#PRODUCTDESIGN', '#PROTOTYPE']
   },
   {
     id: 'packaging',
-    title: 'Product Packaging',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop',
-    tags: ['#BOXDESIGN', '#LABEL', '#SUSTAINABLE']
+    title: 'Tactile Product Packaging',
+    image: '/images/kanishk_oil_4.png',
+    tags: ['#BOXDESIGN', '#LABEL', '#FMCG']
   },
   {
     id: 'merch',
-    title: 'Merchandise & Apparel',
-    image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
+    title: 'Lifestyle & Apparel',
+    image: '/images/reggal.png',
     tags: ['#TEEDESIGN', '#HOODIE', '#STREETWEAR']
   }
 ];

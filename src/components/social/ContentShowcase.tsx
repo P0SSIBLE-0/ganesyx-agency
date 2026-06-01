@@ -12,11 +12,11 @@ import { SHOWCASE_ITEMS, type ShowcaseItem } from '@/data/social';
 // ─── Stat icon helper ─────────────────────────────────────────────────────────
 function StatIcon({ type, size = 11 }: { type: ShowcaseItem['stats']['icon']; size?: number }) {
   switch (type) {
-    case 'heart':  return <Heart size={size} />;
-    case 'flame':  return <Flame size={size} />;
-    case 'trend':  return <TrendingUp size={size} />;
-    case 'zap':    return <Zap size={size} />;
-    default:       return <Eye size={size} />;
+    case 'heart': return <Heart size={size} />;
+    case 'flame': return <Flame size={size} />;
+    case 'trend': return <TrendingUp size={size} />;
+    case 'zap': return <Zap size={size} />;
+    default: return <Eye size={size} />;
   }
 }
 
@@ -36,7 +36,7 @@ function ShowcaseCard({ item, index }: { item: ShowcaseItem; index: number }) {
   useEffect(() => {
     if (!videoRef.current) return;
     if (isHovered && item.videoUrl) {
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     } else {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
@@ -72,13 +72,13 @@ function ShowcaseCard({ item, index }: { item: ShowcaseItem; index: number }) {
     if (item.images) setCarouselIndex(p => (p - 1 + item.images!.length) % item.images!.length);
   };
 
-  const isVideo  = !!item.videoUrl;
+  const isVideo = !!item.videoUrl;
   const isCarousel = !!(item.images && item.images.length > 0);
 
   // Derive aspect-ratio padding for the media container
   const paddingMap = {
-    portrait: '160%',
-    square:   '100%',
+    portrait: '150%',
+    square: '100%',
     landscape: '62.5%',
   };
 
@@ -86,8 +86,8 @@ function ShowcaseCard({ item, index }: { item: ShowcaseItem; index: number }) {
     <motion.div
       className={styles.cardWrapper}
       style={{
-        '--accent':        item.accentColor,
-        '--accent-bg':     item.accentBg,
+        '--accent': item.accentColor,
+        '--accent-bg': item.accentBg,
         '--accent-border': item.accentBorder,
       } as React.CSSProperties}
       initial={{ opacity: 0, y: 20 }}
@@ -284,9 +284,9 @@ export default function ContentShowcase() {
           transition={{ duration: 0.5, delay: 0.25 }}
         >
           {([
-            { key: 'all',    label: 'Show All',       icon: <Layers size={13} /> },
-            { key: 'video',  label: 'Video & Motion', icon: <Play size={13} /> },
-            { key: 'visual', label: 'Visuals & Ads',  icon: <Sparkles size={13} /> },
+            { key: 'all', label: 'Show All', icon: <Layers size={13} /> },
+            { key: 'video', label: 'Video & Motion', icon: <Play size={13} /> },
+            { key: 'visual', label: 'Visuals & Ads', icon: <Sparkles size={13} /> },
           ] as const).map(({ key, label, icon }) => (
             <button
               key={key}

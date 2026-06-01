@@ -57,7 +57,7 @@
   background: #ffffff;
   /* Solid white card to stand out on soft background */
   border: 1px solid rgba(51, 0, 153, 0.05);
-  border-radius: 5px;
+  border-radius: 12px;
   padding: 36px 30px;
   display: flex;
   flex-direction: column;

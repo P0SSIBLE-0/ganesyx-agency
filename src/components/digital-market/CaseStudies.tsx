@@ -1,14 +1,17 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, TrendingUp, X } from 'lucide-react';
 import styles from './CaseStudies.module.css';
 
 import { digitalMarketingCaseStudies as caseStudiesData } from '@/data/work';
 
 
 export default function CaseStudies() {
+  const [modalImage, setModalImage] = useState<string | null>(null);
+  const [modalAlt, setModalAlt] = useState<string>('');
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -41,7 +44,13 @@ export default function CaseStudies() {
               transition={{ duration: 0.5, ease: "anticipate" }}
             >
               {/* Image Container with Zoom effect */}
-              <div className={styles.imageContainer}>
+              <div 
+                className={styles.imageContainer}
+                onClick={() => {
+                  setModalImage(study.imageUrl);
+                  setModalAlt(study.headline);
+                }}
+              >
                 <img
                   src={study.imageUrl}
                   alt={study.headline}
@@ -79,6 +88,41 @@ export default function CaseStudies() {
         </div>
 
       </div>
+
+      {/* Image Zoom Modal */}
+      <AnimatePresence>
+        {modalImage && (
+          <motion.div
+            className={styles.modalBackdrop}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setModalImage(null)}
+          >
+            <motion.div
+              className={styles.modalContent}
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.7, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 400 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className={styles.modalCloseBtn}
+                onClick={() => setModalImage(null)}
+                aria-label="Close image preview"
+              >
+                <X size={18} />
+              </button>
+              <img
+                src={modalImage}
+                alt={modalAlt}
+                className={styles.modalImage}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

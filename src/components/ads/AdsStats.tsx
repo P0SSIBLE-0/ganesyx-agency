@@ -80,7 +80,7 @@ export default function AdsStats() {
                   <div className={styles.iconWrapper}>
                     <LineChart size={30} strokeWidth={1.8} />
                   </div>
-                  <span className={styles.statValue}>$ 25000000+</span>
+                  <span className={styles.statValue}>₹ 25000000+</span>
                 </div>
 
                 <div className={styles.graphContainer}>
@@ -133,7 +133,7 @@ export default function AdsStats() {
                   <div className={styles.iconWrapper}>
                     <Banknote size={30} strokeWidth={1.8} />
                   </div>
-                  <span className={styles.statValue}>$ 75000000+</span>
+                  <span className={styles.statValue}>₹ 75000000+</span>
                 </div>
 
                 <div className={styles.graphContainer}>

@@ -45,38 +45,7 @@ export default function AdsCaseStudies() {
         {/* Split Pane Interface */}
         <div className={styles.splitPane}>
 
-          {/* Left Side: Vertical Brand Tabs */}
-          <div className={styles.sidebarList}>
-            {caseStudiesData.map((item) => {
-              const isActive = item.id === activeCaseId;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={`${styles.brandTab} ${isActive ? styles.brandTabActive : ''}`}
-                  onClick={() => setActiveCaseId(item.id)}
-                >
-                  {/* Left border line for active state */}
-                  {isActive && <motion.div className={styles.activeLine} layoutId="activeLine" />}
-
-                  <div className={styles.brandTabContent}>
-                    <div className={styles.brandTabHeader}>
-                      <span className={styles.tabIndustry}>{item.industry}</span>
-                      <span className={styles.tabResultBadge}>{item.highlightMetric}</span>
-                    </div>
-                    <span className={styles.tabBrandName}>{item.brand}</span>
-                    <p className={styles.tabSummaryText}>{item.tabSummary}</p>
-                    <div className={styles.tabFooterRow}>
-                      <span className={styles.tabSecondaryStat}>{item.secondaryStat}</span>
-                      <span className={styles.tabViewDetails}>View Strategy →</span>
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Right Side: Active Showcase Card */}
+          {/* Top: Active Showcase Card */}
           <div className={styles.showcasePanel}>
             <AnimatePresence mode="wait">
               <motion.div
@@ -164,6 +133,37 @@ export default function AdsCaseStudies() {
 
               </motion.div>
             </AnimatePresence>
+          </div>
+
+          {/* Bottom: Vertical Brand Tabs */}
+          <div className={styles.sidebarList}>
+            {caseStudiesData.map((item) => {
+              const isActive = item.id === activeCaseId;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`${styles.brandTab} ${isActive ? styles.brandTabActive : ''}`}
+                  onClick={() => setActiveCaseId(item.id)}
+                >
+                  {/* Left border line for active state */}
+                  {isActive && <motion.div className={styles.activeLine} layoutId="activeLine" />}
+
+                  <div className={styles.brandTabContent}>
+                    <div className={styles.brandTabHeader}>
+                      <span className={styles.tabIndustry}>{item.industry}</span>
+                      <span className={styles.tabResultBadge}>{item.highlightMetric}</span>
+                    </div>
+                    <span className={styles.tabBrandName}>{item.brand}</span>
+                    <p className={styles.tabSummaryText}>{item.tabSummary}</p>
+                    <div className={styles.tabFooterRow}>
+                      <span className={styles.tabSecondaryStat}>{item.secondaryStat}</span>
+                      <span className={styles.tabViewDetails}>View Strategy →</span>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
         </div>

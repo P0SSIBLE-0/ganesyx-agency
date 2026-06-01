@@ -46,7 +46,7 @@ export default function WhatWeDo() {
       title: 'Content Strategy',
       description: 'We craft high-yield organic strategies, audience persona mapping, and content pillar matrices tailored to each specific channel.',
       icon: <Compass size={20} className={styles.iconIndigo} />,
-      image: 'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=600&h=400&q=80',
+      image: 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?q=80&w=1170&auto=format&fit=crop',
       themeClass: styles.bgIndigo,
     },
     {
@@ -67,7 +67,7 @@ export default function WhatWeDo() {
       title: 'Creative Direction',
       description: 'Establishing signature style templates, grid layouts, and visual pacing rules that maintain a premium brand aesthetic on all feeds.',
       icon: <Palette size={20} className={styles.iconAmber} />,
-      image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&h=400&q=80',
+      image: 'https://images.unsplash.com/photo-1722528490197-fcad1006e762?q=80&w=1165&auto=format&fit=crop',
       themeClass: styles.bgAmber,
     },
     {
@@ -88,14 +88,14 @@ export default function WhatWeDo() {
       title: 'Paid Social Campaigns',
       description: 'Targeted audience ad distribution campaigns designed to amplify organic top-performers and scale direct-response metrics.',
       icon: <Megaphone size={20} className={styles.iconCyan} />,
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=400&q=80',
+      image: 'https://images.unsplash.com/photo-1676287574202-1cc6882d04b0?q=80&w=1170&auto=format&fit=crop',
       themeClass: styles.bgCyan,
     },
     {
       title: 'Analytics & Reporting',
       description: 'Granular monthly reporting tracking follower growth, profile interactions, watch times, and direct conversion attribution.',
       icon: <BarChart3 size={20} className={styles.iconPurple} />,
-      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&h=400&q=80',
+      image: 'https://images.unsplash.com/photo-1711606815631-38d32cdaec3e?q=80&w=1170&auto=format&fit=crop',
       themeClass: styles.bgPurple,
     },
   ];
@@ -115,7 +115,7 @@ export default function WhatWeDo() {
             <Sparkles size={12} />
             <span>What We Do</span>
           </motion.div>
-          
+
           <motion.h2
             className={styles.sectionHeadline}
             initial={{ opacity: 0, y: 20 }}

@@ -20,45 +20,45 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    client: "Lumière Luxury Skincare",
-    industry: "E-Commerce",
-    primaryMetric: "+320%",
-    primaryLabel: "Traffic Surge",
-    secondaryMetric: "5.4×",
-    secondaryLabel: "ROAS Lift",
-    image: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?q=80&w=1170&auto=format&fit=crop",
+    client: "Sifars",
+    industry: "SaaS & Tech",
+    primaryMetric: "DA 23",
+    primaryLabel: "Domain Authority",
+    secondaryMetric: "1%",
+    secondaryLabel: "Spam Score",
+    image: "/images/seo_sifars.png",
     highlights: [
-      "Technical optimization of product catalogs",
-      "Schema implementation for merchant center",
-      "Crawl budget tuning & duplicate URL fixes"
+      "Built high-authority backlinks & domain profile",
+      "Maintained spam score at an exceptional 1%",
+      "Authority age of 8+ years leveraged for rankings"
     ]
   },
   {
-    client: "Azoth Fintech Systems",
-    industry: "SaaS",
-    primaryMetric: "#1",
-    primaryLabel: "Positions Secured",
-    secondaryMetric: "140+",
-    secondaryLabel: "Keywords Ranked",
-    image: "https://images.unsplash.com/photo-1599658880436-c61792e70672?q=80&w=1170&auto=format&fit=crop",
+    client: "Braymil",
+    industry: "Healthcare & Retail",
+    primaryMetric: "AI Citation",
+    primaryLabel: "Google AI Overview Citation",
+    secondaryMetric: "#1 Rank",
+    secondaryLabel: "High-Intent Brand Keywords",
+    image: "/images/seo_braymil.png",
     highlights: [
-      "Structured data implementation",
-      "Page speed tuning & Core Web Vitals pass",
-      "High-authority backlink outreach profiles"
+      "Secured citations in Google AI Overviews",
+      "Ranked #1 for baby food & infant formula in India",
+      "Optimized brand visibility across major online pharmacies"
     ]
   },
   {
-    client: "LifeRise Health Networks",
-    industry: "Local & Enterprise",
-    primaryMetric: "12K+",
-    primaryLabel: "Monthly Leads",
-    secondaryMetric: "98%",
-    secondaryLabel: "Core Web Vitals Pass",
-    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1251&auto=format&fit=crop",
+    client: "Madhuban Kidney Care",
+    industry: "Clinical Healthcare",
+    primaryMetric: "1.96M",
+    primaryLabel: "Impressions (Last 3 Months)",
+    secondaryMetric: "36×",
+    secondaryLabel: "Total Clicks Increase",
+    image: "/images/seo_mkc_performance.png",
     highlights: [
-      "Local search targeting across 50+ locations",
-      "Google Business Profile optimization",
-      "Mobile-first UX page optimization"
+      "YoY impressions grew from 23.2K to 1.96M",
+      "Average ranking position jumped from 13.2 to 5.5",
+      "Focused local clinical search intent optimization"
     ]
   }
 ];

@@ -67,7 +67,7 @@
 }
 
 .socialLink:hover {
-  background: linear-gradient(125deg, #615FFF, #AD46FF);
+  background: linear-gradient(125deg, #615FFF, #4652ff);
   color: #ffffff;
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(97, 95, 255, 0.25);
@@ -103,7 +103,8 @@
 }
 
 .link:hover {
-  color: #a78bfa;
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 

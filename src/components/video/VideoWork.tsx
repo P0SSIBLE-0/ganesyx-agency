@@ -6,8 +6,6 @@ import { ArrowRight, Play } from 'lucide-react';
 import styles from './VideoWork.module.css';
 import { videoProjects, type VideoProject } from '@/data/work';
 
-const gridClasses = [styles.card1, styles.card2, styles.card3, styles.card4];
-
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -106,10 +104,10 @@ export default function VideoWork() {
             }
           }}
         >
-          {videoProjects.map((project, idx) => (
+          {videoProjects.map((project) => (
             <motion.div
               key={project.id}
-              className={gridClasses[idx % gridClasses.length]}
+              className={styles.card}
               variants={cardVariants}
             >
               <ProjectCard project={project} />
