@@ -103,7 +103,7 @@ export const videoProjects: VideoProject[] = [
 export const adsCaseStudies: AdsCaseStudy[] = [
   {
     id: 'case-kr-college',
-    brand: 'KR College',
+    brand: 'Kasturi Ram College',
     industry: 'EDUCATION / COLLEGE ADMISSIONS',
     subtitle: 'Generating 747+ High-Intent Admissions Leads',
     description: 'A regional higher education college seeking to boost their student enrollment applications through social ad funnels.',
@@ -118,7 +118,7 @@ export const adsCaseStudies: AdsCaseStudy[] = [
       { value: '₹56.5K+', label: 'Total Spend' }
     ],
     channels: ['Meta Lead Ads', 'Instagram Reels', 'Local Targeting'],
-    image: '/images/kr_college.png'
+    image: '/images/kr-college.png'
   },
   {
     id: 'case-college-time',
