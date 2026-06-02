@@ -244,7 +244,7 @@ export default function AdsHero() {
             <motion.div className={`${styles.card} ${styles.videoCard}`} variants={fadeInUp}>
               <video
                 className={styles.cardVideo}
-                src="https://cdn.pixabay.com/video/2021/02/17/65494-514501826_large.mp4"
+                src="/video/rolls_with_bonds.mp4"
                 autoPlay
                 loop
                 muted

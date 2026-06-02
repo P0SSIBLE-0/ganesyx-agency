@@ -23,13 +23,13 @@ const navLinks: NavLink[] = [
     label: 'Services',
     href: '#services',
     dropdown: [
-      { label: 'Branding', href: '/branding', description: 'Bespoke identity design and guidelines', image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80' },
-      { label: 'Web Development', href: '/web-dev', description: 'High-performing, AI-optimized web experiences', image: 'https://images.unsplash.com/photo-1618477388954-7852f32655ec?auto=format&fit=crop&w=600&q=80' },
-      { label: 'SEO', href: '/seo', description: 'Dominate search results with strategic SEO optimization', image: 'https://images.unsplash.com/photo-1637606346315-d23ed32a6cfc?q=80&w=1170&auto=format&fit=crop' },
+      { label: 'Branding', href: '/branding', description: 'Bespoke identity design and guidelines', image: 'https://images.unsplash.com/photo-1648260295963-891038acdf99?q=80&w=764&auto=format&fit=crop' },
+      { label: 'Web Development', href: '/web-dev', description: 'High-performing, AI-optimized web experiences', image: 'https://images.unsplash.com/photo-1642142785744-261a5f663d12?q=80&w=1170&auto=format&fit=crop' },
+      { label: 'SEO', href: '/seo', description: 'Dominate search results with strategic SEO optimization', image: 'https://images.pexels.com/photos/16368540/pexels-photo-16368540.jpeg' },
       { label: 'GEO', href: '/geo', description: 'Optimize your brand visibility across generative engines and AI search', image: 'https://images.unsplash.com/photo-1677691824188-3e266886cb27?q=80&w=735&auto=format&fit=crop' },
-      { label: 'Graphic Design', href: '/design', description: 'Scroll-stopping bento grids and templates', image: 'https://images.unsplash.com/photo-1573247318242-1da549d9924f?q=80&w=880&auto=format&fit=crop' },
+      { label: 'Graphic Design', href: '/design', description: 'Scroll-stopping bento grids and templates', image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=764&auto=format&fit=crop' },
       { label: 'Video Production', href: '/video', description: 'High-impact kinetic UGC social cuts', image: 'https://images.unsplash.com/photo-1651122555286-ffab5a04131a?q=80&w=1170&auto=format&fit=crop' },
-      { label: 'Social Media', href: '/social', description: 'Build engaged communities and drive brand awareness across all major social platforms.', image: 'https://images.unsplash.com/photo-1689004624325-6edf074228dd?q=80&w=600&auto=format&fit=crop' },
+      { label: 'Social Media', href: '/social', description: 'Build engaged communities and drive brand awareness across all major social platforms.', image: 'https://images.pexels.com/photos/33440157/pexels-photo-33440157.jpeg' },
       { label: 'Paid Ads', href: '/ads', description: 'Conversion-optimized performance ads', image: 'https://images.unsplash.com/photo-1654277041042-8927699fcfd2?q=80&w=1162&auto=format&fit=crop' },
       { label: "Digital Marketing", href: "/digital-market", description: "Scale your business with high-performing ad campaigns.", image: 'https://images.unsplash.com/photo-1665799871677-f1fd17338b43?q=80&w=1114&auto=format&fit=crop' },
       { label: "Marketplace", href: "/marketplace", description: "Build engaged communities and drive brand awareness across all major social platforms.", image: 'https://images.unsplash.com/photo-1674027392857-9aed6e8ecab9?q=80&w=1332&auto=format&fit=crop' },
@@ -341,11 +341,11 @@ const Navbar = () => {
           <div className={styles.drawerFooter}>
             <div className={styles.footerItem}>
               <span className={styles.footerLabel}>Connect with us</span>
-              <a href="mailto:hello@ganesyx.com" className={styles.footerValue}>hello@ganesyx.com</a>
+              <a href="mailto:info.ganesyx@gmail.com" className={styles.footerValue}>info.ganesyx@gmail.com</a>
             </div>
             <div className={styles.footerItem}>
               <span className={styles.footerLabel}>Call us</span>
-              <a href="tel:+1234567890" className={styles.footerValue}>+1 (234) 567-890</a>
+              <a href="tel:+919205466534" className={styles.footerValue}>+91 92054 66534</a>
             </div>
           </div>
 

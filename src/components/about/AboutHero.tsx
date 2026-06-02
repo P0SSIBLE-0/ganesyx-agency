@@ -22,7 +22,14 @@ const PORTFOLIO_IMAGES = [
   'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=400&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=400&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1634449278211-eca7f696940e?q=80&w=400&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1557858310-9052820906f7?q=80&w=4000&auto=format&fit=crop'
+  'https://images.unsplash.com/photo-1557858310-9052820906f7?q=80&w=4000&auto=format&fit=crop',
+  '/images/vashp.jpeg',
+  '/images/social_media.png',
+  '/images/ads.png',
+  '/images/social_media.png',
+  '/images/seo_marketing.png',
+  '/images/invent-phone-mockup.webp'
+
 ];
 
 export default function AboutHero() {

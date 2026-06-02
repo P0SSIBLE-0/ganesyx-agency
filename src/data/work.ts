@@ -303,5 +303,35 @@ export const brandingProjects: BrandingProject[] = [
     image: '/images/sifars_4.png',
     tags: ['Brand Identity', 'Visual Design', 'Art Direction'],
     bgColor: '#111111'
+  },
+  {
+    id: 'invent-mockup',
+    name: 'Invent Brand Identity',
+    image: '/images/invent-mockup.webp',
+    tagline: 'ELEVATING BRAND\nEXPERIENCES.',
+    tags: ['Brand Design', 'Brand Strategy', 'Brand Identity'],
+    bgColor: '#111111',
+    wide: true
+  },
+  {
+    id: 'invent-web-mockup',
+    name: 'Invent Web Portal',
+    image: '/images/invent-web-mockup.webp',
+    tags: ['Web Design', 'Digital Branding', 'UI/UX Design'],
+    bgColor: '#0f172a'
+  },
+  {
+    id: 'invent-ipad-mockup',
+    name: 'Invent Tablet App',
+    image: '/images/invent-ipad-mockup.webp',
+    tags: ['App Design', 'UI/UX Design', 'Visual System'],
+    bgColor: '#1c1b18'
+  },
+  {
+    id: 'invent-phone-mockup',
+    name: 'Invent Mobile App',
+    image: '/images/invent-phone-mockup.webp',
+    tags: ['Mobile UI', 'Visual Design', 'Brand Guidelines'],
+    bgColor: '#1e1e1e'
   }
 ];

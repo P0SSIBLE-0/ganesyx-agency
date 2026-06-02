@@ -45,7 +45,7 @@ const templates: Record<string, AdTemplate> = {
     description: "Join our intensive 12-week design cohort. Build a job-ready portfolio, learn Figma, and get mentored by lead designers. Apply today.",
     primaryText: "Break into tech with our design bootcamp. Learn directly from industry experts, work on real projects, and access our exclusive partner hiring network.",
     ctaText: "Apply Now",
-    image: "/ads/bootcamp.png",
+    image: "/images/ganesyx_social.png",
     tagline: "CAREER ACCELERATION",
     profileName: "NEXUS ACADEMY",
     profileAvatar: "N",
@@ -188,7 +188,7 @@ export default function AdsSandbox() {
   return (
     <section className={styles.section} id="ads-sandbox">
       <div className={styles.container}>
-        
+
         {/* Header Block */}
         <div className={styles.headerBlock}>
           <span className={styles.preHeading}>Ad Simulator</span>
@@ -207,10 +207,10 @@ export default function AdsSandbox() {
 
         {/* Sandbox Grid */}
         <div className={styles.sandboxGrid}>
-          
+
           {/* Left Column: Sandbox Controls Panel */}
           <div className={styles.controlsPanel}>
-            
+
             {/* Step 1: Platform Selection */}
             <div className={styles.controlGroup}>
               <label className={styles.controlLabel}>1. Select Target Channel</label>
@@ -273,7 +273,7 @@ export default function AdsSandbox() {
             {/* Step 3: Custom Text Inputs */}
             <div className={styles.controlGroup}>
               <label className={styles.controlLabel}>3. Customize Ad Copy (Live Updates)</label>
-              
+
               {/* Conditional rendering of input fields based on platform */}
               {platform !== 'google-search' && (
                 <div className={styles.inputField}>
@@ -382,7 +382,7 @@ export default function AdsSandbox() {
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  
+
                   {/* HOTSPOTS LAYER */}
                   {currentHotspots.map((hotspot) => (
                     <div
@@ -428,7 +428,7 @@ export default function AdsSandbox() {
                   {/* PLATFORM RENDERS */}
                   {platform === 'meta-feed' && (
                     <div className={styles.metaFeedCard}>
-                      
+
                       {/* Meta Card Header */}
                       <div className={styles.metaCardHeader}>
                         <div className={styles.metaAvatar}>
@@ -500,7 +500,7 @@ export default function AdsSandbox() {
 
                   {platform === 'meta-story' && (
                     <div className={styles.metaStoryWrapper}>
-                      
+
                       {/* Top Story Header */}
                       <div className={styles.storyTopHeader}>
                         <div className={styles.storyProgressRow}>
@@ -545,7 +545,7 @@ export default function AdsSandbox() {
 
                   {platform === 'google-search' && (
                     <div className={styles.googleSearchCard}>
-                      
+
                       {/* Sponsored Header */}
                       <div className={styles.googleUrlRow}>
                         <span className={styles.googleSponsoredLabel}>Sponsored</span>
@@ -582,7 +582,7 @@ export default function AdsSandbox() {
                 </motion.div>
               </AnimatePresence>
             </div>
-            
+
             {/* Hotspot interaction prompt */}
             <div className={styles.hotspotPrompt}>
               <Info size={13} className={styles.promptIcon} />

@@ -183,7 +183,7 @@ export default function BrandingHero() {
         <div className={styles.retroTape} />
         <div className={styles.retroImgWrapper}>
           <img
-            src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=600&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1619264591189-ca3c2176c02e?q=80&w=764&auto=format&fit=crop"
             alt="Aesthetic Geometry"
             className={styles.retroImg}
           />
@@ -255,7 +255,7 @@ export default function BrandingHero() {
         {/* Panel 2: Single video replacing images */}
         <div className={`${styles.panel} ${styles.panelVideo}`}>
           <video
-            src="https://cdn.pixabay.com/video/2021/02/17/65494-514501826_large.mp4"
+            src="https://www.pexels.com/download/video/18069232/"
             className={styles.video}
             autoPlay
             loop

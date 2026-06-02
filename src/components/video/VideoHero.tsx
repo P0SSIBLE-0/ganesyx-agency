@@ -27,7 +27,7 @@ export default function VideoHero() {
 
   const hero = videoData.hero;
   // User selected Pixabay CDN link
-  const videoSrc = "https://cdn.pixabay.com/video/2025/05/06/277097_large.mp4";
+  const videoSrc = "https://www.pexels.com/download/video/36604686/";
 
   // Prevent scroll propagation issue by waiting for component mount
   const [mounted, setMounted] = useState(false);

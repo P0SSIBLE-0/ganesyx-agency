@@ -14,7 +14,7 @@ const services = [
     ),
     title: 'SEO & Content Marketing',
     description: 'Dominate search rankings with strategic SEO and compelling content that converts visitors into customers.',
-    bgImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop',
+    bgImage: '/images/seo_marketing.png',
     href: '/seo',
   },
   {
@@ -27,19 +27,20 @@ const services = [
     ),
     title: 'Paid Ads (Google & Meta)',
     description: 'Maximize ROI with data-driven ad campaigns on Google, Facebook, and Instagram that deliver results.',
-    bgImage: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop',
+    bgImage: '/images/ads.png',
     href: '/ads',
   },
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m3 11 18-5v12L3 14v-3z" />
-        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" />
+        <circle cx="12" cy="12" r="2" />
       </svg>
     ),
     title: 'Social Media Marketing',
     description: 'Build engaged communities and drive brand awareness across all major social platforms.',
-    bgImage: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format&fit=crop',
+    bgImage: '/images/social_media.png',
     href: '/social',
   },
   {
@@ -51,7 +52,7 @@ const services = [
     ),
     title: 'Web Design & Development',
     description: 'Create stunning, high-converting websites that provide exceptional user experiences.',
-    bgImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop',
+    bgImage: 'https://images.unsplash.com/photo-1642142785744-261a5f663d12?q=80&w=1170&auto=format&fit=crop',
     href: '/design',
   },
   {
@@ -65,7 +66,7 @@ const services = [
     ),
     title: 'Branding & Creative',
     description: 'Craft memorable brand identities and creative assets that make you stand out from the competition.',
-    bgImage: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=600&auto=format&fit=crop',
+    bgImage: '/images/brand_creative.png',
     href: '/branding',
   },
   {
@@ -77,7 +78,7 @@ const services = [
     ),
     title: 'Video Production',
     description: 'Scroll-stopping reels, brand films, and ad creatives that capture attention and drive action across every platform.',
-    bgImage: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600&auto=format&fit=crop',
+    bgImage: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1170&auto=format&fit=crop',
     href: '/video',
   },
 ];

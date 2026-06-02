@@ -88,8 +88,8 @@ export default function VideoWork() {
     <section className={styles.section}>
       <div className={styles.container}>
 
-        <span className={styles.subTitle}>Notable Projects</span>
-        <h2 className={styles.title}>Transforming Raw Footage Into Masterpieces</h2>
+        <span className={styles.subTitle}>Featured Work</span>
+        <h2 className={styles.title}>High-Converting Video Ads & Brand Stories</h2>
 
         {/* 12-Column Asymmetric Stagger Grid */}
         <motion.div

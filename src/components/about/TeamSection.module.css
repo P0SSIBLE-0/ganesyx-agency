@@ -134,9 +134,7 @@
   grid-column: span 3;
 }
 
-.teamCard:nth-child(3),
-.teamCard:nth-child(4),
-.teamCard:nth-child(5) {
+.teamCard:nth-child(n+3) {
   grid-column: span 2;
 }
 
@@ -226,15 +224,8 @@
     gap: 48px 24px;
   }
 
-  .teamCard:nth-child(1),
-  .teamCard:nth-child(2),
-  .teamCard:nth-child(3),
-  .teamCard:nth-child(4) {
+  .teamCard:nth-child(n) {
     grid-column: span 1;
-  }
-
-  .teamCard:nth-child(5) {
-    grid-column: span 2;
   }
 }
 
