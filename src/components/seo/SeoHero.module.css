@@ -458,6 +458,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .additionalCard,
+  .additionalNode {
+    display: none !important;
+  }
+}
+
 @media (max-width: 640px) {
   .hero {
     padding: 120px 16px 60px;

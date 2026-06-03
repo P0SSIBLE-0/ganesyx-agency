@@ -1,0 +1,121 @@
+.partnerWith {
+  padding: 60px 0;
+  background: #ffffff;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--brand, #330099);
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 600;
+  color: #0d172a;
+  letter-spacing: -0.02em;
+}
+
+.marqueeWrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.marqueeRow {
+  display: flex;
+  width: max-content;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 75px;
+  padding: 22px 0;
+  padding-right: 75px;
+  animation: scrollPartner 30s linear infinite;
+  align-items: center;
+}
+
+.marqueeWrapper:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: auto;
+  min-width: 100px;
+  max-width: 160px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.78;
+}
+
+.logoItem :global(svg) {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.logoItem:hover {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+@keyframes scrollPartner {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.3333%);
+  }
+}
+
+@media (max-width: 768px) {
+  .partnerWith {
+    padding: 60px 0;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+  .marqueeTrack {
+    gap: 45px;
+    padding-right: 45px;
+  }
+
+  .logoItem {
+    height: 32px;
+    min-width: 80px;
+  }
+}

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Badge, Heading, Paragraph } from '@/components/ui/Typography';
 import styles from './WebDevFaq.module.css';
 
 interface FaqItem {
@@ -108,10 +109,10 @@ export default function WebDevFaq() {
         <div className={styles.layout}>
           {/* Left Column — Header */}
           <div className={styles.leftCol}>
-            <span className={styles.badge}>FAQ</span>
-            <h2 className={styles.heading}>
+            <Badge>FAQ</Badge>
+            <Heading>
               Frequently<br />Asked Questions.
-            </h2>
+            </Heading>
           </div>
 
           {/* Right Column — Accordion List */}

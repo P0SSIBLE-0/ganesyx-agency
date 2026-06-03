@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import styles from './MarketplaceLogos.module.css';
+import { Heading, Paragraph } from '../ui/Typography';
 
 interface Platform {
   name: string;
@@ -83,10 +84,10 @@ export default function MarketplaceLogos() {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.heading}>Optimized For Leading E-Commerce Platforms.</h2>
-          <p className={styles.subheading}>
+          <Heading level={2}>Optimized For Leading <br /> E-Commerce Platforms.</Heading>
+          <Paragraph>
             We deploy marketplace-specific optimization funnels tailored to each platform&apos;s unique search engine algorithms and buyer patterns.
-          </p>
+          </Paragraph>
         </div>
 
         {isMounted && (

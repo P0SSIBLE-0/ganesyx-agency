@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { blogsData, BlogPost } from '@/data/blogs';
 import styles from './BlogCarousel.module.css';
+import { Heading } from '../ui/Typography';
 
 interface BlogCarouselProps {
   blogs?: BlogPost[];
@@ -13,7 +14,7 @@ interface BlogCarouselProps {
 
 export default function BlogCarousel({
   blogs = blogsData,
-  title = "STAY AHEAD OF WHAT’S NEXT",
+  title = "Stay Ahead of What’s Next",
   subtitle = "RESOURCES"
 }: BlogCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -68,7 +69,7 @@ export default function BlogCarousel({
             <span className={styles.subtitle}>
               {subtitle} ({blogs.length})
             </span>
-            <h2 className={styles.title}>{title}</h2>
+            <Heading>{title}</Heading>
           </div>
 
           {/* Slider Controls */}

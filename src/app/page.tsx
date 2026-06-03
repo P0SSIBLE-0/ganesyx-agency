@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import BrandMarquee from "@/components/home/BrandMarquee";
+import PartnerWith from "@/components/home/PartnerWith";
 import About from "@/components/home/About";
 import Stats from "@/components/home/Stats";
 import Services from "@/components/home/Services";
@@ -28,8 +29,9 @@ export default function Home() {
       <WhyChooseUs />
       <TextMarquee />
       <Pricing />
-      <BlogCarousel blogs={blogsData.slice(0, 6)} />
+      {/* <BlogCarousel blogs={blogsData.slice(0, 6)} /> */}
       <Testimonials />
+      <PartnerWith />
       <Consultation />
       {/* <About />
       <Stats /> */}

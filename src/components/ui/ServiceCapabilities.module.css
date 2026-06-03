@@ -284,6 +284,77 @@
   /* Custom lime green bullet icons */
 }
 
+/* === Card Image and Button Styles === */
+.cardImageWrapper {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 24px;
+  background: var(--brand, #330099);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 9999px;
+  margin-top: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(51, 0, 153, 0.1);
+}
+
+.cardButton:hover {
+  background: #4313b8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(51, 0, 153, 0.15);
+}
+
+/* Gradient card button overrides */
+.card0 .cardButton,
+.card1 .cardButton,
+.card2 .cardButton,
+.card3 .cardButton,
+.card4 .cardButton,
+.card5 .cardButton {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card0 .cardButton:hover,
+.card1 .cardButton:hover,
+.card2 .cardButton:hover,
+.card3 .cardButton:hover,
+.card4 .cardButton:hover,
+.card5 .cardButton:hover {
+  background: rgba(255, 255, 255, 0.92);
+  color: #000000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
 /* === Responsive === */
 @media (max-width: 1024px) {
   .section {

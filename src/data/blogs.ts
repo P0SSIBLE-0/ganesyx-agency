@@ -2,6 +2,7 @@ export interface BlogAuthor {
   name: string;
   avatar: string;
   role: string;
+  email?: string;
 }
 
 export interface BlogPost {

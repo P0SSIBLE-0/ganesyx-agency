@@ -42,7 +42,7 @@ export default function BlogsContainer({ initialBlogs }: BlogsContainerProps) {
     return initialBlogs.filter((blog) => {
       const matchesCategory =
         activeCategory === 'All' || blog.category === activeCategory;
-      
+
       const matchesSearch =
         searchQuery === '' ||
         blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -71,7 +71,7 @@ export default function BlogsContainer({ initialBlogs }: BlogsContainerProps) {
 
   // Paginated latest grid items
   const totalPages = Math.ceil(latestList.length / PAGE_SIZE);
-  
+
   const paginatedLatest = useMemo(() => {
     const start = (currentPage - 1) * PAGE_SIZE;
     return latestList.slice(start, start + PAGE_SIZE);
@@ -119,9 +119,8 @@ export default function BlogsContainer({ initialBlogs }: BlogsContainerProps) {
                   setActiveCategory(cat);
                   setCurrentPage(1);
                 }}
-                className={`${styles.filterTag} ${
-                  activeCategory === cat ? styles.activeFilterTag : ''
-                }`}
+                className={`${styles.filterTag} ${activeCategory === cat ? styles.activeFilterTag : ''
+                  }`}
               >
                 {cat}
               </button>
@@ -233,9 +232,8 @@ export default function BlogsContainer({ initialBlogs }: BlogsContainerProps) {
                             <button
                               key={index}
                               onClick={() => handlePageChange(page)}
-                              className={`${styles.pageNum} ${
-                                currentPage === page ? styles.activePageNum : ''
-                              }`}
+                              className={`${styles.pageNum} ${currentPage === page ? styles.activePageNum : ''
+                                }`}
                             >
                               {page}
                             </button>

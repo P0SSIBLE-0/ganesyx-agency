@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Carousel from '@/components/ui/Carousel';
 import styles from './BrandingGallery.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 interface GalleryItem {
   id: string;
@@ -50,14 +51,14 @@ export default function BrandingGallery() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className={styles.label}>BRAND GALLERY</span>
-          <h2 className={styles.heading}>
-            <span className={styles.headingMain}>Identity in</span>
+          <Badge>BRAND GALLERY</Badge>
+          <Heading>
+            <span >Identity in</span>
             <span className={styles.headingItalic}> Action</span>
-          </h2>
-          <p className={styles.headerDesc}>
+          </Heading>
+          <Paragraph>
             Explore our curated collections of visual collateral, package designs, and brand systems.
-          </p>
+          </Paragraph>
         </motion.div>
 
         {/* Carousel Component Wrapper */}

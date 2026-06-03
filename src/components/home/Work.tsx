@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ProjectMarquee, { type ProjectCard } from '@/components/ui/ProjectMarquee';
 import styles from './Work.module.css';
+import { Badge, Heading, Paragraph } from '@/components/ui/Typography';
 
 const projectsList: ProjectCard[] = [
   {
@@ -73,15 +74,13 @@ export default function Work() {
     >
       <div className={styles.container}>
         {/* Our Work badge pill */}
-        <span className={styles.badge}>Our Work</span>
+        <Badge>Our Work</Badge>
 
         {/* Section Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <h2 className={styles.title}>Featured Works</h2>
-            <p className={styles.description}>
-              Explore how Ganesyx helped brands increase visibility, drive engagement, and elevate market presence.
-            </p>
+            <Heading>Featured Works</Heading>
+            <Paragraph>Explore how Ganesyx helped brands increase visibility, drive engagement, and elevate market presence.</Paragraph>
           </div>
 
           {/* <a href="#portfolio" className={styles.viewAll}>

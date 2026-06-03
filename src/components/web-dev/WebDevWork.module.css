@@ -25,7 +25,7 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 44px;
-  padding: 100px 0 80px;
+  padding: 100px 0 32px;
 }
 
 .titleWrapper {
@@ -43,7 +43,7 @@
   display: block;
 }
 
-.title {
+.titleWrapper h2 {
   font-family: var(--font-heading), sans-serif;
   font-size: clamp(2rem, 3.2vw, 3rem);
   font-weight: 700;
@@ -52,12 +52,71 @@
   color: #ffffff;
 }
 
-.supportText {
+.header p {
   max-width: 420px;
   font-size: 0.95rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.6);
   padding-bottom: 4px;
+}
+
+/* ── Filters Row ────────────────────────────────────── */
+
+.filtersRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: relative;
+  z-index: 5;
+}
+
+.filterBtn {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 10px 22px;
+  border-radius: 100px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.filterBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+  transform: translateY(-1px);
+}
+
+.filterBtn:active {
+  transform: translateY(1px);
+}
+
+.activeFilter {
+  color: #ffffff !important;
+  background: linear-gradient(90deg, #2821a8 0%, #5d55f7 100%) !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3) !important;
+}
+
+@media (max-width: 968px) {
+  .filtersRow {
+    padding-bottom: 40px;
+    gap: 8px;
+  }
+
+  .filterBtn {
+    padding: 8px 18px;
+    font-size: 0.68rem;
+  }
 }
 
 /* ── Scroll Track ──────────────────────────────────── */

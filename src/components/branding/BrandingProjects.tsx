@@ -3,7 +3,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import ProjectMarquee, { type ProjectCard } from '@/components/ui/ProjectMarquee';
 import styles from './BrandingProjects.module.css';
-import { Heading } from '../ui/Typography';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 import { brandingProjects as projects } from '@/data/work';
 
@@ -14,14 +14,15 @@ export default function BrandingProjects() {
       {/* Section Header */}
       <div className={styles.header}>
         <div className={styles.headerLeft}>
-          <Heading className={styles.sectionTitle}>Featured Projects</Heading>
-          <p className={styles.sectionSubtitle}>Transformations Exposed</p>
+          <Badge>Our Work</Badge>
+          <Heading >Featured Projects</Heading>
+          <Paragraph>Transformations Exposed</Paragraph>
         </div>
 
-        <a href="#portfolio" className={styles.portfolioLink}>
+        {/* <a href="#portfolio" className={styles.portfolioLink}>
           View Our Portfolio
           <ArrowUpRight size={14} />
-        </a>
+        </a> */}
       </div>
 
       {/* Scrolling Marquee */}

@@ -22,7 +22,7 @@ export default function TeamSection() {
             <div className={styles.quoteArea}>
               <div className={styles.quoteDivider} />
               <p className={styles.quoteText}>
-                "Two brands. One clear system. Xcelerate Brand Kit by TFX made both launches look premium and consistent."
+                "Two completely different brands, yet one seamless design language. Ganesyx translated our vision into a premium identity system that drove trust instantly."
               </p>
 
               <div className={styles.authorBox}>

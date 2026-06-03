@@ -4,6 +4,7 @@ import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { TechIcon } from '@/components/ui/TechLogos';
 import styles from './WebDevTech.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 interface Technology {
   name: string;
@@ -62,7 +63,7 @@ export default function WebDevTech() {
   return (
     <section className={styles.section} id="tech-stack">
       <div className={styles.container}>
-        
+
         {/* Section Header */}
         <motion.div
           className={styles.header}
@@ -72,19 +73,19 @@ export default function WebDevTech() {
           variants={headerVariants}
         >
           <div className={styles.titleWrapper}>
-            <span className={styles.badge}>Technology Stack</span>
-            <h2 className={styles.title}>Powered By Modern Technologies.</h2>
+            <Badge>Technology Stack</Badge>
+            <Heading>Powered By Modern Technologies.</Heading>
           </div>
-          <p className={styles.supportText}>
+          <Paragraph>
             We choose technologies based on performance, scalability, maintainability, and long-term flexibility.
-          </p>
+          </Paragraph>
         </motion.div>
 
       </div>
 
       {/* Full width 3-Row marquee sliders */}
       <div className={styles.marqueeWrapper}>
-        
+
         {/* Row 1: Right to Left */}
         <div className={styles.marqueeTrack}>
           <div className={styles.marqueeInner}>

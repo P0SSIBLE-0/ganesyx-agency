@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
 import { Check } from 'lucide-react';
-import { Heading, SubHeading, Paragraph } from '@/components/ui/Typography';
+import { Heading, SubHeading, Paragraph, Badge } from '@/components/ui/Typography';
 import styles from './SeoResults.module.css';
 
 interface CaseStudy {
@@ -90,7 +90,7 @@ export default function SeoResults() {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <SubHeading className={styles.tagline}>Case Studies</SubHeading>
+          <Badge>Case Studies</Badge>
           <Heading level={2} className={styles.title}>
             Campaign achievements and results delivered
           </Heading>

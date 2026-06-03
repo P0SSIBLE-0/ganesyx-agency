@@ -106,6 +106,21 @@ const Footer = () => {
               ))}
             </div>
           </div>
+
+          <div className={styles.mapColumn}>
+            <h3 className={styles.columnTitle}>Our Location</h3>
+            <div className={styles.mapWrapper}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1d77.1387015!2d28.7148831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d013cad083af7%3A0xee3c42742c8c8191!2sGanesyx%20Private%20Limited!5e0!3m2!1sen!2sin!4v1717325510000!5m2!1sen!2sin"
+                width="100%"
+                height="290"
+                style={{ border: 0, borderRadius: '12px' }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
         </div>
 
         <div className={styles.bottom}>

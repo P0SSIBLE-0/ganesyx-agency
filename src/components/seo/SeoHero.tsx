@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { ArrowRight, Sparkles, TrendingUp, Search } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Search, Key, Award } from 'lucide-react';
 import styles from './SeoHero.module.css';
 
 // Framer motion variants for staggered entry of the text column
@@ -39,6 +39,72 @@ const elementVariants: Variants = {
       duration: 0.8,
       ease: [0.16, 1, 0.3, 1],
       delay: 1.8 // Appear after the graph line animates
+    }
+  }
+};
+
+const card1Variants: Variants = {
+  hidden: { opacity: 0, scale: 0.9, y: 15 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: [0, -6, 0],
+    transition: {
+      y: {
+        repeat: Infinity,
+        duration: 5,
+        ease: "easeInOut",
+        delay: 2.4
+      },
+      default: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+        delay: 1.8
+      }
+    }
+  }
+};
+
+const card2Variants: Variants = {
+  hidden: { opacity: 0, scale: 0.9, y: 15 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: [0, -8, 0],
+    transition: {
+      y: {
+        repeat: Infinity,
+        duration: 6,
+        ease: "easeInOut",
+        delay: 2.6
+      },
+      default: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+        delay: 2.0 // Stagger entry
+      }
+    }
+  }
+};
+
+const card3Variants: Variants = {
+  hidden: { opacity: 0, scale: 0.9, y: 15 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: [0, -7, 0],
+    transition: {
+      y: {
+        repeat: Infinity,
+        duration: 5.5,
+        ease: "easeInOut",
+        delay: 2.8
+      },
+      default: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+        delay: 2.2 // Stagger entry
+      }
     }
   }
 };
@@ -190,8 +256,7 @@ export default function SeoHero() {
               />
             </svg>
 
-            {/* Pulsing Intersecting Node (positioned exactly at x=485, y=110 on 600x400 SVG) */}
-            {/* Coordinates in percent: left = (485/600)*100% = 80.83%, top = (110/400)*100% = 27.5% */}
+            {/* Pulsing Intersecting Node 1 (Existing) */}
             <motion.div
               className={styles.graphNode}
               style={{ '--node-left': '79.83%', '--node-top': '24.5%' } as React.CSSProperties}
@@ -201,13 +266,32 @@ export default function SeoHero() {
               <div className={styles.nodePulse} />
             </motion.div>
 
-            {/* Floating Glass Stats Card */}
-            {/* Positioned relative to node (placed to the left and slightly higher) */}
+            {/* Pulsing Intersecting Node 2 (New) */}
+            <motion.div
+              className={`${styles.graphNode} ${styles.additionalNode}`}
+              style={{ '--node-left': '40%', '--node-top': '52.5%' } as React.CSSProperties}
+              variants={elementVariants}
+            >
+              <div className={styles.nodeCore} />
+              <div className={styles.nodePulse} />
+            </motion.div>
+
+            {/* Pulsing Intersecting Node 3 (New) */}
+            <motion.div
+              className={`${styles.graphNode} ${styles.additionalNode}`}
+              style={{ '--node-left': '88.33%', '--node-top': '15%' } as React.CSSProperties}
+              variants={elementVariants}
+            >
+              <div className={styles.nodeCore} />
+              <div className={styles.nodePulse} />
+            </motion.div>
+
+            {/* Floating Glass Stats Card 1 (Existing) */}
             <motion.div
               className={styles.statsCard}
               style={{ '--card-left': '46%', '--card-top': '16%' } as React.CSSProperties}
-              variants={elementVariants}
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+              variants={card1Variants}
+              whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
             >
               <div className={styles.cardHeader}>
                 <Search size={12} className={styles.cardIcon} />
@@ -218,6 +302,48 @@ export default function SeoHero() {
                 <div className={styles.cardBadge}>
                   <TrendingUp size={10} className={styles.badgeArrow} />
                   <span>+24.8%</span>
+                </div>
+              </div>
+              <span className={styles.cardPeriod}>Last 30 days</span>
+            </motion.div>
+
+            {/* Floating Glass Stats Card 2 (New) */}
+            <motion.div
+              className={`${styles.statsCard} ${styles.additionalCard}`}
+              style={{ '--card-left': '20%', '--card-top': '56%' } as React.CSSProperties}
+              variants={card2Variants}
+              whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+            >
+              <div className={styles.cardHeader}>
+                <Key size={12} className={styles.cardIcon} />
+                <span className={styles.cardScope}>Active Keywords</span>
+              </div>
+              <div className={styles.cardValueRow}>
+                <span className={styles.cardValue}>14.8K</span>
+                <div className={styles.cardBadge}>
+                  <TrendingUp size={10} className={styles.badgeArrow} />
+                  <span>+31.2%</span>
+                </div>
+              </div>
+              <span className={styles.cardPeriod}>Active now</span>
+            </motion.div>
+
+            {/* Floating Glass Stats Card 3 (New) */}
+            <motion.div
+              className={`${styles.statsCard} ${styles.additionalCard}`}
+              style={{ '--card-left': '82%', '--card-top': '38%' } as React.CSSProperties}
+              variants={card3Variants}
+              whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+            >
+              <div className={styles.cardHeader}>
+                <Award size={12} className={styles.cardIcon} />
+                <span className={styles.cardScope}>Domain Rating</span>
+              </div>
+              <div className={styles.cardValueRow}>
+                <span className={styles.cardValue}>DR 76</span>
+                <div className={styles.cardBadge}>
+                  <TrendingUp size={10} className={styles.badgeArrow} />
+                  <span>+14.3%</span>
                 </div>
               </div>
               <span className={styles.cardPeriod}>Last 30 days</span>

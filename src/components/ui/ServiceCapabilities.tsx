@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import {
   Settings,
@@ -21,9 +20,10 @@ import {
   ShoppingBag,
   Share2,
   Users,
+  ArrowRight,
   type LucideIcon
 } from 'lucide-react';
-import { Heading, SubHeading, Paragraph } from '@/components/ui/Typography';
+import { Heading, Paragraph, Badge } from '@/components/ui/Typography';
 import styles from './ServiceCapabilities.module.css';
 
 // Type mapping for dynamic icons
@@ -51,7 +51,7 @@ export interface CapabilityItem {
   title: string;
   description: string;
   iconName: string;
-  details: string[];
+  details?: string[];
 }
 
 interface ServiceCapabilitiesProps {
@@ -97,7 +97,7 @@ export default function ServiceCapabilities({
 
         {/* Header Section */}
         <div className={styles.header}>
-          <SubHeading className={styles.subHeading}>{subHeading}</SubHeading>
+          <Badge>{subHeading}</Badge>
           <Heading level={2} className={styles.title}>{title}</Heading>
           <Paragraph variant="lead" className={styles.description}>{description}</Paragraph>
         </div>
@@ -130,17 +130,58 @@ export default function ServiceCapabilities({
                 <Paragraph variant="default" className={styles.cardText}>{item.description}</Paragraph>
 
                 {/* Details List */}
-                <ul className={styles.bulletList}>
-                  {item.details.map((detail, dIndex) => (
-                    <li key={dIndex} className={styles.bulletItem}>
-                      <Check size={12} className={styles.bulletIcon} />
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
+                {item.details && item.details.length > 0 && (
+                  <ul className={styles.bulletList}>
+                    {item.details.map((detail, dIndex) => (
+                      <li key={dIndex} className={styles.bulletItem}>
+                        <Check size={12} className={styles.bulletIcon} />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </motion.div>
             );
           })}
+
+          {/* Hardcoded GEO Card */}
+          <motion.div
+            className={`${styles.card} ${styles['card' + (items.length % 6)]}`}
+            variants={cardVariants}
+            whileHover={{ y: -4 }}
+          >
+            <div className={styles.cardHeader}>
+              <span className={styles.number}>09</span>
+              <div className={styles.iconWrapper}>
+                <Sparkles size={20} />
+              </div>
+            </div>
+
+            <Heading level={3} className={styles.cardTitle}>Generative Engine Optimization (GEO)</Heading>
+            <Paragraph variant="default" className={styles.cardText}>
+              Optimize your digital footprint to ensure your brand is cited, sourced, and recommended by AI generative search engines like ChatGPT Search, Gemini, and Perplexity.
+            </Paragraph>
+
+            <ul className={styles.bulletList}>
+              <li className={styles.bulletItem}>
+                <Check size={12} className={styles.bulletIcon} />
+                <span>AI citation tracking & sentiment audits</span>
+              </li>
+              <li className={styles.bulletItem}>
+                <Check size={12} className={styles.bulletIcon} />
+                <span>Content structuring for LLM extraction</span>
+              </li>
+              <li className={styles.bulletItem}>
+                <Check size={12} className={styles.bulletIcon} />
+                <span>Brand citation density & authority building</span>
+              </li>
+            </ul>
+
+            <a href="/geo" className={styles.cardButton}>
+              <span>Explore GEO Solutions</span>
+              <ArrowRight size={14} />
+            </a>
+          </motion.div>
         </motion.div>
 
       </div>

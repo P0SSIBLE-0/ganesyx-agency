@@ -29,12 +29,19 @@
   letter-spacing: -0.02em;
 }
 
-.subtitle {
+.header p {
   font-family: var(--font-body), sans-serif;
   font-size: 1.05rem;
   line-height: 1.6;
   color: #64748b;
   /* Slate 500 */
+}
+
+.header h2 {
+  max-width: 750px;
+  margin: 0 auto;
+  margin-top: 1rem;
+
 }
 
 .grid {

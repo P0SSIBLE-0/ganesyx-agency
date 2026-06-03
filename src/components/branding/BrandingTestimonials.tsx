@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { brandingTestimonials } from '@/data/branding';
 import styles from './BrandingTestimonials.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 const avatarMap: { [key: string]: string } = {
   'Sarah Jenkins': '/avatar/avatar-ishita-verma.png',
@@ -14,7 +15,7 @@ const avatarMap: { [key: string]: string } = {
 const getAvatar = (name: string, index: number) => {
   const mapped = avatarMap[name];
   if (mapped) return mapped;
-  
+
   const avatars = [
     '/avatar/avatar-ananya-kapoor.png',
     '/avatar/avatar-arjun-singhania.png',
@@ -43,18 +44,18 @@ export default function BrandingTestimonials() {
     <section className={styles.section} id="testimonials">
       <div className={styles.container}>
         {/* Header */}
-        <motion.div 
+        <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className={styles.label}>CLIENT STORIES</span>
-          <h2 className={styles.heading}>
-            <span className={styles.headingMain}>What Founders</span>
+          <Badge>CLIENT STORIES</Badge>
+          <Heading>
+            <span >What Founders</span>
             <span className={styles.headingItalic}> Say About Us</span>
-          </h2>
+          </Heading>
         </motion.div>
       </div>
 
@@ -71,8 +72,8 @@ export default function BrandingTestimonials() {
                   <div className={styles.divider} />
                   <div className={styles.author}>
                     <div className={styles.avatarContainer}>
-                      <img 
-                        src={getAvatar(testimonial.author, index)} 
+                      <img
+                        src={getAvatar(testimonial.author, index)}
                         alt={testimonial.author}
                         className={styles.avatarImage}
                       />
@@ -101,8 +102,8 @@ export default function BrandingTestimonials() {
                   <div className={styles.divider} />
                   <div className={styles.author}>
                     <div className={styles.avatarContainer}>
-                      <img 
-                        src={getAvatar(testimonial.author, index)} 
+                      <img
+                        src={getAvatar(testimonial.author, index)}
                         alt={testimonial.author}
                         className={styles.avatarImage}
                       />

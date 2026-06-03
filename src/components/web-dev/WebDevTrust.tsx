@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useSpring, type Variants } from 'framer-motion';
+import { Badge, Heading } from '@/components/ui/Typography';
 import styles from './WebDevTrust.module.css';
 
 interface MetricItem {
@@ -181,8 +182,8 @@ export default function WebDevTrust() {
           viewport={{ once: true, margin: '-80px' }}
           variants={headerVariants}
         >
-          <span className={styles.badge}>Trust & Results</span>
-          <h2 className={styles.title}>Built For Modern Digital Experiences.</h2>
+          <Badge>Trust & Results</Badge>
+          <Heading>Built For Modern Digital Experiences.</Heading>
         </motion.div>
 
         {/* Metrics Grid Row */}

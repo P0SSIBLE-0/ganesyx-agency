@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
-import { ArrowRight, TrendingUp, CheckCircle, X } from 'lucide-react';
+import { ArrowRight, TrendingUp, CheckCircle, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './AdsCaseStudies.module.css';
 
 import { adsCaseStudies as caseStudiesData } from '@/data/work';
@@ -11,6 +11,59 @@ import { adsCaseStudies as caseStudiesData } from '@/data/work';
 export default function AdsCaseStudies() {
   const [activeCaseId, setActiveCaseId] = useState<string>('case-kr-college');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 320;
+      const currentScroll = scrollContainerRef.current.scrollLeft;
+      const targetScroll = direction === 'left'
+        ? currentScroll - scrollAmount
+        : currentScroll + scrollAmount;
+
+      scrollContainerRef.current.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveCaseId((currentId) => {
+        const currentIndex = caseStudiesData.findIndex((item) => item.id === currentId);
+        const nextIndex = (currentIndex + 1) % caseStudiesData.length;
+        return caseStudiesData[nextIndex].id;
+      });
+    }, 4000); // changes every 4 seconds
+
+    return () => clearInterval(timer);
+  }, [activeCaseId]);
+
+  // Center active tab in the scroll view when activeCaseId changes
+  React.useEffect(() => {
+    if (scrollContainerRef.current) {
+      const activeTabEl = scrollContainerRef.current.querySelector(
+        `.${styles.brandTabActive}`
+      ) as HTMLElement;
+
+      if (activeTabEl) {
+        const container = scrollContainerRef.current;
+        const containerWidth = container.offsetWidth;
+        const tabOffsetLeft = activeTabEl.offsetLeft;
+        const tabWidth = activeTabEl.offsetWidth;
+
+        // Calculate targeted scroll position to center the active tab card
+        const targetScrollLeft = tabOffsetLeft - (containerWidth / 2) + (tabWidth / 2);
+
+        container.scrollTo({
+          left: targetScrollLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [activeCaseId]);
 
   const activeCase = caseStudiesData.find((item) => item.id === activeCaseId) || caseStudiesData[0];
 
@@ -135,35 +188,61 @@ export default function AdsCaseStudies() {
             </AnimatePresence>
           </div>
 
-          {/* Bottom: Vertical Brand Tabs */}
-          <div className={styles.sidebarList}>
-            {caseStudiesData.map((item) => {
-              const isActive = item.id === activeCaseId;
-              return (
+          {/* Bottom: Vertical Brand Tabs with Left/Right Buttons */}
+          <div className={styles.tabsSliderContainer}>
+            {caseStudiesData.length > 3 && (
+              <>
                 <button
-                  key={item.id}
                   type="button"
-                  className={`${styles.brandTab} ${isActive ? styles.brandTabActive : ''}`}
-                  onClick={() => setActiveCaseId(item.id)}
+                  className={`${styles.navBtn} ${styles.navBtnLeft}`}
+                  onClick={() => scroll('left')}
+                  aria-label="Scroll case studies left"
                 >
-                  {/* Left border line for active state */}
-                  {isActive && <motion.div className={styles.activeLine} layoutId="activeLine" />}
-
-                  <div className={styles.brandTabContent}>
-                    <div className={styles.brandTabHeader}>
-                      <span className={styles.tabIndustry}>{item.industry}</span>
-                      <span className={styles.tabResultBadge}>{item.highlightMetric}</span>
-                    </div>
-                    <span className={styles.tabBrandName}>{item.brand}</span>
-                    <p className={styles.tabSummaryText}>{item.tabSummary}</p>
-                    <div className={styles.tabFooterRow}>
-                      <span className={styles.tabSecondaryStat}>{item.secondaryStat}</span>
-                      <span className={styles.tabViewDetails}>View Strategy →</span>
-                    </div>
-                  </div>
+                  <ChevronLeft size={20} />
                 </button>
-              );
-            })}
+                <button
+                  type="button"
+                  className={`${styles.navBtn} ${styles.navBtnRight}`}
+                  onClick={() => scroll('right')}
+                  aria-label="Scroll case studies right"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </>
+            )}
+
+            <div
+              ref={scrollContainerRef}
+              className={`${styles.sidebarList} ${caseStudiesData.length > 3 ? styles.sidebarListScrollable : ''}`}
+            >
+              {caseStudiesData.map((item) => {
+                const isActive = item.id === activeCaseId;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={`${styles.brandTab} ${isActive ? styles.brandTabActive : ''}`}
+                    onClick={() => setActiveCaseId(item.id)}
+                  >
+                    {/* Left border line for active state */}
+                    {isActive && <motion.div className={styles.activeLine} layoutId="activeLine" />}
+
+                    <div className={styles.brandTabContent}>
+                      <div className={styles.brandTabHeader}>
+                        <span className={styles.tabIndustry}>{item.industry}</span>
+                        <span className={styles.tabResultBadge}>{item.highlightMetric}</span>
+                      </div>
+                      <span className={styles.tabBrandName}>{item.brand}</span>
+                      {/* <p className={styles.tabSummaryText}>{item.tabSummary}</p> */}
+                      <div className={styles.tabFooterRow}>
+                        <span className={styles.tabSecondaryStat}>{item.secondaryStat}</span>
+                        <span className={styles.tabViewDetails}>View Strategy →</span>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
         </div>

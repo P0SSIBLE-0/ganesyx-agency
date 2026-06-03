@@ -11,7 +11,7 @@
   width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 40px;
 }
 
 /* 1. Badge pill matching the attached design */
@@ -101,7 +101,7 @@
 .marqueeWrap {
   --marquee-card-radius: 10px;
   /* Reduced card corner radius */
-  --marquee-card-height: 380px;
+  --marquee-card-height: 440px;
   /* Reduced card height from 480px */
   --marquee-card-mobile-height: 250px;
   /* Reduced mobile card height from 300px */

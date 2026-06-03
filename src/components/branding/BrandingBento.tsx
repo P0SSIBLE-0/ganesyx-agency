@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Sparkles, Mail, Laptop, Shield, Award, Settings, Link as LinkIcon, Lock, CheckCircle, Copy } from 'lucide-react';
+import { Laptop, CheckCircle, Copy } from 'lucide-react';
 import styles from './BrandingBento.module.css';
+import { Heading, Paragraph, Badge } from '../ui/Typography';
 
 // Cards entrance animation variants
 const cardVariants: Variants = {
@@ -31,11 +31,11 @@ export default function BrandingBento() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className={styles.label}>HOW WE DELIVER</span>
-          <h2 className={styles.heading}>
+          <Badge>HOW WE DELIVER</Badge>
+          <Heading>
             <span className={styles.headingTop}>Designed for Impact.</span>
             <span className={styles.headingBottom}>Built for Scale.</span>
-          </h2>
+          </Heading>
         </motion.div>
 
         {/* Bento Grid */}

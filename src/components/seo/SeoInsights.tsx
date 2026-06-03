@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Info, Trophy, Plus, CheckCircle2, ChevronRight, AlertCircle, Sparkles } from 'lucide-react';
 import styles from './SeoInsights.module.css';
+import { Badge } from '../ui/Typography';
 
 interface MetricDetail {
   id: string;
@@ -106,10 +107,10 @@ export default function SeoInsights() {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <div className={styles.headerBadge}>
+          <Badge className={styles.headerBadge}>
             <Sparkles size={12} className={styles.sparkleIcon} />
             <span>REAL-TIME ANALYSIS</span>
-          </div>
+          </Badge>
           <h2 className={styles.title}>
             Best Unlock SEO power <br className={styles.mobileBr} />
             <span className={styles.highlight}>real-time insights</span>

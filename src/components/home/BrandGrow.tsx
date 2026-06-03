@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import styles from './BrandGrow.module.css';
+import { Badge, Heading, SubHeading, Paragraph } from '@/components/ui/Typography';
 
 export interface BrandGrowProps {
   imageUrl?: string;
@@ -61,14 +63,17 @@ export default function BrandGrow({
 
           {/* Left Content Block */}
           <div className={styles.leftContent}>
-            <h2 className={styles.title}>
-              {title}
-            </h2>
+            <div>
+              <Badge>Brand Growth</Badge>
+              <Heading>
+                {title}
+              </Heading>
+            </div>
 
             {descriptions.map((desc, idx) => (
-              <p key={idx} className={styles.description}>
+              <Paragraph key={idx}>
                 {desc}
-              </p>
+              </Paragraph>
             ))}
 
             <a href={ctaLink} className={styles.ctaBtn}>
@@ -89,24 +94,45 @@ export default function BrandGrow({
 
             {/* 2. Top-Left Feature Card */}
             {floatingImageLeft && (
-              <div className={styles.floatingCardLeft}>
+              <motion.div
+                className={styles.floatingCardLeft}
+                animate={{
+                  y: [0, -22, 0],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
                 <img
                   src={floatingImageLeft}
                   alt="Brand growth showcase"
                   className={styles.cardImage}
                 />
-              </div>
+              </motion.div>
             )}
 
             {/* 3. Bottom-Right Feature Card */}
             {floatingImageRight && (
-              <div className={styles.floatingCardRight}>
+              <motion.div
+                className={styles.floatingCardRight}
+                animate={{
+                  y: [0, 19, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
+              >
                 <img
                   src={floatingImageRight}
                   alt="Digital marketing results"
                   className={styles.cardImage}
                 />
-              </div>
+              </motion.div>
             )}
 
           </div>

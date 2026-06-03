@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
+import { Badge, Heading, Paragraph } from '@/components/ui/Typography';
 import styles from './WebDevTestimonials.module.css';
 
 interface Testimonial {
@@ -131,8 +132,9 @@ export default function WebDevTestimonials() {
       <div className={styles.container}>
         {/* Header Block */}
         <div className={styles.header}>
-          <h2 className={styles.title}>Trusted by developers, startups, and enterprises</h2>
-          <p className={styles.subtitle}>Join thousands of developers and companies around the world</p>
+          <Badge>Testimonials</Badge>
+          <Heading>Trusted by developers, startups, and enterprises</Heading>
+          <Paragraph>Join thousands of developers and companies around the world</Paragraph>
         </div>
 
         {/* Bento Grid */}

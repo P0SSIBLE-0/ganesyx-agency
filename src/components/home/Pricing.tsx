@@ -2,49 +2,154 @@
 
 import React from 'react';
 import styles from './Pricing.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
+
+interface FeatureItem {
+  text: string;
+  isBold?: boolean;
+}
+
+interface FeatureGroup {
+  header: string;
+  items: FeatureItem[];
+}
 
 interface PricingPlan {
   badge: string;
   title: string;
   price: string;
+  interval: string;
+  delivery: string;
   isHighlighted?: boolean;
+  featureGroups: FeatureGroup[];
 }
 
 const plans: PricingPlan[] = [
   {
-    badge: 'Testimonial',
-    title: 'Launch Brand Kit',
-    price: '6000',
+    badge: 'Branding',
+    title: 'Essential Brand Kit',
+    price: '15,000',
+    interval: '/ Kit',
+    delivery: '1 – 2 Weeks*',
+    featureGroups: [
+      {
+        header: 'Visual Identity',
+        items: [
+          { text: 'Logo Design (Primary & Alternate)', isBold: true },
+          { text: 'Custom Color Palette & System' },
+          { text: 'Modern Typography Selection' }
+        ]
+      },
+      {
+        header: 'Brand Assets',
+        items: [
+          { text: 'Business Card & Letterhead', isBold: true },
+          { text: 'Social Media Cover Kit' },
+          { text: 'Brand Guidelines PDF' }
+        ]
+      },
+      {
+        header: 'Perfect if you are:',
+        items: [
+          { text: 'A startup launching a new product' },
+          { text: 'Ready to establish a premium aesthetic' }
+        ]
+      }
+    ]
   },
   {
-    badge: 'Testimonial',
-    title: 'Launch Brand Kit',
-    price: '9000',
-  },
-  {
-    badge: 'Testimonial',
-    title: 'Launch Brand Kit',
-    price: '6400',
+    badge: 'Web Suite',
+    title: 'Next-Gen Web Suite',
+    price: '35,000',
+    interval: '/ Suite',
+    delivery: '3 – 4 Weeks*',
     isHighlighted: true,
+    featureGroups: [
+      {
+        header: 'Design & Code',
+        items: [
+          { text: 'Custom Next.js & React App', isBold: true },
+          { text: 'Responsive Layout (Mobile First)' },
+          { text: 'Lightning-Fast Speed (99/100)' }
+        ]
+      },
+      {
+        header: 'Lead Funnel & Tech',
+        items: [
+          { text: 'WhatsApp estimation chatbot', isBold: true },
+          { text: 'Advanced Analytics Dashboard' },
+          { text: 'SEO Core Optimization' },
+          { text: '1-Year Free Domain & Hosting' }
+        ]
+      },
+      {
+        header: 'Perfect if you are:',
+        items: [
+          { text: 'B2B/B2C scaling lead capture' },
+          { text: 'Looking for a state-of-the-art web app' }
+        ]
+      }
+    ]
   },
+  {
+    badge: 'Marketing',
+    title: 'Paid Ads Accelerator',
+    price: '28,000',
+    interval: '/ Month',
+    delivery: 'Ongoing / Monthly*',
+    featureGroups: [
+      {
+        header: 'Campaign Funnel',
+        items: [
+          { text: 'Meta & Google Ads Funnel Setup', isBold: true },
+          { text: 'Custom Audience & Targeting' },
+          { text: 'Pixel & API Conversion Tracking' }
+        ]
+      },
+      {
+        header: 'Creative & Copy',
+        items: [
+          { text: '4 Scroll-Stopping Video Reels', isBold: true },
+          { text: 'High-Converting Copywriting' },
+          { text: 'WhatsApp Lead Nurturing Chatbot' },
+          { text: 'Weekly Analytics & A/B Testing' }
+        ]
+      },
+      {
+        header: 'Perfect if you are:',
+        items: [
+          { text: 'Struggling with high lead costs' },
+          { text: 'Ready to generate immediate sales' }
+        ]
+      }
+    ]
+  }
 ];
 
-export default function Pricing() {
+interface PricingProps {
+  plans?: PricingPlan[];
+  currency?: string;
+}
+
+export default function Pricing({ plans: customPlans, currency = '₹' }: PricingProps) {
+  const displayPlans = customPlans || plans;
+
   return (
     <section className={styles.section} id="pricing">
       <div className={styles.container}>
         {/* Centered Header */}
         <div className={styles.header}>
-          <h2 className={styles.title}>Flexible Plans For Growing Brands</h2>
-          <p className={styles.subtitle}>
+          <Badge >Pricing</Badge>
+          <Heading className='mb-2' >Flexible Plans For Growing Brands</Heading>
+          <Paragraph>
             From startups to established businesses, our customized digital solutions are designed to
             drive growth, engagement, and measurable results.
-          </p>
+          </Paragraph>
         </div>
 
         {/* Pricing Cards Grid */}
         <div className={styles.grid}>
-          {plans.map((plan, index) => (
+          {displayPlans.map((plan, index) => (
             <div
               key={index}
               className={`${styles.card} ${plan.isHighlighted ? styles.highlightedCard : ''}`}
@@ -57,13 +162,20 @@ export default function Pricing() {
 
               {/* Price Block */}
               <div className={styles.priceContainer}>
-                <div className={styles.priceValue}>
-                  <span className={styles.currency}>₹</span>
-                  <span className={styles.amount}>{plan.price}</span>
-                  <span className={styles.interval}>/ Kit</span>
-                </div>
+                {plan.price && /^[0-9,.]+$/.test(plan.price) ? (
+                  <div className={styles.priceValue}>
+                    <span className={styles.currency}>{currency}</span>
+                    <span className={styles.amount}>{plan.price}</span>
+                    <span className={styles.interval}>{plan.interval}</span>
+                  </div>
+                ) : (
+                  <div className={styles.priceValue}>
+                    <span className={styles.amount}>{plan.price || "Let's Talk"}</span>
+                    <span className={styles.interval}>{plan.interval}</span>
+                  </div>
+                )}
 
-                {/* Card 3 Custom circular badge graphic */}
+                {/* Card 2 Custom circular badge graphic */}
                 {plan.isHighlighted && (
                   <div className={styles.decorativeBadge}>
                     <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,60 +191,29 @@ export default function Pricing() {
                 )}
               </div>
 
-              {/* Features List Section 1 */}
-              <div className={styles.featureSection}>
-                <h4 className={styles.featureHeader}>Brand Basics (Design Only)</h4>
-                <ul className={styles.featureList}>
-                  <li className={`${styles.featureItem} ${styles.boldText}`}>
-                    <span className={styles.check}>✓</span> Logo + Variations + Color Palette
-                  </li>
-                </ul>
-              </div>
-
-              {/* Features List Section 2 */}
-              <div className={styles.featureSection}>
-                <h4 className={styles.featureHeader}>Brand Basics (Design Only)</h4>
-                <ul className={styles.featureList}>
-                  <li className={`${styles.featureItem} ${styles.boldText}`}>
-                    <span className={styles.check}>✓</span> Catalogue Design (7 pages)
-                  </li>
-                  <li className={`${styles.featureItem} ${styles.boldText}`}>
-                    <span className={styles.check}>✓</span> Brochure Design (2 pages)
-                  </li>
-                  <li className={styles.featureItem}>
-                    <span className={styles.check}>✓</span> 1 Visiting Card design
-                  </li>
-                  <li className={styles.featureItem}>
-                    <span className={styles.check}>✓</span> Letterhead + Envelope Designs
-                  </li>
-                </ul>
-              </div>
-
-              {/* Features List Section 3 */}
-              <div className={styles.featureSection}>
-                <h4 className={styles.featureHeader}>Launch is perfect if you:</h4>
-                <ul className={styles.featureList}>
-                  <li className={styles.featureItem}>
-                    <span className={styles.check}>✓</span> Catalogue Design (7 pages)
-                  </li>
-                  <li className={styles.featureItem}>
-                    <span className={styles.check}>✓</span> Brochure Design (2 pages)
-                  </li>
-                  <li className={styles.featureItem}>
-                    <span className={styles.check}>✓</span> 1 Visiting Card design
-                  </li>
-                  <li className={styles.featureItem}>
-                    <span className={styles.check}>✓</span> Letterhead + Envelope Designs
-                  </li>
-                </ul>
-              </div>
+              {/* Dynamic Feature Groups */}
+              {plan.featureGroups.map((group, groupIndex) => (
+                <div key={groupIndex} className={styles.featureSection}>
+                  <h4 className={styles.featureHeader}>{group.header}</h4>
+                  <ul className={styles.featureList}>
+                    {group.items.map((item, itemIndex) => (
+                      <li
+                        key={itemIndex}
+                        className={`${styles.featureItem} ${item.isBold ? styles.boldText : ''}`}
+                      >
+                        <span className={styles.check}>✓</span> {item.text}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
 
               {/* Divider Line */}
               <div className={styles.divider} />
 
               {/* Delivery Time Info */}
               <div className={styles.deliveryInfo}>
-                Delivery Time: 2 – 3 Weeks*
+                Delivery Time: {plan.delivery}
               </div>
 
               {/* Call to Action Button */}

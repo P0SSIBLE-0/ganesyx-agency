@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './Testimonials.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 interface Testimonial {
   id: number;
@@ -101,18 +102,14 @@ const Testimonials = () => {
   return (
     <section ref={sectionRef} id="testimonials" className={`${styles.testimonials} ${isVisible ? styles.visible : ''}`}>
       <div className={styles.container}>
-        
+
         {/* Section Header */}
         <div className={styles.header}>
-          <div className={styles.badge}>
-            Testimonial
-          </div>
-          <h2 className={styles.heading}>
-            What Our Clients Say About Ganesyx
-          </h2>
-          <p className={styles.subheading}>
+          <Badge className='mb-4'>Testimonial</Badge>
+          <Heading className='mb-2'>What Our Clients Say About Ganesyx</Heading>
+          <Paragraph>
             Trusted by businesses to deliver impactful digital marketing strategies, measurable growth, and results that make a difference.
-          </p>
+          </Paragraph>
         </div>
 
         {/* Carousel Slider */}

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './Services.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 const services = [
   {
@@ -91,14 +92,14 @@ const Services = () => {
 
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.badge}>Our Services</div>
-          <h2 className={styles.heading}>
-            Everything You Need to <br />
-            <span className={styles.highlight}>Dominate</span>
-          </h2>
-          <p className={styles.subHeading}>
+          <Badge>Our Services</Badge>
+          <Heading className='mb-2'>
+            Everything You Need to
+            <span className={styles.highlight}> Dominate</span>
+          </Heading>
+          <Paragraph>
             Full-spectrum digital marketing services designed to accelerate your growth
-          </p>
+          </Paragraph>
         </div>
 
         <div className={styles.grid}>

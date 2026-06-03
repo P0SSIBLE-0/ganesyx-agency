@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import { Heading, Paragraph, Badge } from '@/components/ui/Typography';
 import styles from './WhatWeDesign.module.css';
 
 interface DesignItem {
@@ -84,33 +85,9 @@ export default function WhatWeDesign() {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <motion.span
-            className={styles.subTitle}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Capabilities
-          </motion.span>
-          <motion.h2
-            className={styles.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            What We Design
-          </motion.h2>
-          <motion.p
-            className={styles.headerDesc}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            We deliver aesthetic, pixel-perfect, and conversions-focused marketing designs tailored to elevate your brand standard.
-          </motion.p>
+          <Badge>Capabilities</Badge>
+          <Heading>What We Design</Heading>
+          <Paragraph>We deliver aesthetic, pixel-perfect, and conversions-focused marketing designs tailored to elevate your brand standard.</Paragraph>
         </div>
 
         {/* Offerings Grid */}

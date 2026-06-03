@@ -16,9 +16,22 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.5fr 0.7fr 0.9fr 0.7fr 2.2fr;
+  gap: 40px;
   margin-bottom: 80px;
+}
+
+.mapColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mapWrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .brand {
@@ -142,8 +155,12 @@
 
 @media (max-width: 1024px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  .mapColumn {
+    grid-column: span 3;
   }
 }
 
@@ -159,6 +176,10 @@
   }
 
   .brand {
+    grid-column: span 2;
+  }
+
+  .mapColumn {
     grid-column: span 2;
   }
 

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Consultation.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 export default function Consultation() {
   const [calendlyLoaded, setCalendlyLoaded] = useState(false);
@@ -88,14 +89,15 @@ export default function Consultation() {
       <div className={styles.container}>
         {/* Header Title & Subtitle */}
         <div className={styles.headerBlock}>
-          <h2 className={styles.title}>
+          <Badge className='mb-4'>CONSULTATION</Badge>
+          <Heading className='mb-2'>
             Book your Consultation <br />
             below, we&apos;ll handle the rest.
-          </h2>
-          <p className={styles.subtitle}>
+          </Heading>
+          <Paragraph>
             Trusted by businesses to deliver impactful digital marketing strategies, <br />
             measurable growth, and results that make a difference.
-          </p>
+          </Paragraph>
         </div>
 
         {/* Embedded Inline Calendly Widget */}

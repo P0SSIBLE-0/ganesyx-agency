@@ -37,7 +37,7 @@ export const teamData: TeamMember[] = [
   },
   {
     id: '05',
-    name: 'Devyanshu',
+    name: 'Divyanshu',
     role: 'Video Editor',
     bio: 'Brings raw footage to life. Devyanshu crafts high-retention vertical reels, cinematic edits, and video ads with a focus on pacing, hooks, and clean motion design.',
     image: '/team/devyanshu_video_editor.jpeg',
@@ -62,5 +62,12 @@ export const teamData: TeamMember[] = [
     role: 'Video Editor',
     bio: 'Post-production specialist dedicated to storytelling. Tushar produces clean cuts, sound-designed narratives, and engaging commercials tailored for social channels.',
     image: '/team/tushar_video_editor.jpeg',
+  },
+  {
+    id: '09',
+    name: 'Harsh',
+    role: 'Graphic Designer',
+    bio: 'Graphic Designer at Ganesyx Agency. I am responsible for the visual identity and creative assets of the agency.',
+    image: '/team/harsh_graphic_designer.png',
   }
 ];

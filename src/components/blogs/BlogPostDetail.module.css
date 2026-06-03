@@ -238,6 +238,13 @@
   font-weight: 600;
 }
 
+.authorEmail {
+  font-family: var(--font-body);
+  color: #717171;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 .authorBio {
   font-family: var(--font-body);
   font-size: 0.88rem;

@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './ClientSuccessMetrics.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 // Reusable eased-out Animated Counter Component
 interface AnimatedCounterProps {
@@ -144,11 +145,11 @@ export default function ClientSuccessMetrics() {
 
         {/* Section Header */}
         <div className={styles.header}>
-          <span className={styles.subTitle}>The Return You Want</span>
-          <h2 className={styles.title}>What Our Clients Achieve</h2>
-          <p className={styles.headerDesc}>
+          <Badge className='mb-2'>The Return You Want</Badge>
+          <Heading>What Our Clients Achieve</Heading>
+          <Paragraph>
             Every metric reflects a client advancing their brand with our partnership. Here's what they've accomplished.
-          </p>
+          </Paragraph>
         </div>
 
         {/* 2x2 Metric Numbers Grid with dotted borders */}

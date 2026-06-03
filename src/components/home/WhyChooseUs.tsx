@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './WhyChooseUs.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 interface StatItem {
   value: number;
@@ -157,11 +158,11 @@ const WhyChooseUs = () => {
       <div className={styles.container}>
         {/* Centered Header */}
         <div className={styles.header}>
-          <div className={styles.badgePill}>Why choose Us</div>
-          <h2 className={styles.title}>Built for Performance</h2>
-          <p className={styles.subtitle}>
+          <Badge >Why choose Us</Badge>
+          <Heading className={styles.title}>Built for Performance</Heading>
+          <Paragraph className={styles.subtitle}>
             We don't just create campaigns, we build revenue-generating systems
-          </p>
+          </Paragraph>
         </div>
 
         {/* Staggered Cards Grid */}
@@ -181,7 +182,7 @@ const WhyChooseUs = () => {
               {/* Card Details */}
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardDesc}>{card.description}</p>
-              
+
               {/* Bottom Tag */}
               <div className={styles.cardTag}>{card.tag}</div>
             </div>

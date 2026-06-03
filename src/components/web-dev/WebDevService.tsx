@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Badge, Heading, Paragraph } from '@/components/ui/Typography';
 import styles from './WebDevService.module.css';
 
 interface ServiceItem {
@@ -115,13 +116,13 @@ export default function WebDevBuild() {
           variants={headerVariants}
         >
           <div className={styles.titleWrapper}>
-            <span className={styles.badge}>Services</span>
-            <h2 className={styles.title}>Digital Experiences Built Around Your Business Goals.</h2>
+            <Badge>Services</Badge>
+            <Heading>Digital Experiences Built Around Your Business Goals.</Heading>
           </div>
-          <p className={styles.supportText}>
+          <Paragraph>
             From high-converting marketing sites to scalable web applications, we build
             systems designed for modern digital growth.
-          </p>
+          </Paragraph>
         </motion.div>
 
         {/* Accordion Flex Rows */}

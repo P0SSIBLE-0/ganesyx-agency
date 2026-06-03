@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import { motion, useScroll, useTransform, useSpring, type Variants } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { Badge, Heading, Paragraph } from '@/components/ui/Typography';
 import styles from './WebDevWork.module.css';
 
 import { webDevProjects, type WebDevProject as Project } from '@/data/work';
@@ -19,26 +20,28 @@ function ProjectCard({ project, index, total, scrollYProgress }: ProjectCardProp
   // Dynamically build the scroll intervals for stacking
   // If we have N cards, there are N-1 transitions.
   // The scroll progress points are evenly spaced from 0 to 1.
-  const input = Array.from({ length: total }, (_, k) => total > 1 ? k / (total - 1) : 0);
+  const input = total > 1
+    ? Array.from({ length: total }, (_, k) => k / (total - 1))
+    : [0, 1];
 
   // y: the card enters from the bottom (e.g. translateY = 1000px) and moves to 0
-  const yOutput = Array.from({ length: total }, (_, k) => {
-    if (k < index) return 1000; // Offscreen below
-    return 0; // At its sticky rest position
-  });
+  const yOutput = total > 1
+    ? Array.from({ length: total }, (_, k) => (k < index ? 1000 : 0))
+    : [0, 0];
 
   // scale: the card is scale 1.0 when active, and scales down slightly when subsequent cards stack on it
-  const scaleOutput = Array.from({ length: total }, (_, k) => {
-    if (k < index) return 1;
-    if (k === index) return 1;
-    return 1 - (k - index) * 0.12; // scale down by 4% per stacked card
-  });
+  const scaleOutput = total > 1
+    ? Array.from({ length: total }, (_, k) => {
+      if (k < index) return 1;
+      if (k === index) return 1;
+      return 1 - (k - index) * 0.12; // scale down by 12% per stacked card
+    })
+    : [1, 1];
 
-  // opacity: offscreen = 0, entered/active/stacked = 1 (fully opaque to prevent any layer bleeding)
-  const opacityOutput = Array.from({ length: total }, (_, k) => {
-    if (k < index) return 0.5;
-    return 1;
-  });
+  // opacity: offscreen = 0.5, entered/active/stacked = 1 (fully opaque to prevent any layer bleeding)
+  const opacityOutput = total > 1
+    ? Array.from({ length: total }, (_, k) => (k < index ? 0.5 : 1))
+    : [1, 1];
 
   const y = useTransform(scrollYProgress, input, yOutput);
   const scale = useTransform(scrollYProgress, input, scaleOutput);
@@ -129,12 +132,21 @@ export default function WebDevWork() {
 
   // Smooth the scroll progress with a snappy and responsive physics setting
   const scrollYProgress = useSpring(rawScrollY, {
-    stiffness: 500,
-    damping: 50,
+    stiffness: 300,
+    damping: 20,
     mass: 0.2
   });
 
-  const projects = webDevProjects;
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const categories = useMemo(() => {
+    return ['All', ...Array.from(new Set(webDevProjects.map((p) => p.category)))];
+  }, []);
+
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === 'All') return webDevProjects;
+    return webDevProjects.filter((p) => p.category === activeCategory);
+  }, [activeCategory]);
 
   const headerVariants: Variants = {
     hidden: { opacity: 0, y: 25 },
@@ -165,20 +177,33 @@ export default function WebDevWork() {
           variants={headerVariants}
         >
           <div className={styles.titleWrapper}>
-            <span className={styles.badge}>Recent Work</span>
-            <h2 className={styles.title}>Digital Experiences Engineered for Premium Performance.</h2>
+            <Badge>Recent Work</Badge>
+            <Heading>Digital Experiences Engineered for Premium Performance.</Heading>
           </div>
-          <p className={styles.supportText}>
+          <Paragraph>
             We combine production-grade code structures with pristine aesthetic design to deliver measurable business results for modern digital brands.
-          </p>
+          </Paragraph>
         </motion.div>
+
+        {/* Filters Row */}
+        <div className={styles.filtersRow}>
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`${styles.filterBtn} ${activeCategory === category ? styles.activeFilter : ''}`}
+              onClick={() => setActiveCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Scroll track for sticky stacking cards */}
       <div
         ref={containerRef}
         className={styles.scrollTrack}
-        style={{ height: `${projects.length * 100}vh` }}
+        style={{ height: `${filteredProjects.length * 100}vh` }}
       >
         <div className={styles.stickyViewport}>
           {/* Viewport Floating Background Blobs */}
@@ -189,13 +214,13 @@ export default function WebDevWork() {
           </div>
 
           <div className={styles.container}>
-            <div className={styles.cardsStack}>
-              {projects.map((project, idx) => (
+            <div key={activeCategory} className={styles.cardsStack}>
+              {filteredProjects.map((project, idx) => (
                 <ProjectCard
                   key={project.id}
                   project={project}
                   index={idx}
-                  total={projects.length}
+                  total={filteredProjects.length}
                   scrollYProgress={scrollYProgress}
                 />
               ))}

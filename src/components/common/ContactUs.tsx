@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Check, type LucideIcon } from 'lucide-react';
 import styles from './ContactUs.module.css';
+import { Badge, Heading, Paragraph } from '../ui/Typography';
 
 interface ContactUsProps {
   id?: string;
@@ -97,13 +98,11 @@ export default function ContactUs({ id = 'contact' }: ContactUsProps) {
           {/* Left Column: Headings & Contact Info */}
           <div className={styles.leftCol}>
             <div className={styles.headerArea}>
-              <span className={styles.tagline}>CONTACT US</span>
-              <h2 className={styles.title}>
-                Let's Build Something <span className={styles.brandText}>Iconic</span> Together
-              </h2>
-              <p className={styles.subtitle}>
+              <Badge>CONTACT US</Badge>
+              <Heading>Let's Build Something <span className={styles.brandText}>Iconic</span> Together</Heading>
+              <Paragraph>
                 Connect with Ganesyx to discuss your branding, web development, or creative project. Our team is ready to guide your vision with expertise and creativity.
-              </p>
+              </Paragraph>
             </div>
 
             <div className={styles.infoArea}>

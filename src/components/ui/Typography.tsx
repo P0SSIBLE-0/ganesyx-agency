@@ -59,3 +59,18 @@ export function Paragraph({ variant = 'default', children, className = '', ...pr
     </p>
   );
 }
+
+// === Badge Component ===
+interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
+  children: React.ReactNode;
+}
+
+export function Badge({ children, className = '', ...props }: BadgeProps) {
+  const combinedClass = `${styles.badge} ${className}`.trim();
+
+  return (
+    <span className={combinedClass} {...props}>
+      {children}
+    </span>
+  );
+}

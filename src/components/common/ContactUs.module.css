@@ -13,9 +13,9 @@
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 45px;
 }
 
 .card {
@@ -29,13 +29,14 @@
 .leftCol {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 40px;
 }
 
 .headerArea {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  align-items: flex-start;
 }
 
 .tagline {

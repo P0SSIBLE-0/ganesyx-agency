@@ -1,17 +1,13 @@
-﻿.section {
-  position: relative;
-  width: 100%;
-  background: #f9f9fc;
-  /* Soft contrasting layout background */
-  padding: 140px 0;
-  overflow: hidden;
-}
-
-.container {
+﻿.container {
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
   padding: 0 80px;
+}
+
+.section {
+  width: 100%;
+  padding-bottom: 80px;
 }
 
 .header {

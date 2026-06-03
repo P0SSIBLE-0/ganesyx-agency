@@ -102,6 +102,25 @@ export const videoProjects: VideoProject[] = [
 // ── 2. Paid Ads Case Studies ──
 export const adsCaseStudies: AdsCaseStudy[] = [
   {
+    id: 'case-invent-elevator',
+    brand: 'Invent Elevator',
+    industry: 'B2B MANUFACTURING / ENGINEERING',
+    subtitle: 'Direct WhatsApp Quote Funnel Scaling',
+    description: 'A premium elevator installation company looking to capture high-value enquiries from builders, architects, and homeowners.',
+    challenge: 'High-ticket B2B engineering projects suffered from long sales cycles and high friction. Generic lead forms failed to capture custom architectural metrics, raising unqualified inquiry counts.',
+    solution: 'Created automated click-to-WhatsApp quote estimate systems, enabling prospective builders and homeowners to calculate custom elevator specs and get pricing in under 2 minutes.',
+    highlightMetric: '222 Enquiries',
+    secondaryStat: '₹1,008 Cost Per Enquiry',
+    tabSummary: 'Capturing high-value building quotes through WhatsApp chatbot ads.',
+    metrics: [
+      { value: '222', label: 'Total Enquiries' },
+      { value: '142', label: 'Total Leads' },
+      { value: '₹1,008', label: 'Cost Per Enquiry' }
+    ],
+    channels: ['Google Search', 'WhatsApp Lead Ads', 'Meta Retargeting'],
+    image: '/images/invent.png'
+  },
+  {
     id: 'case-kr-college',
     brand: 'Kasturi Ram College',
     industry: 'EDUCATION / COLLEGE ADMISSIONS',
@@ -138,25 +157,6 @@ export const adsCaseStudies: AdsCaseStudy[] = [
     ],
     channels: ['Meta Video Ads', 'WhatsApp Funnels', 'Program Retargeting'],
     image: '/images/college-time.png'
-  },
-  {
-    id: 'case-invent-elevator',
-    brand: 'Invent Elevator',
-    industry: 'B2B MANUFACTURING / ENGINEERING',
-    subtitle: 'Direct WhatsApp Quote Funnel Scaling',
-    description: 'A premium elevator installation company looking to capture high-value enquiries from builders, architects, and homeowners.',
-    challenge: 'High-ticket B2B engineering projects suffered from long sales cycles and high friction. Generic lead forms failed to capture custom architectural metrics, raising unqualified inquiry counts.',
-    solution: 'Created automated click-to-WhatsApp quote estimate systems, enabling prospective builders and homeowners to calculate custom elevator specs and get pricing in under 2 minutes.',
-    highlightMetric: '222 Enquiries',
-    secondaryStat: '₹1,008 Cost Per Enquiry',
-    tabSummary: 'Capturing high-value building quotes through WhatsApp chatbot ads.',
-    metrics: [
-      { value: '222', label: 'Total Enquiries' },
-      { value: '142', label: 'Total Leads' },
-      { value: '₹1,008', label: 'Cost Per Enquiry' }
-    ],
-    channels: ['Google Search', 'WhatsApp Lead Ads', 'Meta Retargeting'],
-    image: '/images/invent.png'
   }
 ];
 

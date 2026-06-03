@@ -7,7 +7,8 @@
   justify-content: center;
   padding: 90px 0;
   /* Soft lavender/white radial background for premium depth */
-  background: radial-gradient(circle at center, #ffffff 30%, #f2effd 100%);
+  /* background: radial-gradient(circle at center, #ffffff 30%, #f2effd 100%); */
+  background: url('https://images.pexels.com/photos/7135005/pexels-photo-7135005.jpeg') no-repeat center center/cover;
   overflow: hidden;
   z-index: 1;
 }
@@ -68,7 +69,7 @@
 /* Centered Bold Typography */
 .title {
   font-family: var(--font-heading, 'Outfit', 'Inter', sans-serif);
-  font-size: clamp(2.5rem, 6vw, 6.2rem);
+  font-size: clamp(2.8rem, 6vw, 7.2rem);
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.01em;

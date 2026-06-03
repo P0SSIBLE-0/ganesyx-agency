@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styles from './WorkMarqueeSection.module.css';
+import { Badge, Heading } from '../ui/Typography';
 
 export interface WorkMarqueeItem {
   id: string;
@@ -60,9 +61,9 @@ const defaultItems: WorkMarqueeItem[] = [
 
 export default function WorkMarqueeSection({
   tagline = 'WHAT WE CREATE',
-  title = 'EVERYTHING YOU NEED, IN ONE CREATIVE PLATFORM',
+  title = 'Everything You Need in One Creative Platform',
   buttonText = 'Get started',
-  buttonLink = '#contact',
+  buttonLink = '/contact',
   items = defaultItems,
   speed = 35
 }: WorkMarqueeSectionProps) {
@@ -75,8 +76,8 @@ export default function WorkMarqueeSection({
         {/* Header Block */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <span className={styles.tagline}>{tagline}</span>
-            <h2 className={styles.title}>{title}</h2>
+            <Badge>{tagline}</Badge>
+            <Heading className={styles.title}>{title}</Heading>
           </div>
           <div className={styles.headerRight}>
             <a href={buttonLink} className={styles.button}>
@@ -87,7 +88,7 @@ export default function WorkMarqueeSection({
       </div>
 
       {/* Marquee Track Outer Container */}
-      <div 
+      <div
         className={styles.marqueeOuter}
         style={{ '--marquee-duration': `${speed}s` } as React.CSSProperties}
       >
@@ -96,9 +97,9 @@ export default function WorkMarqueeSection({
             <div key={`${item.id}-${idx}`} className={styles.card}>
               {/* Card Image Container with rounded borders */}
               <div className={styles.imageContainer}>
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
+                <img
+                  src={item.image}
+                  alt={item.title}
                   className={styles.image}
                   loading="lazy"
                 />
