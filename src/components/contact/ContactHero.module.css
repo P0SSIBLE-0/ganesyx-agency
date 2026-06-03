@@ -1,13 +1,14 @@
 .heroSection {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 120px 0 80px 0;
   /* Soft lavender/white radial background */
   background: radial-gradient(circle at center, #ffffff 30%, #f2effd 100%);
+  /* background: url('https://images.unsplash.com/photo-1647346425804-34383b95644b?q=80&w=1332&auto=format&fit=crop') no-repeat center/cover; */
   overflow: hidden;
   z-index: 1;
 }
@@ -66,7 +67,7 @@
 /* Centered Bold Typography */
 .title {
   font-family: var(--font-heading, 'Outfit', 'Inter', sans-serif);
-  font-size: clamp(2.5rem, 6vw, 6.2rem);
+  font-size: clamp(2.5rem, 6vw, 5.2rem);
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.01em;
@@ -135,4 +136,27 @@
   .title {
     font-size: clamp(1.8rem, 8vw, 3rem);
   }
+}
+
+.wordWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.2em;
+  /* Scales dynamically with h1 title size */
+  overflow: visible;
+}
+
+.word {
+  display: inline-flex;
+  white-space: nowrap;
+  font-weight: 750;
+}
+
+.word span {
+  background: linear-gradient(to bottom, #07056a 0%, #3f42f1 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

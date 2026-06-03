@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Lightbulb, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import styles from './AdsHero.module.css';
+import { GoogleAds } from '../ui/TechLogos';
 
 const avatarImages = [
   '/avatar/avatar-ananya-kapoor.png',
@@ -91,13 +92,7 @@ export default function AdsHero() {
           scale: { duration: 1 }
         }}
       >
-        <Image
-          src="/logos/google-wordmark.svg"
-          alt="Google Logo"
-          width={65}
-          height={20}
-          style={{ objectFit: 'contain', width: 'auto', height: '40px' }}
-        />
+        <GoogleAds />
       </motion.div>
 
       <motion.div

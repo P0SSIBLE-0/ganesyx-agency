@@ -1,5 +1,5 @@
 .section {
-  padding: 100px 0;
+  padding: 60px 0;
   padding-bottom: 50px;
   background: #ffffff;
   position: relative;
@@ -11,7 +11,7 @@
   width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 40px;
+  padding: 0 40px;
 }
 
 /* 1. Badge pill matching the attached design */

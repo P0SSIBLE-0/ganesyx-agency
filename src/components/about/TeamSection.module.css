@@ -114,28 +114,91 @@
 /* === Right Column: Team Grid === */
 .rightCol {
   width: 100%;
+  min-width: 0;
 }
 
-.teamGrid {
+.firstRow {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 72px 32px;
-  /* High vertical gap, clean horizontal spacing */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 56px;
 }
 
-.teamCard {
+.teamCardFirstRow {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.teamCard:nth-child(1),
-.teamCard:nth-child(2) {
-  grid-column: span 3;
+.teamCardSlider {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 0 0 calc((100% - 48px) / 3);
+  /* Show 3 cards on desktop */
+  min-width: 220px;
 }
 
-.teamCard:nth-child(n+3) {
-  grid-column: span 2;
+.navBtn {
+  position: absolute;
+  top: 35%;
+  /* Centered vertically relative to the cards' image area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #000000;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navBtnLeft {
+  left: -24px;
+}
+
+.navBtnRight {
+  right: -24px;
+}
+
+.navBtn:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+  /* Show floating overlay nav buttons */
+}
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  height: min-content;
+  padding: 10px 0 20px 0;
+  margin-bottom: -10px;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
 }
 
 .imageWrapper {
@@ -156,7 +219,8 @@
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.teamCard:hover .memberImage {
+.teamCardFirstRow:hover .memberImage,
+.teamCardSlider:hover .memberImage {
   transform: scale(1.04);
 }
 
@@ -192,13 +256,21 @@
 }
 
 /* === Responsive Rules === */
+@media (max-width: 1200px) {
+  .teamCardSlider {
+    flex: 0 0 calc((100% - 24px) / 2);
+    /* Show 2 cards */
+  }
+}
+
 @media (max-width: 1024px) {
   .container {
     gap: 40px;
   }
 
-  .teamGrid {
-    gap: 56px 24px;
+  .firstRow {
+    gap: 24px;
+    margin-bottom: 40px;
   }
 }
 
@@ -219,28 +291,35 @@
 }
 
 @media (max-width: 768px) {
-  .teamGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 48px 24px;
+  .firstRow {
+    grid-template-columns: 1fr;
+    /* Stack leadership on mobile */
+    gap: 32px;
   }
 
-  .teamCard:nth-child(n) {
-    grid-column: span 1;
+  .navBtn {
+    display: none;
+    /* Hide overlay arrows on mobile */
+  }
+
+  .slider {
+    gap: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: -5%;
+    margin-right: -5%;
+    width: 110%;
+  }
+
+  .teamCardSlider {
+    flex: 0 0 65%;
+    /* mobile peek */
   }
 }
 
 @media (max-width: 500px) {
   .section {
     padding: 60px 0;
-  }
-
-  .teamGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-
-  .teamCard:nth-child(n) {
-    grid-column: span 1;
   }
 
   .memberName {

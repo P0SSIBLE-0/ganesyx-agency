@@ -632,6 +632,20 @@
 .floatGoogle {
   right: 8%;
   top: 15%;
+  background-color: #ffffff;
+  border: 1px solid rgba(51, 0, 153, 0.08);
+  box-shadow: 0 12px 30px rgba(51, 0, 153, 0.08);
+  padding: 14px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floatGoogle svg {
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 
 .floatInstagram {

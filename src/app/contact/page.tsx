@@ -15,8 +15,8 @@ export default function ContactPage() {
         <main style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
             <ContactHero />
             {/* <ContactShowcase /> */}
-            <Consultation />
             <ContactUs />
+            <Consultation />
         </main>
     );
 }
